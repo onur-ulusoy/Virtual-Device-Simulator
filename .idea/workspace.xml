@@ -20,15 +20,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f9fdbfc-faeb-45e7-abb8-e878aa5cfbf7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/gpiochip0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gpiolib.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gpiolib.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/gpiochip0.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/gpiochip0.h" beforeDir="false" />
-    </list>
+    <list default="true" id="8f9fdbfc-faeb-45e7-abb8-e878aa5cfbf7" name="Changes" comment="-" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,11 +76,6 @@
   }
 }</component>
   <component name="RunManager" selected="CMake Application.bbx15">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="bbx15" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bbx15" TARGET_NAME="bbx15" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="bbx15" RUN_TARGET_NAME="bbx15">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -121,8 +108,16 @@
       <workItem from="1672257394133" duration="18000" />
       <workItem from="1672257442801" duration="148000" />
       <workItem from="1672257653863" duration="179000" />
-      <workItem from="1672257844024" duration="4592000" />
+      <workItem from="1672257844024" duration="4646000" />
     </task>
+    <task id="LOCAL-00001" summary="-">
+      <created>1672262462003</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672262462004</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,5 +136,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
 </project>
