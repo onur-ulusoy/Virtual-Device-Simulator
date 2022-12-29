@@ -18,10 +18,14 @@ class GPIO_Device{
 private:
     const char *dev_name;
     int fd, ret;
+    struct gpiochip_info info;
+    struct gpioline_info line_info;
+
 public:
     GPIO_Device(const char* dev_name);
     int device_open();
     void device_close() const;
+    int device_list();
 
 };
 
