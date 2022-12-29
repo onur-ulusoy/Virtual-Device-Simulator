@@ -1,12 +1,12 @@
 #include "gpiolib.h"
 
 GPIO_Device::GPIO_Device(const char *dev_name) {
-    dev_name = dev_name;
+    this->dev_name = dev_name;
 }
 
 int GPIO_Device::device_open() {
 
-    fd = open(dev_name, O_RDONLY);
+    fd = open(dev_name, O_RDONLY | O_CREAT);
     if (fd < 0)
     {
         printf("Unabled to open %s: %s\n", dev_name, strerror(errno));
@@ -20,7 +20,13 @@ int GPIO_Device::device_open() {
 }
 
 void GPIO_Device::device_close() const {
-    (void)close(fd);
+    if (fd >= 0){
+        cout << dev_name << " closed successfully" << endl;
+        (void)close(fd);
+    }
+
+    else
+        cout << dev_name << "is not open" << endl;
 }
 
 int GPIO_Device::gpio_list()

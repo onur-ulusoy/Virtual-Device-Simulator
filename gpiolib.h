@@ -35,7 +35,7 @@ public:
 
 };
 
-
+int _open(const char* dev_name, int flag);
 
 
 #endif //UNTITLED_GPIOLIB_H
