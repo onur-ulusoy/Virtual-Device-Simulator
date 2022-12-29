@@ -4,6 +4,16 @@ using namespace std;
 
 #define DEV_NAME "/home/onur/CLionProjects/bbx15/dev/gpiochip0"
 
+struct chipInfo{
+    int offset;
+    string name;
+    string consumer;
+    string FLAG_IS_OUT;
+    string FLAG_ACTIVE_LOW;
+    string FLAG_OPEN_DRAIN;
+    string FLAG_OPEN_SOURCE;
+    string FLAG_KERNEL;
+};
 
 int main() {
 
@@ -12,11 +22,14 @@ int main() {
     jsonFile >> commands;
 
     nlohmann::json data = commands["gpioDevices"];
+    unsigned long dataSize = data.size();
+
     cout << "Number of items in gpioDevices: " << data.size() << endl;
 
-    //cout << data.at(2).value("FLAG_ACTIVE_LOW", "-")<< endl;
+    struct chipInfo chipxInfo[dataSize];
 
-    for (int i = 0; i<data.size(); i++) {
+    for (int i = 0; i<dataSize; i++) {
+        /*
         cout << data.at(i).value("offset", 0)<< "  ";
         cout << data.at(i).value("name", "-")<< "  ";
         cout << data.at(i).value("consumer", "-")<< "  ";
@@ -27,26 +40,18 @@ int main() {
         cout << data.at(i).value("FLAG_KERNEL", "-")<< "  ";
 
         cout << endl;
+         */
+        chipxInfo[i] = {
+                .offset = data.at(i).value("offset", 0),
+                .name = data.at(i).value("name", "-"),
+                .consumer = data.at(i).value("consumer", "-"),
+                .FLAG_IS_OUT = data.at(i).value("FLAG_IS_OUT", "-"),
+                .FLAG_ACTIVE_LOW = data.at(i).value("FLAG_ACTIVE_LOW", "-"),
+                .FLAG_OPEN_DRAIN = data.at(i).value("FLAG_OPEN_DRAIN", "-"),
+                .FLAG_OPEN_SOURCE = data.at(i).value("FLAG_OPEN_SOURCE", "-"),
+                .FLAG_KERNEL = data.at(i).value("FLAG_KERNEL", "-")
+        };
     }
-    /*
-    for (auto it = data.begin(); it != data.end(); ++it)
-    {
-        cout << it.key() << ": " << it.value() << endl;
-    }
-    
-    /*
-    std::ifstream f("/home/onur/CLionProjects/bbx15/dev/chipinfo.json");
-    json data = json::parse(f);
-    //cout << data << endl;
-
-
-    /*
-    string name = data.value("name", "not found");
-    string FLAG_ACTIVE_LOW = data.value("FLAG_ACTIVE_LOW", "not found");
-
-    cout << "Name: " << name << endl;
-    cout << "FLAG_ACTIVE_LOW: " << FLAG_ACTIVE_LOW << endl;
-    */
 
 
     GPIO_Device* gpioDevHandler = new GPIO_Device(DEV_NAME);
