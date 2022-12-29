@@ -28,6 +28,8 @@ int main() {
 
     struct chipInfo chipxInfo[dataSize];
 
+    GPIO_Device* gpioDevHandler = new GPIO_Device(DEV_NAME);
+
     for (int i = 0; i<dataSize; i++) {
         /*
         cout << data.at(i).value("offset", 0)<< "  ";
@@ -51,10 +53,15 @@ int main() {
                 .FLAG_OPEN_SOURCE = data.at(i).value("FLAG_OPEN_SOURCE", "-"),
                 .FLAG_KERNEL = data.at(i).value("FLAG_KERNEL", "-")
         };
+
+
+
     }
 
 
-    GPIO_Device* gpioDevHandler = new GPIO_Device(DEV_NAME);
+
+
+
 
 
     gpioDevHandler->device_open();

@@ -13,7 +13,6 @@
 #include <iostream>
 #include <fstream>
 
-using json = nlohmann::json;
 using namespace std;
 
 class GPIO_Device{
@@ -37,8 +36,6 @@ public:
     int gpio_read(int offset);
 
 };
-
-int _open(const char* dev_name, int flag);
 
 
 #endif //UNTITLED_GPIOLIB_H
