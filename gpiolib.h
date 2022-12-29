@@ -9,8 +9,11 @@
 #include <sys/ioctl.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <nlohmann/json.hpp>
 #include <iostream>
+#include <fstream>
 
+using json = nlohmann::json;
 using namespace std;
 
 class GPIO_Device{
