@@ -17,7 +17,7 @@ class GPIO_Device{
 
 private:
     const char *dev_name;
-    int fd, ret;
+    int fd = 0, ret;
 
     struct gpiochip_info info;
     struct gpioline_info line_info;
@@ -28,7 +28,7 @@ private:
 public:
     GPIO_Device(const char* dev_name);
     int device_open();
-    void device_close() const;
+    void device_close();
     int gpio_list();
     int gpio_write(int offset, uint8_t value);
     int gpio_read(int offset);

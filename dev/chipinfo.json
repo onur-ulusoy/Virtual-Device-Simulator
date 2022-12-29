@@ -1,0 +1,324 @@
+{
+  "gpioDevices": [
+    {
+      "offset": 0,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 1,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 2,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 3,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 4,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 5,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 6,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 7,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 8,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 9,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 10,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 11,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 12,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 13,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 14,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 15,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 16,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 17,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 18,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 19,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 20,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 21,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 22,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 23,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 24,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 25,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 26,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 27,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 28,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 29,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 30,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    },
+    {
+      "offset": 31,
+      "name": " ",
+      "consumer": " ",
+      "FLAG_IS_OUT": "[INPUT]",
+      "FLAG_ACTIVE_LOW": "[ACTIVE_HIGHT]",
+      "FLAG_OPEN_DRAIN": "[...]",
+      "FLAG_OPEN_SOURCE": "[...]",
+      "FLAG_KERNEL": "[]"
+    }
+  ]
+}

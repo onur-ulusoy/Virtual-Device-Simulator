@@ -6,6 +6,7 @@ GPIO_Device::GPIO_Device(const char *dev_name) {
 
 int GPIO_Device::device_open() {
 
+    cout << "GPIO_Device::device_open works" << endl;
     fd = open(dev_name, O_RDONLY | O_CREAT);
     if (fd < 0)
     {
@@ -14,24 +15,32 @@ int GPIO_Device::device_open() {
     }
 
     else
-        cout << dev_name << " is opened successfully" << endl;
+        cout << dev_name << " is opened successfully, file id is " << fd << endl;
 
+    cout << endl;
     return 0;
 }
 
-void GPIO_Device::device_close() const {
-    if (fd >= 0){
+void GPIO_Device::device_close() {
+
+    cout << "GPIO_Device::device_close works" << endl;
+    if (fd > 0){
         cout << dev_name << " closed successfully" << endl;
         (void)close(fd);
     }
 
-    else
-        cout << dev_name << "is not open" << endl;
+    else{
+        fd = 0;
+        cout << dev_name << " is not open" << endl;
+    }
+
+    cout << endl;
 }
 
 int GPIO_Device::gpio_list()
 {
-    device_open();
+    if (fd <= 0)
+        device_open();
 
     ret = ioctl(fd, GPIO_GET_CHIPINFO_IOCTL, &info);
 
@@ -98,7 +107,8 @@ int GPIO_Device::gpio_write(int offset, uint8_t value)
 {
     printf("Write value %d to GPIO at offset %d (OUTPUT mode) on chip %s\n", value, offset, dev_name);
 
-    device_open();
+    if (fd <= 0)
+        device_open();
 
     rq.lineoffsets[0] = offset;
 
@@ -141,6 +151,8 @@ int GPIO_Device::gpio_write(int offset, uint8_t value)
 
 int GPIO_Device::gpio_read(int offset) {
 
+    if (fd <= 0)
+        device_open();
 
     rq.lineoffsets[0] = offset;
 

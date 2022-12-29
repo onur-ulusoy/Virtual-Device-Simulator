@@ -3,7 +3,6 @@
 
 using namespace std;
 
-//#define DEV_NAME "dev/gpiochip0"
 #define DEV_NAME "/home/onur/CLionProjects/bbx15/dev/gpiochip0"
 int main() {
 
@@ -13,9 +12,9 @@ int main() {
     gpioDevHandler->device_open();
 
     gpioDevHandler->device_close();
-    /*
-    gpioDevHandler->gpio_list();
 
+    gpioDevHandler->gpio_list();
+    /*
     gpioDevHandler->gpio_write(4, 1);
     gpioDevHandler->gpio_read(4);
     */
