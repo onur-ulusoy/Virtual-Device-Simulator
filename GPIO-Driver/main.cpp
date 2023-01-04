@@ -63,13 +63,13 @@ int main() {
 
 
 
-
+    /*
     gpioDevHandler->device_open();
 
     gpioDevHandler->device_close();
 
     gpioDevHandler->gpio_list();
-    /*
+
     gpioDevHandler->gpio_write(4, 1);
     gpioDevHandler->gpio_read(4);
     */

@@ -36,7 +36,7 @@ void GPIO_Device::device_close() {
 
     cout << endl;
 }
-
+/*
 int GPIO_Device::gpio_list()
 {
     if (fd <= 0)
@@ -181,3 +181,4 @@ int GPIO_Device::gpio_read(int offset) {
     close(rq.fd);
     return 0;
 }
+ */

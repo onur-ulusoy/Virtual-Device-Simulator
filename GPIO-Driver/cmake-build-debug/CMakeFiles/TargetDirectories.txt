@@ -1,0 +1,3 @@
+C:/Users/onuru/OneDrive/Desktop/bbx15-driver/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir
+C:/Users/onuru/OneDrive/Desktop/bbx15-driver/GPIO-Driver/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/onuru/OneDrive/Desktop/bbx15-driver/GPIO-Driver/cmake-build-debug/CMakeFiles/rebuild_cache.dir
