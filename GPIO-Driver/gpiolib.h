@@ -15,7 +15,9 @@
 
 using namespace std;
 enum command {DEFAULT, READONLY, WRITEONLY};
+enum feature {NAME, CONSUMER, FLAG_IS_OUT, FLAG_ACTIVE_LOW, FLAG_OPEN_DRAIN, FLAG_OPEN_SOURCE, FLAG_KERNEL};
 
+fstream& GotoLine(std::fstream& file, unsigned int num);
 
 class GPIO_Device{
 
@@ -41,6 +43,7 @@ public:
     public:
         void fill(command request, GPIO_Device* gpioDevHandler);
         void show (GPIO_Device* gpioDevHandler);
+        void read(int offset, enum feature request, GPIO_Device* gpioDevHandler);
         ofstream fd;
     };
 

@@ -1,5 +1,13 @@
 #include "gpiolib.h"
 
+fstream& GotoLine(std::fstream& file, unsigned int num){
+    file.seekg(std::ios::beg);
+    for(int i=0; i < num - 1; ++i){
+        file.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+    }
+    return file;
+}
+
 GPIO_Device::GPIO_Device(const char *dev_name) {
     this->dev_name = dev_name;
 }
@@ -137,7 +145,7 @@ void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler){
     gpioDevHandler->fdi.open(gpioDevHandler->dev_name, ios::in);
     while (true) {
         string line, word;
-        for (int i=0; i<6;i++){
+        for (int i=0; i<8;i++){
             gpioDevHandler->fdi >> word;
             line += word + " ";
         }
@@ -149,6 +157,28 @@ void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler){
     cout << endl;
     cout << "Default chip info is shown successfully" << endl;
 }
+
+void GPIO_Device::DeviceContent::read(int offset, enum feature request, GPIO_Device* gpioDevHandler){
+
+    cout << "function 'GPIO_Device::DeviceContent::read' worked" << endl << endl;
+    //gpioDevHandler->fdi.open(gpioDevHandler->dev_name, ios::in);
+    fstream file (gpioDevHandler->dev_name);
+
+    GotoLine(file, offset+1);
+
+    string word, empty;
+
+    for (int i=0; i<request+1;i++){
+        file >> empty;
+    }
+    file >> word;
+    cout << word;
+
+
+    cout << endl;
+    cout << "Default chip info is read successfully" << endl;
+}
+
 /*
 int GPIO_Device::device_write(int offset, uint8_t value)
 {

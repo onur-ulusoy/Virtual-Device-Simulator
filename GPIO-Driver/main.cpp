@@ -18,7 +18,7 @@ int main() {
     //gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
 
     gpioDevHandler->devContent.show(gpioDevHandler);
-
+    gpioDevHandler->devContent.read(0, FLAG_IS_OUT,  gpioDevHandler);
     /*
     gpioDevHandler->device_open();
 
