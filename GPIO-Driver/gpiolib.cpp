@@ -6,16 +6,27 @@ GPIO_Device::GPIO_Device(const char *dev_name) {
 
 int GPIO_Device::device_open() {
 
-    cout << "GPIO_Device::device_open works" << endl;
-    fd = open(dev_name, O_RDONLY | O_CREAT);
-    if (fd < 0)
+    cout << "function 'GPIO_Device::device_open' worked" << endl;
+
+    fd.open(dev_name, ios::in);
+    cout << fd.is_open() << endl;
+    //fd = open(dev_name, O_RDONLY);
+
+    if (!fd.is_open()){
+        fd.open(dev_name, ios::out | ios::trunc);
+
+
+        //dev con fill
+    }
+
+    if (!fd.is_open())
     {
         printf("Unabled to open %s: %s\n", dev_name, strerror(errno));
         return 0;
     }
 
     else
-        cout << dev_name << " is opened successfully, file id is " << fd << endl;
+        cout << dev_name << " is opened successfully" <<endl;
 
     cout << endl;
     return 0;
@@ -23,19 +34,109 @@ int GPIO_Device::device_open() {
 
 void GPIO_Device::device_close() {
 
-    cout << "GPIO_Device::device_close works" << endl;
-    if (fd > 0){
-        cout << dev_name << " closed successfully" << endl;
-        (void)close(fd);
+    cout << "function 'GPIO_Device::device_close' worked" << endl;
+
+    if (fd.is_open()){
+        cout << dev_name << " is closed successfully" << endl;
+        fd.close();
     }
 
     else{
-        fd = 0;
+        //fd = 0;
         cout << dev_name << " is not open" << endl;
     }
 
     cout << endl;
 }
+
+void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandler) {
+
+    if (request == DEFAULT){
+
+        std::ifstream jsonFile("dev/default_chipInfo.json");
+        nlohmann::json commands;
+        jsonFile >> commands;
+
+        nlohmann::json data = commands["gpioDevices"];
+        unsigned long dataSize = data.size();
+
+        cout << "Number of items in gpioDevices: " << data.size() << endl << endl;
+
+        for (int i = 0; i<dataSize; i++) {
+
+
+            gpioDevHandler->fd << data.at(i).value("offset", 0) << "  ";
+            gpioDevHandler->fd << data.at(i).value("name", "-") << "  ";
+            gpioDevHandler->fd << data.at(i).value("consumer", "-") << "  ";
+            gpioDevHandler->fd << data.at(i).value("FLAG_IS_OUT", "-") << "  ";
+            gpioDevHandler->fd << data.at(i).value("FLAG_ACTIVE_LOW", "-") << "  ";
+            gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_DRAIN", "-") << "  ";
+            gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_SOURCE", "-") << "  ";
+            gpioDevHandler->fd << data.at(i).value("FLAG_KERNEL", "-");
+
+            gpioDevHandler->fd << endl;
+             /*
+            chipxInfo[i] = {
+                    .offset = data.at(i).value("offset", 0),
+                    .name = data.at(i).value("name", "-"),
+                    .consumer = data.at(i).value("consumer", "-"),
+                    .FLAG_IS_OUT = data.at(i).value("FLAG_IS_OUT", "-"),
+                    .FLAG_ACTIVE_LOW = data.at(i).value("FLAG_ACTIVE_LOW", "-"),
+                    .FLAG_OPEN_DRAIN = data.at(i).value("FLAG_OPEN_DRAIN", "-"),
+                    .FLAG_OPEN_SOURCE = data.at(i).value("FLAG_OPEN_SOURCE", "-"),
+                    .FLAG_KERNEL = data.at(i).value("FLAG_KERNEL", "-")
+            };
+            */
+
+
+        }
+    }
+}
+/*
+int GPIO_Device::device_write(int offset, uint8_t value)
+{
+    printf("Write value %d to GPIO at offset %d (OUTPUT mode) on chip %s\n", value, offset, dev_name);
+
+    if (fd <= 0)
+        device_open();
+
+    rq.lineoffsets[0] = offset;
+
+    rq.flags = GPIOHANDLE_REQUEST_OUTPUT;
+
+    rq.lines = 1;
+
+    ret = ioctl(fd, GPIO_GET_LINEHANDLE_IOCTL, &(rq));
+
+    device_close();
+
+    if (ret == -1)
+    {
+        printf("Unable to line handle from ioctl : %s\n", strerror(errno));
+        return 0;
+    }
+
+    data.values[0] = value;
+
+    ret = ioctl(rq.fd, GPIOHANDLE_SET_LINE_VALUES_IOCTL, &data);
+
+    if (ret == -1)
+    {
+        printf("Unable to set line value using ioctl : %s\n", strerror(errno));
+    }
+
+    else
+
+    {
+
+        usleep(2000000);
+
+    }
+
+    close(rq.fd);
+    return 0;
+}
+
 /*
 int GPIO_Device::gpio_list()
 {
@@ -103,49 +204,7 @@ int GPIO_Device::gpio_list()
     return 0;
 }
 
-int GPIO_Device::gpio_write(int offset, uint8_t value)
-{
-    printf("Write value %d to GPIO at offset %d (OUTPUT mode) on chip %s\n", value, offset, dev_name);
 
-    if (fd <= 0)
-        device_open();
-
-    rq.lineoffsets[0] = offset;
-
-    rq.flags = GPIOHANDLE_REQUEST_OUTPUT;
-
-    rq.lines = 1;
-
-    ret = ioctl(fd, GPIO_GET_LINEHANDLE_IOCTL, &(rq));
-
-    device_close();
-
-    if (ret == -1)
-    {
-        printf("Unable to line handle from ioctl : %s\n", strerror(errno));
-        return 0;
-    }
-
-    data.values[0] = value;
-
-    ret = ioctl(rq.fd, GPIOHANDLE_SET_LINE_VALUES_IOCTL, &data);
-
-    if (ret == -1)
-    {
-        printf("Unable to set line value using ioctl : %s\n", strerror(errno));
-    }
-
-    else
-
-    {
-
-        usleep(2000000);
-
-    }
-
-    close(rq.fd);
-    return 0;
-}
 
 
 
