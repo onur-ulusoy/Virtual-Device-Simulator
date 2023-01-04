@@ -22,14 +22,7 @@
   <component name="ChangeListManager">
     <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-1e0fe071e0e70992b377.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/index-2023-01-04T04-11-17-0952.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/compiler_depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/dev/chipinfo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/dev/gpiochip0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/main.cpp" afterDir="false" />
@@ -196,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672805700255</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="-">
+      <created>1672819267913</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1672819267913</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

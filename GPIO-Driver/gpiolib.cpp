@@ -4,32 +4,64 @@ GPIO_Device::GPIO_Device(const char *dev_name) {
     this->dev_name = dev_name;
 }
 
-int GPIO_Device::device_open() {
-
-    cout << "function 'GPIO_Device::device_open' worked" << endl;
-
-    fd.open(dev_name, ios::in);
-    cout << fd.is_open() << endl;
-    //fd = open(dev_name, O_RDONLY);
-
-    if (!fd.is_open()){
-        fd.open(dev_name, ios::out | ios::trunc);
+void GPIO_Device::device_open(command request, GPIO_Device* gpioDevHandler) {
 
 
-        //dev con fill
+    switch (request) {
+
+        case READONLY:
+            cout << "function 'GPIO_Device::device_open' worked as READONLY" << endl;
+
+
+            fd.open(dev_name, ios::in);
+            //cout << fd.is_open() << endl;
+
+            if (!fd.is_open()){
+                GPIO_Device::device_open(WRITEONLY, gpioDevHandler);
+
+                devContent.fill(DEFAULT, gpioDevHandler);
+
+                GPIO_Device::device_close();
+                GPIO_Device::device_open(READONLY, gpioDevHandler);
+                break;
+
+            }
+
+            if (!fd.is_open())
+            {
+                printf("Unabled to open %s: %s\n", dev_name, strerror(errno));
+                break;
+            }
+
+            else
+                cout << dev_name << " is opened successfully as READONLY" <<endl;
+
+            cout << endl;
+            break;
+
+        case WRITEONLY:
+            cout << "function 'GPIO_Device::device_open' worked as WRITEONLY" << endl;
+
+
+            fd.open(dev_name, ios::out | ios::trunc);
+
+            if (!fd.is_open())
+            {
+                printf("Unabled to open %s: %s\n", dev_name, strerror(errno));
+                break;
+            }
+
+            else
+                cout << dev_name << " is opened successfully as WRITEONLY" << endl;
+
+            cout << endl;
+            break;
+
+        default:
+            break;
+
     }
 
-    if (!fd.is_open())
-    {
-        printf("Unabled to open %s: %s\n", dev_name, strerror(errno));
-        return 0;
-    }
-
-    else
-        cout << dev_name << " is opened successfully" <<endl;
-
-    cout << endl;
-    return 0;
 }
 
 void GPIO_Device::device_close() {
@@ -50,6 +82,8 @@ void GPIO_Device::device_close() {
 }
 
 void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandler) {
+
+    cout << "function 'GPIO_Device::DeviceContent::fill' worked" << endl;
 
     if (request == DEFAULT){
 
@@ -75,6 +109,7 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
             gpioDevHandler->fd << data.at(i).value("FLAG_KERNEL", "-");
 
             gpioDevHandler->fd << endl;
+
              /*
             chipxInfo[i] = {
                     .offset = data.at(i).value("offset", 0),
@@ -90,7 +125,29 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
 
 
         }
+
+        cout << "Default chip info is written to the file successfully" << endl;
+
     }
+}
+
+void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler){
+
+    cout << "function 'GPIO_Device::DeviceContent::show' worked" << endl << endl;
+    gpioDevHandler->fdi.open(gpioDevHandler->dev_name, ios::in);
+    while (true) {
+        string line, word;
+        for (int i=0; i<6;i++){
+            gpioDevHandler->fdi >> word;
+            line += word + " ";
+        }
+
+        if( gpioDevHandler->fdi.eof() ) break;
+        cout << line << endl;
+    }
+
+    cout << endl;
+    cout << "Default chip info is shown successfully" << endl;
 }
 /*
 int GPIO_Device::device_write(int offset, uint8_t value)

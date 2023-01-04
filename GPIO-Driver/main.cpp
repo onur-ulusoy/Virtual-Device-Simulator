@@ -11,12 +11,13 @@ int main() {
 
 
 
-    gpioDevHandler->device_open();
+    gpioDevHandler->device_open(READONLY, gpioDevHandler);
 
-    //gpioDevHandler->device_close();
+    gpioDevHandler->device_close();
 
-    gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
+    //gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
 
+    gpioDevHandler->devContent.show(gpioDevHandler);
 
     /*
     gpioDevHandler->device_open();

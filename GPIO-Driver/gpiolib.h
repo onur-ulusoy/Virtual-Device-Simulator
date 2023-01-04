@@ -22,7 +22,7 @@ class GPIO_Device{
 private:
     const char *dev_name;
     ofstream fd;
-
+    ifstream fdi;
     /*
     struct gpiochip_info info;
     struct gpioline_info line_info;
@@ -33,13 +33,14 @@ private:
 
 public:
     GPIO_Device(const char* dev_name);
-    int device_open();
+    void device_open(command request, GPIO_Device* gpioDevHandler);
     void device_close();
     //void fillDeviceContent(command request);
 
     class DeviceContent {
     public:
         void fill(command request, GPIO_Device* gpioDevHandler);
+        void show (GPIO_Device* gpioDevHandler);
         ofstream fd;
     };
 
