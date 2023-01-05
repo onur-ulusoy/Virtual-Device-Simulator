@@ -18,33 +18,26 @@ enum command {DEFAULT, READONLY, WRITEONLY};
 enum feature {NAME, CONSUMER, FLAG_IS_OUT, FLAG_ACTIVE_LOW, FLAG_OPEN_DRAIN, FLAG_OPEN_SOURCE, FLAG_KERNEL};
 
 fstream& GotoLine(std::fstream& file, unsigned int num);
+void Split(string s, string del, string* buffers);
+static inline std::string &rtrim(std::string &s);
 
 class GPIO_Device{
 
 private:
     const char *dev_name;
-    ofstream fd;
-    ifstream fdi;
-    /*
-    struct gpiochip_info info;
-    struct gpioline_info line_info;
-
-    struct gpiohandle_request rq;
-    struct gpiohandle_data data;
-     */
+    fstream fd;
 
 public:
     GPIO_Device(const char* dev_name);
     void device_open(command request, GPIO_Device* gpioDevHandler);
     void device_close();
-    //void fillDeviceContent(command request);
 
     class DeviceContent {
     public:
         void fill(command request, GPIO_Device* gpioDevHandler);
-        void show (GPIO_Device* gpioDevHandler);
-        void read(int offset, enum feature request, GPIO_Device* gpioDevHandler);
-        ofstream fd;
+        static void show (GPIO_Device* gpioDevHandler);
+        static string read(int offset, enum feature request, GPIO_Device* gpioDevHandler);
+        void write (int offset, enum feature request, string new_value, GPIO_Device* gpioDevHandler);
     };
 
     DeviceContent devContent;

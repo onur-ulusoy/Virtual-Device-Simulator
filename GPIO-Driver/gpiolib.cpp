@@ -8,6 +8,26 @@ fstream& GotoLine(std::fstream& file, unsigned int num){
     return file;
 }
 
+void Split(string s, string del, string* buffers)
+{
+    //string buffers [8];
+    int i = 0;
+
+    int start, end = -1*del.size();
+    do {
+        start = end + del.size();
+        end = s.find(del, start);
+        buffers[i] = s.substr(start, end - start);
+        i++;
+    } while (end != -1);
+}
+
+static inline std::string &rtrim(std::string &s) {
+    s.erase(std::find_if(s.rbegin(), s.rend(),
+                         std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
+    return s;
+}
+
 GPIO_Device::GPIO_Device(const char *dev_name) {
     this->dev_name = dev_name;
 }
@@ -50,7 +70,6 @@ void GPIO_Device::device_open(command request, GPIO_Device* gpioDevHandler) {
         case WRITEONLY:
             cout << "function 'GPIO_Device::device_open' worked as WRITEONLY" << endl;
 
-
             fd.open(dev_name, ios::out | ios::trunc);
 
             if (!fd.is_open())
@@ -66,10 +85,23 @@ void GPIO_Device::device_open(command request, GPIO_Device* gpioDevHandler) {
             break;
 
         default:
+            cout << "function 'GPIO_Device::device_open' worked as DEFAULT" << endl << endl;
+            device_close();
+            fd.open(gpioDevHandler->dev_name);
+
+            if (!fd.is_open())
+            {
+                printf("Unabled to open %s: %s\n", dev_name, strerror(errno));
+                break;
+            }
+
+            else
+                cout << dev_name << " is opened successfully as DEFAULT" << endl;
+
+            cout << endl;
             break;
 
     }
-
 }
 
 void GPIO_Device::device_close() {
@@ -107,13 +139,13 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
         for (int i = 0; i<dataSize; i++) {
 
 
-            gpioDevHandler->fd << data.at(i).value("offset", 0) << "  ";
-            gpioDevHandler->fd << data.at(i).value("name", "-") << "  ";
-            gpioDevHandler->fd << data.at(i).value("consumer", "-") << "  ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_IS_OUT", "-") << "  ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_ACTIVE_LOW", "-") << "  ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_DRAIN", "-") << "  ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_SOURCE", "-") << "  ";
+            gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
+            gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
+            gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
+            gpioDevHandler->fd << data.at(i).value("FLAG_IS_OUT", "-") << " ";
+            gpioDevHandler->fd << data.at(i).value("FLAG_ACTIVE_LOW", "-") << " ";
+            gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_DRAIN", "-") << " ";
+            gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_SOURCE", "-") << " ";
             gpioDevHandler->fd << data.at(i).value("FLAG_KERNEL", "-");
 
             gpioDevHandler->fd << endl;
@@ -142,41 +174,108 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
 void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler){
 
     cout << "function 'GPIO_Device::DeviceContent::show' worked" << endl << endl;
-    gpioDevHandler->fdi.open(gpioDevHandler->dev_name, ios::in);
+    //gpioDevHandler->fd.open(gpioDevHandler->dev_name, ios::in);
+
+    gpioDevHandler->device_open(READONLY, gpioDevHandler);
+
+    cout << "Chip info is being shown ..." << endl << endl;
+
     while (true) {
         string line, word;
         for (int i=0; i<8;i++){
-            gpioDevHandler->fdi >> word;
-            line += word + " ";
+            gpioDevHandler->fd >> word;
+            line += word + "/";
+
         }
 
-        if( gpioDevHandler->fdi.eof() ) break;
-        cout << line << endl;
+        if( gpioDevHandler->fd.eof() ) break;
+        //cout << line << endl;
+        auto* buffers = new string[9];
+        Split(line, "/", buffers);
+        cout << "Offset: " << buffers[0];
+        cout << "\t Name: " << buffers[1];
+        cout << "\tConsumer: " << buffers[2];
+        cout << "\t Flags: ";
+
+        for (int i=3; i<8; i++){
+            cout << " " << buffers[i];
+        }
+
+        cout << endl;
+        delete[] buffers;
     }
 
     cout << endl;
-    cout << "Default chip info is shown successfully" << endl;
+    cout << "Chip info is shown successfully" << endl;
 }
 
-void GPIO_Device::DeviceContent::read(int offset, enum feature request, GPIO_Device* gpioDevHandler){
+string GPIO_Device::DeviceContent::read(int offset, enum feature request, GPIO_Device* gpioDevHandler){
 
     cout << "function 'GPIO_Device::DeviceContent::read' worked" << endl << endl;
-    //gpioDevHandler->fdi.open(gpioDevHandler->dev_name, ios::in);
-    fstream file (gpioDevHandler->dev_name);
 
-    GotoLine(file, offset+1);
+    gpioDevHandler->device_open(DEFAULT, gpioDevHandler);
+
+    GotoLine(gpioDevHandler->fd, offset+1);
 
     string word, empty;
 
     for (int i=0; i<request+1;i++){
-        file >> empty;
+        gpioDevHandler->fd >> empty;
     }
-    file >> word;
-    cout << word;
+    gpioDevHandler->fd >> word;
+
+    cout << endl;
+    cout << "Chip info is read successfully" << endl;
+    return word;
+}
+
+void GPIO_Device::DeviceContent::write (int offset, enum feature request, string new_value, GPIO_Device* gpioDevHandler){
+
+    cout << "function 'GPIO_Device::DeviceContent::write' worked" << endl << endl;
+
+    gpioDevHandler->device_open(DEFAULT, gpioDevHandler);
+
+    GotoLine(gpioDevHandler->fd, offset+1);
+
+    string line;
+    getline(gpioDevHandler->fd, line);
+    cout << line << endl;
+
+    auto* buffers = new string[9];
+    Split(line, " ", buffers);
+
+    string new_line;
+
+    for (int i=0; i<8; i++){
+
+        if (i == request+1){
+            new_line += new_value + " ";
+        }
+
+        else
+        new_line += buffers[i] + " ";
+    }
+    rtrim(new_line);
+    cout << new_line << endl << endl;
+
+
+    GotoLine(gpioDevHandler->fd, 1);
+
+    while (true) {
+        fstream file;
+        file.open("newfile");
+
+        getline(gpioDevHandler->fd, line);
+        cout << line << endl;
+        //string empty;
+        //gpioDevHandler->fd >> empty;
+        //file << line;
+        if( gpioDevHandler->fd.eof() ) break;
+    }
 
 
     cout << endl;
-    cout << "Default chip info is read successfully" << endl;
+    cout << "Chip info is changed successfully" << endl;
 }
 
 /*
