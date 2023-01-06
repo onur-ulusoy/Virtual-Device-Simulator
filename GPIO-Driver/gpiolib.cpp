@@ -239,7 +239,7 @@ void GPIO_Device::DeviceContent::write (int offset, enum feature request, string
 
     string line;
     getline(gpioDevHandler->fd, line);
-    cout << line << endl;
+    //cout << line << endl;
 
     auto* buffers = new string[9];
     Split(line, " ", buffers);
@@ -256,23 +256,40 @@ void GPIO_Device::DeviceContent::write (int offset, enum feature request, string
         new_line += buffers[i] + " ";
     }
     rtrim(new_line);
-    cout << new_line << endl << endl;
+    //cout << new_line << endl << endl;
 
 
     GotoLine(gpioDevHandler->fd, 1);
 
-    while (true) {
-        fstream file;
-        file.open("newfile");
+    fstream newfile;
+    ofstream outfile (NEW_FILE);
+    outfile.close();
 
-        getline(gpioDevHandler->fd, line);
-        cout << line << endl;
-        //string empty;
-        //gpioDevHandler->fd >> empty;
-        //file << line;
+    newfile.open(NEW_FILE);
+    int i = 0;
+
+    while (true) {
+
+        if (i != offset){
+            getline(gpioDevHandler->fd, line);
+            newfile << line << endl;
+        }
+
+        else {
+            newfile << new_line << endl;
+            GotoLine(gpioDevHandler->fd, i+2);
+        }
+
+        i++;
         if( gpioDevHandler->fd.eof() ) break;
     }
 
+    newfile.close();
+
+    gpioDevHandler->device_close();
+
+    remove(gpioDevHandler->dev_name);
+    rename(NEW_FILE, gpioDevHandler->dev_name);
 
     cout << endl;
     cout << "Chip info is changed successfully" << endl;

@@ -13,6 +13,8 @@
 #include <iostream>
 #include <fstream>
 
+#define NEW_FILE "dev/newfile"
+
 using namespace std;
 enum command {DEFAULT, READONLY, WRITEONLY};
 enum feature {NAME, CONSUMER, FLAG_IS_OUT, FLAG_ACTIVE_LOW, FLAG_OPEN_DRAIN, FLAG_OPEN_SOURCE, FLAG_KERNEL};

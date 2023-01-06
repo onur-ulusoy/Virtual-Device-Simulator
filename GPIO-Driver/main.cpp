@@ -21,11 +21,11 @@ int main() {
 
     int GPIO_offset = 0;
     string GPIO_status = gpioDevHandler->devContent.read(GPIO_offset, FLAG_IS_OUT,  gpioDevHandler);
-    gpioDevHandler->devContent.write(0, FLAG_IS_OUT, "[OUTPUTT]", gpioDevHandler);
+    gpioDevHandler->devContent.write(0, FLAG_IS_OUT, "[OUTPUT]", gpioDevHandler);
 
     cout << "GPIO Device " << GPIO_offset << " " << "FLAG_IS_OUT is " << GPIO_status << endl;
 
-
+    gpioDevHandler->devContent.show(gpioDevHandler);
     /*
     gpioDevHandler->device_open();
 
