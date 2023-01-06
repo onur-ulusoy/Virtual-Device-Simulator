@@ -21,8 +21,8 @@ int main() {
 
     int GPIO_offset = 0;
     string GPIO_status = gpioDevHandler->devContent.read(GPIO_offset, FLAG_IS_OUT,  gpioDevHandler);
-    gpioDevHandler->devContent.write(0, FLAG_IS_OUT, "[OUTPUT]", gpioDevHandler);
-
+    gpioDevHandler->devContent.write(7, FLAG_ACTIVE_LOW, "[ACTIVE_LOW]", gpioDevHandler);
+    //feature inputlar için enum ayarlanabilir write için string input vermektense
     cout << "GPIO Device " << GPIO_offset << " " << "FLAG_IS_OUT is " << GPIO_status << endl;
 
     gpioDevHandler->devContent.show(gpioDevHandler);

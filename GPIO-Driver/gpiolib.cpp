@@ -198,7 +198,7 @@ void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler){
         cout << "\t Flags: ";
 
         for (int i=3; i<8; i++){
-            cout << " " << buffers[i];
+            cout << "\t " << buffers[i];
         }
 
         cout << endl;

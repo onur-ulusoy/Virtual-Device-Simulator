@@ -29,7 +29,6 @@
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/bbx15.exe" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/bbx15.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +119,7 @@
       <workItem from="1672312826811" duration="7782000" />
       <workItem from="1672862355808" duration="5036000" />
       <workItem from="1672904291155" duration="17019000" />
-      <workItem from="1673033793348" duration="3915000" />
+      <workItem from="1673033793348" duration="5697000" />
     </task>
     <task id="LOCAL-00001" summary="-">
       <created>1672262462003</created>
@@ -220,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672925327085</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="-">
+      <created>1673037723354</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1673037723354</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
