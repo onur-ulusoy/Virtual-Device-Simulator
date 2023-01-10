@@ -3,19 +3,8 @@
 using namespace std;
 
 #define DEV_NAME "dev/gpiochip0"
-void GPIO_Access();
 
 int main() {
-
-    thread gpio_access (GPIO_Access);
-
-    //gpio_access.join();
-    ::getchar();
-
-    return 0;
-}
-
-void GPIO_Access() {
 
     GPIO_Device* gpioDevHandler = new GPIO_Device(DEV_NAME);
 
@@ -38,7 +27,7 @@ void GPIO_Access() {
 
     delete gpioDevHandler;
 
-
+    return 0;
 }
 
 

@@ -12,7 +12,6 @@
 #include <nlohmann/json.hpp>
 #include <iostream>
 #include <fstream>
-#include <thread>
 
 #define NEW_FILE "dev/newfile"
 
