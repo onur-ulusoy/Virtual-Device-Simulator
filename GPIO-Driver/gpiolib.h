@@ -12,6 +12,7 @@
 #include <nlohmann/json.hpp>
 #include <iostream>
 #include <fstream>
+#include <thread>
 
 #define NEW_FILE "dev/newfile"
 
@@ -44,15 +45,7 @@ public:
 
     DeviceContent devContent;
 
-    //int device_write(int offset, uint8_t value);
-    /*
-    int gpio_list();
-
-    int gpio_read(int offset);
-     */
-
 };
-
 
 struct chipInfo{
     int offset;
