@@ -22,7 +22,6 @@ int main() {
     cout << endl;
 
     cout << "Enter command (-1 to terminate): " << endl;
-
     while (_command != "-1"){
         cin >> _command;
 
@@ -36,6 +35,7 @@ int main() {
 
         outfile.close();
 
+        if (_command == "-1") break;
 
         usleep(1000000 * delay);
         //cout << emptyString << endl;
@@ -56,6 +56,5 @@ int main() {
         cout << "Enter command (-1 to terminate): " << endl;
 
     }
-    cout << "tester bitti";
     return 0;
 }

@@ -30,6 +30,7 @@ static inline std::string &rtrim(std::string &s) {
 
 GPIO_Device::GPIO_Device(const char *dev_name) {
     this->dev_name = dev_name;
+    //hist.open("history");
     //cout << this->dev_name << endl;
 }
 
@@ -168,6 +169,8 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
         }
 
         cout << "Default chip info is written to the file successfully" << endl;
+        //gpioDevHandler->hist << "Default chip info is written to the file successfully" << endl;
+
 
     }
 
@@ -199,6 +202,7 @@ void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler){
         cout << "\t Name: " << buffers[1];
         cout << "\tConsumer: " << buffers[2];
         cout << "\t Flags: ";
+
 
         for (int i=3; i<8; i++){
             cout << "\t " << buffers[i];

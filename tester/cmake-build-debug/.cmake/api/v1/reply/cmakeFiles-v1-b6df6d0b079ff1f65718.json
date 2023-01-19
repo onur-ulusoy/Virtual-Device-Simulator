@@ -728,8 +728,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/onur/CLionProjects/tester/cmake-build-debug",
-		"source" : "/home/onur/CLionProjects/tester"
+		"build" : "/home/onur/CLionProjects/bbx15/tester/cmake-build-debug",
+		"source" : "/home/onur/CLionProjects/bbx15/tester"
 	},
 	"version" : 
 	{

@@ -18,6 +18,7 @@
 using namespace std;
 enum command {DEFAULT, READONLY, WRITEONLY};
 enum feature {NAME, CONSUMER, FLAG_IS_OUT, FLAG_ACTIVE_LOW, FLAG_OPEN_DRAIN, FLAG_OPEN_SOURCE, FLAG_KERNEL};
+enum command_request {ONESHOT, RECURSIVE};
 
 fstream& GotoLine(std::fstream& file, unsigned int num);
 void Split(string s, string del, string* buffers);
@@ -25,10 +26,11 @@ static inline std::string &rtrim(std::string &s);
 
 class GPIO_Device{
 
-
-public:
+private:
     fstream fd;
     const char *dev_name;
+    //fstream hist;
+public:
     GPIO_Device(const char* dev_name);
     void device_open(command request, GPIO_Device* gpioDevHandler);
     void device_close();

@@ -31,9 +31,8 @@ def exec_process(cpp_files, exe_file, sh, dir):
 
     process = Popen("./{}".format(exe_file), shell=sh)
 
-    out, err = process.communicate()
-    errcode = process.returncode
-    print(errcode)
+    # out, err = process.communicate()
+    # errcode = process.returncode
 
     process.kill()
     process.terminate()
@@ -49,9 +48,9 @@ if __name__ == "__main__":
     program = Thread(target=exec_process, args=(cpp_files, exe_file, True, "GPIO-Driver"))
     program.start()
 
-    print(getcwd())
-    chdir('test-environment')
-    print(getcwd())
+    #print(getcwd())
+    #chdir('test-environment')
+    #print(getcwd())
 
     file = open("command", "r", encoding="utf-8")
 

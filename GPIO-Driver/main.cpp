@@ -9,7 +9,7 @@ using namespace std;
 fstream receiver;
 string _command;
 
-int receive_command();
+int receive_command(enum command_request req);
 void throw_command();
 
 int main() {
@@ -43,10 +43,15 @@ int main() {
     receiver << "start";
 
     receiver.close();
+
+//    fstream hFile;
+//    hFile.open("history");
+//    hFile.close();
+
+
     usleep(1000000 * sleep_time);
 
-
-    while (receive_command() != -1) {
+    while (receive_command(ONESHOT) != -1) {
 
         usleep(1000000 * sleep_time);
 
@@ -57,14 +62,20 @@ int main() {
     return 0;
 }
 
-int receive_command() {
+int receive_command(enum command_request req) {
 
-    receiver.open("command");
-    receiver >> _command;
-    //cout << _command << endl;
+    if (req == ONESHOT){
+        receiver.open("command");
+        receiver >> _command;
+        //cout << _command << endl;
 
-    receiver.close();
-    //cout << _command.length();
+        receiver.close();
+        //cout << _command.length();
+    }
+
+    else if (req == RECURSIVE)
+        ;
+
     if (_command == "-1")
         return -1;
 
@@ -168,18 +179,20 @@ int receive_command() {
             gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
 
         }
-
+        //.commandSet-commandsText
         else if (substrings[0] == ".commandSet") {
 
             fstream f;
             f.open(substrings[1]);
 
             while (true) {
-
+                if(f.eof()) break;
                 _command.clear();
                 f >> _command;
-                receive_command();
-                if( f.eof() ) break;
+                if (_command.length()  == 0)
+                    break;
+                cout << "Command is running: " << _command << endl;
+                receive_command(RECURSIVE);
             }
 
         }
@@ -195,6 +208,7 @@ int receive_command() {
     //usleep(1000000 * 3);
     throw_command();
     //usleep(10000000);
+    //exit(0);
     return 0;
 }
 
@@ -203,5 +217,6 @@ void throw_command(){
     outfile << "&";
     outfile.close();
 }
+
 
 

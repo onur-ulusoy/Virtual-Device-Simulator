@@ -21,76 +21,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="tester process and host script added">
-      <change afterPath="$PROJECT_DIR$/GPIO-Driver/program.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/.idea/testerScript.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/command" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/commandsText" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/dev/d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/dev/default_chipInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/dev/e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/dev/gd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/dev/gpiochip0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/dev/gpiochip1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/dev/newfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/program.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/tester.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_01_2023_07_38__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_01_2023_07_38__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cache-v2-5b3e012e8a95b2593acc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-574f549da0c8f117f063.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-fe3bdd18d57ebb22f39a.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/index-2023-01-10T07-46-48-0540.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/target-program-Debug-f1f5aba510c8b61dfe08.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-ffb6434f9d66dd28afdb.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cache-v2-9ea8b65a9009e086c7f8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-ff8b0e8c64b6e54b9f3f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-49f2b7169b19e54523f4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-d0094a50bb2071803777.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/index-2023-01-19T05-53-17-0354.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/target-program-Debug-8e41467d6b4377f206a9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-f76e61fd0e953e82d14d.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeCCompiler.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeRCCompiler.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CompilerIdC/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CompilerIdCXX/a.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/child_process.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/gpiolib.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/home/onur/CLionProjects/bbx15/parent-process/parent_process.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/program.cpp.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/program.dir/gpiolib.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/program.dir/main.cpp.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/.idea/testerScript.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/command" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/commandsText" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/dev/d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/dev/default_chipInfo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/dev/e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/dev/gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/dev/gpiochip0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/dev/gpiochip1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/dev/newfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/program.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testerScript/tester.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/command" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/command" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/commandsText" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/commandsText" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/dev/d" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/dev/d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/dev/newfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/program.out" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/program.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/tester.out" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/tester.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/.cmake/api/v1/reply/cache-v2-4bae5c6a1d2641b5ae93.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-df6b20933ce787cc52ed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-1edfdb809a5eba121145.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/.cmake/api/v1/reply/index-2023-01-10T07-53-37-0130.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/tester/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/tester/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeFiles/3.24.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeFiles/3.24.2/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/CMakeFiles/tester.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/tester/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/tester/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tester/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testerScript/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,32 +116,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/onur/CLionProjects/bbx15/main.cpp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CPPToolchains&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "/home/onur/CLionProjects/bbx15/main.cpp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="program" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="program" TARGET_NAME="program" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="program" RUN_TARGET_NAME="program">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -219,7 +196,10 @@
       <workItem from="1673956961616" duration="212000" />
       <workItem from="1673957232597" duration="4250000" />
       <workItem from="1673961822883" duration="1876000" />
-      <workItem from="1674105622174" duration="336000" />
+      <workItem from="1674105622174" duration="726000" />
+      <workItem from="1674119867875" duration="5376000" />
+      <workItem from="1674127451183" duration="150000" />
+      <workItem from="1674128341758" duration="4061000" />
     </task>
     <task id="LOCAL-00001" summary="-">
       <created>1672262462003</created>
@@ -347,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674105757990</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="tester process and host script added">
+      <created>1674106205608</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1674106205609</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -17,7 +17,7 @@
 rule CXX_COMPILER__program_Debug
   depfile = $DEP_FILE
   deps = gcc
-  command = C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building CXX object $out
 
 
@@ -25,7 +25,7 @@ rule CXX_COMPILER__program_Debug
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__program_Debug
-  command = cmd.exe /C "$PRE_LINK && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "C:\Program Files\JetBrains\CLion 2022.3.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\onuru\OneDrive\Desktop\bbx15-driver\GPIO-Driver -BC:\Users\onuru\OneDrive\Desktop\bbx15-driver\GPIO-Driver\cmake-build-debug
+  command = /snap/clion/219/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/onur/CLionProjects/bbx15/GPIO-Driver -B/home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 
@@ -51,7 +51,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = "C:\Program Files\JetBrains\CLion 2022.3.1\bin\ninja\win\ninja.exe" $FILE_ARG -t clean $TARGETS
+  command = /snap/clion/219/bin/ninja/linux/ninja $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -59,6 +59,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = "C:\Program Files\JetBrains\CLion 2022.3.1\bin\ninja\win\ninja.exe" -t targets
+  command = /snap/clion/219/bin/ninja/linux/ninja -t targets
   description = All primary targets available:
 
