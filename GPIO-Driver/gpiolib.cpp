@@ -30,7 +30,7 @@ static inline std::string &rtrim(std::string &s) {
 
 GPIO_Device::GPIO_Device(const char *dev_name) {
     this->dev_name = dev_name;
-    //hist.open("history");
+    hist.open("history", ios::app);
     //cout << this->dev_name << endl;
 }
 
@@ -169,7 +169,7 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
         }
 
         cout << "Default chip info is written to the file successfully" << endl;
-        //gpioDevHandler->hist << "Default chip info is written to the file successfully" << endl;
+        gpioDevHandler->hist << "Default chip info is written to the file '" << gpioDevHandler->dev_name << "' successfully" << endl;
 
 
     }
@@ -177,7 +177,7 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
     gpioDevHandler->device_close();
 }
 
-void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler){
+void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler) {
 
     cout << "function 'GPIO_Device::DeviceContent::show' worked" << endl << endl;
     //gpioDevHandler->fd.open(gpioDevHandler->dev_name, ios::in);
@@ -186,29 +186,86 @@ void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler){
 
     cout << "Chip info is being shown ..." << endl << endl;
 
+    // Get the maximum length of each column
+    int max_offset_length = 0;
+    int max_name_length = 0;
+    int max_consumer_length = 0;
+    int max_flags_length = 0;
+
     while (true) {
         string line, word;
         for (int i=0; i<8;i++){
             gpioDevHandler->fd >> word;
             line += word + "/";
-
         }
 
         if( gpioDevHandler->fd.eof() ) break;
-        //cout << line << endl;
+
         auto* buffers = new string[9];
         Split(line, "/", buffers);
-        cout << "Offset: " << buffers[0];
-        cout << "\t Name: " << buffers[1];
-        cout << "\tConsumer: " << buffers[2];
-        cout << "\t Flags: ";
 
+        int offset_length = buffers[0].length();
+        if (offset_length > max_offset_length) max_offset_length = offset_length;
+
+        int name_length = buffers[1].length();
+        if (name_length > max_name_length) max_name_length = name_length;
+
+        int consumer_length = buffers[2].length();
+        if (consumer_length > max_consumer_length) max_consumer_length = consumer_length;
+
+        int flags_length = 0;
+        for (int i=3; i<8; i++){
+            flags_length += buffers[i].length();
+        }
+        if (flags_length > max_flags_length) max_flags_length = flags_length;
+
+        delete[] buffers;
+    }
+
+    gpioDevHandler->fd.clear();
+    gpioDevHandler->fd.seekg(0, ios::beg);
+
+    gpioDevHandler->hist << "Data was shown for '" << gpioDevHandler->dev_name << "':" << endl;
+    while (true) {
+        string line, word;
+        for (int i=0; i<8;i++){
+            gpioDevHandler->fd >> word;
+            line += word + "/";
+        }
+
+        if( gpioDevHandler->fd.eof() ) break;
+
+        auto* buffers = new string[9];
+        Split(line, "/", buffers);
+
+        cout << "Offset: ";
+        cout << setw(max_offset_length) << left << buffers[0];
+
+        gpioDevHandler->hist << "Offset: ";
+        gpioDevHandler->hist << setw(max_offset_length) << left << buffers[0];
+
+        cout << "\t Name: ";
+        cout << setw(max_name_length) << left << buffers[1];
+
+        gpioDevHandler->hist << "\t Name: ";
+        gpioDevHandler->hist << setw(max_name_length) << left << buffers[1];
+
+        cout << "\tConsumer: ";
+        cout << setw(max_consumer_length) << left << buffers[2];
+
+        gpioDevHandler->hist << "\tConsumer: ";
+        gpioDevHandler->hist << setw(max_consumer_length) << left << buffers[2];
+
+        cout << "\t Flags: ";
+        gpioDevHandler->hist << "\t Flags: ";
 
         for (int i=3; i<8; i++){
-            cout << "\t " << buffers[i];
+            cout << " " << buffers[i];
+            gpioDevHandler->hist << " " << buffers[i];
         }
 
         cout << endl;
+        gpioDevHandler->hist << endl;
         delete[] buffers;
     }
 
@@ -232,7 +289,12 @@ string GPIO_Device::DeviceContent::read(int offset, enum feature request, GPIO_D
     gpioDevHandler->fd >> word;
 
     cout << endl;
-    cout << "Chip info is read successfully" << endl;
+    cout << "Chip info is read successfully" << endl << endl;
+
+    cout << "Data has been stored: " << word << endl;
+
+    gpioDevHandler->hist << "Data has been stored: " << word << endl;
+
     return word;
 }
 
@@ -303,6 +365,7 @@ void GPIO_Device::DeviceContent::write (int offset, enum feature request, string
 
     cout << endl;
     cout << "Chip info is changed successfully" << endl;
+    gpioDevHandler->hist << "Chip info is changed successfully" << endl;
 }
 
 /*

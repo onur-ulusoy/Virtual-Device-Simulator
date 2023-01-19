@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-
+    cout << "tester started working" << endl;
     string _command;
     string emptyString = "---";
     float delay = .4;

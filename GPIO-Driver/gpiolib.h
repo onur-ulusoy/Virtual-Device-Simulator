@@ -29,7 +29,7 @@ class GPIO_Device{
 private:
     fstream fd;
     const char *dev_name;
-    //fstream hist;
+    fstream hist;
 public:
     GPIO_Device(const char* dev_name);
     void device_open(command request, GPIO_Device* gpioDevHandler);

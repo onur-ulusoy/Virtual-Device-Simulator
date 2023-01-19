@@ -1,4 +1,5 @@
 import sys
+import time
 from os import system, path
 from subprocess import Popen
 from threading import Thread
@@ -10,15 +11,6 @@ for PATH in paths:
 
 
 def exec_process(cpp_files, exe_file, sh, dir):
-
-    #path.abspath(path.join(getcwd(), '../bbx15-driver/{}').format(dir))
-    # #print(getcwd())
-    #
-    # chdir(dir)
-    # #chdir("..")
-    # #chdir("..")
-    # print(getcwd())
-    # print(dir)
 
     cpp_file = str()
     for i in cpp_files:
@@ -37,7 +29,6 @@ def exec_process(cpp_files, exe_file, sh, dir):
     process.terminate()
 
 
-
 if __name__ == "__main__":
 
     cpp_files = ["main.cpp", "gpiolib.cpp", "gpiolib.h"]
@@ -45,7 +36,7 @@ if __name__ == "__main__":
 
     print("program is being built ...")
 
-    program = Thread(target=exec_process, args=(cpp_files, exe_file, True, "GPIO-Driver"))
+    program = Thread(target=exec_process, args=(cpp_files, exe_file, False, "GPIO-Driver"))
     program.start()
 
     #print(getcwd())
@@ -67,6 +58,23 @@ if __name__ == "__main__":
 
     print("\ntester is being built ...")
 
-    tester = Thread(target=exec_process, args=(cpp_files, exe_file, True, "tester"))
-    tester.start()
+    cpp_file = str()
+    for i in cpp_files:
+        # print(cpp_file)
+        cpp_file += "../" + "tester" + "/" + i + " "
+    cpp_file.rstrip()
+    # print(cpp_file)
+    system('g++ ' + cpp_file + ' -o ' + exe_file)
+    print("Build finished.")
+    process = Popen("./{}".format(exe_file), False)
 
+    # out, err = process.communicate()
+    # errcode = process.returncode
+
+
+    time.sleep(2)
+    output, error = process.communicate(input=b"input_string\n")
+    errcode = process.returncode
+
+    process.kill()
+    process.terminate()
