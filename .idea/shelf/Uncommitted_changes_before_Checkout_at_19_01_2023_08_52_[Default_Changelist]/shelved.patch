@@ -1,0 +1,2332 @@
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10__Default_Changelist_1.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10__Default_Changelist_1.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10__Default_Changelist_1.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10__Default_Changelist_1.xml	(revision 1d29df8827b49c03902cb68565292c5ee21e076b)
++++ /dev/null	(revision 1d29df8827b49c03902cb68565292c5ee21e076b)
+@@ -1,9 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_4_01_2023_07_10_[Default_Changelist]1" date="1672805432194" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10_[Default_Changelist]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 4.01.2023 07:10 [Default Changelist]" />
+-  <binary>
+-    <option name="BEFORE_PATH" value="GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" />
+-    <option name="AFTER_PATH" value="GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10_[Default_Changelist]1/LastTest.log" />
+-  </binary>
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11_[Default_Changelist]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11_[Default_Changelist]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11_[Default_Changelist]/shelved.patch	(revision 1d29df8827b49c03902cb68565292c5ee21e076b)
++++ /dev/null	(revision 1d29df8827b49c03902cb68565292c5ee21e076b)
+@@ -1,259 +0,0 @@
+-Index: .idea/bbx15.iml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/bbx15.iml b/.idea/bbx15.iml
+-deleted file mode 100644
+---- a/.idea/bbx15.iml	(revision 4d00ad95784aa5a18449cd4d43d3e4a21f3c8124)
+-+++ /dev/null	(revision 4d00ad95784aa5a18449cd4d43d3e4a21f3c8124)
+-@@ -1,2 +0,0 @@
+--<?xml version="1.0" encoding="UTF-8"?>
+--<module classpath="CMake" type="CPP_MODULE" version="4" />
+-\ No newline at end of file
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"CMakePresetLoader\">{\r\n  &quot;useNewFormat&quot;: true\r\n}</component>\r\n  <component name=\"CMakeReloadState\">\r\n    <option name=\"reloaded\" value=\"true\" />\r\n  </component>\r\n  <component name=\"CMakeRunConfigurationManager\">\r\n    <generated>\r\n      <config projectName=\"bbx15\" targetName=\"bbx15\" />\r\n    </generated>\r\n  </component>\r\n  <component name=\"CMakeSettings\">\r\n    <configurations>\r\n      <configuration PROFILE_NAME=\"Debug\" ENABLED=\"true\" CONFIG_NAME=\"Debug\" />\r\n    </configurations>\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8f9fdbfc-faeb-45e7-abb8-e878aa5cfbf7\" name=\"Changes\" comment=\"-\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/cmake-build-debug/.ninja_deps\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/cmake-build-debug/.ninja_deps\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/cmake-build-debug/.ninja_log\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/cmake-build-debug/.ninja_log\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/cmake-build-debug/CMakeFiles/bbx15.dir/gpiolib.cpp.o\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/cmake-build-debug/CMakeFiles/bbx15.dir/gpiolib.cpp.o\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/cmake-build-debug/CMakeFiles/bbx15.dir/main.cpp.o\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/cmake-build-debug/CMakeFiles/bbx15.dir/main.cpp.o\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/cmake-build-debug/bbx15\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/cmake-build-debug/bbx15\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/gpiolib.h\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/gpiolib.h\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/main.cpp\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/main.cpp\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ClangdSettings\">\r\n    <option name=\"formatViaClangd\" value=\"false\" />\r\n  </component>\r\n  <component name=\"ExecutionTargetManager\" SELECTED_TARGET=\"CMakeBuildProfile:Debug\" />\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CMakeLists.txt\" />\r\n        <option value=\"package.json\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/main.cpp\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectApplicationVersion\">\r\n    <option name=\"ide\" value=\"CLion\" />\r\n    <option name=\"majorVersion\" value=\"2022\" />\r\n    <option name=\"minorVersion\" value=\"3.1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2JYZ0JGOuXde3UdUWyNQUZpCMP7\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,\r\n    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;/home/onur/CLionProjects/bbx15/main.cpp&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;CPPToolchains&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"CMake Application.bbx15\">\r\n    <configuration default=\"true\" type=\"CLionExternalRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\">\r\n      <method v=\"2\">\r\n        <option name=\"CLION.EXTERNAL.BUILD\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"bbx15\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"bbx15\" TARGET_NAME=\"bbx15\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"bbx15\" RUN_TARGET_NAME=\"bbx15\">\r\n      <method v=\"2\">\r\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"main.cpp - Default\" type=\"CppFileRunConfiguration\" factoryName=\"CppFileRunConfiguration\" nameIsGenerated=\"true\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"bbx15\" TARGET_NAME=\"main.cpp - Default\" CONFIG_NAME=\"main.cpp - Default\">\r\n      <option name=\"sourceFile\" value=\"$PROJECT_DIR$/main.cpp\" />\r\n      <option name=\"toolchainName\" value=\"Default\" />\r\n      <method v=\"2\">\r\n        <option name=\"com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"C/C++ File.main.cpp - Default\" />\r\n      <item itemvalue=\"CMake Application.bbx15\" />\r\n    </list>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8f9fdbfc-faeb-45e7-abb8-e878aa5cfbf7\" name=\"Changes\" comment=\"\" />\r\n      <created>1672256752933</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1672256752933</updated>\r\n      <workItem from=\"1672256754384\" duration=\"13000\" />\r\n      <workItem from=\"1672256851521\" duration=\"475000\" />\r\n      <workItem from=\"1672257334273\" duration=\"28000\" />\r\n      <workItem from=\"1672257367727\" duration=\"6000\" />\r\n      <workItem from=\"1672257394133\" duration=\"18000\" />\r\n      <workItem from=\"1672257442801\" duration=\"148000\" />\r\n      <workItem from=\"1672257653863\" duration=\"179000\" />\r\n      <workItem from=\"1672257844024\" duration=\"4646000\" />\r\n      <workItem from=\"1672262504721\" duration=\"15245000\" />\r\n      <workItem from=\"1672302572329\" duration=\"6988000\" />\r\n      <workItem from=\"1672312826811\" duration=\"7782000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"-\">\r\n      <created>1672262462003</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672262462004</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"*\">\r\n      <created>1672262519945</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672262519945</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"-\">\r\n      <created>1672290214800</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672290214801</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"-\">\r\n      <created>1672292525227</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672292525227</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"-\">\r\n      <created>1672297709766</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672297709766</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"-\">\r\n      <created>1672301983086</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672301983086</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"-\">\r\n      <created>1672317531111</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672317531111</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"-\">\r\n      <created>1672319412417</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672319412417</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"9\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"*\" />\r\n    <MESSAGE value=\"-\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"-\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 4d00ad95784aa5a18449cd4d43d3e4a21f3c8124)
+-+++ b/.idea/workspace.xml	(date 1672805436233)
+-@@ -3,9 +3,9 @@
+-   <component name="AutoImportSettings">
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+--  <component name="CMakePresetLoader">{
+--  &quot;useNewFormat&quot;: true
+--}</component>
+-+  <component name="CMakePresetLoader"><![CDATA[{
+-+  "useNewFormat": true
+-+}]]></component>
+-   <component name="CMakeReloadState">
+-     <option name="reloaded" value="true" />
+-   </component>
+-@@ -20,16 +20,10 @@
+-     </configurations>
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="8f9fdbfc-faeb-45e7-abb8-e878aa5cfbf7" name="Changes" comment="-">
+-+    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="">
+-+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/bbx15.iml" beforeDir="false" />
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/bbx15.dir/gpiolib.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/bbx15.dir/gpiolib.cpp.o" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/bbx15.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/bbx15.dir/main.cpp.o" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/cmake-build-debug/bbx15" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/bbx15" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/gpiolib.h" beforeDir="false" afterPath="$PROJECT_DIR$/gpiolib.h" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -49,11 +43,13 @@
+-     </option>
+-   </component>
+-   <component name="Git.Settings">
+-+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+-+      <map>
+-+        <entry key="$PROJECT_DIR$" value="master" />
+-+      </map>
+-+    </option>
+-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-   </component>
+--  <component name="HighlightingSettingsPerFile">
+--    <setting file="file://$PROJECT_DIR$/main.cpp" root0="FORCE_HIGHLIGHTING" />
+--  </component>
+-   <component name="MarkdownSettingsMigration">
+-     <option name="stateVersion" value="1" />
+-   </component>
+-@@ -70,36 +66,12 @@
+-     <option name="hideEmptyMiddlePackages" value="true" />
+-     <option name="showLibraryContents" value="true" />
+-   </component>
+--  <component name="PropertiesComponent">{
+--  &quot;keyToString&quot;: {
+--    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+--    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+--    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+--    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+--    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+--    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+--    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+--    &quot;last_opened_file_path&quot;: &quot;/home/onur/CLionProjects/bbx15/main.cpp&quot;,
+--    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+--    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+--    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+--    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+--    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+--    &quot;settings.editor.selected.configurable&quot;: &quot;CPPToolchains&quot;,
+--    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+--  }
+--}</component>
+--  <component name="RunManager" selected="CMake Application.bbx15">
+--    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+--      <method v="2">
+--        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+--      </method>
+--    </configuration>
+--    <configuration name="bbx15" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bbx15" TARGET_NAME="bbx15" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="bbx15" RUN_TARGET_NAME="bbx15">
+--      <method v="2">
+--        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+--      </method>
+--    </configuration>
+-+  <component name="RecentsManager">
+-+    <key name="MoveFile.RECENT_KEYS">
+-+      <recent name="C:\Users\onuru\OneDrive\Desktop\bbx15-driver\GPIO-Driver" />
+-+    </key>
+-+  </component>
+-+  <component name="RunManager">
+-     <configuration name="main.cpp - Default" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bbx15" TARGET_NAME="main.cpp - Default" CONFIG_NAME="main.cpp - Default">
+-       <option name="sourceFile" value="$PROJECT_DIR$/main.cpp" />
+-       <option name="toolchainName" value="Default" />
+-@@ -107,108 +79,24 @@
+-         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+-       </method>
+-     </configuration>
+--    <list>
+--      <item itemvalue="C/C++ File.main.cpp - Default" />
+--      <item itemvalue="CMake Application.bbx15" />
+--    </list>
+-+  </component>
+-+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+-+  <component name="SvnConfiguration">
+-+    <configuration />
+-   </component>
+--  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-   <component name="TaskManager">
+-     <task active="true" id="Default" summary="Default task">
+--      <changelist id="8f9fdbfc-faeb-45e7-abb8-e878aa5cfbf7" name="Changes" comment="" />
+--      <created>1672256752933</created>
+-+      <changelist id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="" />
+-+      <created>1672801950888</created>
+-       <option name="number" value="Default" />
+-       <option name="presentableId" value="Default" />
+--      <updated>1672256752933</updated>
+--      <workItem from="1672256754384" duration="13000" />
+--      <workItem from="1672256851521" duration="475000" />
+--      <workItem from="1672257334273" duration="28000" />
+--      <workItem from="1672257367727" duration="6000" />
+--      <workItem from="1672257394133" duration="18000" />
+--      <workItem from="1672257442801" duration="148000" />
+--      <workItem from="1672257653863" duration="179000" />
+--      <workItem from="1672257844024" duration="4646000" />
+--      <workItem from="1672262504721" duration="15245000" />
+--      <workItem from="1672302572329" duration="6988000" />
+--      <workItem from="1672312826811" duration="7782000" />
+-+      <updated>1672801950888</updated>
+-+      <workItem from="1672801953344" duration="50000" />
+-+      <workItem from="1672802549838" duration="2884000" />
+-     </task>
+--    <task id="LOCAL-00001" summary="-">
+--      <created>1672262462003</created>
+--      <option name="number" value="00001" />
+--      <option name="presentableId" value="LOCAL-00001" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672262462004</updated>
+--    </task>
+--    <task id="LOCAL-00002" summary="*">
+--      <created>1672262519945</created>
+--      <option name="number" value="00002" />
+--      <option name="presentableId" value="LOCAL-00002" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672262519945</updated>
+--    </task>
+--    <task id="LOCAL-00003" summary="-">
+--      <created>1672290214800</created>
+--      <option name="number" value="00003" />
+--      <option name="presentableId" value="LOCAL-00003" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672290214801</updated>
+--    </task>
+--    <task id="LOCAL-00004" summary="-">
+--      <created>1672292525227</created>
+--      <option name="number" value="00004" />
+--      <option name="presentableId" value="LOCAL-00004" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672292525227</updated>
+--    </task>
+--    <task id="LOCAL-00005" summary="-">
+--      <created>1672297709766</created>
+--      <option name="number" value="00005" />
+--      <option name="presentableId" value="LOCAL-00005" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672297709766</updated>
+--    </task>
+--    <task id="LOCAL-00006" summary="-">
+--      <created>1672301983086</created>
+--      <option name="number" value="00006" />
+--      <option name="presentableId" value="LOCAL-00006" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672301983086</updated>
+--    </task>
+--    <task id="LOCAL-00007" summary="-">
+--      <created>1672317531111</created>
+--      <option name="number" value="00007" />
+--      <option name="presentableId" value="LOCAL-00007" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672317531111</updated>
+--    </task>
+--    <task id="LOCAL-00008" summary="-">
+--      <created>1672319412417</created>
+--      <option name="number" value="00008" />
+--      <option name="presentableId" value="LOCAL-00008" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672319412417</updated>
+--    </task>
+--    <option name="localTasksCounter" value="9" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-     <option name="version" value="3" />
+-   </component>
+--  <component name="Vcs.Log.Tabs.Properties">
+--    <option name="TAB_STATES">
+--      <map>
+--        <entry key="MAIN">
+--          <value>
+--            <State />
+--          </value>
+--        </entry>
+--      </map>
+--    </option>
+--  </component>
+--  <component name="VcsManagerConfiguration">
+--    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+--    <MESSAGE value="*" />
+--    <MESSAGE value="-" />
+--    <option name="LAST_COMMIT_MESSAGE" value="-" />
+--  </component>
+- </project>
+-\ No newline at end of file
+-Index: .idea/misc.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CMakeWorkspace\" PROJECT_DIR=\"$PROJECT_DIR$\" />\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/misc.xml b/.idea/misc.xml
+---- a/.idea/misc.xml	(revision 4d00ad95784aa5a18449cd4d43d3e4a21f3c8124)
+-+++ b/.idea/misc.xml	(date 1672805436249)
+-@@ -1,4 +1,9 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+--  <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
+-+  <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$/GPIO-Driver">
+-+    <contentRoot DIR="$PROJECT_DIR$" />
+-+  </component>
+-+  <component name="JavaScriptSettings">
+-+    <option name="languageLevel" value="ES6" />
+-+  </component>
+- </project>
+-\ No newline at end of file
+-diff --git a/.idea/.gitignore b/.idea/.gitignore
+-deleted file mode 100644
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11__Default_Changelist_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11__Default_Changelist_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11__Default_Changelist_.xml	(revision 1d29df8827b49c03902cb68565292c5ee21e076b)
++++ /dev/null	(revision 1d29df8827b49c03902cb68565292c5ee21e076b)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_4_01_2023_07_11_[Default_Changelist]" date="1672805475504" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11_[Default_Changelist]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 4.01.2023 07:11 [Default Changelist]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10_[Default_Changelist]1/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10_[Default_Changelist]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10_[Default_Changelist]1/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10_[Default_Changelist]1/shelved.patch	(revision 1d29df8827b49c03902cb68565292c5ee21e076b)
++++ /dev/null	(revision 1d29df8827b49c03902cb68565292c5ee21e076b)
+@@ -1,1975 +0,0 @@
+-Index: GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-f0c07e1541bfbdc5c3c0.json
+-===================================================================
+-diff --git a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-f0c07e1541bfbdc5c3c0.json b/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-f0c07e1541bfbdc5c3c0.json
+-deleted file mode 100644
+---- a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-f0c07e1541bfbdc5c3c0.json	
+-+++ /dev/null	
+-@@ -1,60 +0,0 @@
+--{
+--	"configurations" : 
+--	[
+--		{
+--			"directories" : 
+--			[
+--				{
+--					"build" : ".",
+--					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+--					"minimumCMakeVersion" : 
+--					{
+--						"string" : "3.24"
+--					},
+--					"projectIndex" : 0,
+--					"source" : ".",
+--					"targetIndexes" : 
+--					[
+--						0
+--					]
+--				}
+--			],
+--			"name" : "Debug",
+--			"projects" : 
+--			[
+--				{
+--					"directoryIndexes" : 
+--					[
+--						0
+--					],
+--					"name" : "bbx15",
+--					"targetIndexes" : 
+--					[
+--						0
+--					]
+--				}
+--			],
+--			"targets" : 
+--			[
+--				{
+--					"directoryIndex" : 0,
+--					"id" : "bbx15::@6890427a1f51a3e7e1df",
+--					"jsonFile" : "target-bbx15-Debug-173dede2a17eae53bd46.json",
+--					"name" : "bbx15",
+--					"projectIndex" : 0
+--				}
+--			]
+--		}
+--	],
+--	"kind" : "codemodel",
+--	"paths" : 
+--	{
+--		"build" : "/home/onur/CLionProjects/bbx15/cmake-build-debug",
+--		"source" : "/home/onur/CLionProjects/bbx15"
+--	},
+--	"version" : 
+--	{
+--		"major" : 2,
+--		"minor" : 4
+--	}
+--}
+-Index: .idea/bbx15.iml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/bbx15.iml b/.idea/bbx15.iml
+-deleted file mode 100644
+---- a/.idea/bbx15.iml	
+-+++ /dev/null	
+-@@ -1,2 +0,0 @@
+--<?xml version="1.0" encoding="UTF-8"?>
+--<module classpath="CMake" type="CPP_MODULE" version="4" />
+-\ No newline at end of file
+-Index: GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-5d96ed6502f4f860e1d5.json
+-===================================================================
+-diff --git a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-5d96ed6502f4f860e1d5.json b/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-5d96ed6502f4f860e1d5.json
+-deleted file mode 100644
+---- a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-5d96ed6502f4f860e1d5.json	
+-+++ /dev/null	
+-@@ -1,136 +0,0 @@
+--{
+--	"inputs" : 
+--	[
+--		{
+--			"path" : "CMakeLists.txt"
+--		},
+--		{
+--			"isGenerated" : true,
+--			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeSystem.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake"
+--		},
+--		{
+--			"isGenerated" : true,
+--			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeCCompiler.cmake"
+--		},
+--		{
+--			"isGenerated" : true,
+--			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeGenericSystem.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/UnixPaths.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCInformation.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXInformation.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake"
+--		},
+--		{
+--			"isCMake" : true,
+--			"isExternal" : true,
+--			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake"
+--		}
+--	],
+--	"kind" : "cmakeFiles",
+--	"paths" : 
+--	{
+--		"build" : "/home/onur/CLionProjects/bbx15/cmake-build-debug",
+--		"source" : "/home/onur/CLionProjects/bbx15"
+--	},
+--	"version" : 
+--	{
+--		"major" : 1,
+--		"minor" : 0
+--	}
+--}
+-Index: GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cache-v2-6a6874460c66b37c1b04.json
+-===================================================================
+-diff --git a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cache-v2-6a6874460c66b37c1b04.json b/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cache-v2-6a6874460c66b37c1b04.json
+-deleted file mode 100644
+---- a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cache-v2-6a6874460c66b37c1b04.json	
+-+++ /dev/null	
+-@@ -1,1183 +0,0 @@
+--{
+--	"entries" : 
+--	[
+--		{
+--			"name" : "CMAKE_ADDR2LINE",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to a program."
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/addr2line"
+--		},
+--		{
+--			"name" : "CMAKE_AR",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to a program."
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/ar"
+--		},
+--		{
+--			"name" : "CMAKE_BUILD_TYPE",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel ..."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : "Debug"
+--		},
+--		{
+--			"name" : "CMAKE_CACHEFILE_DIR",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "This is the directory where this CMakeCache.txt was created"
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "/home/onur/CLionProjects/bbx15/cmake-build-debug"
+--		},
+--		{
+--			"name" : "CMAKE_CACHE_MAJOR_VERSION",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Major version of cmake used to create the current loaded cache"
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "3"
+--		},
+--		{
+--			"name" : "CMAKE_CACHE_MINOR_VERSION",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Minor version of cmake used to create the current loaded cache"
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "24"
+--		},
+--		{
+--			"name" : "CMAKE_CACHE_PATCH_VERSION",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Patch version of cmake used to create the current loaded cache"
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "2"
+--		},
+--		{
+--			"name" : "CMAKE_COLOR_DIAGNOSTICS",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Enable colored diagnostics throughout."
+--				}
+--			],
+--			"type" : "BOOL",
+--			"value" : "ON"
+--		},
+--		{
+--			"name" : "CMAKE_COMMAND",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to CMake executable."
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "/snap/clion/219/bin/cmake/linux/bin/cmake"
+--		},
+--		{
+--			"name" : "CMAKE_CPACK_COMMAND",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to cpack program executable."
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "/snap/clion/219/bin/cmake/linux/bin/cpack"
+--		},
+--		{
+--			"name" : "CMAKE_CTEST_COMMAND",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to ctest program executable."
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "/snap/clion/219/bin/cmake/linux/bin/ctest"
+--		},
+--		{
+--			"name" : "CMAKE_CXX_COMPILER",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "CXX compiler"
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/c++"
+--		},
+--		{
+--			"name" : "CMAKE_CXX_COMPILER_AR",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/gcc-ar-11"
+--		},
+--		{
+--			"name" : "CMAKE_CXX_COMPILER_RANLIB",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/gcc-ranlib-11"
+--		},
+--		{
+--			"name" : "CMAKE_CXX_FLAGS",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the CXX compiler during all build types."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_CXX_FLAGS_DEBUG",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the CXX compiler during DEBUG builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : "-g"
+--		},
+--		{
+--			"name" : "CMAKE_CXX_FLAGS_MINSIZEREL",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the CXX compiler during MINSIZEREL builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : "-Os -DNDEBUG"
+--		},
+--		{
+--			"name" : "CMAKE_CXX_FLAGS_RELEASE",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the CXX compiler during RELEASE builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : "-O3 -DNDEBUG"
+--		},
+--		{
+--			"name" : "CMAKE_CXX_FLAGS_RELWITHDEBINFO",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the CXX compiler during RELWITHDEBINFO builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : "-O2 -g -DNDEBUG"
+--		},
+--		{
+--			"name" : "CMAKE_C_COMPILER",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "C compiler"
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/cc"
+--		},
+--		{
+--			"name" : "CMAKE_C_COMPILER_AR",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/gcc-ar-11"
+--		},
+--		{
+--			"name" : "CMAKE_C_COMPILER_RANLIB",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/gcc-ranlib-11"
+--		},
+--		{
+--			"name" : "CMAKE_C_FLAGS",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the C compiler during all build types."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_C_FLAGS_DEBUG",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the C compiler during DEBUG builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : "-g"
+--		},
+--		{
+--			"name" : "CMAKE_C_FLAGS_MINSIZEREL",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the C compiler during MINSIZEREL builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : "-Os -DNDEBUG"
+--		},
+--		{
+--			"name" : "CMAKE_C_FLAGS_RELEASE",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the C compiler during RELEASE builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : "-O3 -DNDEBUG"
+--		},
+--		{
+--			"name" : "CMAKE_C_FLAGS_RELWITHDEBINFO",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the C compiler during RELWITHDEBINFO builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : "-O2 -g -DNDEBUG"
+--		},
+--		{
+--			"name" : "CMAKE_DLLTOOL",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to a program."
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "CMAKE_DLLTOOL-NOTFOUND"
+--		},
+--		{
+--			"name" : "CMAKE_EXECUTABLE_FORMAT",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Executable file format"
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "ELF"
+--		},
+--		{
+--			"name" : "CMAKE_EXE_LINKER_FLAGS",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during all build types."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_EXE_LINKER_FLAGS_DEBUG",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during DEBUG builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_EXE_LINKER_FLAGS_MINSIZEREL",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during MINSIZEREL builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_EXE_LINKER_FLAGS_RELEASE",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during RELEASE builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during RELWITHDEBINFO builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_EXPORT_COMPILE_COMMANDS",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Enable/Disable output of compile commands during generation."
+--				}
+--			],
+--			"type" : "BOOL",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_EXTRA_GENERATOR",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Name of external makefile project generator."
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_FIND_PACKAGE_REDIRECTS_DIR",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Value Computed by CMake."
+--				}
+--			],
+--			"type" : "STATIC",
+--			"value" : "/home/onur/CLionProjects/bbx15/cmake-build-debug/CMakeFiles/pkgRedirects"
+--		},
+--		{
+--			"name" : "CMAKE_GENERATOR",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Name of generator."
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "Ninja"
+--		},
+--		{
+--			"name" : "CMAKE_GENERATOR_INSTANCE",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Generator instance identifier."
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_GENERATOR_PLATFORM",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Name of generator platform."
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_GENERATOR_TOOLSET",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Name of generator toolset."
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_HOME_DIRECTORY",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Source directory with the top level CMakeLists.txt file for this project"
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "/home/onur/CLionProjects/bbx15"
+--		},
+--		{
+--			"name" : "CMAKE_INSTALL_PREFIX",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Install path prefix, prepended onto install directories."
+--				}
+--			],
+--			"type" : "PATH",
+--			"value" : "/usr/local"
+--		},
+--		{
+--			"name" : "CMAKE_INSTALL_SO_NO_EXE",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Install .so files without execute permission."
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "1"
+--		},
+--		{
+--			"name" : "CMAKE_LINKER",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to a program."
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/ld"
+--		},
+--		{
+--			"name" : "CMAKE_MAKE_PROGRAM",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "No help, variable specified on the command line."
+--				}
+--			],
+--			"type" : "UNINITIALIZED",
+--			"value" : "/snap/clion/219/bin/ninja/linux/ninja"
+--		},
+--		{
+--			"name" : "CMAKE_MODULE_LINKER_FLAGS",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of modules during all build types."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_MODULE_LINKER_FLAGS_DEBUG",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of modules during DEBUG builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of modules during MINSIZEREL builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_MODULE_LINKER_FLAGS_RELEASE",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of modules during RELEASE builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of modules during RELWITHDEBINFO builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_NM",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to a program."
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/nm"
+--		},
+--		{
+--			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "number of local generators"
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "1"
+--		},
+--		{
+--			"name" : "CMAKE_OBJCOPY",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to a program."
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/objcopy"
+--		},
+--		{
+--			"name" : "CMAKE_OBJDUMP",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to a program."
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/objdump"
+--		},
+--		{
+--			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Platform information initialized"
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "1"
+--		},
+--		{
+--			"name" : "CMAKE_PROJECT_DESCRIPTION",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Value Computed by CMake"
+--				}
+--			],
+--			"type" : "STATIC",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_PROJECT_HOMEPAGE_URL",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Value Computed by CMake"
+--				}
+--			],
+--			"type" : "STATIC",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_PROJECT_NAME",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Value Computed by CMake"
+--				}
+--			],
+--			"type" : "STATIC",
+--			"value" : "bbx15"
+--		},
+--		{
+--			"name" : "CMAKE_RANLIB",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to a program."
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/ranlib"
+--		},
+--		{
+--			"name" : "CMAKE_READELF",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to a program."
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/readelf"
+--		},
+--		{
+--			"name" : "CMAKE_ROOT",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to CMake installation."
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24"
+--		},
+--		{
+--			"name" : "CMAKE_SHARED_LINKER_FLAGS",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of shared libraries during all build types."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_SHARED_LINKER_FLAGS_DEBUG",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of shared libraries during DEBUG builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of shared libraries during MINSIZEREL builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_SHARED_LINKER_FLAGS_RELEASE",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of shared libraries during RELEASE builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of shared libraries during RELWITHDEBINFO builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_SKIP_INSTALL_RPATH",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "If set, runtime paths are not added when installing shared libraries, but are added when building."
+--				}
+--			],
+--			"type" : "BOOL",
+--			"value" : "NO"
+--		},
+--		{
+--			"name" : "CMAKE_SKIP_RPATH",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "If set, runtime paths are not added when using shared libraries."
+--				}
+--			],
+--			"type" : "BOOL",
+--			"value" : "NO"
+--		},
+--		{
+--			"name" : "CMAKE_STATIC_LINKER_FLAGS",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of static libraries during all build types."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_STATIC_LINKER_FLAGS_DEBUG",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of static libraries during DEBUG builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of static libraries during MINSIZEREL builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_STATIC_LINKER_FLAGS_RELEASE",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of static libraries during RELEASE builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Flags used by the linker during the creation of static libraries during RELWITHDEBINFO builds."
+--				}
+--			],
+--			"type" : "STRING",
+--			"value" : ""
+--		},
+--		{
+--			"name" : "CMAKE_STRIP",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Path to a program."
+--				}
+--			],
+--			"type" : "FILEPATH",
+--			"value" : "/usr/bin/strip"
+--		},
+--		{
+--			"name" : "CMAKE_UNAME",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "uname command"
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "/usr/bin/uname"
+--		},
+--		{
+--			"name" : "CMAKE_VERBOSE_MAKEFILE",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "ADVANCED",
+--					"value" : "1"
+--				},
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "If this value is on, makefiles will be generated without the .SILENT directive, and all commands will be echoed to the console during the make.  This is useful for debugging only. With Visual Studio IDE projects all commands are done without /nologo."
+--				}
+--			],
+--			"type" : "BOOL",
+--			"value" : "FALSE"
+--		},
+--		{
+--			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "linker supports push/pop state"
+--				}
+--			],
+--			"type" : "INTERNAL",
+--			"value" : "TRUE"
+--		},
+--		{
+--			"name" : "bbx15_BINARY_DIR",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Value Computed by CMake"
+--				}
+--			],
+--			"type" : "STATIC",
+--			"value" : "/home/onur/CLionProjects/bbx15/cmake-build-debug"
+--		},
+--		{
+--			"name" : "bbx15_IS_TOP_LEVEL",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Value Computed by CMake"
+--				}
+--			],
+--			"type" : "STATIC",
+--			"value" : "ON"
+--		},
+--		{
+--			"name" : "bbx15_SOURCE_DIR",
+--			"properties" : 
+--			[
+--				{
+--					"name" : "HELPSTRING",
+--					"value" : "Value Computed by CMake"
+--				}
+--			],
+--			"type" : "STATIC",
+--			"value" : "/home/onur/CLionProjects/bbx15"
+--		}
+--	],
+--	"kind" : "cache",
+--	"version" : 
+--	{
+--		"major" : 2,
+--		"minor" : 0
+--	}
+--}
+-Index: GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/target-bbx15-Debug-173dede2a17eae53bd46.json
+-===================================================================
+-diff --git a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/target-bbx15-Debug-173dede2a17eae53bd46.json b/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/target-bbx15-Debug-173dede2a17eae53bd46.json
+-deleted file mode 100644
+---- a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/target-bbx15-Debug-173dede2a17eae53bd46.json	
+-+++ /dev/null	
+-@@ -1,119 +0,0 @@
+--{
+--	"artifacts" : 
+--	[
+--		{
+--			"path" : "bbx15"
+--		}
+--	],
+--	"backtrace" : 1,
+--	"backtraceGraph" : 
+--	{
+--		"commands" : 
+--		[
+--			"add_executable"
+--		],
+--		"files" : 
+--		[
+--			"CMakeLists.txt"
+--		],
+--		"nodes" : 
+--		[
+--			{
+--				"file" : 0
+--			},
+--			{
+--				"command" : 0,
+--				"file" : 0,
+--				"line" : 6,
+--				"parent" : 0
+--			}
+--		]
+--	},
+--	"compileGroups" : 
+--	[
+--		{
+--			"compileCommandFragments" : 
+--			[
+--				{
+--					"fragment" : "-g -fdiagnostics-color=always"
+--				}
+--			],
+--			"language" : "CXX",
+--			"languageStandard" : 
+--			{
+--				"backtraces" : 
+--				[
+--					1
+--				],
+--				"standard" : "17"
+--			},
+--			"sourceIndexes" : 
+--			[
+--				0,
+--				1
+--			]
+--		}
+--	],
+--	"id" : "bbx15::@6890427a1f51a3e7e1df",
+--	"link" : 
+--	{
+--		"commandFragments" : 
+--		[
+--			{
+--				"fragment" : "-g",
+--				"role" : "flags"
+--			},
+--			{
+--				"fragment" : "",
+--				"role" : "flags"
+--			}
+--		],
+--		"language" : "CXX"
+--	},
+--	"name" : "bbx15",
+--	"nameOnDisk" : "bbx15",
+--	"paths" : 
+--	{
+--		"build" : ".",
+--		"source" : "."
+--	},
+--	"sourceGroups" : 
+--	[
+--		{
+--			"name" : "Source Files",
+--			"sourceIndexes" : 
+--			[
+--				0,
+--				1
+--			]
+--		},
+--		{
+--			"name" : "Header Files",
+--			"sourceIndexes" : 
+--			[
+--				2
+--			]
+--		}
+--	],
+--	"sources" : 
+--	[
+--		{
+--			"backtrace" : 1,
+--			"compileGroupIndex" : 0,
+--			"path" : "main.cpp",
+--			"sourceGroupIndex" : 0
+--		},
+--		{
+--			"backtrace" : 1,
+--			"compileGroupIndex" : 0,
+--			"path" : "gpiolib.cpp",
+--			"sourceGroupIndex" : 0
+--		},
+--		{
+--			"backtrace" : 1,
+--			"path" : "gpiolib.h",
+--			"sourceGroupIndex" : 1
+--		}
+--	],
+--	"type" : "EXECUTABLE"
+--}
+-Index: GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+-===================================================================
+-diff --git a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json b/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+-deleted file mode 100644
+---- a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json	
+-+++ /dev/null	
+-@@ -1,14 +0,0 @@
+--{
+--	"backtraceGraph" : 
+--	{
+--		"commands" : [],
+--		"files" : [],
+--		"nodes" : []
+--	},
+--	"installers" : [],
+--	"paths" : 
+--	{
+--		"build" : ".",
+--		"source" : "."
+--	}
+--}
+-Index: GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-ffb6434f9d66dd28afdb.json
+-===================================================================
+-diff --git a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-ffb6434f9d66dd28afdb.json b/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-ffb6434f9d66dd28afdb.json
+-deleted file mode 100644
+---- a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-ffb6434f9d66dd28afdb.json	
+-+++ /dev/null	
+-@@ -1,107 +0,0 @@
+--{
+--	"kind" : "toolchains",
+--	"toolchains" : 
+--	[
+--		{
+--			"compiler" : 
+--			{
+--				"id" : "GNU",
+--				"implicit" : 
+--				{
+--					"includeDirectories" : 
+--					[
+--						"/usr/lib/gcc/x86_64-linux-gnu/11/include",
+--						"/usr/local/include",
+--						"/usr/include/x86_64-linux-gnu",
+--						"/usr/include"
+--					],
+--					"linkDirectories" : 
+--					[
+--						"/usr/lib/gcc/x86_64-linux-gnu/11",
+--						"/usr/lib/x86_64-linux-gnu",
+--						"/usr/lib",
+--						"/lib/x86_64-linux-gnu",
+--						"/lib"
+--					],
+--					"linkFrameworkDirectories" : [],
+--					"linkLibraries" : 
+--					[
+--						"gcc",
+--						"gcc_s",
+--						"c",
+--						"gcc",
+--						"gcc_s"
+--					]
+--				},
+--				"path" : "/usr/bin/cc",
+--				"version" : "11.3.0"
+--			},
+--			"language" : "C",
+--			"sourceFileExtensions" : 
+--			[
+--				"c",
+--				"m"
+--			]
+--		},
+--		{
+--			"compiler" : 
+--			{
+--				"id" : "GNU",
+--				"implicit" : 
+--				{
+--					"includeDirectories" : 
+--					[
+--						"/usr/include/c++/11",
+--						"/usr/include/x86_64-linux-gnu/c++/11",
+--						"/usr/include/c++/11/backward",
+--						"/usr/lib/gcc/x86_64-linux-gnu/11/include",
+--						"/usr/local/include",
+--						"/usr/include/x86_64-linux-gnu",
+--						"/usr/include"
+--					],
+--					"linkDirectories" : 
+--					[
+--						"/usr/lib/gcc/x86_64-linux-gnu/11",
+--						"/usr/lib/x86_64-linux-gnu",
+--						"/usr/lib",
+--						"/lib/x86_64-linux-gnu",
+--						"/lib"
+--					],
+--					"linkFrameworkDirectories" : [],
+--					"linkLibraries" : 
+--					[
+--						"stdc++",
+--						"m",
+--						"gcc_s",
+--						"gcc",
+--						"c",
+--						"gcc_s",
+--						"gcc"
+--					]
+--				},
+--				"path" : "/usr/bin/c++",
+--				"version" : "11.3.0"
+--			},
+--			"language" : "CXX",
+--			"sourceFileExtensions" : 
+--			[
+--				"C",
+--				"M",
+--				"c++",
+--				"cc",
+--				"cpp",
+--				"cxx",
+--				"mm",
+--				"mpp",
+--				"CPP",
+--				"ixx",
+--				"cppm"
+--			]
+--		}
+--	],
+--	"version" : 
+--	{
+--		"major" : 1,
+--		"minor" : 0
+--	}
+--}
+-Index: .idea/modules.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectModuleManager\">\r\n    <modules>\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/bbx15.iml\" filepath=\"$PROJECT_DIR$/.idea/bbx15.iml\" />\r\n    </modules>\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/modules.xml b/.idea/modules.xml
+---- a/.idea/modules.xml	
+-+++ b/.idea/modules.xml	
+-@@ -2,7 +2,7 @@
+- <project version="4">
+-   <component name="ProjectModuleManager">
+-     <modules>
+--      <module fileurl="file://$PROJECT_DIR$/.idea/bbx15.iml" filepath="$PROJECT_DIR$/.idea/bbx15.iml" />
+-+      <module fileurl="file://$PROJECT_DIR$/.idea/bbx15-driver.iml" filepath="$PROJECT_DIR$/.idea/bbx15-driver.iml" />
+-     </modules>
+-   </component>
+- </project>
+-\ No newline at end of file
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"CMakeReloadState\">\r\n    <option name=\"reloaded\" value=\"true\" />\r\n  </component>\r\n  <component name=\"CMakeRunConfigurationManager\" shouldGenerate=\"true\" shouldDeleteObsolete=\"true\">\r\n    <generated>\r\n      <config projectName=\"bbx15\" targetName=\"bbx15\" />\r\n    </generated>\r\n  </component>\r\n  <component name=\"CMakeSettings\">\r\n    <configurations>\r\n      <configuration PROFILE_NAME=\"Debug\" CONFIG_NAME=\"Debug\" />\r\n    </configurations>\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8f9fdbfc-faeb-45e7-abb8-e878aa5cfbf7\" name=\"Changes\" comment=\"-\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ClangdSettings\">\r\n    <option name=\"formatViaClangd\" value=\"false\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CMakeLists.txt\" />\r\n        <option value=\"package.json\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectApplicationVersion\">\r\n    <option name=\"ide\" value=\"CLion\" />\r\n    <option name=\"majorVersion\" value=\"2022\" />\r\n    <option name=\"minorVersion\" value=\"3.1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2JYZ0JGOuXde3UdUWyNQUZpCMP7\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\onuru\\OneDrive\\Desktop\\bbx15-driver\\GPIO-Driver\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"main.cpp - Default\" type=\"CppFileRunConfiguration\" factoryName=\"CppFileRunConfiguration\" nameIsGenerated=\"true\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"bbx15\" TARGET_NAME=\"main.cpp - Default\" CONFIG_NAME=\"main.cpp - Default\">\r\n      <option name=\"sourceFile\" value=\"$PROJECT_DIR$/main.cpp\" />\r\n      <option name=\"toolchainName\" value=\"Default\" />\r\n      <method v=\"2\">\r\n        <option name=\"com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" BundledDictionaries=\"0\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" Dictionaries=\"0\" CorrectionsLimit=\"5\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" />\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8f9fdbfc-faeb-45e7-abb8-e878aa5cfbf7\" name=\"Changes\" comment=\"\" />\r\n      <created>1672256752933</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1672256752933</updated>\r\n      <workItem from=\"1672256754384\" duration=\"13000\" />\r\n      <workItem from=\"1672256851521\" duration=\"475000\" />\r\n      <workItem from=\"1672257334273\" duration=\"28000\" />\r\n      <workItem from=\"1672257367727\" duration=\"6000\" />\r\n      <workItem from=\"1672257394133\" duration=\"18000\" />\r\n      <workItem from=\"1672257442801\" duration=\"148000\" />\r\n      <workItem from=\"1672257653863\" duration=\"179000\" />\r\n      <workItem from=\"1672257844024\" duration=\"4646000\" />\r\n      <workItem from=\"1672262504721\" duration=\"15245000\" />\r\n      <workItem from=\"1672302572329\" duration=\"6988000\" />\r\n      <workItem from=\"1672312826811\" duration=\"7782000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"-\">\r\n      <created>1672262462003</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672262462004</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"*\">\r\n      <created>1672262519945</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672262519945</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"-\">\r\n      <created>1672290214800</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672290214801</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"-\">\r\n      <created>1672292525227</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672292525227</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"-\">\r\n      <created>1672297709766</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672297709766</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"-\">\r\n      <created>1672301983086</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672301983086</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"-\">\r\n      <created>1672317531111</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672317531111</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"-\">\r\n      <created>1672319412417</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672319412417</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"9\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"*\" />\r\n    <MESSAGE value=\"-\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"-\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	
+-+++ b/.idea/workspace.xml	
+-@@ -3,21 +3,42 @@
+-   <component name="AutoImportSettings">
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-+  <component name="CMakePresetLoader"><![CDATA[{
+-+  "useNewFormat": true
+-+}]]></component>
+-   <component name="CMakeReloadState">
+-     <option name="reloaded" value="true" />
+-   </component>
+--  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+-+  <component name="CMakeRunConfigurationManager">
+-     <generated>
+-       <config projectName="bbx15" targetName="bbx15" />
+-     </generated>
+-   </component>
+-   <component name="CMakeSettings">
+-     <configurations>
+--      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+-+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+-     </configurations>
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="8f9fdbfc-faeb-45e7-abb8-e878aa5cfbf7" name="Changes" comment="-" />
+-+    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="">
+-+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/bbx15.iml" beforeDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cache-v2-6a6874460c66b37c1b04.json" beforeDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-5d96ed6502f4f860e1d5.json" beforeDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-f0c07e1541bfbdc5c3c0.json" beforeDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" beforeDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/target-bbx15-Debug-173dede2a17eae53bd46.json" beforeDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-ffb6434f9d66dd28afdb.json" beforeDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" afterDir="false" />
+-+    </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-@@ -26,148 +47,61 @@
+-   <component name="ClangdSettings">
+-     <option name="formatViaClangd" value="false" />
+-   </component>
+--  <component name="FileTemplateManagerImpl">
+--    <option name="RECENT_TEMPLATES">
+--      <list>
+--        <option value="CMakeLists.txt" />
+--        <option value="package.json" />
+--      </list>
+--    </option>
+--  </component>
+-+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+-   <component name="Git.Settings">
+-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-   </component>
+-   <component name="MarkdownSettingsMigration">
+-     <option name="stateVersion" value="1" />
+-   </component>
+--  <component name="ProjectApplicationVersion">
+--    <option name="ide" value="CLion" />
+--    <option name="majorVersion" value="2022" />
+--    <option name="minorVersion" value="3.1" />
+--  </component>
+--  <component name="ProjectId" id="2JYZ0JGOuXde3UdUWyNQUZpCMP7" />
+--  <component name="ProjectLevelVcsManager">
+--    <ConfirmationsSetting value="2" id="Add" />
+--  </component>
+-+  <component name="ProjectId" id="2JqO3xrqi7nQFGXhT21Ajw9NmW3" />
+-   <component name="ProjectViewState">
+-     <option name="hideEmptyMiddlePackages" value="true" />
+-     <option name="showLibraryContents" value="true" />
+-   </component>
+--  <component name="RecentsManager">
+--    <key name="MoveFile.RECENT_KEYS">
+--      <recent name="C:\Users\onuru\OneDrive\Desktop\bbx15-driver\GPIO-Driver" />
+--    </key>
+--  </component>
+-+  <component name="PropertiesComponent"><![CDATA[{
+-+  "keyToString": {
+-+    "RunOnceActivity.cidr.known.project.marker": "true",
+-+    "WebServerToolWindowFactoryState": "false",
+-+    "cf.first.check.clang-format": "false",
+-+    "cidr.known.project.marker": "true",
+-+    "node.js.detected.package.eslint": "true",
+-+    "node.js.detected.package.tslint": "true",
+-+    "node.js.selected.package.eslint": "(autodetect)",
+-+    "node.js.selected.package.tslint": "(autodetect)",
+-+    "nodejs_package_manager_path": "npm",
+-+    "vue.rearranger.settings.migration": "true"
+-+  }
+-+}]]></component>
+-   <component name="RunManager">
+--    <configuration name="main.cpp - Default" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bbx15" TARGET_NAME="main.cpp - Default" CONFIG_NAME="main.cpp - Default">
+--      <option name="sourceFile" value="$PROJECT_DIR$/main.cpp" />
+--      <option name="toolchainName" value="Default" />
+-+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+-       <method v="2">
+--        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+-+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+-+      </method>
+-+    </configuration>
+-+    <configuration name="bbx15" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bbx15" TARGET_NAME="bbx15" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="bbx15" RUN_TARGET_NAME="bbx15">
+-+      <method v="2">
+-+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+-       </method>
+-     </configuration>
+-   </component>
+--  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+-+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-   <component name="SvnConfiguration">
+-     <configuration />
+-   </component>
+-   <component name="TaskManager">
+-     <task active="true" id="Default" summary="Default task">
+--      <changelist id="8f9fdbfc-faeb-45e7-abb8-e878aa5cfbf7" name="Changes" comment="" />
+--      <created>1672256752933</created>
+-+      <changelist id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="" />
+-+      <created>1672801950888</created>
+-       <option name="number" value="Default" />
+-       <option name="presentableId" value="Default" />
+--      <updated>1672256752933</updated>
+--      <workItem from="1672256754384" duration="13000" />
+--      <workItem from="1672256851521" duration="475000" />
+--      <workItem from="1672257334273" duration="28000" />
+--      <workItem from="1672257367727" duration="6000" />
+--      <workItem from="1672257394133" duration="18000" />
+--      <workItem from="1672257442801" duration="148000" />
+--      <workItem from="1672257653863" duration="179000" />
+--      <workItem from="1672257844024" duration="4646000" />
+--      <workItem from="1672262504721" duration="15245000" />
+--      <workItem from="1672302572329" duration="6988000" />
+--      <workItem from="1672312826811" duration="7782000" />
+-+      <updated>1672801950888</updated>
+-+      <workItem from="1672801953344" duration="50000" />
+-+      <workItem from="1672802549838" duration="2413000" />
+-     </task>
+--    <task id="LOCAL-00001" summary="-">
+--      <created>1672262462003</created>
+--      <option name="number" value="00001" />
+--      <option name="presentableId" value="LOCAL-00001" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672262462004</updated>
+--    </task>
+--    <task id="LOCAL-00002" summary="*">
+--      <created>1672262519945</created>
+--      <option name="number" value="00002" />
+--      <option name="presentableId" value="LOCAL-00002" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672262519945</updated>
+--    </task>
+--    <task id="LOCAL-00003" summary="-">
+--      <created>1672290214800</created>
+--      <option name="number" value="00003" />
+--      <option name="presentableId" value="LOCAL-00003" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672290214801</updated>
+--    </task>
+--    <task id="LOCAL-00004" summary="-">
+--      <created>1672292525227</created>
+--      <option name="number" value="00004" />
+--      <option name="presentableId" value="LOCAL-00004" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672292525227</updated>
+--    </task>
+--    <task id="LOCAL-00005" summary="-">
+--      <created>1672297709766</created>
+--      <option name="number" value="00005" />
+--      <option name="presentableId" value="LOCAL-00005" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672297709766</updated>
+--    </task>
+--    <task id="LOCAL-00006" summary="-">
+--      <created>1672301983086</created>
+--      <option name="number" value="00006" />
+--      <option name="presentableId" value="LOCAL-00006" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672301983086</updated>
+--    </task>
+--    <task id="LOCAL-00007" summary="-">
+--      <created>1672317531111</created>
+--      <option name="number" value="00007" />
+--      <option name="presentableId" value="LOCAL-00007" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672317531111</updated>
+--    </task>
+--    <task id="LOCAL-00008" summary="-">
+--      <created>1672319412417</created>
+--      <option name="number" value="00008" />
+--      <option name="presentableId" value="LOCAL-00008" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1672319412417</updated>
+--    </task>
+--    <option name="localTasksCounter" value="9" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-     <option name="version" value="3" />
+-   </component>
+--  <component name="Vcs.Log.Tabs.Properties">
+--    <option name="TAB_STATES">
+--      <map>
+--        <entry key="MAIN">
+--          <value>
+--            <State />
+--          </value>
+--        </entry>
+--      </map>
+--    </option>
+--    <option name="oldMeFiltersMigrated" value="true" />
+--  </component>
+--  <component name="VcsManagerConfiguration">
+--    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+--    <MESSAGE value="*" />
+--    <MESSAGE value="-" />
+--    <option name="LAST_COMMIT_MESSAGE" value="-" />
+--  </component>
+- </project>
+-\ No newline at end of file
+-Index: .idea/vcs.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"\" vcs=\"Git\" />\r\n    <mapping directory=\"$PROJECT_DIR$/json\" vcs=\"Git\" />\r\n    <mapping directory=\"$PROJECT_DIR$/rapidjson\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+---- a/.idea/vcs.xml	
+-+++ b/.idea/vcs.xml	
+-@@ -1,8 +1,7 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+-   <component name="VcsDirectoryMappings">
+--    <mapping directory="" vcs="Git" />
+--    <mapping directory="$PROJECT_DIR$/json" vcs="Git" />
+--    <mapping directory="$PROJECT_DIR$/rapidjson" vcs="Git" />
+-+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+-+    <mapping directory="$PROJECT_DIR$/nlohmann-json" vcs="Git" />
+-   </component>
+- </project>
+-\ No newline at end of file
+-Index: .idea/misc.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CMakeWorkspace\" PROJECT_DIR=\"$PROJECT_DIR$\" />\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/misc.xml b/.idea/misc.xml
+---- a/.idea/misc.xml	
+-+++ b/.idea/misc.xml	
+-@@ -1,4 +1,9 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+--  <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
+-+  <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$/GPIO-Driver">
+-+    <contentRoot DIR="$PROJECT_DIR$" />
+-+  </component>
+-+  <component name="JavaScriptSettings">
+-+    <option name="languageLevel" value="ES6" />
+-+  </component>
+- </project>
+-\ No newline at end of file
+-diff --git a/.idea/.gitignore b/.idea/.gitignore
+-deleted file mode 100644
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"CMakePresetLoader\">{\r\n  &quot;useNewFormat&quot;: true\r\n}</component>\r\n  <component name=\"CMakeReloadState\">\r\n    <option name=\"reloaded\" value=\"true\" />\r\n  </component>\r\n  <component name=\"CMakeRunConfigurationManager\">\r\n    <generated>\r\n      <config projectName=\"bbx15\" targetName=\"bbx15\" />\r\n    </generated>\r\n  </component>\r\n  <component name=\"CMakeSettings\">\r\n    <configurations>\r\n      <configuration PROFILE_NAME=\"Debug\" ENABLED=\"true\" CONFIG_NAME=\"Debug\" />\r\n    </configurations>\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"011f53e8-c621-455f-9ffc-2eceebccd08a\" name=\"Default Changelist\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_deps\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_deps\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_log\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_log\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/gpiolib.cpp.obj\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/gpiolib.cpp.obj\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/main.cpp.obj\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/main.cpp.obj\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/bbx15.exe\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/bbx15.exe\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GPIO-Driver/main.cpp\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GPIO-Driver/main.cpp\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ClangdSettings\">\r\n    <option name=\"formatViaClangd\" value=\"false\" />\r\n  </component>\r\n  <component name=\"ExecutionTargetManager\" SELECTED_TARGET=\"CMakeBuildProfile:Debug\" />\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CMakeLists.txt\" />\r\n        <option value=\"package.json\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"develop\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectApplicationVersion\">\r\n    <option name=\"ide\" value=\"CLion\" />\r\n    <option name=\"majorVersion\" value=\"2022\" />\r\n    <option name=\"minorVersion\" value=\"3.1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2JYZ0JGOuXde3UdUWyNQUZpCMP7\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,\r\n    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;/home/onur/CLionProjects/bbx15/main.cpp&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;CPPToolchains&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"bbx15\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"bbx15\" TARGET_NAME=\"bbx15\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"bbx15\" RUN_TARGET_NAME=\"bbx15\">\r\n      <method v=\"2\">\r\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <created>1672256752933</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1672256752933</updated>\r\n      <workItem from=\"1672256754384\" duration=\"13000\" />\r\n      <workItem from=\"1672256851521\" duration=\"475000\" />\r\n      <workItem from=\"1672257334273\" duration=\"28000\" />\r\n      <workItem from=\"1672257367727\" duration=\"6000\" />\r\n      <workItem from=\"1672257394133\" duration=\"18000\" />\r\n      <workItem from=\"1672257442801\" duration=\"148000\" />\r\n      <workItem from=\"1672257653863\" duration=\"179000\" />\r\n      <workItem from=\"1672257844024\" duration=\"4646000\" />\r\n      <workItem from=\"1672262504721\" duration=\"15245000\" />\r\n      <workItem from=\"1672302572329\" duration=\"6988000\" />\r\n      <workItem from=\"1672312826811\" duration=\"7782000\" />\r\n      <workItem from=\"1672862355808\" duration=\"5036000\" />\r\n      <workItem from=\"1672904291155\" duration=\"17019000\" />\r\n      <workItem from=\"1673033793348\" duration=\"5697000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"-\">\r\n      <created>1672262462003</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672262462004</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"*\">\r\n      <created>1672262519945</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672262519945</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"-\">\r\n      <created>1672290214800</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672290214801</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"-\">\r\n      <created>1672292525227</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672292525227</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"-\">\r\n      <created>1672297709766</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672297709766</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"-\">\r\n      <created>1672301983086</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672301983086</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"-\">\r\n      <created>1672317531111</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672317531111</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"-\">\r\n      <created>1672319412417</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672319412417</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"-\">\r\n      <created>1672805505381</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672805505381</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"-\">\r\n      <created>1672805700255</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672805700255</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"-\">\r\n      <created>1672819267913</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672819267913</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"-\">\r\n      <created>1672832094751</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672832094751</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"-\">\r\n      <created>1672871229261</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672871229261</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"-\">\r\n      <created>1672925327085</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672925327085</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"-\">\r\n      <created>1673037723354</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1673037723354</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"16\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"*\" />\r\n    <MESSAGE value=\"-\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"-\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 1d29df8827b49c03902cb68565292c5ee21e076b)
++++ b/.idea/workspace.xml	(date 1674107464200)
+@@ -21,15 +21,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10_[Default_Changelist]1/LastTest.log" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10_[Default_Changelist]1/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11_[Default_Changelist]/shelved.patch" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_deps" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_log" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/gpiolib.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/gpiolib.cpp.obj" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/main.cpp.obj" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/bbx15.exe" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/bbx15.exe" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/main.cpp" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -119,7 +114,8 @@
+       <workItem from="1672312826811" duration="7782000" />
+       <workItem from="1672862355808" duration="5036000" />
+       <workItem from="1672904291155" duration="17019000" />
+-      <workItem from="1673033793348" duration="5697000" />
++      <workItem from="1673033793348" duration="5934000" />
++      <workItem from="1674107463317" duration="1000" />
+     </task>
+     <task id="LOCAL-00001" summary="-">
+       <created>1672262462003</created>
+@@ -226,7 +222,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1673037723354</updated>
+     </task>
+-    <option name="localTasksCounter" value="16" />
++    <task id="LOCAL-00016" summary="-">
++      <created>1673039698271</created>
++      <option name="number" value="00016" />
++      <option name="presentableId" value="LOCAL-00016" />
++      <option name="project" value="LOCAL" />
++      <updated>1673039698271</updated>
++    </task>
++    <option name="localTasksCounter" value="17" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
