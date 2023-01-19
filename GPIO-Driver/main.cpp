@@ -1,6 +1,10 @@
 #include "gpiolib.h"
 #include <unistd.h>
 #include <regex>
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+//#include <boost/format.hpp>
 
 using namespace std;
 
@@ -8,12 +12,13 @@ using namespace std;
 
 fstream receiver;
 string _command;
+fstream history;
 
 int receive_command(enum command_request req);
 void throw_command();
+string now();
 
 int main() {
-
     //GPIO_Device* gpioDevHandler = new GPIO_Device(DEV_NAME);
 
     //gpioDevHandler->device_open(READONLY, gpioDevHandler);
@@ -34,7 +39,7 @@ int main() {
 
 
     float sleep_time = 0.2;
-    cout << "Build finished."<< endl;
+    //cout << "Build finished."<< endl;
     cout << "program started working."<< endl;
 
     //usleep(2000000);
@@ -44,10 +49,9 @@ int main() {
 
     receiver.close();
 
-//    fstream hFile;
-//    hFile.open("history");
-//    hFile.close();
-
+    ofstream hFile;
+    hFile.open("history");
+    hFile.close();
 
     usleep(1000000 * sleep_time);
 
@@ -95,13 +99,26 @@ int receive_command(enum command_request req) {
 
         if (substrings[0] == "show") {
 
+            history.open("history", ios::app);
+
+            history << "Date: " << now() << endl << "Command: " << _command << endl;
+            history << "Output: " << endl;
+
             const char* dev_name = ("dev/" + substrings[1]).c_str();
             GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
             gpioDevHandler->devContent.show(gpioDevHandler);
 
+            history << endl << endl;
+            history.close();
+
         }
 
         else if (substrings[0] == "read") {
+
+            history.open("history", ios::app);
+
+            history << "Date: " << now() << endl << "Command: " << _command << endl;
+            history << "Output: " << endl;
 
             const char* dev_name = ("dev/" + substrings[1]).c_str();
             GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
@@ -129,11 +146,19 @@ int receive_command(enum command_request req) {
             }
 
             string gpio_data = gpioDevHandler->devContent.read(offset, property, gpioDevHandler);
-            cout << "Data has been read:" << gpio_data << endl;
+
+            history << endl << endl;
+            history.close();
 
         }
 
         else if (substrings[0] == "write") {
+
+            history.open("history", ios::app);
+
+            history << "Date: " << now() << endl << "Command: " << _command << endl;
+            history << "Output: " << endl;
+
             const char* dev_name = ("dev/" + substrings[1]).c_str();
             //cout << dev_name << " * " << endl;
             GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
@@ -168,15 +193,25 @@ int receive_command(enum command_request req) {
             //string val = substrings[4];
             //gpioDevHandler->devContent.show(gpioDevHandler);
             gpioDevHandler->devContent.write(offset, property, substrings[4], gpioDevHandler);
+            history << endl << endl;
+            history.close();
             //gpioDevHandler->devContent.write(1, FLAG_IS_OUT, "[OUTPUT]", gpioDevHandler);
 
         }
 
         else if (substrings[0] == "fill") {
 
+            history.open("history", ios::app);
+
+            history << "Date: " << now() << endl << "Command: " << _command << endl;
+            history << "Output: " << endl;
+
             const char* dev_name = ("dev/" + substrings[1]).c_str();
             GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
             gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
+
+            history << endl << endl;
+            history.close();
 
         }
         //.commandSet-commandsText
@@ -216,6 +251,21 @@ void throw_command(){
     ofstream outfile ("command");
     outfile << "&";
     outfile.close();
+}
+
+string now(){
+    auto now = std::chrono::system_clock::now();
+    auto now_c = std::chrono::system_clock::to_time_t(now);
+    std::tm *tm = std::localtime(&now_c);
+
+    // Create a stringstream object
+    std::stringstream ss;
+
+    // Use the stringstream's operator << to format the time
+    ss << std::put_time(tm, "%c");
+
+    // Get the string from the stringstream
+    return ss.str();
 }
 
 
