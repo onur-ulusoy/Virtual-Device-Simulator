@@ -148,7 +148,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=bbx15
+CMAKE_PROJECT_NAME:STATIC=program
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -220,6 +220,15 @@ bbx15_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 bbx15_SOURCE_DIR:STATIC=/home/onur/CLionProjects/bbx15/GPIO-Driver
+
+//Value Computed by CMake
+program_BINARY_DIR:STATIC=/home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug
+
+//Value Computed by CMake
+program_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+program_SOURCE_DIR:STATIC=/home/onur/CLionProjects/bbx15/GPIO-Driver
 
 
 ########################

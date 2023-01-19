@@ -11,7 +11,7 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="bbx15" targetName="bbx15" />
+      <config projectName="program" targetName="program" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -20,33 +20,27 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="">
+    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="-">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10_[Default_Changelist]1/LastTest.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10_[Default_Changelist]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_10__Default_Changelist_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_01_2023_07_11__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-a0ea46eb916f745723fc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-d0094a50bb2071803777.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/target-bbx15-Debug-ab7bdf902910289ea1e9.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-f76e61fd0e953e82d14d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeRCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CompilerIdC/a.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/3.24.2/CompilerIdCXX/a.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/gpiolib.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/bbx15.dir/main.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/bbx15" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/bbx15" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/bbx15" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/bbx15.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/bbx15.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/untitled" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/main.cpp" afterDir="false" />
     </list>
@@ -74,6 +68,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -112,12 +107,7 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="bbx15" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="bbx15" TARGET_NAME="bbx15" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="bbx15" RUN_TARGET_NAME="bbx15">
+    <configuration name="program" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="program" TARGET_NAME="program" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="program" RUN_TARGET_NAME="program">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -144,6 +134,38 @@
       <workItem from="1672862355808" duration="5036000" />
       <workItem from="1672904291155" duration="17019000" />
       <workItem from="1673033793348" duration="5697000" />
+      <workItem from="1673333618296" duration="551000" />
+      <workItem from="1673334514139" duration="60000" />
+      <workItem from="1673335081714" duration="28000" />
+      <workItem from="1673335252250" duration="1863000" />
+      <workItem from="1673352014476" duration="772000" />
+      <workItem from="1673352853215" duration="665000" />
+      <workItem from="1673500572157" duration="2084000" />
+      <workItem from="1673506020443" duration="6842000" />
+      <workItem from="1673517389071" duration="337000" />
+      <workItem from="1673517773533" duration="10000" />
+      <workItem from="1673519679036" duration="2564000" />
+      <workItem from="1673522322368" duration="22000" />
+      <workItem from="1673522742749" duration="313000" />
+      <workItem from="1673523324091" duration="371000" />
+      <workItem from="1673524285447" duration="26000" />
+      <workItem from="1673524845224" duration="590000" />
+      <workItem from="1673526097028" duration="715000" />
+      <workItem from="1673527409566" duration="76000" />
+      <workItem from="1673527629319" duration="371000" />
+      <workItem from="1673528080709" duration="2403000" />
+      <workItem from="1673930151527" duration="1680000" />
+      <workItem from="1673933724485" duration="1056000" />
+      <workItem from="1673935813287" duration="558000" />
+      <workItem from="1673936915073" duration="626000" />
+      <workItem from="1673937682799" duration="441000" />
+      <workItem from="1673938687342" duration="343000" />
+      <workItem from="1673941153562" duration="2522000" />
+      <workItem from="1673943951302" duration="4745000" />
+      <workItem from="1673952054442" duration="4074000" />
+      <workItem from="1673956961616" duration="212000" />
+      <workItem from="1673957232597" duration="4250000" />
+      <workItem from="1673961822883" duration="1876000" />
     </task>
     <task id="LOCAL-00001" summary="-">
       <created>1672262462003</created>
@@ -250,7 +272,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673037723354</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="-">
+      <created>1673329173624</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1673329173625</updated>
+    </task>
+    <task id="LOCAL-00017" summary="-">
+      <created>1673332782984</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1673332782984</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

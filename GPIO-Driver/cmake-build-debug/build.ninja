@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: bbx15
+# Project: program
 # Configurations: Debug
 # =============================================================================
 
@@ -41,47 +41,41 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target bbx15
+# Object build statements for EXECUTABLE target program
 
 
 #############################################
-# Order-only phony target for bbx15
+# Order-only phony target for program
 
-build cmake_object_order_depends_target_bbx15: phony || CMakeFiles/bbx15.dir
+build cmake_object_order_depends_target_program: phony || CMakeFiles/program.dir
 
-build CMakeFiles/bbx15.dir/main.cpp.o: CXX_COMPILER__bbx15_Debug /home/onur/CLionProjects/bbx15/GPIO-Driver/main.cpp || cmake_object_order_depends_target_bbx15
-  DEP_FILE = CMakeFiles/bbx15.dir/main.cpp.o.d
+build CMakeFiles/program.dir/main.cpp.o: CXX_COMPILER__program_Debug /home/onur/CLionProjects/bbx15/GPIO-Driver/main.cpp || cmake_object_order_depends_target_program
+  DEP_FILE = CMakeFiles/program.dir/main.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/bbx15.dir
-  OBJECT_FILE_DIR = CMakeFiles/bbx15.dir
+  OBJECT_DIR = CMakeFiles/program.dir
+  OBJECT_FILE_DIR = CMakeFiles/program.dir
 
-build CMakeFiles/bbx15.dir/gpiolib.cpp.o: CXX_COMPILER__bbx15_Debug /home/onur/CLionProjects/bbx15/GPIO-Driver/gpiolib.cpp || cmake_object_order_depends_target_bbx15
-  DEP_FILE = CMakeFiles/bbx15.dir/gpiolib.cpp.o.d
+build CMakeFiles/program.dir/gpiolib.cpp.o: CXX_COMPILER__program_Debug /home/onur/CLionProjects/bbx15/GPIO-Driver/gpiolib.cpp || cmake_object_order_depends_target_program
+  DEP_FILE = CMakeFiles/program.dir/gpiolib.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/bbx15.dir
-  OBJECT_FILE_DIR = CMakeFiles/bbx15.dir
-
-build CMakeFiles/bbx15.dir/main_process.cpp.o: CXX_COMPILER__bbx15_Debug /home/onur/CLionProjects/bbx15/GPIO-Driver/main_process.cpp || cmake_object_order_depends_target_bbx15
-  DEP_FILE = CMakeFiles/bbx15.dir/main_process.cpp.o.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/bbx15.dir
-  OBJECT_FILE_DIR = CMakeFiles/bbx15.dir
+  OBJECT_DIR = CMakeFiles/program.dir
+  OBJECT_FILE_DIR = CMakeFiles/program.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target bbx15
+# Link build statements for EXECUTABLE target program
 
 
 #############################################
-# Link the executable bbx15
+# Link the executable program
 
-build bbx15: CXX_EXECUTABLE_LINKER__bbx15_Debug CMakeFiles/bbx15.dir/main.cpp.o CMakeFiles/bbx15.dir/gpiolib.cpp.o CMakeFiles/bbx15.dir/main_process.cpp.o
+build program: CXX_EXECUTABLE_LINKER__program_Debug CMakeFiles/program.dir/main.cpp.o CMakeFiles/program.dir/gpiolib.cpp.o
   FLAGS = -g
-  OBJECT_DIR = CMakeFiles/bbx15.dir
+  OBJECT_DIR = CMakeFiles/program.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = bbx15
-  TARGET_PDB = bbx15.dbg
+  TARGET_FILE = program
+  TARGET_PDB = program.dbg
 
 
 #############################################
@@ -117,7 +111,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug
 
-build all: phony bbx15
+build all: phony program
 
 # =============================================================================
 # Built-in targets

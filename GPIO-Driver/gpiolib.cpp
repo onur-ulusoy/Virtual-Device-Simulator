@@ -30,10 +30,10 @@ static inline std::string &rtrim(std::string &s) {
 
 GPIO_Device::GPIO_Device(const char *dev_name) {
     this->dev_name = dev_name;
+    //cout << this->dev_name << endl;
 }
 
 void GPIO_Device::device_open(command request, GPIO_Device* gpioDevHandler) {
-
 
     switch (request) {
 
@@ -86,7 +86,7 @@ void GPIO_Device::device_open(command request, GPIO_Device* gpioDevHandler) {
 
         default:
             cout << "function 'GPIO_Device::device_open' worked as DEFAULT" << endl << endl;
-            device_close();
+            //device_close();
             fd.open(gpioDevHandler->dev_name);
 
             if (!fd.is_open())
@@ -115,7 +115,7 @@ void GPIO_Device::device_close() {
 
     else{
         //fd = 0;
-        cout << dev_name << " is not open" << endl;
+        cout << dev_name << " is already not open" << endl;
     }
 
     cout << endl;
@@ -124,6 +124,8 @@ void GPIO_Device::device_close() {
 void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandler) {
 
     cout << "function 'GPIO_Device::DeviceContent::fill' worked" << endl;
+
+    gpioDevHandler->device_open(WRITEONLY, gpioDevHandler);
 
     if (request == DEFAULT){
 
@@ -137,7 +139,6 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
         cout << "Number of items in gpioDevices: " << data.size() << endl << endl;
 
         for (int i = 0; i<dataSize; i++) {
-
 
             gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
             gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
@@ -169,6 +170,8 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
         cout << "Default chip info is written to the file successfully" << endl;
 
     }
+
+    gpioDevHandler->device_close();
 }
 
 void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler){
@@ -231,7 +234,10 @@ string GPIO_Device::DeviceContent::read(int offset, enum feature request, GPIO_D
 
 void GPIO_Device::DeviceContent::write (int offset, enum feature request, string new_value, GPIO_Device* gpioDevHandler){
 
+    //cout << gpioDevHandler->dev_name << endl;
     cout << "function 'GPIO_Device::DeviceContent::write' worked" << endl << endl;
+
+    //cout << gpioDevHandler->dev_name << endl;
 
     gpioDevHandler->device_open(DEFAULT, gpioDevHandler);
 

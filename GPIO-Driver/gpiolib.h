@@ -25,11 +25,10 @@ static inline std::string &rtrim(std::string &s);
 
 class GPIO_Device{
 
-private:
-    const char *dev_name;
-    fstream fd;
 
 public:
+    fstream fd;
+    const char *dev_name;
     GPIO_Device(const char* dev_name);
     void device_open(command request, GPIO_Device* gpioDevHandler);
     void device_close();
