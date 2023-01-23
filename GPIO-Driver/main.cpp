@@ -14,7 +14,7 @@ fstream receiver;
 string _command;
 fstream history;
 
-int receive_command(enum command_request req);
+int receive_command(enum command_request req, string devType);
 void throw_command();
 string now();
 
@@ -37,7 +37,6 @@ int main() {
 
     //gpioDevHandler->devContent.show(gpioDevHandler);
 
-
     float sleep_time = 0.2;
     //cout << "Build finished."<< endl;
     cout << "program started working."<< endl;
@@ -55,7 +54,7 @@ int main() {
 
     usleep(1000000 * sleep_time);
 
-    while (receive_command(ONESHOT) != -1) {
+    while (receive_command(ONESHOT, "gpio") != -1) {
 
         usleep(1000000 * sleep_time);
 
@@ -66,7 +65,7 @@ int main() {
     return 0;
 }
 
-int receive_command(enum command_request req) {
+int receive_command(enum command_request req, string devType) {
 
     if (req == ONESHOT){
         receiver.open("command");
@@ -105,8 +104,17 @@ int receive_command(enum command_request req) {
             history << "Output: " << endl;
 
             const char* dev_name = ("dev/" + substrings[1]).c_str();
-            GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
-            gpioDevHandler->devContent.show(gpioDevHandler);
+
+            if (devType == "gpio"){
+                GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
+                gpioDevHandler->devContent.show(gpioDevHandler);
+            }
+
+            else if (devType == "spi"){
+                SPI_Device* spiDevHandler = new SPI_Device(dev_name);
+                spiDevHandler->devContent.show(spiDevHandler);
+            }
+
 
             history << endl << endl;
             history.close();
@@ -121,7 +129,7 @@ int receive_command(enum command_request req) {
             history << "Output: " << endl;
 
             const char* dev_name = ("dev/" + substrings[1]).c_str();
-            GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
+
             int offset = stoi(substrings[2]);
 
             enum feature property;
@@ -145,7 +153,15 @@ int receive_command(enum command_request req) {
                 return 0;
             }
 
-            string gpio_data = gpioDevHandler->devContent.read(offset, property, gpioDevHandler);
+            if (devType == "gpio"){
+                GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
+                string data = gpioDevHandler->devContent.read(offset, property, gpioDevHandler);
+            }
+
+            else if (devType == "spi"){
+                SPI_Device* spiDevHandler = new SPI_Device(dev_name);
+                string data = spiDevHandler->devContent.read(offset, property, spiDevHandler);
+            }
 
             history << endl << endl;
             history.close();
@@ -161,7 +177,7 @@ int receive_command(enum command_request req) {
 
             const char* dev_name = ("dev/" + substrings[1]).c_str();
             //cout << dev_name << " * " << endl;
-            GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
+
 
             int offset = stoi(substrings[2]);
 
@@ -192,7 +208,16 @@ int receive_command(enum command_request req) {
             //cout << "Data has read:" << gpio_data << endl;
             //string val = substrings[4];
             //gpioDevHandler->devContent.show(gpioDevHandler);
-            gpioDevHandler->devContent.write(offset, property, substrings[4], gpioDevHandler);
+            if (devType == "gpio"){
+                GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
+                gpioDevHandler->devContent.write(offset, property, substrings[4], gpioDevHandler);
+            }
+
+            else if (devType == "spi"){
+                SPI_Device* spiDevHandler = new SPI_Device(dev_name);
+                spiDevHandler->devContent.write(offset, property, substrings[4], spiDevHandler);
+            }
+
             history << endl << endl;
             history.close();
             //gpioDevHandler->devContent.write(1, FLAG_IS_OUT, "[OUTPUT]", gpioDevHandler);
@@ -207,8 +232,17 @@ int receive_command(enum command_request req) {
             history << "Output: " << endl;
 
             const char* dev_name = ("dev/" + substrings[1]).c_str();
-            GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
-            gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
+            if (devType == "gpio"){
+                GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
+                gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
+            }
+
+            else if (devType == "spi"){
+                SPI_Device* spiDevHandler = new SPI_Device(dev_name);
+                //cout << spiDevHandler->defaultDir << endl;
+
+                spiDevHandler->devContent.fill(DEFAULT, spiDevHandler);
+            }
 
             history << endl << endl;
             history.close();
@@ -227,7 +261,7 @@ int receive_command(enum command_request req) {
                 if (_command.length()  == 0)
                     break;
                 cout << "Command is running: " << _command << endl;
-                receive_command(RECURSIVE);
+                receive_command(RECURSIVE, devType);
             }
 
         }

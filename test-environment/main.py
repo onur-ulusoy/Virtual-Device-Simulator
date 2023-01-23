@@ -37,8 +37,10 @@ def exec_process(cpp_files, exe_file, sh, dir):
     process.terminate()
 
 
-
 if __name__ == "__main__":
+
+    #print()
+    device = input("Select device to simulate: gpio, spi, i2c\n")
 
     cpp_files = ["main.cpp", "gpiolib.cpp", "gpiolib.h"]
     exe_file = "program.out"
