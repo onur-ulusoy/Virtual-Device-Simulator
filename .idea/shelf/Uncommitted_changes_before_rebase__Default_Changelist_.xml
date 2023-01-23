@@ -1,0 +1,9 @@
+<changelist name="Uncommitted_changes_before_rebase_[Default_Changelist]" date="1674503505948" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before rebase [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="GPIO-Driver/cmake-build-debug/.ninja_deps" />
+    <option name="AFTER_PATH" value="GPIO-Driver/cmake-build-debug/.ninja_deps" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/.ninja_deps" />
+  </binary>
+</changelist>
