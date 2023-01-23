@@ -30,10 +30,13 @@ private:
     fstream fd;
     const char *dev_name;
     fstream hist;
+    string defaultDir = "dev/default_GPIO_chipInfo.json";
+
 public:
     GPIO_Device(const char* dev_name);
     void device_open(command request, GPIO_Device* gpioDevHandler);
     void device_close();
+    virtual string getDefaultDir() { return defaultDir; }
 
     class DeviceContent {
     public:
@@ -47,15 +50,29 @@ public:
 
 };
 
-struct chipInfo{
-    int offset;
-    string name;
-    string consumer;
-    string FLAG_IS_OUT;
-    string FLAG_ACTIVE_LOW;
-    string FLAG_OPEN_DRAIN;
-    string FLAG_OPEN_SOURCE;
-    string FLAG_KERNEL;
+
+class SPI_Device : public GPIO_Device {
+private:
+    string defaultDir;
+
+public:
+    string getDefaultDir() { return defaultDir; }
+    SPI_Device(const char* dev_name) : GPIO_Device(dev_name) {
+        this->defaultDir = "dev/default_SPI_chipInfo.json";
+    };
 };
+
+
+
+//struct chipInfo{
+//    int offset;
+//    string name;
+//    string consumer;
+//    string FLAG_IS_OUT;
+//    string FLAG_ACTIVE_LOW;
+//    string FLAG_OPEN_DRAIN;
+//    string FLAG_OPEN_SOURCE;
+//    string FLAG_KERNEL;
+//};
 
 #endif //UNTITLED_GPIOLIB_H

@@ -34,6 +34,12 @@ GPIO_Device::GPIO_Device(const char *dev_name) {
     //cout << this->dev_name << endl;
 }
 
+//SPI_Device::SPI_Device(const char *devName) {
+//    this->dev_name = dev_name;
+//    hist.open("history", ios::app);
+//    //cout << this->dev_name << endl;
+//}
+
 void GPIO_Device::device_open(command request, GPIO_Device* gpioDevHandler) {
 
     switch (request) {
@@ -124,20 +130,23 @@ void GPIO_Device::device_close() {
 
 void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandler) {
 
+    string dir = gpioDevHandler->getDefaultDir();
+
     cout << "function 'GPIO_Device::DeviceContent::fill' worked" << endl;
 
     gpioDevHandler->device_open(WRITEONLY, gpioDevHandler);
 
     if (request == DEFAULT){
+        cout << dir << endl;
 
-        std::ifstream jsonFile("dev/default_chipInfo.json");
+        std::ifstream jsonFile(dir);
         nlohmann::json commands;
         jsonFile >> commands;
 
-        nlohmann::json data = commands["gpioDevices"];
+        nlohmann::json data = commands["Devices"];
         unsigned long dataSize = data.size();
 
-        cout << "Number of items in gpioDevices: " << data.size() << endl << endl;
+        cout << "Number of device: " << data.size() << endl << endl;
 
         for (int i = 0; i<dataSize; i++) {
 

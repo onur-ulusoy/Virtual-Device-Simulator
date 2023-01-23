@@ -21,29 +21,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="tester process and host script added">
-      <change afterPath="$PROJECT_DIR$/test-environment/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/dev/c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/fromText.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/history" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tester/command" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-environment/dev/default_GPIO_chipInfo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-environment/dev/default_SPI_chipInfo.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/program.dir/gpiolib.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/program.dir/gpiolib.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/program.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/CMakeFiles/program.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/program" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/cmake-build-debug/program" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/gpiolib.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GPIO-Driver/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GPIO-Driver/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GPIO-Driver/program.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/program.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-environment/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-environment/.idea/testerScript.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/.idea/testerScript.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-environment/commandsText" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/commandsText" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-environment/dev/d" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/dev/d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/command" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/command" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/dev/default_chipInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/fromText.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/history" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/history" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/program.out" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/program.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-environment/tester.out" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/tester.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tester/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tester/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +166,7 @@
       <workItem from="1674119867875" duration="5376000" />
       <workItem from="1674127451183" duration="150000" />
       <workItem from="1674128341758" duration="4061000" />
-      <workItem from="1674132664612" duration="14151000" />
+      <workItem from="1674132664612" duration="25838000" />
     </task>
     <task id="LOCAL-00001" summary="-">
       <created>1672262462003</created>
@@ -306,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674106205609</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="tester process and host script added">
+      <created>1674148431318</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1674148431319</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
