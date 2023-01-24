@@ -1,0 +1,26 @@
+{
+  "Devices": [
+    {
+      "offset": 0,
+      "name": "ETH_0",
+      "mac_address": "00:11:22:33:44:55",
+      "ip_address": "192.168.1.100",
+      "netmask": "255.255.255.0",
+      "gateway": "192.168.1.1",
+      "vlan_enable": false,
+      "vlan_id": 0,
+      "link_speed": 1000
+    },
+    {
+      "offset": 1,
+      "name": "ETH_1",
+      "mac_address": "00:11:22:33:44:55",
+      "ip_address": "192.168.1.100",
+      "netmask": "255.255.255.0",
+      "gateway": "192.168.1.1",
+      "vlan_enable": false,
+      "vlan_id": 0,
+      "link_speed": 1000
+    } 
+  ]
+}

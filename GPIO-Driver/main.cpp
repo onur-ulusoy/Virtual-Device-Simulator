@@ -43,6 +43,15 @@ int main() {
 
     //usleep(2000000);
 
+    receiver.open("command", ios::in);
+    string device;
+
+    receiver >> device;
+
+    cout << device << " device is being simulated." << endl;
+
+    receiver.close();
+
     receiver.open("command");
     receiver << "start";
 
@@ -54,7 +63,7 @@ int main() {
 
     usleep(1000000 * sleep_time);
 
-    while (receive_command(ONESHOT, "gpio") != -1) {
+    while (receive_command(ONESHOT, device) != -1) {
 
         usleep(1000000 * sleep_time);
 

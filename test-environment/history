@@ -1,44 +1,6 @@
-Date: Mon Jan 23 21:09:34 2023
+Date: Tue Jan 24 22:57:12 2023
 Command: fill-d
 Output: 
 Default chip info is written to the file 'dev/d' successfully
-
-
-Date: Mon Jan 23 21:09:59 2023
-Command: show-d
-Output: 
-Data was shown for 'dev/d':
-Offset: 0 	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 1 	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 2 	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 3 	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 4 	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 5 	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 6 	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 7 	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 8 	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 9 	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 10	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 11	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 12	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 13	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 14	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 15	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 16	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 17	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 18	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 19	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 20	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 21	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 22	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 23	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 24	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 25	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 26	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 27	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 28	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 29	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 30	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
-Offset: 31	 Name: -	Consumer: -	 Flags:  [INPUT] [ACTIVE_HIGHT] [...] [...] []
 
 
