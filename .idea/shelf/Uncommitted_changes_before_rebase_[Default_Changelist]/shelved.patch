@@ -1,0 +1,980 @@
+Index: GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-45bbf99ef81a569a3804.json
+===================================================================
+diff --git a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-45bbf99ef81a569a3804.json b/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-45bbf99ef81a569a3804.json
+deleted file mode 100644
+--- a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-45bbf99ef81a569a3804.json	(revision ba44dec4017fe1efa75937f2ae80b7f288d8f758)
++++ /dev/null	(revision ba44dec4017fe1efa75937f2ae80b7f288d8f758)
+@@ -1,739 +0,0 @@
+-{
+-	"inputs" : 
+-	[
+-		{
+-			"path" : "CMakeLists.txt"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystem.cmake.in"
+-		},
+-		{
+-			"isGenerated" : true,
+-			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeSystem.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Bruce-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Compaq-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/HP-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/LCC-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SDCC-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SunPro-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XL-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XLClang-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/zOS-C-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-FindBinUtils.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in"
+-		},
+-		{
+-			"isGenerated" : true,
+-			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeCCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCXXCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-Determine-CXX.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/HP-CXX-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XL-CXX-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-FindBinUtils.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXCompiler.cmake.in"
+-		},
+-		{
+-			"isGenerated" : true,
+-			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeGenericSystem.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/UnixPaths.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCInformation.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCCompilerABI.c"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in"
+-		},
+-		{
+-			"isGenerated" : true,
+-			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeCCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXInformation.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCXXCompiler.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake"
+-		},
+-		{
+-			"isCMake" : true,
+-			"isExternal" : true,
+-			"path" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXCompiler.cmake.in"
+-		},
+-		{
+-			"isGenerated" : true,
+-			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake"
+-		}
+-	],
+-	"kind" : "cmakeFiles",
+-	"paths" : 
+-	{
+-		"build" : "/home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug",
+-		"source" : "/home/onur/CLionProjects/bbx15/GPIO-Driver"
+-	},
+-	"version" : 
+-	{
+-		"major" : 1,
+-		"minor" : 0
+-	}
+-}
+Index: GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/index-2023-01-19T11-38-29-0254.json
+===================================================================
+diff --git a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/index-2023-01-19T11-38-29-0254.json b/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/index-2023-01-19T11-38-29-0254.json
+deleted file mode 100644
+--- a/GPIO-Driver/cmake-build-debug/.cmake/api/v1/reply/index-2023-01-19T11-38-29-0254.json	(revision ba44dec4017fe1efa75937f2ae80b7f288d8f758)
++++ /dev/null	(revision ba44dec4017fe1efa75937f2ae80b7f288d8f758)
+@@ -1,108 +0,0 @@
+-{
+-	"cmake" : 
+-	{
+-		"generator" : 
+-		{
+-			"multiConfig" : false,
+-			"name" : "Ninja"
+-		},
+-		"paths" : 
+-		{
+-			"cmake" : "/snap/clion/219/bin/cmake/linux/bin/cmake",
+-			"cpack" : "/snap/clion/219/bin/cmake/linux/bin/cpack",
+-			"ctest" : "/snap/clion/219/bin/cmake/linux/bin/ctest",
+-			"root" : "/snap/clion/219/bin/cmake/linux/share/cmake-3.24"
+-		},
+-		"version" : 
+-		{
+-			"isDirty" : false,
+-			"major" : 3,
+-			"minor" : 24,
+-			"patch" : 2,
+-			"string" : "3.24.2",
+-			"suffix" : ""
+-		}
+-	},
+-	"objects" : 
+-	[
+-		{
+-			"jsonFile" : "codemodel-v2-fe3bdd18d57ebb22f39a.json",
+-			"kind" : "codemodel",
+-			"version" : 
+-			{
+-				"major" : 2,
+-				"minor" : 4
+-			}
+-		},
+-		{
+-			"jsonFile" : "cache-v2-d47573fbe1c17c8dc5e5.json",
+-			"kind" : "cache",
+-			"version" : 
+-			{
+-				"major" : 2,
+-				"minor" : 0
+-			}
+-		},
+-		{
+-			"jsonFile" : "cmakeFiles-v1-45bbf99ef81a569a3804.json",
+-			"kind" : "cmakeFiles",
+-			"version" : 
+-			{
+-				"major" : 1,
+-				"minor" : 0
+-			}
+-		},
+-		{
+-			"jsonFile" : "toolchains-v1-ffb6434f9d66dd28afdb.json",
+-			"kind" : "toolchains",
+-			"version" : 
+-			{
+-				"major" : 1,
+-				"minor" : 0
+-			}
+-		}
+-	],
+-	"reply" : 
+-	{
+-		"cache-v2" : 
+-		{
+-			"jsonFile" : "cache-v2-d47573fbe1c17c8dc5e5.json",
+-			"kind" : "cache",
+-			"version" : 
+-			{
+-				"major" : 2,
+-				"minor" : 0
+-			}
+-		},
+-		"cmakeFiles-v1" : 
+-		{
+-			"jsonFile" : "cmakeFiles-v1-45bbf99ef81a569a3804.json",
+-			"kind" : "cmakeFiles",
+-			"version" : 
+-			{
+-				"major" : 1,
+-				"minor" : 0
+-			}
+-		},
+-		"codemodel-v2" : 
+-		{
+-			"jsonFile" : "codemodel-v2-fe3bdd18d57ebb22f39a.json",
+-			"kind" : "codemodel",
+-			"version" : 
+-			{
+-				"major" : 2,
+-				"minor" : 4
+-			}
+-		},
+-		"toolchains-v1" : 
+-		{
+-			"jsonFile" : "toolchains-v1-ffb6434f9d66dd28afdb.json",
+-			"kind" : "toolchains",
+-			"version" : 
+-			{
+-				"major" : 1,
+-				"minor" : 0
+-			}
+-		}
+-	}
+-}
+Index: GPIO-Driver/cmake-build-debug/build.ninja
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># CMAKE generated file: DO NOT EDIT!\n# Generated by \"Ninja\" Generator, CMake Version 3.24\n\n# This file contains all the build statements describing the\n# compilation DAG.\n\n# =============================================================================\n# Write statements declared in CMakeLists.txt:\n# \n# Which is the root file.\n# =============================================================================\n\n# =============================================================================\n# Project: program\n# Configurations: Debug\n# =============================================================================\n\n#############################################\n# Minimal version of Ninja required by this file\n\nninja_required_version = 1.5\n\n\n#############################################\n# Set configuration variable for custom commands.\n\nCONFIGURATION = Debug\n# =============================================================================\n# Include auxiliary files.\n\n\n#############################################\n# Include rules file.\n\ninclude CMakeFiles/rules.ninja\n\n# =============================================================================\n\n#############################################\n# Logical path to working directory; prefix for absolute paths.\n\ncmake_ninja_workdir = /home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug/\n# =============================================================================\n# Object build statements for EXECUTABLE target program\n\n\n#############################################\n# Order-only phony target for program\n\nbuild cmake_object_order_depends_target_program: phony || CMakeFiles/program.dir\n\nbuild CMakeFiles/program.dir/main.cpp.o: CXX_COMPILER__program_Debug /home/onur/CLionProjects/bbx15/GPIO-Driver/main.cpp || cmake_object_order_depends_target_program\n  DEP_FILE = CMakeFiles/program.dir/main.cpp.o.d\n  FLAGS = -g -fdiagnostics-color=always\n  OBJECT_DIR = CMakeFiles/program.dir\n  OBJECT_FILE_DIR = CMakeFiles/program.dir\n  TARGET_COMPILE_PDB = CMakeFiles/program.dir/\n  TARGET_PDB = program.pdb\n\nbuild CMakeFiles/program.dir/gpiolib.cpp.o: CXX_COMPILER__program_Debug /home/onur/CLionProjects/bbx15/GPIO-Driver/gpiolib.cpp || cmake_object_order_depends_target_program\n  DEP_FILE = CMakeFiles/program.dir/gpiolib.cpp.o.d\n  FLAGS = -g -fdiagnostics-color=always\n  OBJECT_DIR = CMakeFiles/program.dir\n  OBJECT_FILE_DIR = CMakeFiles/program.dir\n  TARGET_COMPILE_PDB = CMakeFiles/program.dir/\n  TARGET_PDB = program.pdb\n\n\n# =============================================================================\n# Link build statements for EXECUTABLE target program\n\n\n#############################################\n# Link the executable program\n\nbuild program: CXX_EXECUTABLE_LINKER__program_Debug CMakeFiles/program.dir/main.cpp.o CMakeFiles/program.dir/gpiolib.cpp.o\n  FLAGS = -g\n  OBJECT_DIR = CMakeFiles/program.dir\n  POST_BUILD = :\n  PRE_LINK = :\n  TARGET_COMPILE_PDB = CMakeFiles/program.dir/\n  TARGET_FILE = program\n  TARGET_PDB = program.pdb\n\n\n#############################################\n# Utility command for edit_cache\n\nbuild CMakeFiles/edit_cache.util: CUSTOM_COMMAND\n  COMMAND = cd /home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug && /snap/clion/219/bin/cmake/linux/bin/cmake -E echo No\\ interactive\\ CMake\\ dialog\\ available.\n  DESC = No interactive CMake dialog available...\n  restat = 1\n\nbuild edit_cache: phony CMakeFiles/edit_cache.util\n\n\n#############################################\n# Utility command for rebuild_cache\n\nbuild CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND\n  COMMAND = cd /home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug && /snap/clion/219/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/onur/CLionProjects/bbx15/GPIO-Driver -B/home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug\n  DESC = Running CMake to regenerate build system...\n  pool = console\n  restat = 1\n\nbuild rebuild_cache: phony CMakeFiles/rebuild_cache.util\n\n# =============================================================================\n# Target aliases.\n\n# =============================================================================\n# Folder targets.\n\n# =============================================================================\n\n#############################################\n# Folder: /home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug\n\nbuild all: phony program\n\n# =============================================================================\n# Built-in targets\n\n\n#############################################\n# Re-run CMake if any of its inputs changed.\n\nbuild build.ninja: RERUN_CMAKE | /home/onur/CLionProjects/bbx15/GPIO-Driver/CMakeLists.txt /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCCompilerABI.c /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXCompiler.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystem.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCXXCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/HP-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/LCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XL-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/zOS-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake\n  pool = console\n\n\n#############################################\n# A missing CMake input file is not an error.\n\nbuild /home/onur/CLionProjects/bbx15/GPIO-Driver/CMakeLists.txt /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCCompilerABI.c /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXCompiler.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystem.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCXXCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/HP-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/LCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XL-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/zOS-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony\n\n\n#############################################\n# Clean all the built files.\n\nbuild clean: CLEAN\n\n\n#############################################\n# Print all primary targets available.\n\nbuild help: HELP\n\n\n#############################################\n# Make the all target the default.\n\ndefault all\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GPIO-Driver/cmake-build-debug/build.ninja b/GPIO-Driver/cmake-build-debug/build.ninja
+--- a/GPIO-Driver/cmake-build-debug/build.ninja	(revision ba44dec4017fe1efa75937f2ae80b7f288d8f758)
++++ b/GPIO-Driver/cmake-build-debug/build.ninja	(date 1674503413223)
+@@ -54,16 +54,12 @@
+   FLAGS = -g -fdiagnostics-color=always
+   OBJECT_DIR = CMakeFiles/program.dir
+   OBJECT_FILE_DIR = CMakeFiles/program.dir
+-  TARGET_COMPILE_PDB = CMakeFiles/program.dir/
+-  TARGET_PDB = program.pdb
+ 
+ build CMakeFiles/program.dir/gpiolib.cpp.o: CXX_COMPILER__program_Debug /home/onur/CLionProjects/bbx15/GPIO-Driver/gpiolib.cpp || cmake_object_order_depends_target_program
+   DEP_FILE = CMakeFiles/program.dir/gpiolib.cpp.o.d
+   FLAGS = -g -fdiagnostics-color=always
+   OBJECT_DIR = CMakeFiles/program.dir
+   OBJECT_FILE_DIR = CMakeFiles/program.dir
+-  TARGET_COMPILE_PDB = CMakeFiles/program.dir/
+-  TARGET_PDB = program.pdb
+ 
+ 
+ # =============================================================================
+@@ -78,9 +74,8 @@
+   OBJECT_DIR = CMakeFiles/program.dir
+   POST_BUILD = :
+   PRE_LINK = :
+-  TARGET_COMPILE_PDB = CMakeFiles/program.dir/
+   TARGET_FILE = program
+-  TARGET_PDB = program.pdb
++  TARGET_PDB = program.dbg
+ 
+ 
+ #############################################
+@@ -125,14 +120,14 @@
+ #############################################
+ # Re-run CMake if any of its inputs changed.
+ 
+-build build.ninja: RERUN_CMAKE | /home/onur/CLionProjects/bbx15/GPIO-Driver/CMakeLists.txt /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCCompilerABI.c /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXCompiler.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystem.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCXXCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/HP-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/LCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XL-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/zOS-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
++build build.ninja: RERUN_CMAKE | /home/onur/CLionProjects/bbx15/GPIO-Driver/CMakeLists.txt /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
+   pool = console
+ 
+ 
+ #############################################
+ # A missing CMake input file is not an error.
+ 
+-build /home/onur/CLionProjects/bbx15/GPIO-Driver/CMakeLists.txt /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCCompilerABI.c /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXCompiler.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystem.cmake.in /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCXXCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/HP-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/LCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XL-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/zOS-C-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
++build /home/onur/CLionProjects/bbx15/GPIO-Driver/CMakeLists.txt /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Compiler/GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/Linux.cmake /snap/clion/219/bin/cmake/linux/share/cmake-3.24/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
+ 
+ 
+ #############################################
+Index: GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Start testing: Jan 23 17:19 +03\n----------------------------------------------------------\nEnd testing: Jan 23 17:19 +03\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log b/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log
+--- a/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log	(revision ba44dec4017fe1efa75937f2ae80b7f288d8f758)
++++ b/GPIO-Driver/cmake-build-debug/Testing/Temporary/LastTest.log	(date 1674503413839)
+@@ -1,3 +1,3 @@
+-Start testing: Jan 23 17:19 +03
++Start testing: Jan 23 22:50 +03
+ ----------------------------------------------------------
+-End testing: Jan 23 17:19 +03
++End testing: Jan 23 22:50 +03
+Index: GPIO-Driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/snap/clion/219/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/219/bin/ninja/linux/ninja -G Ninja -S /home/onur/CLionProjects/bbx15/GPIO-Driver -B /home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug\n-- The C compiler identification is GNU 11.3.0\n-- The CXX compiler identification is GNU 11.3.0\n-- Detecting C compiler ABI info\n-- Detecting C compiler ABI info - done\n-- Check for working C compiler: /usr/bin/cc - skipped\n-- Detecting C compile features\n-- Detecting C compile features - done\n-- Detecting CXX compiler ABI info\n-- Detecting CXX compiler ABI info - done\n-- Check for working CXX compiler: /usr/bin/c++ - skipped\n-- Detecting CXX compile features\n-- Detecting CXX compile features - done\n-- Configuring done\n-- Generating done\n-- Build files have been written to: /home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt b/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt
+--- a/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt	(revision ba44dec4017fe1efa75937f2ae80b7f288d8f758)
++++ b/GPIO-Driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt	(date 1674503414047)
+@@ -1,16 +1,4 @@
+ /snap/clion/219/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/219/bin/ninja/linux/ninja -G Ninja -S /home/onur/CLionProjects/bbx15/GPIO-Driver -B /home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug
+--- The C compiler identification is GNU 11.3.0
+--- The CXX compiler identification is GNU 11.3.0
+--- Detecting C compiler ABI info
+--- Detecting C compiler ABI info - done
+--- Check for working C compiler: /usr/bin/cc - skipped
+--- Detecting C compile features
+--- Detecting C compile features - done
+--- Detecting CXX compiler ABI info
+--- Detecting CXX compiler ABI info - done
+--- Check for working CXX compiler: /usr/bin/c++ - skipped
+--- Detecting CXX compile features
+--- Detecting CXX compile features - done
+ -- Configuring done
+ -- Generating done
+ -- Build files have been written to: /home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug
+Index: GPIO-Driver/cmake-build-debug/.ninja_log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># ninja log v5\n8550\t8779\t1673953729195289638\tprogram\t320e5c2df7161be9\n0\t8286\t1674133364853293230\tCMakeFiles/program.dir/main.cpp.o\t199fca6506547c13\n1\t9753\t1674133366317358130\tCMakeFiles/program.dir/gpiolib.cpp.o\tbdd39eb39a90cfba\n9753\t9893\t1674133366461364397\tprogram\t320e5c2df7161be9\n1\t2910\t1674483595693937745\tCMakeFiles/program.dir/main.cpp.o\t199fca6506547c13\n2\t4192\t1674483596969875194\tCMakeFiles/program.dir/gpiolib.cpp.o\tbdd39eb39a90cfba\n4192\t4346\t1674483597129867352\tprogram\t320e5c2df7161be9\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GPIO-Driver/cmake-build-debug/.ninja_log b/GPIO-Driver/cmake-build-debug/.ninja_log
+--- a/GPIO-Driver/cmake-build-debug/.ninja_log	(revision ba44dec4017fe1efa75937f2ae80b7f288d8f758)
++++ b/GPIO-Driver/cmake-build-debug/.ninja_log	(date 1674503413239)
+@@ -1,8 +1,4 @@
+ # ninja log v5
+-8550	8779	1673953729195289638	program	320e5c2df7161be9
+-0	8286	1674133364853293230	CMakeFiles/program.dir/main.cpp.o	199fca6506547c13
+-1	9753	1674133366317358130	CMakeFiles/program.dir/gpiolib.cpp.o	bdd39eb39a90cfba
+-9753	9893	1674133366461364397	program	320e5c2df7161be9
+-1	2910	1674483595693937745	CMakeFiles/program.dir/main.cpp.o	199fca6506547c13
+-2	4192	1674483596969875194	CMakeFiles/program.dir/gpiolib.cpp.o	bdd39eb39a90cfba
+ 4192	4346	1674483597129867352	program	320e5c2df7161be9
++2	4192	1674483596969875194	CMakeFiles/program.dir/gpiolib.cpp.o	bdd39eb39a90cfba
++1	2910	1674483595693937745	CMakeFiles/program.dir/main.cpp.o	199fca6506547c13

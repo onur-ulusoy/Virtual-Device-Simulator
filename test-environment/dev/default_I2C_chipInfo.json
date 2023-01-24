@@ -1,0 +1,32 @@
+{
+  "Devices": [
+    {
+      "offset": 0,
+      "name": "I2C_0",
+      "consumer": "-",
+      "clock_speed": 100000,
+      "address_mode": 7,
+      "10bit_mode": false,
+      "sda_hold_time": 10
+    },
+    {
+      "offset": 1,
+      "name": "I2C_1",
+      "consumer": "-",
+      "clock_speed": 100000,
+      "address_mode": 7,
+      "10bit_mode": false,
+      "sda_hold_time": 10
+    },
+    {
+      "offset": 2,
+      "name": "I2C_2",
+      "consumer": "-",
+      "clock_speed": 100000,
+      "address_mode": 7,
+      "10bit_mode": false,
+      "sda_hold_time": 10
+    }
+    
+  ]
+}

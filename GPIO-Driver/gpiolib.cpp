@@ -139,43 +139,7 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
     if (request == DEFAULT){
         cout << dir << endl;
 
-        std::ifstream jsonFile(dir);
-        nlohmann::json commands;
-        jsonFile >> commands;
-
-        nlohmann::json data = commands["Devices"];
-        unsigned long dataSize = data.size();
-
-        cout << "Number of device: " << data.size() << endl << endl;
-
-        for (int i = 0; i<dataSize; i++) {
-
-            gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
-            gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_IS_OUT", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_ACTIVE_LOW", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_DRAIN", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_SOURCE", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_KERNEL", "-");
-
-            gpioDevHandler->fd << endl;
-
-             /*
-            chipxInfo[i] = {
-                    .offset = data.at(i).value("offset", 0),
-                    .name = data.at(i).value("name", "-"),
-                    .consumer = data.at(i).value("consumer", "-"),
-                    .FLAG_IS_OUT = data.at(i).value("FLAG_IS_OUT", "-"),
-                    .FLAG_ACTIVE_LOW = data.at(i).value("FLAG_ACTIVE_LOW", "-"),
-                    .FLAG_OPEN_DRAIN = data.at(i).value("FLAG_OPEN_DRAIN", "-"),
-                    .FLAG_OPEN_SOURCE = data.at(i).value("FLAG_OPEN_SOURCE", "-"),
-                    .FLAG_KERNEL = data.at(i).value("FLAG_KERNEL", "-")
-            };
-            */
-
-
-        }
+        gpioDevHandler->parse(dir, gpioDevHandler);
 
         cout << "Default chip info is written to the file successfully" << endl;
         gpioDevHandler->hist << "Default chip info is written to the file '" << gpioDevHandler->dev_name << "' successfully" << endl;
@@ -376,6 +340,193 @@ void GPIO_Device::DeviceContent::write (int offset, enum feature request, string
     cout << "Chip info is changed successfully" << endl;
     gpioDevHandler->hist << "Chip info is changed successfully" << endl;
 }
+
+void parse_GPIO(string dir, GPIO_Device* gpioDevHandler){
+    std::ifstream jsonFile(dir);
+    nlohmann::json commands;
+    jsonFile >> commands;
+
+    nlohmann::json data = commands["Devices"];
+
+    unsigned long dataSize = data.size();
+
+    cout << "Number of device: " << data.size() << endl << endl;
+
+    for (int i = 0; i<dataSize; i++) {
+
+        gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
+        gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("FLAG_IS_OUT", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("FLAG_ACTIVE_LOW", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_DRAIN", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_SOURCE", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("FLAG_KERNEL", "-");
+
+        gpioDevHandler->fd << endl;
+
+    }
+}
+
+void parse_SPI(string dir, SPI_Device* gpioDevHandler){
+    std::ifstream jsonFile(dir);
+    nlohmann::json commands;
+    jsonFile >> commands;
+
+    nlohmann::json data = commands["Devices"];
+
+    unsigned long dataSize = data.size();
+
+    cout << "Number of device: " << data.size() << endl << endl;
+
+    for (int i = 0; i<dataSize; i++) {
+
+        gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
+        gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("cpol", 0) << " ";
+        gpioDevHandler->fd << data.at(i).value("cpha", 0) << " ";
+        gpioDevHandler->fd << data.at(i).value("lsb_first", false) << " ";
+        gpioDevHandler->fd << data.at(i).value("cs_high", false) << " ";
+        gpioDevHandler->fd << data.at(i).value("3wire", false);
+        gpioDevHandler->fd << data.at(i).value("loopback", false);
+
+        gpioDevHandler->fd << endl;
+
+    }
+}
+
+void parse_I2C(string dir, I2C_Device* gpioDevHandler){
+    std::ifstream jsonFile(dir);
+    nlohmann::json commands;
+    jsonFile >> commands;
+
+    nlohmann::json data = commands["Devices"];
+
+    unsigned long dataSize = data.size();
+
+    cout << "Number of device: " << data.size() << endl << endl;
+
+    for (int i = 0; i<dataSize; i++) {
+
+        gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
+        gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("clock_speed", 100000) << " ";
+        gpioDevHandler->fd << data.at(i).value("address_mode", 7) << " ";
+        gpioDevHandler->fd << data.at(i).value("10bit_mode", false) << " ";
+        gpioDevHandler->fd << data.at(i).value("sda_hold_time", 10);
+        gpioDevHandler->fd << endl;
+    }
+}
+
+void parse_ETHERNET(string dir, ETHERNET_Device* gpioDevHandler){
+    std::ifstream jsonFile(dir);
+    nlohmann::json commands;
+    jsonFile >> commands;
+
+    nlohmann::json data = commands["Devices"];
+
+    unsigned long dataSize = data.size();
+
+    cout << "Number of device: " << data.size() << endl << endl;
+
+    for (int i = 0; i<dataSize; i++) {
+
+        gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
+        gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("mac_address", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("ip_address", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("netmask", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("gateway", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("vlan_enable", false);
+        gpioDevHandler->fd << data.at(i).value("vlan_id", 0);
+        gpioDevHandler->fd << data.at(i).value("link_speed", 1000);
+        gpioDevHandler->fd << endl;
+    }
+}
+
+void parse_USART(string dir, USART_Device* gpioDevHandler){
+    std::ifstream jsonFile(dir);
+    nlohmann::json commands;
+    jsonFile >> commands;
+
+    nlohmann::json data = commands["Devices"];
+
+    unsigned long dataSize = data.size();
+
+    cout << "Number of device: " << data.size() << endl << endl;
+
+    for (int i = 0; i<dataSize; i++) {
+
+        gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
+        gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("baud_rate", 115200) << " ";
+        gpioDevHandler->fd << data.at(i).value("data_bits", 8) << " ";
+        gpioDevHandler->fd << data.at(i).value("stop_bits", 1) << " ";
+        gpioDevHandler->fd << data.at(i).value("parity", "none") << " ";
+        gpioDevHandler->fd << data.at(i).value("flow_control", "none") << " ";
+        gpioDevHandler->fd << data.at(i).value("fifo_depth", 64) << " ";
+        gpioDevHandler->fd << data.at(i).value("synchronous_mode", true) << " ";
+        gpioDevHandler->fd << data.at(i).value("clock_polarity", "low") << " ";
+        gpioDevHandler->fd << data.at(i).value("clock_phase", "first") << " ";
+        gpioDevHandler->fd << data.at(i).value("clock_rate", 16000000);
+        gpioDevHandler->fd << endl;
+    }
+}
+
+void parse_UART(string dir, UART_Device* gpioDevHandler){
+    std::ifstream jsonFile(dir);
+    nlohmann::json commands;
+    jsonFile >> commands;
+
+    nlohmann::json data = commands["Devices"];
+
+    unsigned long dataSize = data.size();
+
+    cout << "Number of device: " << data.size() << endl << endl;
+
+    for (int i = 0; i<dataSize; i++) {
+
+        gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
+        gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("baud_rate", 115200) << " ";
+        gpioDevHandler->fd << data.at(i).value("data_bits", 8) << " ";
+        gpioDevHandler->fd << data.at(i).value("stop_bits", 1) << " ";
+        gpioDevHandler->fd << data.at(i).value("parity", "none") << " ";
+        gpioDevHandler->fd << data.at(i).value("flow_control", "none") << " ";
+        gpioDevHandler->fd << data.at(i).value("fifo_depth", 64);
+        gpioDevHandler->fd << endl;
+    }
+}
+
+void parse_CAN(string dir, CAN_Device* gpioDevHandler){
+    std::ifstream jsonFile(dir);
+    nlohmann::json commands;
+    jsonFile >> commands;
+
+    nlohmann::json data = commands["Devices"];
+
+    unsigned long dataSize = data.size();
+
+    cout << "Number of device: " << data.size() << endl << endl;
+
+    for (int i = 0; i<dataSize; i++) {
+
+        gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
+        gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
+        gpioDevHandler->fd << data.at(i).value("bitrate", 500000) << " ";
+        gpioDevHandler->fd << data.at(i).value("acceptance_filter", "standard") << " ";
+        gpioDevHandler->fd << data.at(i).value("loopback_mode", false) << " ";
+        gpioDevHandler->fd << data.at(i).value("listen_only_mode", false) << " ";
+        gpioDevHandler->fd << data.at(i).value("transceiver_type", "SN65HVD230");
+        gpioDevHandler->fd << endl;
+    }
+}
+
 
 /*
 int GPIO_Device::device_write(int offset, uint8_t value)
