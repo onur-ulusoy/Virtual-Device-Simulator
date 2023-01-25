@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /snap/clion/219/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/onur/CLionProjects/bbx15/GPIO-Driver -B/home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug
+  command = /snap/clion/219/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/onur/CLionProjects/bbx15-driver/GPIO-Driver -B/home/onur/CLionProjects/bbx15-driver/GPIO-Driver/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 
