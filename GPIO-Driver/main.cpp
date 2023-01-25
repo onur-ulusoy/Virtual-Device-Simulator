@@ -118,11 +118,31 @@ int receive_command(enum command_request req, string devType) {
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
                 gpioDevHandler->devContent.show(gpioDevHandler);
             }
-
             else if (devType == "spi"){
                 SPI_Device* spiDevHandler = new SPI_Device(dev_name);
                 spiDevHandler->devContent.show(spiDevHandler);
             }
+            else if (devType == "i2c"){
+                I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
+                i2cDevHandler->devContent.show(i2cDevHandler);
+            }
+            else if (devType == "ethernet"){
+                ETHERNET_Device* ethernetDevHandler = new ETHERNET_Device(dev_name);
+                ethernetDevHandler->devContent.show(ethernetDevHandler);
+            }
+            else if (devType == "usart"){
+                USART_Device* usartDevHandler = new USART_Device(dev_name);
+                usartDevHandler->devContent.show(usartDevHandler);
+            }
+            else if (devType == "uart"){
+                UART_Device* uartDevHandler = new UART_Device(dev_name);
+                uartDevHandler->devContent.show(uartDevHandler);
+            }
+            else if (devType == "can"){
+                CAN_Device* canDevHandler = new CAN_Device(dev_name);
+                canDevHandler->devContent.show(canDevHandler);
+            }
+
 
 
             history << endl << endl;
@@ -241,6 +261,7 @@ int receive_command(enum command_request req, string devType) {
             history << "Output: " << endl;
 
             const char* dev_name = ("dev/" + substrings[1]).c_str();
+
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
                 gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
@@ -248,10 +269,29 @@ int receive_command(enum command_request req, string devType) {
 
             else if (devType == "spi"){
                 SPI_Device* spiDevHandler = new SPI_Device(dev_name);
-                //cout << spiDevHandler->defaultDir << endl;
-
                 spiDevHandler->devContent.fill(DEFAULT, spiDevHandler);
             }
+            else if (devType == "i2c"){
+                I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
+                i2cDevHandler->devContent.fill(DEFAULT, i2cDevHandler);
+            }
+            else if (devType == "ethernet"){
+                ETHERNET_Device* ethernetDevHandler = new ETHERNET_Device(dev_name);
+                ethernetDevHandler->devContent.fill(DEFAULT, ethernetDevHandler);
+            }
+            else if (devType == "usart"){
+                USART_Device* usartDevHandler = new USART_Device(dev_name);
+                usartDevHandler->devContent.fill(DEFAULT, usartDevHandler);
+            }
+            else if (devType == "uart"){
+                UART_Device* uartDevHandler = new UART_Device(dev_name);
+                uartDevHandler->devContent.fill(DEFAULT, uartDevHandler);
+            }
+            else if (devType == "can"){
+                CAN_Device* canDevHandler = new CAN_Device(dev_name);
+                canDevHandler->devContent.fill(DEFAULT, canDevHandler);
+            }
+
 
             history << endl << endl;
             history.close();

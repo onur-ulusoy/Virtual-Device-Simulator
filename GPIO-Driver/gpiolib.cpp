@@ -1,3 +1,4 @@
+#include <set>
 #include "gpiolib.h"
 
 fstream& GotoLine(std::fstream& file, unsigned int num){
@@ -133,7 +134,6 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
     string dir = gpioDevHandler->getDefaultDir();
 
     cout << "function 'GPIO_Device::DeviceContent::fill' worked" << endl;
-
     gpioDevHandler->device_open(WRITEONLY, gpioDevHandler);
 
     if (request == DEFAULT){
@@ -153,45 +153,40 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
 void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler) {
 
     cout << "function 'GPIO_Device::DeviceContent::show' worked" << endl << endl;
-    //gpioDevHandler->fd.open(gpioDevHandler->dev_name, ios::in);
+
+    string dir = gpioDevHandler->getDefaultDir();
+
+    string* pack = gpioDevHandler->getPack();
+    int packSize = gpioDevHandler->getPackSize();
+    //cout<< "Length of pack:" << gpioDevHandler->getPackSize() << endl;
 
     gpioDevHandler->device_open(READONLY, gpioDevHandler);
 
     cout << "Chip info is being shown ..." << endl << endl;
 
     // Get the maximum length of each column
-    int max_offset_length = 0;
-    int max_name_length = 0;
-    int max_consumer_length = 0;
-    int max_flags_length = 0;
+    int max_length[packSize];
+    for (int i=0; i<packSize; i++)
+        max_length[i] = 0;
+
+    int Length[packSize];
 
     while (true) {
         string line, word;
-        for (int i=0; i<8;i++){
+        for (int i=0; i<packSize ;i++){
             gpioDevHandler->fd >> word;
             line += word + "/";
         }
 
         if( gpioDevHandler->fd.eof() ) break;
 
-        auto* buffers = new string[9];
+        auto* buffers = new string[packSize+1];
         Split(line, "/", buffers);
 
-        int offset_length = buffers[0].length();
-        if (offset_length > max_offset_length) max_offset_length = offset_length;
-
-        int name_length = buffers[1].length();
-        if (name_length > max_name_length) max_name_length = name_length;
-
-        int consumer_length = buffers[2].length();
-        if (consumer_length > max_consumer_length) max_consumer_length = consumer_length;
-
-        int flags_length = 0;
-        for (int i=3; i<8; i++){
-            flags_length += buffers[i].length();
+        for (int i=0; i<packSize; i++){
+            Length[i] = buffers[i].length();
+            if (Length[i] > max_length[i]) max_length[i] = Length[i];
         }
-        if (flags_length > max_flags_length) max_flags_length = flags_length;
-
         delete[] buffers;
     }
 
@@ -201,40 +196,24 @@ void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler) {
     gpioDevHandler->hist << "Data was shown for '" << gpioDevHandler->dev_name << "':" << endl;
     while (true) {
         string line, word;
-        for (int i=0; i<8;i++){
+        for (int i=0; i<packSize;i++){
             gpioDevHandler->fd >> word;
             line += word + "/";
         }
 
         if( gpioDevHandler->fd.eof() ) break;
 
-        auto* buffers = new string[9];
+        auto* buffers = new string[packSize+1];
         Split(line, "/", buffers);
 
-        cout << "Offset: ";
-        cout << setw(max_offset_length) << left << buffers[0];
 
-        gpioDevHandler->hist << "Offset: ";
-        gpioDevHandler->hist << setw(max_offset_length) << left << buffers[0];
+        for (int i=0; i<packSize; i++){
+            cout << pack[i] << ": ";
+            cout << setw(max_length[i]) << left << buffers[i] << "  ";;
 
-        cout << "\t Name: ";
-        cout << setw(max_name_length) << left << buffers[1];
+            gpioDevHandler->hist << pack[i] << ": ";
+            gpioDevHandler->hist << setw(max_length[i]) << left << buffers[i] << "  ";
 
-        gpioDevHandler->hist << "\t Name: ";
-        gpioDevHandler->hist << setw(max_name_length) << left << buffers[1];
-
-        cout << "\tConsumer: ";
-        cout << setw(max_consumer_length) << left << buffers[2];
-
-        gpioDevHandler->hist << "\tConsumer: ";
-        gpioDevHandler->hist << setw(max_consumer_length) << left << buffers[2];
-
-        cout << "\t Flags: ";
-        gpioDevHandler->hist << "\t Flags: ";
-
-        for (int i=3; i<8; i++){
-            cout << " " << buffers[i];
-            gpioDevHandler->hist << " " << buffers[i];
         }
 
         cout << endl;
@@ -362,13 +341,12 @@ void parse_GPIO(string dir, GPIO_Device* gpioDevHandler){
         gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_DRAIN", "-") << " ";
         gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_SOURCE", "-") << " ";
         gpioDevHandler->fd << data.at(i).value("FLAG_KERNEL", "-");
-
         gpioDevHandler->fd << endl;
 
     }
 }
 
-void parse_SPI(string dir, SPI_Device* gpioDevHandler){
+void parse_SPI(string dir, GPIO_Device* gpioDevHandler){
     std::ifstream jsonFile(dir);
     nlohmann::json commands;
     jsonFile >> commands;
@@ -396,7 +374,7 @@ void parse_SPI(string dir, SPI_Device* gpioDevHandler){
     }
 }
 
-void parse_I2C(string dir, I2C_Device* gpioDevHandler){
+void parse_I2C(string dir, GPIO_Device* gpioDevHandler){
     std::ifstream jsonFile(dir);
     nlohmann::json commands;
     jsonFile >> commands;
@@ -420,7 +398,7 @@ void parse_I2C(string dir, I2C_Device* gpioDevHandler){
     }
 }
 
-void parse_ETHERNET(string dir, ETHERNET_Device* gpioDevHandler){
+void parse_ETHERNET(string dir, GPIO_Device* gpioDevHandler){
     std::ifstream jsonFile(dir);
     nlohmann::json commands;
     jsonFile >> commands;
@@ -446,7 +424,7 @@ void parse_ETHERNET(string dir, ETHERNET_Device* gpioDevHandler){
     }
 }
 
-void parse_USART(string dir, USART_Device* gpioDevHandler){
+void parse_USART(string dir, GPIO_Device* gpioDevHandler){
     std::ifstream jsonFile(dir);
     nlohmann::json commands;
     jsonFile >> commands;
@@ -476,7 +454,7 @@ void parse_USART(string dir, USART_Device* gpioDevHandler){
     }
 }
 
-void parse_UART(string dir, UART_Device* gpioDevHandler){
+void parse_UART(string dir, GPIO_Device* gpioDevHandler){
     std::ifstream jsonFile(dir);
     nlohmann::json commands;
     jsonFile >> commands;
@@ -502,7 +480,7 @@ void parse_UART(string dir, UART_Device* gpioDevHandler){
     }
 }
 
-void parse_CAN(string dir, CAN_Device* gpioDevHandler){
+void parse_CAN(string dir, GPIO_Device* gpioDevHandler){
     std::ifstream jsonFile(dir);
     nlohmann::json commands;
     jsonFile >> commands;

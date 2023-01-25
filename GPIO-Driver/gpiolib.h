@@ -25,23 +25,33 @@ void Split(string s, string del, string* buffers);
 static inline std::string &rtrim(std::string &s);
 
 class GPIO_Device{
-
-private:
+protected:
     fstream fd;
+private:
     const char *dev_name;
     fstream hist;
     string defaultDir = "dev/default_GPIO_chipInfo.json";
+    int packSize = 8;
+    string pack[8] = {"offset", "name", "consumer", "FLAG_IS_OUT", "FLAG_ACTIVE_LOW", "FLAG_OPEN_DRAIN", "FLAG_OPEN_SOURCE", "FLAG_KERNEL"};
 
 public:
     GPIO_Device(const char* dev_name);
     void device_open(command request, GPIO_Device* gpioDevHandler);
     void device_close();
     virtual string getDefaultDir() { return defaultDir; }
+    virtual string* getPack(){ return pack; }
+    virtual int getPackSize(){ return packSize; }
+
     friend void parse_GPIO(string dir, GPIO_Device* gpioDevHandler);
+    friend void parse_SPI(string dir, GPIO_Device* gpioDevHandler);
+    friend void parse_I2C(string dir, GPIO_Device* gpioDevHandler);
+    friend void parse_ETHERNET(string dir, GPIO_Device* gpioDevHandler);
+    friend void parse_USART(string dir, GPIO_Device* gpioDevHandler);
+    friend void parse_UART(string dir, GPIO_Device* gpioDevHandler);
+    friend void parse_CAN(string dir, GPIO_Device* gpioDevHandler);
 
-    void parse(string dir, GPIO_Device* gpioDevHandler){
-        cout << "gpio" << endl;
 
+    virtual void parse(string dir, GPIO_Device* gpioDevHandler){
         parse_GPIO(dir, gpioDevHandler);
     }
 
@@ -61,16 +71,19 @@ public:
 class SPI_Device : public GPIO_Device {
 private:
     string defaultDir;
-    fstream fd;
+    string pack[9] = {"offset", "name", "consumer", "cpol", "cpha", "lsb_first", "cs_high", "3wire", "loopback"};
+    int packSize = 9;
 
 public:
     string getDefaultDir() { return defaultDir; }
+    string* getPack(){ return pack; }
+    int getPackSize(){ return packSize; }
+
     SPI_Device(const char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_SPI_chipInfo.json";
     };
-    friend void parse_SPI(string dir, SPI_Device* gpioDevHandler);
-    void parse(string dir, SPI_Device* gpioDevHandler){
-        cout << "spi" << endl;
+
+    void parse(string dir, GPIO_Device* gpioDevHandler){
         parse_SPI(dir, gpioDevHandler);
     }
 
@@ -86,8 +99,7 @@ public:
     I2C_Device(const char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_I2C_chipInfo.json";
     };
-    friend void parse_I2C(string dir, I2C_Device* gpioDevHandler);
-    void parse(string dir, I2C_Device* gpioDevHandler){
+    void parse(string dir, GPIO_Device* gpioDevHandler){
         parse_I2C(dir, gpioDevHandler);
     }
 };
@@ -102,8 +114,7 @@ public:
     ETHERNET_Device(const char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_ETHERNET_chipInfo.json";
     };
-    friend void parse_ETHERNET(string dir, ETHERNET_Device* gpioDevHandler);
-    void parse(string dir, ETHERNET_Device* gpioDevHandler){
+    void parse(string dir, GPIO_Device* gpioDevHandler){
         parse_ETHERNET(dir, gpioDevHandler);
     }
 };
@@ -118,8 +129,7 @@ public:
     USART_Device(const char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_USART_chipInfo.json";
     };
-    friend void parse_USART(string dir, USART_Device* gpioDevHandler);
-    void parse(string dir, USART_Device* gpioDevHandler){
+    void parse(string dir, GPIO_Device* gpioDevHandler){
         parse_USART(dir, gpioDevHandler);
     }
 };
@@ -134,8 +144,7 @@ public:
     UART_Device(const char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_UART_chipInfo.json";
     };
-    friend void parse_UART(string dir, UART_Device* gpioDevHandler);
-    void parse(string dir, UART_Device* gpioDevHandler){
+    void parse(string dir, GPIO_Device* gpioDevHandler){
         parse_UART(dir, gpioDevHandler);
     }
 };
@@ -150,21 +159,9 @@ public:
     CAN_Device(const char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_CAN_chipInfo.json";
     };
-    friend void parse_CAN(string dir, CAN_Device* gpioDevHandler);
-    void parse(string dir, CAN_Device* gpioDevHandler){
+    void parse(string dir, GPIO_Device* gpioDevHandler){
         parse_CAN(dir, gpioDevHandler);
     }
 };
-
-//struct chipInfo{
-//    int offset;
-//    string name;
-//    string consumer;
-//    string FLAG_IS_OUT;
-//    string FLAG_ACTIVE_LOW;
-//    string FLAG_OPEN_DRAIN;
-//    string FLAG_OPEN_SOURCE;
-//    string FLAG_KERNEL;
-//};
 
 #endif //UNTITLED_GPIOLIB_H
