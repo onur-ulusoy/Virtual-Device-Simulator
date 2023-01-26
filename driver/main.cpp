@@ -8,14 +8,17 @@ using namespace std;
 fstream receiver;
 string _command;
 fstream history;
+ofstream _com;
 
 int receive_command(enum command_request req, string devType);
 void throw_command();
 string now();
+void slave_writing(ofstream& com, string message);
 
 int main() {
 
     float sleep_time = 0.2;
+
     //cout << "Build finished."<< endl;
     cout << "program started working."<< endl;
 
@@ -66,8 +69,10 @@ int receive_command(enum command_request req, string devType) {
     else if (req == RECURSIVE)
         ;
 
-    if (_command == "-1")
+    if (_command == "-1"){
+        slave_writing(_com, "disconnecting");
         return -1;
+    }
 
     else if (_command == "&"){
         return 0;
@@ -138,41 +143,43 @@ int receive_command(enum command_request req, string devType) {
             char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
 
             int offset = stoi(substrings[2]);
-
+            string data;
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
-                string data = gpioDevHandler->devContent.read(offset, substrings[3], gpioDevHandler);
+                data = gpioDevHandler->devContent.read(offset, substrings[3], gpioDevHandler);
             }
 
             else if (devType == "spi"){
                 SPI_Device* spiDevHandler = new SPI_Device(dev_name);
-                string data = spiDevHandler->devContent.read(offset, substrings[3], spiDevHandler);
+                data = spiDevHandler->devContent.read(offset, substrings[3], spiDevHandler);
             }
 
             else if (devType == "i2c"){
                 I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
-                string data = i2cDevHandler->devContent.read(offset, substrings[3], i2cDevHandler);
+                data = i2cDevHandler->devContent.read(offset, substrings[3], i2cDevHandler);
             }
 
             else if (devType == "ethernet"){
                 ETHERNET_Device* ethDevHandler = new ETHERNET_Device(dev_name);
-                string data = ethDevHandler->devContent.read(offset, substrings[3], ethDevHandler);
+                data = ethDevHandler->devContent.read(offset, substrings[3], ethDevHandler);
             }
 
             else if (devType == "usart"){
                 USART_Device* usartDevHandler = new USART_Device(dev_name);
-                string data = usartDevHandler->devContent.read(offset, substrings[3], usartDevHandler);
+                data = usartDevHandler->devContent.read(offset, substrings[3], usartDevHandler);
             }
 
             else if (devType == "uart"){
                 UART_Device* uartDevHandler = new UART_Device(dev_name);
-                string data = uartDevHandler->devContent.read(offset, substrings[3], uartDevHandler);
+                data = uartDevHandler->devContent.read(offset, substrings[3], uartDevHandler);
             }
 
             else if (devType == "can"){
                 CAN_Device* canDevHandler = new CAN_Device(dev_name);
-                string data = canDevHandler->devContent.read(offset, substrings[3], canDevHandler);
+                data = canDevHandler->devContent.read(offset, substrings[3], canDevHandler);
             }
+
+            slave_writing(_com, data);
 
             history << endl << endl;
             history.close();
@@ -292,6 +299,7 @@ int receive_command(enum command_request req, string devType) {
 
         else {
             cout << "Command is not valid." << endl;
+            slave_writing(_com, "Invalid command");
         }
 
     }
@@ -326,5 +334,10 @@ string now(){
     return ss.str();
 }
 
+void slave_writing(ofstream& com, string message){
+    com.open("communication-register", ios::app);
+    com << now() << "\t      slave writing: " << message << endl;
+    com.close();
+}
 
 

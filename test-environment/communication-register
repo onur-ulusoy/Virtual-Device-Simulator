@@ -1,0 +1,8 @@
+Thu Jan 26 14:42:27 2023	MASTER LINE COMMAND: master write
+Thu Jan 26 14:42:27 2023	     master writing: read-d-2-name
+Thu Jan 26 14:42:27 2023	MASTER LINE COMMAND: master read
+Thu Jan 26 14:42:28 2023	      slave writing: fdffdff
+Thu Jan 26 14:42:31 2023	MASTER LINE COMMAND: master write
+Thu Jan 26 14:42:31 2023	     master writing: -1
+Thu Jan 26 14:42:31 2023	MASTER LINE COMMAND: master read
+Thu Jan 26 14:42:31 2023	      slave writing: disconnecting
