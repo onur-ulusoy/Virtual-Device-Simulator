@@ -20,10 +20,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="other devices work properly">
-      <change afterPath="$PROJECT_DIR$/test-environment/communication-register" afterDir="false" />
+    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="communication configuring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/driver-lib.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/driver/driver-lib.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/driver/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/command" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/command" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/communication-register" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/communication-register" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/history" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/history" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/program.out" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/program.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/tester.out" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/tester.out" afterDir="false" />
@@ -49,7 +51,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop_v4" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -166,7 +168,7 @@
       <workItem from="1674654175786" duration="37000" />
       <workItem from="1674654826197" duration="33000" />
       <workItem from="1674658004895" duration="9074000" />
-      <workItem from="1674710988286" duration="11423000" />
+      <workItem from="1674710988286" duration="18358000" />
     </task>
     <task id="LOCAL-00001" summary="-">
       <created>1672262462003</created>
@@ -329,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674728102512</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="communication configuring">
+      <created>1674733586859</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1674733586859</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +362,7 @@
     <MESSAGE value="tester process and host script added" />
     <MESSAGE value="other devices added" />
     <MESSAGE value="other devices work properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="other devices work properly" />
+    <MESSAGE value="communication configuring" />
+    <option name="LAST_COMMIT_MESSAGE" value="communication configuring" />
   </component>
 </project>

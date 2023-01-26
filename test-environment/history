@@ -1,6 +1,12 @@
-Date: Thu Jan 26 14:42:28 2023
+Date: Thu Jan 26 16:38:39 2023
 Command: read-d-2-name
 Output: 
 Data has been stored: fdffdff
+
+
+Date: Thu Jan 26 16:38:44 2023
+Command: read-d-1-name
+Output: 
+Data has been stored: SPI_1
 
 

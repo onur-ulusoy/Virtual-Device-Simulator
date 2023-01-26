@@ -135,10 +135,7 @@ int receive_command(enum command_request req, string devType) {
 
         else if (substrings[0] == "read") {
 
-            history.open("history", ios::app);
-
-            history << "Date: " << now() << endl << "Command: " << _command << endl;
-            history << "Output: " << endl;
+            //history.open("history", ios::app);
 
             char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
 
@@ -180,9 +177,6 @@ int receive_command(enum command_request req, string devType) {
             }
 
             slave_writing(_com, data);
-
-            history << endl << endl;
-            history.close();
 
         }
 

@@ -1,8 +1,24 @@
-Thu Jan 26 14:42:27 2023	MASTER LINE COMMAND: master write
-Thu Jan 26 14:42:27 2023	     master writing: read-d-2-name
-Thu Jan 26 14:42:27 2023	MASTER LINE COMMAND: master read
-Thu Jan 26 14:42:28 2023	      slave writing: fdffdff
-Thu Jan 26 14:42:31 2023	MASTER LINE COMMAND: master write
-Thu Jan 26 14:42:31 2023	     master writing: -1
-Thu Jan 26 14:42:31 2023	MASTER LINE COMMAND: master read
-Thu Jan 26 14:42:31 2023	      slave writing: disconnecting
+Thu Jan 26 16:38:38 2023	MASTER LINE COMMAND: master write
+Thu Jan 26 16:38:38 2023	     master writing: read-d-2-name
+Thu Jan 26 16:38:38 2023	MASTER LINE COMMAND: master read
+Thu Jan 26 16:38:39 2023	      slave writing: fdffdff
+Thu Jan 26 16:38:39 2023	MASTER LINE COMMAND: master write
+Thu Jan 26 16:38:39 2023	     master writing: 
+Thu Jan 26 16:38:39 2023	MASTER LINE COMMAND: master read
+Thu Jan 26 16:38:39 2023	MASTER LINE COMMAND: master write
+Thu Jan 26 16:38:39 2023	     master writing: 
+Thu Jan 26 16:38:39 2023	MASTER LINE COMMAND: master read
+Thu Jan 26 16:38:43 2023	MASTER LINE COMMAND: master write
+Thu Jan 26 16:38:43 2023	     master writing: read-d-1-name
+Thu Jan 26 16:38:43 2023	MASTER LINE COMMAND: master read
+Thu Jan 26 16:38:44 2023	      slave writing: SPI_1
+Thu Jan 26 16:38:44 2023	MASTER LINE COMMAND: master write
+Thu Jan 26 16:38:44 2023	     master writing: 
+Thu Jan 26 16:38:44 2023	MASTER LINE COMMAND: master read
+Thu Jan 26 16:38:44 2023	MASTER LINE COMMAND: master write
+Thu Jan 26 16:38:44 2023	     master writing: 
+Thu Jan 26 16:38:44 2023	MASTER LINE COMMAND: master read
+Thu Jan 26 16:38:45 2023	MASTER LINE COMMAND: master write
+Thu Jan 26 16:38:45 2023	     master writing: -1
+Thu Jan 26 16:38:45 2023	MASTER LINE COMMAND: master read
+Thu Jan 26 16:38:45 2023	      slave writing: disconnecting

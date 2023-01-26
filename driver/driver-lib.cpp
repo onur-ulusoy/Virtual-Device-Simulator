@@ -254,12 +254,15 @@ string GPIO_Device::DeviceContent::read(int offset, string property, GPIO_Device
     }
     gpioDevHandler->fd >> word;
 
-    cout << endl;
-    cout << "Chip info is read successfully" << endl << endl;
+    /*cout << endl;
+    cout << "Chip info is read successfully" << endl << endl;*/
 
-    cout << "Data has been stored: " << word << endl;
+    //cout << "Data has been stored: " << word << endl;
 
-    gpioDevHandler->hist << "Data has been stored: " << word << endl;
+    //gpioDevHandler->hist << "Data has been stored: " << word << endl;
+    //fstream hist;
+
+
 
     return word;
 }

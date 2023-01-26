@@ -10,6 +10,9 @@
 using namespace std;
 string now();
 void master_writing(ofstream& com, string _command);
+string get_last_word(const string& file_name);
+void evaluate_slave(string _command, string word);
+fstream hist;
 
 int main() {
     ofstream com ("communication-register");
@@ -65,6 +68,11 @@ int main() {
             //usleep(1000000);
         }
 
+        string last_word = get_last_word("communication-register");
+        //cout << last_word << endl;
+
+        evaluate_slave(_command, last_word);
+
         usleep(1000000 * delay);
 
         cout << "Enter command (-1 to terminate): " << endl;
@@ -94,4 +102,64 @@ void master_writing(ofstream& com, string _command){
     com << now() << "\t     master writing: " << _command << endl;
     com << now() << "\tMASTER LINE COMMAND: master read" << endl;
     com.close();
+}
+
+string get_last_word(const string& file_name) {
+    std::ifstream file(file_name);
+    std::string buffer;
+
+    // Check if the file is open
+    if (!file.is_open()) {
+        return buffer;
+    }
+
+    file.seekg(0, std::ios::end);
+    auto size = file.tellg();
+    if (size == 0) {
+        file.close();
+        return buffer;
+    }
+
+    // Move the position to the end of the file
+    file.seekg(-1, std::ios_base::end);
+
+    // Find the beginning of the last word
+    while (file.peek() != ' ' && file.tellg() > 0) {
+        file.seekg(-1, std::ios_base::cur);
+    }
+    if (file.tellg() == 0) {
+        std::getline(file, buffer);
+    } else {
+        file.seekg(1, std::ios_base::cur);
+        std::string line;
+        std::getline(file, line);
+        buffer = line.substr(line.find_last_of(" ") + 1);
+    }
+
+    // Close the file
+    file.close();
+
+    return buffer;
+}
+
+void evaluate_slave(string _command, string word){
+    /*if (_command == -1){
+        mas
+    }*/
+    if (_command.find("read-") != -1){
+        hist.open("history", ios::app);
+
+        hist << "Date: " << now() << endl << "Command: " << _command << endl;
+        hist << "Output: " << endl;
+        cout << "Chip info has read successfully" << endl << endl;
+        cout << "Data has been stored: " << word << endl;
+        hist << "Data has been stored: " << word << endl;
+        hist << endl << endl;
+        hist.close();
+    }
+
+    else if (_command.find("show-") != -1){
+
+    }
+
 }
