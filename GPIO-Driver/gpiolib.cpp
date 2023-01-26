@@ -29,8 +29,9 @@ static inline std::string &rtrim(std::string &s) {
     return s;
 }
 
-GPIO_Device::GPIO_Device(const char *dev_name) {
-    this->dev_name = dev_name;
+GPIO_Device::GPIO_Device(char *dev_name) {
+    this->dev_name = new char[strlen(dev_name) + 1];
+    strcpy(this->dev_name, dev_name);
     hist.open("history", ios::app);
     //cout << this->dev_name << endl;
 }
@@ -209,10 +210,10 @@ void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler) {
 
         for (int i=0; i<packSize; i++){
             cout << pack[i] << ": ";
-            cout << setw(max_length[i]) << left << buffers[i] << "  ";;
+            cout << setw(max_length[i]) << left << buffers[i] << "   ";;
 
             gpioDevHandler->hist << pack[i] << ": ";
-            gpioDevHandler->hist << setw(max_length[i]) << left << buffers[i] << "  ";
+            gpioDevHandler->hist << setw(max_length[i]) << left << buffers[i] << "   ";
 
         }
 
@@ -225,9 +226,27 @@ void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler) {
     cout << "Chip info is shown successfully" << endl;
 }
 
-string GPIO_Device::DeviceContent::read(int offset, enum feature request, GPIO_Device* gpioDevHandler){
+string GPIO_Device::DeviceContent::read(int offset, string property, GPIO_Device* gpioDevHandler){
 
     cout << "function 'GPIO_Device::DeviceContent::read' worked" << endl << endl;
+
+    string dir = gpioDevHandler->getDefaultDir();
+
+    string* pack = gpioDevHandler->getPack();
+    int packSize = gpioDevHandler->getPackSize();
+
+    int request = -1;
+
+    for (int i=0; i<packSize; i++) {
+        if (property == pack[i]){
+            request = i;
+            break;
+        }
+    }
+    if (request == -1){
+        cout << "Property is not valid" << endl;
+        return "";
+    }
 
     gpioDevHandler->device_open(DEFAULT, gpioDevHandler);
 
@@ -235,7 +254,7 @@ string GPIO_Device::DeviceContent::read(int offset, enum feature request, GPIO_D
 
     string word, empty;
 
-    for (int i=0; i<request+1;i++){
+    for (int i=0; i<request;i++){
         gpioDevHandler->fd >> empty;
     }
     gpioDevHandler->fd >> word;
@@ -250,13 +269,29 @@ string GPIO_Device::DeviceContent::read(int offset, enum feature request, GPIO_D
     return word;
 }
 
-void GPIO_Device::DeviceContent::write (int offset, enum feature request, string new_value, GPIO_Device* gpioDevHandler){
+void GPIO_Device::DeviceContent::write (int offset, string property, string new_value, GPIO_Device* gpioDevHandler){
 
     //cout << gpioDevHandler->dev_name << endl;
     cout << "function 'GPIO_Device::DeviceContent::write' worked" << endl << endl;
 
-    //cout << gpioDevHandler->dev_name << endl;
+    string dir = gpioDevHandler->getDefaultDir();
 
+    string* pack = gpioDevHandler->getPack();
+    int packSize = gpioDevHandler->getPackSize();
+
+    int request = -1;
+
+    for (int i=0; i<packSize; i++) {
+        if (property == pack[i]){
+            request = i;
+            break;
+        }
+    }
+    if (request == -1){
+        cout << "Property is not valid" << endl;
+        //return 0;
+    }
+    //cout << gpioDevHandler->dev_name << endl;
     gpioDevHandler->device_open(DEFAULT, gpioDevHandler);
 
     GotoLine(gpioDevHandler->fd, offset+1);
@@ -265,14 +300,14 @@ void GPIO_Device::DeviceContent::write (int offset, enum feature request, string
     getline(gpioDevHandler->fd, line);
     //cout << line << endl;
 
-    auto* buffers = new string[9];
+    auto* buffers = new string[packSize];
     Split(line, " ", buffers);
 
     string new_line;
 
-    for (int i=0; i<8; i++){
+    for (int i=0; i<packSize; i++){
 
-        if (i == request+1){
+        if (i == request){
             new_line += new_value + " ";
         }
 
@@ -358,16 +393,15 @@ void parse_SPI(string dir, GPIO_Device* gpioDevHandler){
     cout << "Number of device: " << data.size() << endl << endl;
 
     for (int i = 0; i<dataSize; i++) {
-
         gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
         gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
         gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
         gpioDevHandler->fd << data.at(i).value("cpol", 0) << " ";
         gpioDevHandler->fd << data.at(i).value("cpha", 0) << " ";
-        gpioDevHandler->fd << data.at(i).value("lsb_first", false) << " ";
-        gpioDevHandler->fd << data.at(i).value("cs_high", false) << " ";
-        gpioDevHandler->fd << data.at(i).value("3wire", false);
-        gpioDevHandler->fd << data.at(i).value("loopback", false);
+        gpioDevHandler->fd << data.at(i).value("lsb_first", "false") << " ";
+        gpioDevHandler->fd << data.at(i).value("cs_high", "false") << " ";
+        gpioDevHandler->fd << data.at(i).value("3wire", "false") << " ";
+        gpioDevHandler->fd << data.at(i).value("loopback", "false");
 
         gpioDevHandler->fd << endl;
 
@@ -392,7 +426,7 @@ void parse_I2C(string dir, GPIO_Device* gpioDevHandler){
         gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
         gpioDevHandler->fd << data.at(i).value("clock_speed", 100000) << " ";
         gpioDevHandler->fd << data.at(i).value("address_mode", 7) << " ";
-        gpioDevHandler->fd << data.at(i).value("10bit_mode", false) << " ";
+        gpioDevHandler->fd << data.at(i).value("10bit_mode", "false") << " ";
         gpioDevHandler->fd << data.at(i).value("sda_hold_time", 10);
         gpioDevHandler->fd << endl;
     }
@@ -417,8 +451,8 @@ void parse_ETHERNET(string dir, GPIO_Device* gpioDevHandler){
         gpioDevHandler->fd << data.at(i).value("ip_address", "-") << " ";
         gpioDevHandler->fd << data.at(i).value("netmask", "-") << " ";
         gpioDevHandler->fd << data.at(i).value("gateway", "-") << " ";
-        gpioDevHandler->fd << data.at(i).value("vlan_enable", false);
-        gpioDevHandler->fd << data.at(i).value("vlan_id", 0);
+        gpioDevHandler->fd << data.at(i).value("vlan_enable", "false") << " ";
+        gpioDevHandler->fd << data.at(i).value("vlan_id", 0) << " ";
         gpioDevHandler->fd << data.at(i).value("link_speed", 1000);
         gpioDevHandler->fd << endl;
     }
@@ -446,7 +480,7 @@ void parse_USART(string dir, GPIO_Device* gpioDevHandler){
         gpioDevHandler->fd << data.at(i).value("parity", "none") << " ";
         gpioDevHandler->fd << data.at(i).value("flow_control", "none") << " ";
         gpioDevHandler->fd << data.at(i).value("fifo_depth", 64) << " ";
-        gpioDevHandler->fd << data.at(i).value("synchronous_mode", true) << " ";
+        gpioDevHandler->fd << data.at(i).value("synchronous_mode", "true") << " ";
         gpioDevHandler->fd << data.at(i).value("clock_polarity", "low") << " ";
         gpioDevHandler->fd << data.at(i).value("clock_phase", "first") << " ";
         gpioDevHandler->fd << data.at(i).value("clock_rate", 16000000);
@@ -498,160 +532,9 @@ void parse_CAN(string dir, GPIO_Device* gpioDevHandler){
         gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
         gpioDevHandler->fd << data.at(i).value("bitrate", 500000) << " ";
         gpioDevHandler->fd << data.at(i).value("acceptance_filter", "standard") << " ";
-        gpioDevHandler->fd << data.at(i).value("loopback_mode", false) << " ";
-        gpioDevHandler->fd << data.at(i).value("listen_only_mode", false) << " ";
+        gpioDevHandler->fd << data.at(i).value("loopback_mode", "false") << " ";
+        gpioDevHandler->fd << data.at(i).value("listen_only_mode", "false") << " ";
         gpioDevHandler->fd << data.at(i).value("transceiver_type", "SN65HVD230");
         gpioDevHandler->fd << endl;
     }
 }
-
-
-/*
-int GPIO_Device::device_write(int offset, uint8_t value)
-{
-    printf("Write value %d to GPIO at offset %d (OUTPUT mode) on chip %s\n", value, offset, dev_name);
-
-    if (fd <= 0)
-        device_open();
-
-    rq.lineoffsets[0] = offset;
-
-    rq.flags = GPIOHANDLE_REQUEST_OUTPUT;
-
-    rq.lines = 1;
-
-    ret = ioctl(fd, GPIO_GET_LINEHANDLE_IOCTL, &(rq));
-
-    device_close();
-
-    if (ret == -1)
-    {
-        printf("Unable to line handle from ioctl : %s\n", strerror(errno));
-        return 0;
-    }
-
-    data.values[0] = value;
-
-    ret = ioctl(rq.fd, GPIOHANDLE_SET_LINE_VALUES_IOCTL, &data);
-
-    if (ret == -1)
-    {
-        printf("Unable to set line value using ioctl : %s\n", strerror(errno));
-    }
-
-    else
-
-    {
-
-        usleep(2000000);
-
-    }
-
-    close(rq.fd);
-    return 0;
-}
-
-/*
-int GPIO_Device::gpio_list()
-{
-    if (fd <= 0)
-        device_open();
-
-    ret = ioctl(fd, GPIO_GET_CHIPINFO_IOCTL, &info);
-
-    if (ret == -1)
-    {
-
-        printf("Unable to get chip info from ioctl: %s\n", strerror(errno));
-
-        device_close();
-
-        return 0;
-    }
-
-    printf("Chip name: %s\n", info.name);
-
-    printf("Chip label: %s\n", info.label);
-
-    printf("Number of lines: %d\n", info.lines);
-
-
-    for (int i = 0; i < info.lines; i++)
-    {
-
-        line_info.line_offset = i;
-
-        ret = ioctl(fd, GPIO_GET_LINEINFO_IOCTL, &line_info);
-
-        if (ret == -1)
-        {
-            printf("Unable to get line info from offset %d: %s\n", i, strerror(errno));
-        }
-
-        else
-        {
-
-            printf("offset: %d, name: %s, consumer: %s. Flags:\t[%s]\t[%s]\t[%s]\t[%s]\t[%s]\n",
-
-                   i,
-
-                   line_info.name,
-
-                   line_info.consumer,
-
-                   (line_info.flags & GPIOLINE_FLAG_IS_OUT) ? "OUTPUT" : "INPUT",
-
-                   (line_info.flags & GPIOLINE_FLAG_ACTIVE_LOW) ? "ACTIVE_LOW" : "ACTIVE_HIGHT",
-
-                   (line_info.flags & GPIOLINE_FLAG_OPEN_DRAIN) ? "OPEN_DRAIN" : "...",
-
-                   (line_info.flags & GPIOLINE_FLAG_OPEN_SOURCE) ? "OPENSOURCE" : "...",
-
-                   (line_info.flags & GPIOLINE_FLAG_KERNEL) ? "KERNEL" : "");
-
-        }
-
-    }
-
-    device_close();
-
-    return 0;
-}
-
-
-
-
-
-int GPIO_Device::gpio_read(int offset) {
-
-    if (fd <= 0)
-        device_open();
-
-    rq.lineoffsets[0] = offset;
-
-    rq.flags = GPIOHANDLE_REQUEST_INPUT;
-
-    rq.lines = 1;
-
-    ret = ioctl(fd, GPIO_GET_LINEHANDLE_IOCTL, &rq);
-
-    device_close();
-
-    if (ret == -1) {
-        printf("Unable to get line handle from ioctl : %s", strerror(errno));
-
-        return 0;
-    }
-
-    ret = ioctl(rq.fd, GPIOHANDLE_GET_LINE_VALUES_IOCTL, &data);
-
-    if (ret == -1) {
-        printf("Unable to get line value using ioctl : %s", strerror(errno));
-    } else {
-        printf("Value of GPIO at offset %d (INPUT mode) on chip %s: %d\n", offset, dev_name, data.values[0]);
-    }
-
-    close(rq.fd);
-    return 0;
-}
- */

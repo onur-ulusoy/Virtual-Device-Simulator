@@ -52,7 +52,7 @@ int main() {
 
     receiver.close();
 
-    receiver.open("command");
+    receiver.open("command", ios::out);
     receiver << "start";
 
     receiver.close();
@@ -112,7 +112,7 @@ int receive_command(enum command_request req, string devType) {
             history << "Date: " << now() << endl << "Command: " << _command << endl;
             history << "Output: " << endl;
 
-            const char* dev_name = ("dev/" + substrings[1]).c_str();
+            char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
 
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
@@ -157,39 +157,45 @@ int receive_command(enum command_request req, string devType) {
             history << "Date: " << now() << endl << "Command: " << _command << endl;
             history << "Output: " << endl;
 
-            const char* dev_name = ("dev/" + substrings[1]).c_str();
+            char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
 
             int offset = stoi(substrings[2]);
 
             enum feature property;
 
-            if (substrings[3] == "NAME")
-                property = NAME;
-            else if (substrings[3] == "CONSUMER")
-                property = CONSUMER;
-            else if (substrings[3] == "FLAG_IS_OUT")
-                property = FLAG_IS_OUT;
-            else if (substrings[3] == "FLAG_ACTIVE_LOW")
-                property = FLAG_ACTIVE_LOW;
-            else if (substrings[3] == "FLAG_OPEN_DRAIN")
-                property = FLAG_OPEN_DRAIN;
-            else if (substrings[3] == "FLAG_OPEN_SOURCE")
-                property = FLAG_OPEN_SOURCE;
-            else if (substrings[3] == "FLAG_KERNEL")
-                property = FLAG_KERNEL;
-            else{
-                cout << "Property is not valid" << endl;
-                return 0;
-            }
-
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
-                string data = gpioDevHandler->devContent.read(offset, property, gpioDevHandler);
+                string data = gpioDevHandler->devContent.read(offset, substrings[3], gpioDevHandler);
             }
 
             else if (devType == "spi"){
                 SPI_Device* spiDevHandler = new SPI_Device(dev_name);
-                string data = spiDevHandler->devContent.read(offset, property, spiDevHandler);
+                string data = spiDevHandler->devContent.read(offset, substrings[3], spiDevHandler);
+            }
+
+            else if (devType == "i2c"){
+                I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
+                string data = i2cDevHandler->devContent.read(offset, substrings[3], i2cDevHandler);
+            }
+
+            else if (devType == "ethernet"){
+                ETHERNET_Device* ethDevHandler = new ETHERNET_Device(dev_name);
+                string data = ethDevHandler->devContent.read(offset, substrings[3], ethDevHandler);
+            }
+
+            else if (devType == "usart"){
+                USART_Device* usartDevHandler = new USART_Device(dev_name);
+                string data = usartDevHandler->devContent.read(offset, substrings[3], usartDevHandler);
+            }
+
+            else if (devType == "uart"){
+                UART_Device* uartDevHandler = new UART_Device(dev_name);
+                string data = uartDevHandler->devContent.read(offset, substrings[3], uartDevHandler);
+            }
+
+            else if (devType == "can"){
+                CAN_Device* canDevHandler = new CAN_Device(dev_name);
+                string data = canDevHandler->devContent.read(offset, substrings[3], canDevHandler);
             }
 
             history << endl << endl;
@@ -204,53 +210,46 @@ int receive_command(enum command_request req, string devType) {
             history << "Date: " << now() << endl << "Command: " << _command << endl;
             history << "Output: " << endl;
 
-            const char* dev_name = ("dev/" + substrings[1]).c_str();
+            char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
             //cout << dev_name << " * " << endl;
 
 
             int offset = stoi(substrings[2]);
-
-            enum feature property;
-            //write-d-2-NAME-fdf
-            if (substrings[3] == "NAME")
-                property = NAME;
-            else if (substrings[3] == "CONSUMER")
-                property = CONSUMER;
-            else if (substrings[3] == "FLAG_IS_OUT")
-                property = FLAG_IS_OUT;
-            else if (substrings[3] == "FLAG_ACTIVE_LOW")
-                property = FLAG_ACTIVE_LOW;
-            else if (substrings[3] == "FLAG_OPEN_DRAIN")
-                property = FLAG_OPEN_DRAIN;
-            else if (substrings[3] == "FLAG_OPEN_SOURCE")
-                property = FLAG_OPEN_SOURCE;
-            else if (substrings[3] == "FLAG_KERNEL")
-                property = FLAG_KERNEL;
-            else{
-                cout << "Property is not valid" << endl;
-                return 0;
-            }
-
-            //cout << substrings.size() << endl;
-            //string new_val = substrings[4];
-            //string gpio_data = gpioDevHandler->devContent.read(offset, property, gpioDevHandler);
-            //cout << "Data has read:" << gpio_data << endl;
-            //string val = substrings[4];
-            //gpioDevHandler->devContent.show(gpioDevHandler);
+            /*for (int i = 0; i < 5; i++) {
+                cout << i << " " << substrings[i] << endl;
+            }*/
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
-                gpioDevHandler->devContent.write(offset, property, substrings[4], gpioDevHandler);
+                gpioDevHandler->devContent.write(offset, substrings[3], substrings[4], gpioDevHandler);
             }
 
             else if (devType == "spi"){
                 SPI_Device* spiDevHandler = new SPI_Device(dev_name);
-                spiDevHandler->devContent.write(offset, property, substrings[4], spiDevHandler);
-            }
+                spiDevHandler->devContent.write(offset, substrings[3], substrings[4], spiDevHandler);            }
+
+            else if (devType == "i2c"){
+                I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
+                i2cDevHandler->devContent.write(offset, substrings[3], substrings[4], i2cDevHandler);            }
+
+            else if (devType == "ethernet"){
+                ETHERNET_Device* ethDevHandler = new ETHERNET_Device(dev_name);
+                ethDevHandler->devContent.write(offset, substrings[3], substrings[4], ethDevHandler);            }
+
+            else if (devType == "usart"){
+                USART_Device* usartDevHandler = new USART_Device(dev_name);
+                usartDevHandler->devContent.write(offset, substrings[3], substrings[4], usartDevHandler);            }
+
+            else if (devType == "uart"){
+                UART_Device* uartDevHandler = new UART_Device(dev_name);
+                uartDevHandler->devContent.write(offset, substrings[3], substrings[4], uartDevHandler);            }
+
+            else if (devType == "can"){
+                CAN_Device* canDevHandler = new CAN_Device(dev_name);
+                canDevHandler->devContent.write(offset, substrings[3], substrings[4], canDevHandler);            }
+
 
             history << endl << endl;
             history.close();
-            //gpioDevHandler->devContent.write(1, FLAG_IS_OUT, "[OUTPUT]", gpioDevHandler);
-
         }
 
         else if (substrings[0] == "fill") {
@@ -260,7 +259,7 @@ int receive_command(enum command_request req, string devType) {
             history << "Date: " << now() << endl << "Command: " << _command << endl;
             history << "Output: " << endl;
 
-            const char* dev_name = ("dev/" + substrings[1]).c_str();
+            char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
 
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);

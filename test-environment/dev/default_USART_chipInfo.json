@@ -10,7 +10,7 @@
       "parity": "none",
       "flow_control": "none",
       "fifo_depth": 64,
-      "synchronous_mode": true,
+      "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
       "clock_rate": 16000000
@@ -25,7 +25,7 @@
       "parity": "none",
       "flow_control": "none",
       "fifo_depth": 64,
-      "synchronous_mode": true,
+      "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
       "clock_rate": 16000000
@@ -40,7 +40,7 @@
       "parity": "none",
       "flow_control": "none",
       "fifo_depth": 64,
-      "synchronous_mode": true,
+      "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
       "clock_rate": 16000000
@@ -55,7 +55,7 @@
       "parity": "none",
       "flow_control": "none",
       "fifo_depth": 64,
-      "synchronous_mode": true,
+      "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
       "clock_rate": 16000000
@@ -70,7 +70,7 @@
       "parity": "none",
       "flow_control": "none",
       "fifo_depth": 64,
-      "synchronous_mode": true,
+      "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
       "clock_rate": 16000000
@@ -85,7 +85,7 @@
       "parity": "none",
       "flow_control": "none",
       "fifo_depth": 64,
-      "synchronous_mode": true,
+      "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
       "clock_rate": 16000000
@@ -100,7 +100,7 @@
       "parity": "none",
       "flow_control": "none",
       "fifo_depth": 64,
-      "synchronous_mode": true,
+      "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
       "clock_rate": 16000000
@@ -115,7 +115,7 @@
       "parity": "none",
       "flow_control": "none",
       "fifo_depth": 64,
-      "synchronous_mode": true,
+      "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
       "clock_rate": 16000000

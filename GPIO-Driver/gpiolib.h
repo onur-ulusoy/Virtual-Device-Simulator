@@ -28,14 +28,14 @@ class GPIO_Device{
 protected:
     fstream fd;
 private:
-    const char *dev_name;
+    char *dev_name;
     fstream hist;
     string defaultDir = "dev/default_GPIO_chipInfo.json";
     int packSize = 8;
     string pack[8] = {"offset", "name", "consumer", "FLAG_IS_OUT", "FLAG_ACTIVE_LOW", "FLAG_OPEN_DRAIN", "FLAG_OPEN_SOURCE", "FLAG_KERNEL"};
 
 public:
-    GPIO_Device(const char* dev_name);
+    GPIO_Device(char* dev_name);
     void device_open(command request, GPIO_Device* gpioDevHandler);
     void device_close();
     virtual string getDefaultDir() { return defaultDir; }
@@ -59,8 +59,8 @@ public:
     public:
         void fill(command request, GPIO_Device* gpioDevHandler);
         static void show (GPIO_Device* gpioDevHandler);
-        static string read(int offset, enum feature request, GPIO_Device* gpioDevHandler);
-        void write (int offset, enum feature request, string new_value, GPIO_Device* gpioDevHandler);
+        static string read(int offset, string property, GPIO_Device* gpioDevHandler);
+        void write (int offset, string property, string new_value, GPIO_Device* gpioDevHandler);
 
     };
 
@@ -79,7 +79,7 @@ public:
     string* getPack(){ return pack; }
     int getPackSize(){ return packSize; }
 
-    SPI_Device(const char* dev_name) : GPIO_Device(dev_name) {
+    SPI_Device(char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_SPI_chipInfo.json";
     };
 
@@ -92,11 +92,14 @@ public:
 class I2C_Device : public GPIO_Device {
 private:
     string defaultDir;
-    fstream fd;
+    string pack[7] = {"offset", "name", "consumer", "clock_speed", "address_mode", "10bit_mode", "sda_hold_time"};
+    int packSize = 7;
 
 public:
     string getDefaultDir() { return defaultDir; }
-    I2C_Device(const char* dev_name) : GPIO_Device(dev_name) {
+    string* getPack(){ return pack; }
+    int getPackSize(){ return packSize; }
+    I2C_Device(char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_I2C_chipInfo.json";
     };
     void parse(string dir, GPIO_Device* gpioDevHandler){
@@ -107,11 +110,15 @@ public:
 class ETHERNET_Device : public GPIO_Device {
 private:
     string defaultDir;
-    fstream fd;
+    string pack[9] = {"offset", "name", "mac_address", "ip_address", "netmask", "gateway", "vlan_enable", "vlan_id", "link_speed"};
+    int packSize = 9;
 
 public:
     string getDefaultDir() { return defaultDir; }
-    ETHERNET_Device(const char* dev_name) : GPIO_Device(dev_name) {
+    string* getPack(){ return pack; }
+    int getPackSize(){ return packSize; }
+
+    ETHERNET_Device( char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_ETHERNET_chipInfo.json";
     };
     void parse(string dir, GPIO_Device* gpioDevHandler){
@@ -122,11 +129,15 @@ public:
 class USART_Device : public GPIO_Device {
 private:
     string defaultDir;
-    fstream fd;
+    string pack[13] = {"offset", "name", "consumer", "baud_rate", "data_bits", "stop_bits", "parity", "flow_control", "fifo_depth", "synchronous_mode", "clock_polarity", "clock_phase", "clock_rate"};
+    int packSize = 13;
 
 public:
     string getDefaultDir() { return defaultDir; }
-    USART_Device(const char* dev_name) : GPIO_Device(dev_name) {
+    string* getPack(){ return pack; }
+    int getPackSize(){ return packSize; }
+
+    USART_Device( char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_USART_chipInfo.json";
     };
     void parse(string dir, GPIO_Device* gpioDevHandler){
@@ -137,11 +148,15 @@ public:
 class UART_Device : public GPIO_Device {
 private:
     string defaultDir;
-    fstream fd;
+    string pack[9] = {"offset", "name", "consumer", "baud_rate", "data_bits", "stop_bits", "parity", "flow_control", "fifo_depth"};
+    int packSize = 9;
 
 public:
     string getDefaultDir() { return defaultDir; }
-    UART_Device(const char* dev_name) : GPIO_Device(dev_name) {
+    string* getPack(){ return pack; }
+    int getPackSize(){ return packSize; }
+
+    UART_Device( char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_UART_chipInfo.json";
     };
     void parse(string dir, GPIO_Device* gpioDevHandler){
@@ -152,11 +167,15 @@ public:
 class CAN_Device : public GPIO_Device {
 private:
     string defaultDir;
-    fstream fd;
+    string pack[8] = {"offset", "name", "consumer", "bitrate", "acceptance_filter", "loopback_mode", "listen_only_mode", "transceiver_type", };
+    int packSize = 8;
 
 public:
     string getDefaultDir() { return defaultDir; }
-    CAN_Device(const char* dev_name) : GPIO_Device(dev_name) {
+    string* getPack(){ return pack; }
+    int getPackSize(){ return packSize; }
+
+    CAN_Device( char* dev_name) : GPIO_Device(dev_name) {
         this->defaultDir = "dev/default_CAN_chipInfo.json";
     };
     void parse(string dir, GPIO_Device* gpioDevHandler){
