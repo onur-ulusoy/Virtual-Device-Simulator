@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "program::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-program-Debug-f1f5aba510c8b61dfe08.json",
+					"jsonFile" : "target-program-Debug-527bf62545fc46b3f938.json",
 					"name" : "program",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/onur/CLionProjects/bbx15/GPIO-Driver/cmake-build-debug",
-		"source" : "/home/onur/CLionProjects/bbx15/GPIO-Driver"
+		"build" : "/home/onur/CLionProjects/bbx15-driver/driver/cmake-build-debug",
+		"source" : "/home/onur/CLionProjects/bbx15-driver/driver"
 	},
 	"version" : 
 	{

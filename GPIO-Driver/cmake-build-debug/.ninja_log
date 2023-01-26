@@ -1,4 +1,0 @@
-# ninja log v5
-4192	4346	1674483597129867352	program	320e5c2df7161be9
-2	4192	1674483596969875194	CMakeFiles/program.dir/gpiolib.cpp.o	bdd39eb39a90cfba
-1	2910	1674483595693937745	CMakeFiles/program.dir/main.cpp.o	199fca6506547c13

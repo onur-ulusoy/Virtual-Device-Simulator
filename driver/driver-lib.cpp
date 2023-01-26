@@ -1,5 +1,5 @@
 #include <set>
-#include "gpiolib.h"
+#include "driver-lib.h"
 
 fstream& GotoLine(std::fstream& file, unsigned int num){
     file.seekg(std::ios::beg);
@@ -36,11 +36,6 @@ GPIO_Device::GPIO_Device(char *dev_name) {
     //cout << this->dev_name << endl;
 }
 
-//SPI_Device::SPI_Device(const char *devName) {
-//    this->dev_name = dev_name;
-//    hist.open("history", ios::app);
-//    //cout << this->dev_name << endl;
-//}
 
 void GPIO_Device::device_open(command request, GPIO_Device* gpioDevHandler) {
 

@@ -1,30 +1,27 @@
-Date: Thu Jan 26 03:04:36 2023
+Date: Thu Jan 26 09:49:25 2023
 Command: fill-d
 Output: 
 Default chip info is written to the file 'dev/d' successfully
 
 
-Date: Thu Jan 26 03:04:39 2023
-Command: show-d
-Output: 
-Data was shown for 'dev/d':
-offset: 0   name: SPI_0   consumer: -   cpol: 0   cpha: 0   lsb_first: false   cs_high: false   3wire: false   loopback: false   
-offset: 1   name: SPI_1   consumer: -   cpol: 0   cpha: 0   lsb_first: false   cs_high: false   3wire: false   loopback: false   
-offset: 2   name: SPI_2   consumer: -   cpol: 0   cpha: 0   lsb_first: false   cs_high: false   3wire: false   loopback: false   
-
-
-Date: Thu Jan 26 03:04:55 2023
-Command: write-d-1-lsb_first-true
+Date: Thu Jan 26 09:53:38 2023
+Command: write-d-2-name-fdffdff
 Output: 
 Chip info is changed successfully
 
 
-Date: Thu Jan 26 03:04:59 2023
+Date: Thu Jan 26 09:53:38 2023
 Command: show-d
 Output: 
 Data was shown for 'dev/d':
-offset: 0   name: SPI_0   consumer: -   cpol: 0   cpha: 0   lsb_first: false   cs_high: false   3wire: false   loopback: false   
-offset: 1   name: SPI_1   consumer: -   cpol: 0   cpha: 0   lsb_first: true    cs_high: false   3wire: false   loopback: false   
-offset: 2   name: SPI_2   consumer: -   cpol: 0   cpha: 0   lsb_first: false   cs_high: false   3wire: false   loopback: false   
+offset: 0   name: SPI_0     consumer: -   cpol: 0   cpha: 0   lsb_first: false   cs_high: false   3wire: false   loopback: false   
+offset: 1   name: SPI_1     consumer: -   cpol: 0   cpha: 0   lsb_first: false   cs_high: false   3wire: false   loopback: false   
+offset: 2   name: fdffdff   consumer: -   cpol: 0   cpha: 0   lsb_first: false   cs_high: false   3wire: false   loopback: false   
+
+
+Date: Thu Jan 26 09:53:38 2023
+Command: read-d-2-name
+Output: 
+Data has been stored: fdffdff
 
 

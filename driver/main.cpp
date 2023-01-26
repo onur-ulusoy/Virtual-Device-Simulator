@@ -1,14 +1,9 @@
-#include "gpiolib.h"
+#include "driver-lib.h"
 #include <unistd.h>
-#include <regex>
-#include <chrono>
 #include <ctime>
 #include <iomanip>
-//#include <boost/format.hpp>
 
 using namespace std;
-
-//#define DEV_NAME "dev/gpiochip0"
 
 fstream receiver;
 string _command;
@@ -19,23 +14,6 @@ void throw_command();
 string now();
 
 int main() {
-    //GPIO_Device* gpioDevHandler = new GPIO_Device(DEV_NAME);
-
-    //gpioDevHandler->device_open(READONLY, gpioDevHandler);
-
-    //gpioDevHandler->device_close();
-
-    //gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
-
-    //gpioDevHandler->devContent.show(gpioDevHandler);
-
-    //int GPIO_offset = 0;
-    //string GPIO_status = gpioDevHandler->devContent.read(GPIO_offset, FLAG_IS_OUT,  gpioDevHandler);
-    //gpioDevHandler->devContent.write(1, FLAG_IS_OUT, "[OUTPUT]", gpioDevHandler);
-    //feature inputlar için enum ayarlanabilir write için string input vermektense
-    //cout << "GPIO Device " << GPIO_offset << " " << "FLAG_IS_OUT is " << GPIO_status << endl;
-
-    //gpioDevHandler->devContent.show(gpioDevHandler);
 
     float sleep_time = 0.2;
     //cout << "Build finished."<< endl;
@@ -160,8 +138,6 @@ int receive_command(enum command_request req, string devType) {
             char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
 
             int offset = stoi(substrings[2]);
-
-            enum feature property;
 
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);

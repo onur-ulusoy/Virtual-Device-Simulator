@@ -1,12 +1,10 @@
 #ifndef UNTITLED_GPIOLIB_H
 #define UNTITLED_GPIOLIB_H
 
-//#include <linux/gpio.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <cstring>
 #include <errno.h>
-//#include <sys/ioctl.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <nlohmann/json.hpp>
@@ -17,7 +15,7 @@
 
 using namespace std;
 enum command {DEFAULT, READONLY, WRITEONLY};
-enum feature {NAME, CONSUMER, FLAG_IS_OUT, FLAG_ACTIVE_LOW, FLAG_OPEN_DRAIN, FLAG_OPEN_SOURCE, FLAG_KERNEL};
+//enum feature {NAME, CONSUMER, FLAG_IS_OUT, FLAG_ACTIVE_LOW, FLAG_OPEN_DRAIN, FLAG_OPEN_SOURCE, FLAG_KERNEL};
 enum command_request {ONESHOT, RECURSIVE};
 
 fstream& GotoLine(std::fstream& file, unsigned int num);

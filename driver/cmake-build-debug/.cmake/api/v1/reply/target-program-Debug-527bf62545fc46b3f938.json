@@ -106,12 +106,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "gpiolib.cpp",
+			"path" : "driver-lib.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "gpiolib.h",
+			"path" : "driver-lib.h",
 			"sourceGroupIndex" : 1
 		}
 	],
