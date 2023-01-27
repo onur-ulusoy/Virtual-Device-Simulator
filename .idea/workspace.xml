@@ -20,13 +20,20 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="func show, fill configured">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_01_2023_08_52__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_01_2023_11_41__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="all functions configurated">
+      <change afterPath="$PROJECT_DIR$/test-environment/dev/ds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-environment/dev/ethChip0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-environment/dev/f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-environment/dev/fdfdsdff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-environment/dev/fsdfsdkgdfk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-environment/dev/sda" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-environment/dev/sdfdssf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-environment/dev_dir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/driver-lib.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/driver/driver-lib.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/driver/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/communication-register" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/communication-register" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/dev/d" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/dev/d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/dev/default_GPIO_chipInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/dev/default_GPIO_chipInfo.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/history" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/history" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/program.out" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/program.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/tester.out" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/tester.out" afterDir="false" />
@@ -52,7 +59,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop_v5" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -346,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674805818702</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="all functions configurated">
+      <created>1674807087292</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1674807087292</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,6 +386,7 @@
     <MESSAGE value="other devices work properly" />
     <MESSAGE value="communication configuring" />
     <MESSAGE value="func show, fill configured" />
-    <option name="LAST_COMMIT_MESSAGE" value="func show, fill configured" />
+    <MESSAGE value="all functions configurated" />
+    <option name="LAST_COMMIT_MESSAGE" value="all functions configurated" />
   </component>
 </project>

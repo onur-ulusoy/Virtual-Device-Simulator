@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <ctime>
 #include <iomanip>
+#include <unistd.h>
 
 using namespace std;
 
@@ -91,7 +92,7 @@ int receive_command(enum command_request req, string devType) {
 
         if (substrings[0] == "show") {
 
-            char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
+            char* dev_name = const_cast<char*>(("dev/" + devType + "/" + substrings[1]).c_str());
 
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
@@ -128,9 +129,7 @@ int receive_command(enum command_request req, string devType) {
 
         else if (substrings[0] == "read") {
 
-            //history.open("history", ios::app);
-
-            char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
+            char* dev_name = const_cast<char*>(("dev/" + devType + "/" + substrings[1]).c_str());
 
             int offset = stoi(substrings[2]);
             string data;
@@ -175,7 +174,7 @@ int receive_command(enum command_request req, string devType) {
 
         else if (substrings[0] == "write") {
 
-            char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
+            char* dev_name = const_cast<char*>(("dev/" + devType + "/" + substrings[1]).c_str());
 
             int offset = stoi(substrings[2]);
 
@@ -214,11 +213,12 @@ int receive_command(enum command_request req, string devType) {
         else if (substrings[0] == "fill") {
 
 
-            char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
+            char* dev_name = const_cast<char*>(("dev/" + devType + "/" + substrings[1]).c_str());
 
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
                 returnVal = gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
+
             }
             else if (devType == "spi"){
                 SPI_Device* spiDevHandler = new SPI_Device(dev_name);

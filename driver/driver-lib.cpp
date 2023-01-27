@@ -353,6 +353,7 @@ string GPIO_Device::DeviceContent::write (int offset, string property, string ne
 
 void parse_GPIO(string dir, GPIO_Device* gpioDevHandler){
     std::ifstream jsonFile(dir);
+
     nlohmann::json commands;
     jsonFile >> commands;
 

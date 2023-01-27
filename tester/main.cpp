@@ -3,18 +3,23 @@
 #include <unistd.h>
 #include <chrono>
 #include <time.h>
-/*#include <unistd.h>
-#include <ctime>*/
 #include <iomanip>
+#include <sys/stat.h>
+
 
 using namespace std;
 string now();
 void master_writing(ofstream& com, string _command);
 string get_last_word(const string& file_name);
 void evaluate_slave(string _command, string word);
+void create_directories(string directories[], int size);
+
 fstream hist;
 
 int main() {
+    std::string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};
+    create_directories(directories, 7);
+
     ofstream com ("communication-register");
     com.close();
 
@@ -217,4 +222,10 @@ void evaluate_slave(string _command, string word){
         cout << "Command is not valid." << endl;
 
 
+}
+
+void create_directories(string directories[], int size) {
+    for (int i = 0; i < size; i++) {
+        mkdir(directories[i].c_str(), 0777);
+    }
 }
