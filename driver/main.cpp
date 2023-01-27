@@ -176,13 +176,9 @@ int receive_command(enum command_request req, string devType) {
         else if (substrings[0] == "write") {
 
             char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
-            //cout << dev_name << " * " << endl;
-
 
             int offset = stoi(substrings[2]);
-            /*for (int i = 0; i < 5; i++) {
-                cout << i << " " << substrings[i] << endl;
-            }*/
+
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
                 returnVal = gpioDevHandler->devContent.write(offset, substrings[3], substrings[4], gpioDevHandler);
@@ -264,25 +260,19 @@ int receive_command(enum command_request req, string devType) {
                 f >> _command;
                 if (_command.length()  == 0)
                     break;
-                cout << "Command is running: " << _command << endl;
+                //cout << "Command is running: " << _command << endl;
                 receive_command(RECURSIVE, devType);
             }
 
         }
 
         else {
-            cout << "Command is not valid." << endl;
             slave_writing(_com, "Invalid command");
         }
 
     }
-    //cout << "3322" << endl;
 
-    //_command = "&";
-    //usleep(1000000 * 3);
     throw_command();
-    //usleep(10000000);
-    //exit(0);
     return 0;
 }
 

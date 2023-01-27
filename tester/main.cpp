@@ -213,4 +213,8 @@ void evaluate_slave(string _command, string word){
         hist.close();
     }
 
+    else
+        cout << "Command is not valid." << endl;
+
+
 }
