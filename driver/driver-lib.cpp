@@ -125,7 +125,7 @@ void GPIO_Device::device_close() {
     cout << endl;
 }
 
-void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandler) {
+string GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandler) {
 
     string dir = gpioDevHandler->getDefaultDir();
 
@@ -137,16 +137,16 @@ void GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandl
 
         gpioDevHandler->parse(dir, gpioDevHandler);
 
-        cout << "Default chip info is written to the file successfully" << endl;
-        gpioDevHandler->hist << "Default chip info is written to the file '" << gpioDevHandler->dev_name << "' successfully" << endl;
-
+        //return "true";
 
     }
-
     gpioDevHandler->device_close();
+    return "true";
 }
 
-void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler) {
+string GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler) {
+    ofstream temp;
+    temp.open("temp", ios::app);
 
     cout << "function 'GPIO_Device::DeviceContent::show' worked" << endl << endl;
 
@@ -158,7 +158,7 @@ void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler) {
 
     gpioDevHandler->device_open(READONLY, gpioDevHandler);
 
-    cout << "Chip info is being shown ..." << endl << endl;
+    //cout << "Chip info is being shown ..." << endl << endl;
 
     // Get the maximum length of each column
     int max_length[packSize];
@@ -189,7 +189,7 @@ void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler) {
     gpioDevHandler->fd.clear();
     gpioDevHandler->fd.seekg(0, ios::beg);
 
-    gpioDevHandler->hist << "Data was shown for '" << gpioDevHandler->dev_name << "':" << endl;
+    //cout << "Data was shown for '" << gpioDevHandler->dev_name << "':" << endl;
     while (true) {
         string line, word;
         for (int i=0; i<packSize;i++){
@@ -204,21 +204,21 @@ void GPIO_Device::DeviceContent::show(GPIO_Device* gpioDevHandler) {
 
 
         for (int i=0; i<packSize; i++){
-            cout << pack[i] << ": ";
-            cout << setw(max_length[i]) << left << buffers[i] << "   ";;
+            /*cout << pack[i] << ": ";
+            cout << setw(max_length[i]) << left << buffers[i] << "   ";*/
 
-            gpioDevHandler->hist << pack[i] << ": ";
-            gpioDevHandler->hist << setw(max_length[i]) << left << buffers[i] << "   ";
+            temp << pack[i] << ": ";
+            temp << setw(max_length[i]) << left << buffers[i] << "   ";
 
         }
 
-        cout << endl;
-        gpioDevHandler->hist << endl;
+        //cout << endl;
+        temp << endl;
         delete[] buffers;
     }
 
-    cout << endl;
-    cout << "Chip info is shown successfully" << endl;
+
+    return "true";
 }
 
 string GPIO_Device::DeviceContent::read(int offset, string property, GPIO_Device* gpioDevHandler){
@@ -230,7 +230,7 @@ string GPIO_Device::DeviceContent::read(int offset, string property, GPIO_Device
     string* pack = gpioDevHandler->getPack();
     int packSize = gpioDevHandler->getPackSize();
 
-    int request = -1;
+    int request = -2;
 
     for (int i=0; i<packSize; i++) {
         if (property == pack[i]){
@@ -238,9 +238,9 @@ string GPIO_Device::DeviceContent::read(int offset, string property, GPIO_Device
             break;
         }
     }
-    if (request == -1){
-        cout << "Property is not valid" << endl;
-        return "";
+
+    if (request == -2){
+        return "false";
     }
 
     gpioDevHandler->device_open(DEFAULT, gpioDevHandler);
@@ -267,7 +267,7 @@ string GPIO_Device::DeviceContent::read(int offset, string property, GPIO_Device
     return word;
 }
 
-void GPIO_Device::DeviceContent::write (int offset, string property, string new_value, GPIO_Device* gpioDevHandler){
+string GPIO_Device::DeviceContent::write (int offset, string property, string new_value, GPIO_Device* gpioDevHandler){
 
     //cout << gpioDevHandler->dev_name << endl;
     cout << "function 'GPIO_Device::DeviceContent::write' worked" << endl << endl;
@@ -277,7 +277,7 @@ void GPIO_Device::DeviceContent::write (int offset, string property, string new_
     string* pack = gpioDevHandler->getPack();
     int packSize = gpioDevHandler->getPackSize();
 
-    int request = -1;
+    int request = -2;
 
     for (int i=0; i<packSize; i++) {
         if (property == pack[i]){
@@ -285,8 +285,8 @@ void GPIO_Device::DeviceContent::write (int offset, string property, string new_
             break;
         }
     }
-    if (request == -1){
-        cout << "Property is not valid" << endl;
+    if (request == -2){
+        return "false";
         //return 0;
     }
     //cout << gpioDevHandler->dev_name << endl;
@@ -348,9 +348,7 @@ void GPIO_Device::DeviceContent::write (int offset, string property, string new_
     remove(gpioDevHandler->dev_name);
     rename(NEW_FILE, gpioDevHandler->dev_name);
 
-    cout << endl;
-    cout << "Chip info is changed successfully" << endl;
-    gpioDevHandler->hist << "Chip info is changed successfully" << endl;
+    return "true";
 }
 
 void parse_GPIO(string dir, GPIO_Device* gpioDevHandler){

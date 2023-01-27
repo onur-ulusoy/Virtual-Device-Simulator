@@ -1,24 +1,16 @@
-Thu Jan 26 16:38:38 2023	MASTER LINE COMMAND: master write
-Thu Jan 26 16:38:38 2023	     master writing: read-d-2-name
-Thu Jan 26 16:38:38 2023	MASTER LINE COMMAND: master read
-Thu Jan 26 16:38:39 2023	      slave writing: fdffdff
-Thu Jan 26 16:38:39 2023	MASTER LINE COMMAND: master write
-Thu Jan 26 16:38:39 2023	     master writing: 
-Thu Jan 26 16:38:39 2023	MASTER LINE COMMAND: master read
-Thu Jan 26 16:38:39 2023	MASTER LINE COMMAND: master write
-Thu Jan 26 16:38:39 2023	     master writing: 
-Thu Jan 26 16:38:39 2023	MASTER LINE COMMAND: master read
-Thu Jan 26 16:38:43 2023	MASTER LINE COMMAND: master write
-Thu Jan 26 16:38:43 2023	     master writing: read-d-1-name
-Thu Jan 26 16:38:43 2023	MASTER LINE COMMAND: master read
-Thu Jan 26 16:38:44 2023	      slave writing: SPI_1
-Thu Jan 26 16:38:44 2023	MASTER LINE COMMAND: master write
-Thu Jan 26 16:38:44 2023	     master writing: 
-Thu Jan 26 16:38:44 2023	MASTER LINE COMMAND: master read
-Thu Jan 26 16:38:44 2023	MASTER LINE COMMAND: master write
-Thu Jan 26 16:38:44 2023	     master writing: 
-Thu Jan 26 16:38:44 2023	MASTER LINE COMMAND: master read
-Thu Jan 26 16:38:45 2023	MASTER LINE COMMAND: master write
-Thu Jan 26 16:38:45 2023	     master writing: -1
-Thu Jan 26 16:38:45 2023	MASTER LINE COMMAND: master read
-Thu Jan 26 16:38:45 2023	      slave writing: disconnecting
+Fri Jan 27 10:48:07 2023	MASTER LINE COMMAND: master write
+Fri Jan 27 10:48:07 2023	     master writing: show-d
+Fri Jan 27 10:48:07 2023	MASTER LINE COMMAND: slave write
+Fri Jan 27 10:48:08 2023	      slave writing: true
+Fri Jan 27 10:48:21 2023	MASTER LINE COMMAND: master write
+Fri Jan 27 10:48:21 2023	     master writing: fill-d
+Fri Jan 27 10:48:21 2023	MASTER LINE COMMAND: slave write
+Fri Jan 27 10:48:22 2023	      slave writing: true
+Fri Jan 27 10:48:24 2023	MASTER LINE COMMAND: master write
+Fri Jan 27 10:48:24 2023	     master writing: show-d
+Fri Jan 27 10:48:24 2023	MASTER LINE COMMAND: slave write
+Fri Jan 27 10:48:25 2023	      slave writing: true
+Fri Jan 27 10:49:40 2023	MASTER LINE COMMAND: master write
+Fri Jan 27 10:49:40 2023	     master writing: -1
+Fri Jan 27 10:49:40 2023	MASTER LINE COMMAND: slave write
+Fri Jan 27 10:49:40 2023	      slave writing: disconnecting

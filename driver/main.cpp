@@ -56,6 +56,7 @@ int main() {
 }
 
 int receive_command(enum command_request req, string devType) {
+    string returnVal = "false";
 
     if (req == ONESHOT){
         receiver.open("command");
@@ -90,46 +91,38 @@ int receive_command(enum command_request req, string devType) {
 
         if (substrings[0] == "show") {
 
-            history.open("history", ios::app);
-
-            history << "Date: " << now() << endl << "Command: " << _command << endl;
-            history << "Output: " << endl;
-
             char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
 
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
-                gpioDevHandler->devContent.show(gpioDevHandler);
+                returnVal = gpioDevHandler->devContent.show(gpioDevHandler);
             }
             else if (devType == "spi"){
                 SPI_Device* spiDevHandler = new SPI_Device(dev_name);
-                spiDevHandler->devContent.show(spiDevHandler);
+                returnVal = spiDevHandler->devContent.show(spiDevHandler);
             }
             else if (devType == "i2c"){
                 I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
-                i2cDevHandler->devContent.show(i2cDevHandler);
+                returnVal = i2cDevHandler->devContent.show(i2cDevHandler);
             }
             else if (devType == "ethernet"){
                 ETHERNET_Device* ethernetDevHandler = new ETHERNET_Device(dev_name);
-                ethernetDevHandler->devContent.show(ethernetDevHandler);
+                returnVal = ethernetDevHandler->devContent.show(ethernetDevHandler);
             }
             else if (devType == "usart"){
                 USART_Device* usartDevHandler = new USART_Device(dev_name);
-                usartDevHandler->devContent.show(usartDevHandler);
+                returnVal = usartDevHandler->devContent.show(usartDevHandler);
             }
             else if (devType == "uart"){
                 UART_Device* uartDevHandler = new UART_Device(dev_name);
-                uartDevHandler->devContent.show(uartDevHandler);
+                returnVal = uartDevHandler->devContent.show(uartDevHandler);
             }
             else if (devType == "can"){
                 CAN_Device* canDevHandler = new CAN_Device(dev_name);
-                canDevHandler->devContent.show(canDevHandler);
+                returnVal = canDevHandler->devContent.show(canDevHandler);
             }
 
-
-
-            history << endl << endl;
-            history.close();
+            slave_writing(_com, returnVal);
 
         }
 
@@ -182,11 +175,6 @@ int receive_command(enum command_request req, string devType) {
 
         else if (substrings[0] == "write") {
 
-            history.open("history", ios::app);
-
-            history << "Date: " << now() << endl << "Command: " << _command << endl;
-            history << "Output: " << endl;
-
             char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
             //cout << dev_name << " * " << endl;
 
@@ -197,80 +185,71 @@ int receive_command(enum command_request req, string devType) {
             }*/
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
-                gpioDevHandler->devContent.write(offset, substrings[3], substrings[4], gpioDevHandler);
+                returnVal = gpioDevHandler->devContent.write(offset, substrings[3], substrings[4], gpioDevHandler);
             }
 
             else if (devType == "spi"){
                 SPI_Device* spiDevHandler = new SPI_Device(dev_name);
-                spiDevHandler->devContent.write(offset, substrings[3], substrings[4], spiDevHandler);            }
+                returnVal = spiDevHandler->devContent.write(offset, substrings[3], substrings[4], spiDevHandler);            }
 
             else if (devType == "i2c"){
                 I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
-                i2cDevHandler->devContent.write(offset, substrings[3], substrings[4], i2cDevHandler);            }
+                returnVal = i2cDevHandler->devContent.write(offset, substrings[3], substrings[4], i2cDevHandler);            }
 
             else if (devType == "ethernet"){
                 ETHERNET_Device* ethDevHandler = new ETHERNET_Device(dev_name);
-                ethDevHandler->devContent.write(offset, substrings[3], substrings[4], ethDevHandler);            }
+                returnVal = ethDevHandler->devContent.write(offset, substrings[3], substrings[4], ethDevHandler);            }
 
             else if (devType == "usart"){
                 USART_Device* usartDevHandler = new USART_Device(dev_name);
-                usartDevHandler->devContent.write(offset, substrings[3], substrings[4], usartDevHandler);            }
+                returnVal = usartDevHandler->devContent.write(offset, substrings[3], substrings[4], usartDevHandler);            }
 
             else if (devType == "uart"){
                 UART_Device* uartDevHandler = new UART_Device(dev_name);
-                uartDevHandler->devContent.write(offset, substrings[3], substrings[4], uartDevHandler);            }
+                returnVal = uartDevHandler->devContent.write(offset, substrings[3], substrings[4], uartDevHandler);            }
 
             else if (devType == "can"){
                 CAN_Device* canDevHandler = new CAN_Device(dev_name);
-                canDevHandler->devContent.write(offset, substrings[3], substrings[4], canDevHandler);            }
+                returnVal = canDevHandler->devContent.write(offset, substrings[3], substrings[4], canDevHandler);            }
 
-
-            history << endl << endl;
-            history.close();
+            slave_writing(_com, returnVal);
         }
 
         else if (substrings[0] == "fill") {
 
-            history.open("history", ios::app);
-
-            history << "Date: " << now() << endl << "Command: " << _command << endl;
-            history << "Output: " << endl;
 
             char* dev_name = const_cast<char *>(("dev/" + substrings[1]).c_str());
 
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
-                gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
+                returnVal = gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
             }
-
             else if (devType == "spi"){
                 SPI_Device* spiDevHandler = new SPI_Device(dev_name);
-                spiDevHandler->devContent.fill(DEFAULT, spiDevHandler);
+                returnVal = spiDevHandler->devContent.fill(DEFAULT, spiDevHandler);
             }
             else if (devType == "i2c"){
                 I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
-                i2cDevHandler->devContent.fill(DEFAULT, i2cDevHandler);
+                returnVal = i2cDevHandler->devContent.fill(DEFAULT, i2cDevHandler);
             }
             else if (devType == "ethernet"){
                 ETHERNET_Device* ethernetDevHandler = new ETHERNET_Device(dev_name);
-                ethernetDevHandler->devContent.fill(DEFAULT, ethernetDevHandler);
+                returnVal = ethernetDevHandler->devContent.fill(DEFAULT, ethernetDevHandler);
             }
             else if (devType == "usart"){
                 USART_Device* usartDevHandler = new USART_Device(dev_name);
-                usartDevHandler->devContent.fill(DEFAULT, usartDevHandler);
+                returnVal = usartDevHandler->devContent.fill(DEFAULT, usartDevHandler);
             }
             else if (devType == "uart"){
                 UART_Device* uartDevHandler = new UART_Device(dev_name);
-                uartDevHandler->devContent.fill(DEFAULT, uartDevHandler);
+                returnVal = uartDevHandler->devContent.fill(DEFAULT, uartDevHandler);
             }
             else if (devType == "can"){
                 CAN_Device* canDevHandler = new CAN_Device(dev_name);
-                canDevHandler->devContent.fill(DEFAULT, canDevHandler);
+                returnVal = canDevHandler->devContent.fill(DEFAULT, canDevHandler);
             }
 
-
-            history << endl << endl;
-            history.close();
+            slave_writing(_com, returnVal);
 
         }
         //.commandSet-commandsText

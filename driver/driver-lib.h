@@ -55,10 +55,10 @@ public:
 
     class DeviceContent {
     public:
-        void fill(command request, GPIO_Device* gpioDevHandler);
-        static void show (GPIO_Device* gpioDevHandler);
+        string fill(command request, GPIO_Device* gpioDevHandler);
+        static string show (GPIO_Device* gpioDevHandler);
         static string read(int offset, string property, GPIO_Device* gpioDevHandler);
-        void write (int offset, string property, string new_value, GPIO_Device* gpioDevHandler);
+        string write (int offset, string property, string new_value, GPIO_Device* gpioDevHandler);
 
     };
 

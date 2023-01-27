@@ -100,7 +100,7 @@ void master_writing(ofstream& com, string _command){
     com.open("communication-register", ios::app);
     com << now() << "\tMASTER LINE COMMAND: master write" << endl;
     com << now() << "\t     master writing: " << _command << endl;
-    com << now() << "\tMASTER LINE COMMAND: master read" << endl;
+    com << now() << "\tMASTER LINE COMMAND: slave write" << endl;
     com.close();
 }
 
@@ -146,6 +146,7 @@ void evaluate_slave(string _command, string word){
     /*if (_command == -1){
         mas
     }*/
+    ifstream temp;
     if (_command.find("read-") != -1){
         hist.open("history", ios::app);
 
@@ -158,8 +159,58 @@ void evaluate_slave(string _command, string word){
         hist.close();
     }
 
-    else if (_command.find("show-") != -1){
+    else if (_command.find("fill-") != -1){
+        if (word == "true"){
+            hist.open("history", ios::app);
 
+            hist << "Date: " << now() << endl << "Command: " << _command << endl;
+            hist << "Output: " << endl;
+
+            cout << "Default chip info is written to the file successfully" << endl;
+            hist << "Default chip info is written to the file successfully" << endl;
+            hist << endl << endl;
+
+            hist.close();
+        }
+    }
+
+    else if (_command.find("show-") != -1){
+        hist.open("history", ios::app);
+
+        hist << "Date: " << now() << endl << "Command: " << _command << endl;
+        hist << "Output: " << endl;
+        cout << "Data is shown:" << endl;
+
+        temp.open("temp");
+
+        string line;
+        while (getline(temp, line)) {
+            cout << line << endl;
+            hist << line << endl;
+        }
+
+        cout << endl;
+        cout << "Chip info is shown successfully" << endl;
+
+        hist << endl << endl;
+        cout << endl << endl;
+
+        temp.close();
+        hist.close();
+        remove( "temp" );
+    }
+
+    else if (_command.find("write-") != -1){
+        hist.open("history", ios::app);
+
+        hist << "Date: " << now() << endl << "Command: " << _command << endl;
+        hist << "Output: " << endl;
+        cout << endl;
+        cout << "Chip info is changed successfully" << endl;
+        hist << "Chip info is changed successfully" << endl;
+
+        hist << endl << endl;
+        hist.close();
     }
 
 }
