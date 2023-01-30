@@ -32,7 +32,7 @@ static inline std::string &rtrim(std::string &s) {
 GPIO_Device::GPIO_Device(char *dev_name) {
     this->dev_name = new char[strlen(dev_name) + 1];
     strcpy(this->dev_name, dev_name);
-    hist.open("history", ios::app);
+    log.open("log", ios::app);
     //cout << this->dev_name << endl;
 }
 
@@ -259,8 +259,8 @@ string GPIO_Device::DeviceContent::read(int offset, string property, GPIO_Device
 
     //cout << "Data has been stored: " << word << endl;
 
-    //gpioDevHandler->hist << "Data has been stored: " << word << endl;
-    //fstream hist;
+    //gpioDevHandler->log << "Data has been stored: " << word << endl;
+    //fstream log;
 
 
 

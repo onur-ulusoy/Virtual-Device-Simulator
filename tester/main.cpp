@@ -14,7 +14,7 @@ string get_last_word(const string& file_name);
 void evaluate_slave(string _command, string word);
 void create_directories(string directories[], int size);
 
-fstream hist;
+fstream _log;
 
 int main() {
     std::string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};
@@ -153,37 +153,37 @@ void evaluate_slave(string _command, string word){
     }*/
     ifstream temp;
     if (_command.find("read-") != -1){
-        hist.open("history", ios::app);
+        _log.open("log", ios::app);
 
-        hist << "Date: " << now() << endl << "Command: " << _command << endl;
-        hist << "Output: " << endl;
+        _log << "Date: " << now() << endl << "Command: " << _command << endl;
+        _log << "Output: " << endl;
         cout << "Chip info has read successfully" << endl << endl;
         cout << "Data has been stored: " << word << endl;
-        hist << "Data has been stored: " << word << endl;
-        hist << endl << endl;
-        hist.close();
+        _log << "Data has been stored: " << word << endl;
+        _log << endl << endl;
+        _log.close();
     }
 
     else if (_command.find("fill-") != -1){
         if (word == "true"){
-            hist.open("history", ios::app);
+            _log.open("log", ios::app);
 
-            hist << "Date: " << now() << endl << "Command: " << _command << endl;
-            hist << "Output: " << endl;
+            _log << "Date: " << now() << endl << "Command: " << _command << endl;
+            _log << "Output: " << endl;
 
             cout << "Default chip info is written to the file successfully" << endl;
-            hist << "Default chip info is written to the file successfully" << endl;
-            hist << endl << endl;
+            _log << "Default chip info is written to the file successfully" << endl;
+            _log << endl << endl;
 
-            hist.close();
+            _log.close();
         }
     }
 
     else if (_command.find("show-") != -1){
-        hist.open("history", ios::app);
+        _log.open("log", ios::app);
 
-        hist << "Date: " << now() << endl << "Command: " << _command << endl;
-        hist << "Output: " << endl;
+        _log << "Date: " << now() << endl << "Command: " << _command << endl;
+        _log << "Output: " << endl;
         cout << "Data is shown:" << endl;
 
         temp.open("temp");
@@ -191,31 +191,31 @@ void evaluate_slave(string _command, string word){
         string line;
         while (getline(temp, line)) {
             cout << line << endl;
-            hist << line << endl;
+            _log << line << endl;
         }
 
         cout << endl;
         cout << "Chip info is shown successfully" << endl;
 
-        hist << endl << endl;
+        _log << endl << endl;
         cout << endl << endl;
 
         temp.close();
-        hist.close();
+        _log.close();
         remove( "temp" );
     }
 
     else if (_command.find("write-") != -1){
-        hist.open("history", ios::app);
+        _log.open("log", ios::app);
 
-        hist << "Date: " << now() << endl << "Command: " << _command << endl;
-        hist << "Output: " << endl;
+        _log << "Date: " << now() << endl << "Command: " << _command << endl;
+        _log << "Output: " << endl;
         cout << endl;
         cout << "Chip info is changed successfully" << endl;
-        hist << "Chip info is changed successfully" << endl;
+        _log << "Chip info is changed successfully" << endl;
 
-        hist << endl << endl;
-        hist.close();
+        _log << endl << endl;
+        _log.close();
     }
 
     else

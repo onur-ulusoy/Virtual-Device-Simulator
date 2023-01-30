@@ -27,7 +27,7 @@ protected:
     fstream fd;
 private:
     char *dev_name;
-    fstream hist;
+    fstream log;
     string defaultDir = "dev/default_GPIO_chipInfo.json";
     int packSize = 8;
     string pack[8] = {"offset", "name", "consumer", "FLAG_IS_OUT", "FLAG_ACTIVE_LOW", "FLAG_OPEN_DRAIN", "FLAG_OPEN_SOURCE", "FLAG_KERNEL"};

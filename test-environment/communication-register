@@ -1,16 +1,4 @@
-Fri Jan 27 15:27:18 2023	MASTER LINE COMMAND: master write
-Fri Jan 27 15:27:18 2023	     master writing: fil-f
-Fri Jan 27 15:27:18 2023	MASTER LINE COMMAND: slave write
-Fri Jan 27 15:27:19 2023	      slave writing: Invalid command
-Fri Jan 27 15:27:22 2023	MASTER LINE COMMAND: master write
-Fri Jan 27 15:27:22 2023	     master writing: fill-f
-Fri Jan 27 15:27:22 2023	MASTER LINE COMMAND: slave write
-Fri Jan 27 15:27:23 2023	      slave writing: true
-Fri Jan 27 15:27:27 2023	MASTER LINE COMMAND: master write
-Fri Jan 27 15:27:27 2023	     master writing: show-f
-Fri Jan 27 15:27:27 2023	MASTER LINE COMMAND: slave write
-Fri Jan 27 15:27:28 2023	      slave writing: true
-Fri Jan 27 15:27:31 2023	MASTER LINE COMMAND: master write
-Fri Jan 27 15:27:31 2023	     master writing: -1
-Fri Jan 27 15:27:31 2023	MASTER LINE COMMAND: slave write
-Fri Jan 27 15:27:31 2023	      slave writing: disconnecting
+Mon Jan 30 23:04:42 2023	MASTER LINE COMMAND: master write
+Mon Jan 30 23:04:42 2023	     master writing: -1
+Mon Jan 30 23:04:42 2023	MASTER LINE COMMAND: slave write
+Mon Jan 30 23:04:42 2023	      slave writing: disconnecting

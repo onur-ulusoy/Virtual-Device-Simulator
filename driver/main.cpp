@@ -2,13 +2,11 @@
 #include <unistd.h>
 #include <ctime>
 #include <iomanip>
-#include <unistd.h>
 
 using namespace std;
 
 fstream receiver;
 string _command;
-fstream history;
 ofstream _com;
 
 int receive_command(enum command_request req, string devType);
@@ -20,10 +18,7 @@ int main() {
 
     float sleep_time = 0.2;
 
-    //cout << "Build finished."<< endl;
     cout << "program started working."<< endl;
-
-    //usleep(2000000);
 
     receiver.open("command", ios::in);
     string device;
@@ -39,9 +34,9 @@ int main() {
 
     receiver.close();
 
-    ofstream hFile;
-    hFile.open("history");
-    hFile.close();
+    ofstream logFile;
+    logFile.open("log");
+    logFile.close();
 
     usleep(1000000 * sleep_time);
 
