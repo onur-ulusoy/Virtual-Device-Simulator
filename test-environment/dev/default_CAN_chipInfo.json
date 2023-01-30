@@ -6,8 +6,8 @@
       "consumer": "-",
       "bitrate": 500000,
       "acceptance_filter": "standard",
-      "loopback_mode": false,
-      "listen_only_mode": false,
+      "loopback_mode": "false",
+      "listen_only_mode": "false",
       "transceiver_type": "SN65HVD230"
     },
     {
@@ -16,8 +16,8 @@
       "consumer": "-",
       "bitrate": 500000,
       "acceptance_filter": "standard",
-      "loopback_mode": false,
-      "listen_only_mode": false,
+      "loopback_mode": "false",
+      "listen_only_mode": "false",
       "transceiver_type": "SN65HVD230"
     },
     {
@@ -26,8 +26,8 @@
       "consumer": "-",
       "bitrate": 500000,
       "acceptance_filter": "standard",
-      "loopback_mode": false,
-      "listen_only_mode": false,
+      "loopback_mode": "false",
+      "listen_only_mode": "false",
       "transceiver_type": "SN65HVD230"
     },
     {
@@ -36,8 +36,8 @@
       "consumer": "-",
       "bitrate": 500000,
       "acceptance_filter": "standard",
-      "loopback_mode": false,
-      "listen_only_mode": false,
+      "loopback_mode": "false",
+      "listen_only_mode": "false",
       "transceiver_type": "SN65HVD230"
     }
     

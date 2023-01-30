@@ -6,7 +6,7 @@
       "consumer": "-",
       "clock_speed": 100000,
       "address_mode": 7,
-      "10bit_mode": false,
+      "10bit_mode": "false",
       "sda_hold_time": 10
     },
     {
@@ -15,7 +15,7 @@
       "consumer": "-",
       "clock_speed": 100000,
       "address_mode": 7,
-      "10bit_mode": false,
+      "10bit_mode": "false",
       "sda_hold_time": 10
     },
     {
@@ -24,7 +24,7 @@
       "consumer": "-",
       "clock_speed": 100000,
       "address_mode": 7,
-      "10bit_mode": false,
+      "10bit_mode": "false",
       "sda_hold_time": 10
     }
     

@@ -3,7 +3,7 @@ from os import system, path
 from subprocess import Popen
 from threading import Thread
 
-paths = ['GPIO-Driver', 'tester']
+paths = ['driver', 'tester']
 
 for PATH in paths:
     sys.path.append(path.join(path.dirname(__file__), PATH))
@@ -46,12 +46,12 @@ if __name__ == "__main__":
     file.write(device)
     file.close()
 
-    cpp_files = ["main.cpp", "gpiolib.cpp", "gpiolib.h"]
+    cpp_files = ["main.cpp", "driver-lib.cpp", "driver-lib.h"]
     exe_file = "program.out"
 
     print("program is being built ...")
 
-    program = Thread(target=exec_process, args=(cpp_files, exe_file, True, "GPIO-Driver"))
+    program = Thread(target=exec_process, args=(cpp_files, exe_file, True, "driver"))
     program.start()
 
     #print(getcwd())

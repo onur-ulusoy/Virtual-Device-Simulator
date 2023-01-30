@@ -6,10 +6,10 @@
       "consumer": "-",
       "cpol": 0,
       "cpha": 0,
-      "lsb_first": false,
-      "cs_high": false,
-      "3wire": false,
-      "loopback": false
+      "lsb_first": "false",
+      "cs_high": "false",
+      "3wire": "false",
+      "loopback": "false"
     },
     {
       "offset": 1,
@@ -17,10 +17,10 @@
       "consumer": "-",
       "cpol": 0,
       "cpha": 0,
-      "lsb_first": false,
-      "cs_high": false,
-      "3wire": false,
-      "loopback": false
+      "lsb_first": "false",
+      "cs_high": "false",
+      "3wire": "false",
+      "loopback": "false"
     },
     {
       "offset": 2,
@@ -28,10 +28,10 @@
       "consumer": "-",
       "cpol": 0,
       "cpha": 0,
-      "lsb_first": false,
-      "cs_high": false,
-      "3wire": false,
-      "loopback": false
+      "lsb_first": "false",
+      "cs_high": "false",
+      "3wire": "false",
+      "loopback": "false"
     }
     
   ]

@@ -1,0 +1,4 @@
+# ninja log v5
+6148	6533	1674712316570212978	program	6d1bc359cd11a5d2
+8	4172	1674712314206260339	CMakeFiles/program.dir/main.cpp.o	5c225d646cbf0730
+10	6148	1674712316182220708	CMakeFiles/program.dir/driver-lib.cpp.o	c2af283e57aa3ad3
