@@ -55,7 +55,7 @@ public:
 
     class DeviceContent {
     public:
-        string fill(command request, GPIO_Device* gpioDevHandler);
+        string config(command request, GPIO_Device* gpioDevHandler);
         static string show (GPIO_Device* gpioDevHandler);
         static string read(int offset, string property, GPIO_Device* gpioDevHandler);
         string write (int offset, string property, string new_value, GPIO_Device* gpioDevHandler);

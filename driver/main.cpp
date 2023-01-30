@@ -205,39 +205,39 @@ int receive_command(enum command_request req, string devType) {
             slave_writing(_com, returnVal);
         }
 
-        else if (substrings[0] == "fill") {
+        else if (substrings[0] == "config") {
 
 
             char* dev_name = const_cast<char*>(("dev/" + devType + "/" + substrings[1]).c_str());
 
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
-                returnVal = gpioDevHandler->devContent.fill(DEFAULT, gpioDevHandler);
+                returnVal = gpioDevHandler->devContent.config(DEFAULT, gpioDevHandler);
 
             }
             else if (devType == "spi"){
                 SPI_Device* spiDevHandler = new SPI_Device(dev_name);
-                returnVal = spiDevHandler->devContent.fill(DEFAULT, spiDevHandler);
+                returnVal = spiDevHandler->devContent.config(DEFAULT, spiDevHandler);
             }
             else if (devType == "i2c"){
                 I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
-                returnVal = i2cDevHandler->devContent.fill(DEFAULT, i2cDevHandler);
+                returnVal = i2cDevHandler->devContent.config(DEFAULT, i2cDevHandler);
             }
             else if (devType == "ethernet"){
                 ETHERNET_Device* ethernetDevHandler = new ETHERNET_Device(dev_name);
-                returnVal = ethernetDevHandler->devContent.fill(DEFAULT, ethernetDevHandler);
+                returnVal = ethernetDevHandler->devContent.config(DEFAULT, ethernetDevHandler);
             }
             else if (devType == "usart"){
                 USART_Device* usartDevHandler = new USART_Device(dev_name);
-                returnVal = usartDevHandler->devContent.fill(DEFAULT, usartDevHandler);
+                returnVal = usartDevHandler->devContent.config(DEFAULT, usartDevHandler);
             }
             else if (devType == "uart"){
                 UART_Device* uartDevHandler = new UART_Device(dev_name);
-                returnVal = uartDevHandler->devContent.fill(DEFAULT, uartDevHandler);
+                returnVal = uartDevHandler->devContent.config(DEFAULT, uartDevHandler);
             }
             else if (devType == "can"){
                 CAN_Device* canDevHandler = new CAN_Device(dev_name);
-                returnVal = canDevHandler->devContent.fill(DEFAULT, canDevHandler);
+                returnVal = canDevHandler->devContent.config(DEFAULT, canDevHandler);
             }
 
             slave_writing(_com, returnVal);

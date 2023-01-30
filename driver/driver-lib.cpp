@@ -51,7 +51,7 @@ void GPIO_Device::device_open(command request, GPIO_Device* gpioDevHandler) {
             if (!fd.is_open()){
                 GPIO_Device::device_open(WRITEONLY, gpioDevHandler);
 
-                devContent.fill(DEFAULT, gpioDevHandler);
+                devContent.config(DEFAULT, gpioDevHandler);
 
                 GPIO_Device::device_close();
                 GPIO_Device::device_open(READONLY, gpioDevHandler);
@@ -125,11 +125,11 @@ void GPIO_Device::device_close() {
     cout << endl;
 }
 
-string GPIO_Device::DeviceContent::fill(command request, GPIO_Device* gpioDevHandler) {
+string GPIO_Device::DeviceContent::config(command request, GPIO_Device* gpioDevHandler) {
 
     string dir = gpioDevHandler->getDefaultDir();
 
-    cout << "function 'GPIO_Device::DeviceContent::fill' worked" << endl;
+    cout << "function 'GPIO_Device::DeviceContent::config' worked" << endl;
     gpioDevHandler->device_open(WRITEONLY, gpioDevHandler);
 
     if (request == DEFAULT){

@@ -34,7 +34,7 @@ int main() {
     cout << "show-gpiochipx: shows gpiox set" << endl;
     cout << "read-gpiochipx-offset-property: reads gpiox spesific preperty from offset" << endl;
     cout << "write-gpiochipx-offset-property-newValue: writes new value to gpiox spesific property from offset" << endl;
-    cout << "fill-gpiochipx: fills gpiox set from default" << endl;
+    cout << "config-gpiochipx: configs gpiox set from default" << endl;
     cout << ".commandSet-textfile: Executes commands from file" << endl;
 
     cout << endl;
@@ -164,7 +164,7 @@ void evaluate_slave(string _command, string word){
         _log.close();
     }
 
-    else if (_command.find("fill-") != -1){
+    else if (_command.find("config-") != -1){
         if (word == "true"){
             _log.open("log", ios::app);
 
