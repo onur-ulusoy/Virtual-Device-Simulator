@@ -46,7 +46,7 @@ if __name__ == "__main__":
     file.write(device)
     file.close()
 
-    cpp_files = ["main.cpp", "driver-lib.cpp", "driver-lib.h"]
+    cpp_files = ["main.cpp", "DriverLibrary.cpp", "DriverLibrary.h", "AuxiliaryTools.cpp", "AuxiliaryTools.h"]
     exe_file = "program.out"
 
     print("program is being built ...")

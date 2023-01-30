@@ -1,7 +1,4 @@
-#include "driver-lib.h"
-#include <unistd.h>
-#include <ctime>
-#include <iomanip>
+#include "DriverLibrary.h"
 
 using namespace std;
 
@@ -11,7 +8,7 @@ ofstream _com;
 
 int receive_command(enum command_request req, string devType);
 void throw_command();
-string now();
+
 void slave_writing(ofstream& com, string message);
 
 int main() {
@@ -40,12 +37,8 @@ int main() {
 
     usleep(1000000 * sleep_time);
 
-    while (receive_command(ONESHOT, device) != -1) {
-
+    while (receive_command(ONESHOT, device) != -1)
         usleep(1000000 * sleep_time);
-
-
-    }
 
     cout << "Program is terminating .." << endl;
     return 0;
@@ -57,10 +50,7 @@ int receive_command(enum command_request req, string devType) {
     if (req == ONESHOT){
         receiver.open("command");
         receiver >> _command;
-        //cout << _command << endl;
-
         receiver.close();
-        //cout << _command.length();
     }
 
     else if (req == RECURSIVE)
@@ -207,13 +197,11 @@ int receive_command(enum command_request req, string devType) {
 
         else if (substrings[0] == "config") {
 
-
             char* dev_name = const_cast<char*>(("dev/" + devType + "/" + substrings[1]).c_str());
 
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
                 returnVal = gpioDevHandler->devContent.config(DEFAULT, gpioDevHandler);
-
             }
             else if (devType == "spi"){
                 SPI_Device* spiDevHandler = new SPI_Device(dev_name);
@@ -241,9 +229,8 @@ int receive_command(enum command_request req, string devType) {
             }
 
             slave_writing(_com, returnVal);
-
         }
-        //.commandSet-commandsText
+
         else if (substrings[0] == ".commandSet") {
 
             fstream f;
@@ -255,7 +242,6 @@ int receive_command(enum command_request req, string devType) {
                 f >> _command;
                 if (_command.length()  == 0)
                     break;
-                //cout << "Command is running: " << _command << endl;
                 receive_command(RECURSIVE, devType);
             }
 
@@ -275,21 +261,6 @@ void throw_command(){
     ofstream outfile ("command");
     outfile << "&";
     outfile.close();
-}
-
-string now(){
-    auto now = std::chrono::system_clock::now();
-    auto now_c = std::chrono::system_clock::to_time_t(now);
-    std::tm *tm = std::localtime(&now_c);
-
-    // Create a stringstream object
-    std::stringstream ss;
-
-    // Use the stringstream's operator << to format the time
-    ss << std::put_time(tm, "%c");
-
-    // Get the string from the stringstream
-    return ss.str();
 }
 
 void slave_writing(ofstream& com, string message){

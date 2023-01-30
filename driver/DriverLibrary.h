@@ -1,26 +1,20 @@
-#ifndef UNTITLED_GPIOLIB_H
-#define UNTITLED_GPIOLIB_H
+#ifndef DRIVER_SIMULATOR_H
+#define DRIVER_SIMULATOR_H
 
-#include <unistd.h>
-#include <fcntl.h>
 #include <cstring>
 #include <errno.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <nlohmann/json.hpp>
 #include <iostream>
-#include <fstream>
+#include "AuxiliaryTools.h"
 
 #define NEW_FILE "dev/newfile"
 
 using namespace std;
-enum command {DEFAULT, READONLY, WRITEONLY};
-//enum feature {NAME, CONSUMER, FLAG_IS_OUT, FLAG_ACTIVE_LOW, FLAG_OPEN_DRAIN, FLAG_OPEN_SOURCE, FLAG_KERNEL};
-enum command_request {ONESHOT, RECURSIVE};
 
-fstream& GotoLine(std::fstream& file, unsigned int num);
-void Split(string s, string del, string* buffers);
-static inline std::string &rtrim(std::string &s);
+enum command {DEFAULT, READONLY, WRITEONLY};
+enum command_request {ONESHOT, RECURSIVE};
 
 class GPIO_Device{
 protected:
@@ -181,4 +175,4 @@ public:
     }
 };
 
-#endif //UNTITLED_GPIOLIB_H
+#endif //DRIVER_SIMULATOR_H

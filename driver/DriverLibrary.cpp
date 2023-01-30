@@ -1,33 +1,4 @@
-#include <set>
-#include "driver-lib.h"
-
-fstream& GotoLine(std::fstream& file, unsigned int num){
-    file.seekg(std::ios::beg);
-    for(int i=0; i < num - 1; ++i){
-        file.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-    }
-    return file;
-}
-
-void Split(string s, string del, string* buffers)
-{
-    //string buffers [8];
-    int i = 0;
-
-    int start, end = -1*del.size();
-    do {
-        start = end + del.size();
-        end = s.find(del, start);
-        buffers[i] = s.substr(start, end - start);
-        i++;
-    } while (end != -1);
-}
-
-static inline std::string &rtrim(std::string &s) {
-    s.erase(std::find_if(s.rbegin(), s.rend(),
-                         std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
-    return s;
-}
+#include "DriverLibrary.h"
 
 GPIO_Device::GPIO_Device(char *dev_name) {
     this->dev_name = new char[strlen(dev_name) + 1];
@@ -35,7 +6,6 @@ GPIO_Device::GPIO_Device(char *dev_name) {
     log.open("log", ios::app);
     //cout << this->dev_name << endl;
 }
-
 
 void GPIO_Device::device_open(command request, GPIO_Device* gpioDevHandler) {
 
@@ -535,3 +505,5 @@ void parse_CAN(string dir, GPIO_Device* gpioDevHandler){
         gpioDevHandler->fd << endl;
     }
 }
+
+

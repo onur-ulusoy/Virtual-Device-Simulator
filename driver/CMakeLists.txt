@@ -3,4 +3,4 @@ project(program)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(program main.cpp driver-lib.cpp driver-lib.h)
+add_executable(program main.cpp DriverLibrary.cpp DriverLibrary.h AuxiliaryTools.cpp AuxiliaryTools.h)
