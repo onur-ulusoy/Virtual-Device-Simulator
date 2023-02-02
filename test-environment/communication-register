@@ -1,12 +1,4 @@
-Tue Jan 31 01:29:17 2023	MASTER LINE COMMAND: master write
-Tue Jan 31 01:29:17 2023	     master writing: config-fakespi
-Tue Jan 31 01:29:17 2023	MASTER LINE COMMAND: slave write
-Tue Jan 31 01:29:17 2023	      slave writing: true
-Tue Jan 31 01:29:21 2023	MASTER LINE COMMAND: master write
-Tue Jan 31 01:29:21 2023	     master writing: show-fakespi
-Tue Jan 31 01:29:21 2023	MASTER LINE COMMAND: slave write
-Tue Jan 31 01:29:21 2023	      slave writing: true
-Tue Jan 31 01:29:24 2023	MASTER LINE COMMAND: master write
-Tue Jan 31 01:29:24 2023	     master writing: -1
-Tue Jan 31 01:29:24 2023	MASTER LINE COMMAND: slave write
-Tue Jan 31 01:29:24 2023	      slave writing: disconnecting
+Thu Feb  2 11:10:28 2023	MASTER LINE COMMAND: master write
+Thu Feb  2 11:10:28 2023	     master writing: -1
+Thu Feb  2 11:10:28 2023	MASTER LINE COMMAND: slave write
+Thu Feb  2 11:10:28 2023	      slave writing: disconnecting

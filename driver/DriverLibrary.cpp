@@ -4,7 +4,6 @@ GPIO_Device::GPIO_Device(char *dev_name) {
     this->dev_name = new char[strlen(dev_name) + 1];
     strcpy(this->dev_name, dev_name);
     log.open("log", ios::app);
-    //cout << this->dev_name << endl;
 }
 
 void GPIO_Device::device_open(command request, GPIO_Device* gpioDevHandler) {
@@ -43,7 +42,6 @@ void GPIO_Device::device_open(command request, GPIO_Device* gpioDevHandler) {
 
         case WRITEONLY:
             cout << "function 'GPIO_Device::device_open' worked as WRITEONLY" << endl;
-
             fd.open(dev_name, ios::out | ios::trunc);
 
             if (!fd.is_open())
@@ -106,8 +104,6 @@ string GPIO_Device::DeviceContent::config(command request, GPIO_Device* gpioDevH
         cout << dir << endl;
 
         gpioDevHandler->parse(dir, gpioDevHandler);
-
-        //return "true";
 
     }
     gpioDevHandler->device_close();

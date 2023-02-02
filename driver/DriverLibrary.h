@@ -33,6 +33,7 @@ public:
     virtual string getDefaultDir() { return defaultDir; }
     virtual string* getPack(){ return pack; }
     virtual int getPackSize(){ return packSize; }
+    //virtual char* getDevName() { return dev_name; }
 
     friend void parse_GPIO(string dir, GPIO_Device* gpioDevHandler);
     friend void parse_SPI(string dir, GPIO_Device* gpioDevHandler);

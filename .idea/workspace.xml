@@ -20,30 +20,22 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="functoion fill converted into config">
-      <change afterPath="$PROJECT_DIR$/driver/AuxiliaryTools.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driver/AuxiliaryTools.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driver/DriverLibrary.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driver/DriverLibrary.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/dev/gpio/d" afterDir="false" />
+    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="Driver libraries organized">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/driver/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-1d67f92870bda4618bb9.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/.cmake/api/v1/reply/target-program-Debug-527bf62545fc46b3f938.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/program" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/program" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/driver-lib.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/driver-lib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/DriverLibrary.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/driver/DriverLibrary.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/DriverLibrary.h" beforeDir="false" afterPath="$PROJECT_DIR$/driver/DriverLibrary.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/driver/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/communication-register" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/communication-register" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-environment/dev/default_GPIO_chipInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/dev/default_GPIO_chipInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/dev/ethernet/d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/dev/ethernet/e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/dev/ethernet/f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/dev/gpio/d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/dev/gpio/f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/dev/i2c/fakei2c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/dev/spi/fakespi" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/log" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-environment/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/program.out" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/program.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tester/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675110797113</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Driver libraries organized">
+      <created>1675118021371</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1675118021371</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,6 +400,7 @@
     <MESSAGE value="func show, fill configured" />
     <MESSAGE value="all functions configurated" />
     <MESSAGE value="functoion fill converted into config" />
-    <option name="LAST_COMMIT_MESSAGE" value="functoion fill converted into config" />
+    <MESSAGE value="Driver libraries organized" />
+    <option name="LAST_COMMIT_MESSAGE" value="Driver libraries organized" />
   </component>
 </project>

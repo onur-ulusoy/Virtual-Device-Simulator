@@ -17,7 +17,7 @@ void create_directories(string directories[], int size);
 fstream _log;
 
 int main() {
-    std::string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};
+    string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};
     create_directories(directories, 7);
 
     ofstream com ("communication-register");

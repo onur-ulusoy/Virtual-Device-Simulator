@@ -76,8 +76,9 @@ int receive_command(enum command_request req, string devType) {
         }
 
         if (substrings[0] == "show") {
-
-            char* dev_name = const_cast<char*>(("dev/" + devType + "/" + substrings[1]).c_str());
+            string path = "dev/" + devType + "/" + substrings[1];
+            char* dev_name = new char[path.length() + 1];
+            strcpy(dev_name, path.c_str());
 
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
@@ -113,8 +114,9 @@ int receive_command(enum command_request req, string devType) {
         }
 
         else if (substrings[0] == "read") {
-
-            char* dev_name = const_cast<char*>(("dev/" + devType + "/" + substrings[1]).c_str());
+            string path = "dev/" + devType + "/" + substrings[1];
+            char* dev_name = new char[path.length() + 1];
+            strcpy(dev_name, path.c_str());
 
             int offset = stoi(substrings[2]);
             string data;
@@ -158,8 +160,9 @@ int receive_command(enum command_request req, string devType) {
         }
 
         else if (substrings[0] == "write") {
-
-            char* dev_name = const_cast<char*>(("dev/" + devType + "/" + substrings[1]).c_str());
+            string path = "dev/" + devType + "/" + substrings[1];
+            char* dev_name = new char[path.length() + 1];
+            strcpy(dev_name, path.c_str());
 
             int offset = stoi(substrings[2]);
 
@@ -196,8 +199,9 @@ int receive_command(enum command_request req, string devType) {
         }
 
         else if (substrings[0] == "config") {
-
-            char* dev_name = const_cast<char*>(("dev/" + devType + "/" + substrings[1]).c_str());
+            string path = "dev/" + devType + "/" + substrings[1];
+            char* dev_name = new char[path.length() + 1];
+            strcpy(dev_name, path.c_str());
 
             if (devType == "gpio"){
                 GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
