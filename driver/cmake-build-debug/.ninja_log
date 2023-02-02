@@ -1,22 +1,5 @@
 # ninja log v5
-6148	6533	1674712316570212978	program	6d1bc359cd11a5d2
-8	4172	1674712314206260339	CMakeFiles/program.dir/main.cpp.o	5c225d646cbf0730
-4	4195	1675116172583197268	CMakeFiles/program.dir/AuxiliaryTools.cpp.o	616deb096933ceb6
-5	6756	1675116258059686640	CMakeFiles/program.dir/AuxiliaryTools.cpp.o	616deb096933ceb6
-2	6966	1675116258267687823	CMakeFiles/program.dir/main.cpp.o	5c225d646cbf0730
-3	7200	1675116626333744101	CMakeFiles/program.dir/DriverLibrary.cpp.o	7aea53e6ff7e46db
-2	2639	1675116727662300074	CMakeFiles/program.dir/main.cpp.o	5c225d646cbf0730
-3	4026	1675116729038307604	CMakeFiles/program.dir/DriverLibrary.cpp.o	7aea53e6ff7e46db
-6	3818	1675116836182892256	CMakeFiles/program.dir/AuxiliaryTools.cpp.o	616deb096933ceb6
-4	4042	1675116836414893520	CMakeFiles/program.dir/main.cpp.o	5c225d646cbf0730
-1	2852	1675116925447377289	CMakeFiles/program.dir/main.cpp.o	5c225d646cbf0730
-3	2198	1675117322778114312	CMakeFiles/program.dir/AuxiliaryTools.cpp.o	616deb096933ceb6
-2	2425	1675117323018119252	CMakeFiles/program.dir/main.cpp.o	5c225d646cbf0730
-2	3689	1675117324278145155	CMakeFiles/program.dir/DriverLibrary.cpp.o	7aea53e6ff7e46db
-2	2161	1675117677084079877	CMakeFiles/program.dir/AuxiliaryTools.cpp.o	616deb096933ceb6
-1	2340	1675117677248082148	CMakeFiles/program.dir/main.cpp.o	5c225d646cbf0730
-2	3694	1675117678616101096	CMakeFiles/program.dir/DriverLibrary.cpp.o	7aea53e6ff7e46db
+4518	4647	1675117728368774008	program	ba605559110ffc9e
+2	4518	1675117728240772315	CMakeFiles/program.dir/DriverLibrary.cpp.o	7aea53e6ff7e46db
 3	2848	1675117726560750086	CMakeFiles/program.dir/AuxiliaryTools.cpp.o	616deb096933ceb6
 2	3113	1675117726836753742	CMakeFiles/program.dir/main.cpp.o	5c225d646cbf0730
-2	4518	1675117728240772315	CMakeFiles/program.dir/DriverLibrary.cpp.o	7aea53e6ff7e46db
-4518	4647	1675117728368774008	program	ba605559110ffc9e

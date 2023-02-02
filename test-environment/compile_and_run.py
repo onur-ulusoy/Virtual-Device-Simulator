@@ -11,21 +11,13 @@ for PATH in paths:
 
 def exec_process(cpp_files, exe_file, sh, dir):
 
-    #path.abspath(path.join(getcwd(), '../bbx15-driver/{}').format(dir))
-    # #print(getcwd())
-    #
-    # chdir(dir)
-    # #chdir("..")
-    # #chdir("..")
-    # print(getcwd())
-    # print(dir)
-
     cpp_file = str()
+    
     for i in cpp_files:
-        #print(cpp_file)
         cpp_file += "../" + dir + "/" + i + " "
+        
     cpp_file.rstrip()
-    #print(cpp_file)
+
     system('g++ ' + cpp_file + ' -o ' + exe_file)
     print("Build finished.")
     process = Popen("./{}".format(exe_file), shell=sh)
@@ -39,7 +31,6 @@ def exec_process(cpp_files, exe_file, sh, dir):
 
 if __name__ == "__main__":
 
-    #print()
     device = input("Select device to simulate: gpio, spi, i2c, ethernet, usart, uart, can\n")
 
     file = open("command", "w", encoding="utf-8")
@@ -47,16 +38,12 @@ if __name__ == "__main__":
     file.close()
 
     cpp_files = ["main.cpp", "DriverLibrary.cpp", "DriverLibrary.h", "AuxiliaryTools.cpp", "AuxiliaryTools.h"]
-    exe_file = "program.out"
+    exe_file = "driver.out"
 
-    print("program is being built ...")
+    print("driver is being built ...")
 
     program = Thread(target=exec_process, args=(cpp_files, exe_file, True, "driver"))
     program.start()
-
-    #print(getcwd())
-    #chdir('test-environment')
-    #print(getcwd())
 
     file = open("command", "r", encoding="utf-8")
 

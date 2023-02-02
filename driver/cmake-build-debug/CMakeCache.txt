@@ -148,7 +148,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=program
+CMAKE_PROJECT_NAME:STATIC=driver
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -213,6 +213,15 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
+driver_BINARY_DIR:STATIC=/home/onur/CLionProjects/bbx15-driver/driver/cmake-build-debug
+
+//Value Computed by CMake
+driver_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+driver_SOURCE_DIR:STATIC=/home/onur/CLionProjects/bbx15-driver/driver
+
+//Value Computed by CMake
 program_BINARY_DIR:STATIC=/home/onur/CLionProjects/bbx15-driver/driver/cmake-build-debug
 
 //Value Computed by CMake
@@ -220,6 +229,15 @@ program_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 program_SOURCE_DIR:STATIC=/home/onur/CLionProjects/bbx15-driver/driver
+
+//Value Computed by CMake
+simulator_BINARY_DIR:STATIC=/home/onur/CLionProjects/bbx15-driver/driver/cmake-build-debug
+
+//Value Computed by CMake
+simulator_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+simulator_SOURCE_DIR:STATIC=/home/onur/CLionProjects/bbx15-driver/driver
 
 
 ########################

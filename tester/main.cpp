@@ -36,7 +36,6 @@ int main() {
     cout << "write-gpiochipx-offset-property-newValue: writes new value to gpiox spesific property from offset" << endl;
     cout << "config-gpiochipx: configs gpiox set from default" << endl;
     cout << ".commandSet-textfile: Executes commands from file" << endl;
-
     cout << endl;
 
     cout << "Enter command (-1 to terminate): " << endl;
@@ -60,29 +59,25 @@ int main() {
         if (_command == "-1") break;
 
         usleep(1000000 * delay);
-        //cout << emptyString << endl;
         emptyString.clear();
+
         while (emptyString != "&"){
             usleep(1000000 * delay);
             file.open("command");
 
             file >> emptyString;
 
-            //cout << emptyString.length() << endl;
             file.close();
-            //usleep(1000000);
         }
 
         string last_word = get_last_word("communication-register");
-        //cout << last_word << endl;
-
         evaluate_slave(_command, last_word);
 
         usleep(1000000 * delay);
 
         cout << "Enter command (-1 to terminate): " << endl;
-
     }
+
     return 0;
 }
 

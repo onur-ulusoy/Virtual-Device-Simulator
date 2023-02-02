@@ -15,7 +15,7 @@ int main() {
 
     float sleep_time = 0.2;
 
-    cout << "program started working."<< endl;
+    cout << "driver simulator started working."<< endl;
 
     receiver.open("command", ios::in);
     string device;

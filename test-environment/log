@@ -1,0 +1,20 @@
+Date: Thu Feb  2 13:01:52 2023
+Command: write-12-1-name-dksdf
+Output: 
+Chip info is changed successfully
+
+
+Date: Thu Feb  2 13:01:56 2023
+Command: show-12
+Output: 
+offset: 0   name: I2C_0   consumer: -   clock_speed: 100000   address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+offset: 1   name: dksdf   consumer: -   clock_speed: 100000   address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+offset: 2   name: I2C_2   consumer: -   clock_speed: 100000   address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+
+
+Date: Thu Feb  2 13:02:20 2023
+Command: read-12-1-name
+Output: 
+Data has been stored: dksdf
+
+
