@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /home/onur/CLionProjects/bbx15 Select CMakeLists.txt

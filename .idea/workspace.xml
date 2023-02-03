@@ -11,7 +11,7 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="driver" targetName="program" />
+      <config projectName="driver" targetName="driver" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -20,29 +20,48 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="issue #2 fixed">
-      <change afterPath="$PROJECT_DIR$/test-environment/compile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/compile_and_run.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/driver.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-environment/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+    <list default="true" id="011f53e8-c621-455f-9ffc-2eceebccd08a" name="Default Changelist" comment="run and compile scripts are seperated.">
+      <change afterPath="$PROJECT_DIR$/driver/drivercommapi.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driver/drivercommapi.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driver/drivermain.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driver/libdriver.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driver/libdriver.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driver/libdriverutility.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driver/libdriverutility.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-environment/start.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tester/libtesterutility.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tester/libtesterutility.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tester/testercommapi.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tester/testercommapi.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tester/testermain.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-12-29T11-58-13-0386.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/bbx15.dir/dev/gpiochip.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/bbx15.dir/dev/gpiochip0.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/AuxiliaryTools.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/AuxiliaryTools.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/driver/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/.cmake/api/v1/reply/cache-v2-2ab13afeb710d9f88383.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-1a4971d83e08165d0ae4.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/.cmake/api/v1/reply/index-2023-01-30T21-48-59-0038.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/DriverLibrary.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/DriverLibrary.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/.cmake/api/v1/reply/target-program-Debug-e15e5e982a17951a7c35.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/driver/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/cmake-build-debug/communication-register" beforeDir="false" afterPath="$PROJECT_DIR$/driver/cmake-build-debug/communication-register" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/main.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/communication-register" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/communication-register" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/compile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/compile_and_run.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/driver.out" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/driver.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-environment/log" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-environment/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-environment/program.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tester/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tester/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/run.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-environment/tester.out" beforeDir="false" afterPath="$PROJECT_DIR$/test-environment/tester.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tester/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester/main.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +83,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop_v6" />
+        <entry key="$PROJECT_DIR$" value="develop_v7" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -112,7 +131,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="program" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="driver" TARGET_NAME="program" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="driver" RUN_TARGET_NAME="program">
+    <configuration name="driver" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="driver" TARGET_NAME="driver" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="driver" RUN_TARGET_NAME="driver">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -386,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675325499586</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="run and compile scripts are seperated.">
+      <created>1675332330022</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1675332330022</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,6 +442,7 @@
     <MESSAGE value="functoion fill converted into config" />
     <MESSAGE value="Driver libraries organized" />
     <MESSAGE value="issue #2 fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="issue #2 fixed" />
+    <MESSAGE value="run and compile scripts are seperated." />
+    <option name="LAST_COMMIT_MESSAGE" value="run and compile scripts are seperated." />
   </component>
 </project>

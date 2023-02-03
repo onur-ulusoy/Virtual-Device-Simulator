@@ -1,16 +1,8 @@
-Thu Feb  2 13:01:51 2023	MASTER LINE COMMAND: master write
-Thu Feb  2 13:01:51 2023	     master writing: write-12-1-name-dksdf
-Thu Feb  2 13:01:51 2023	MASTER LINE COMMAND: slave write
-Thu Feb  2 13:01:51 2023	      slave writing: true
-Thu Feb  2 13:01:55 2023	MASTER LINE COMMAND: master write
-Thu Feb  2 13:01:55 2023	     master writing: show-12
-Thu Feb  2 13:01:55 2023	MASTER LINE COMMAND: slave write
-Thu Feb  2 13:01:56 2023	      slave writing: true
-Thu Feb  2 13:02:19 2023	MASTER LINE COMMAND: master write
-Thu Feb  2 13:02:19 2023	     master writing: read-12-1-name
-Thu Feb  2 13:02:19 2023	MASTER LINE COMMAND: slave write
-Thu Feb  2 13:02:20 2023	      slave writing: dksdf
-Thu Feb  2 13:02:22 2023	MASTER LINE COMMAND: master write
-Thu Feb  2 13:02:22 2023	     master writing: -1
-Thu Feb  2 13:02:22 2023	MASTER LINE COMMAND: slave write
-Thu Feb  2 13:02:22 2023	      slave writing: disconnecting
+Fri Feb  3 16:35:44 2023	MASTER LINE COMMAND: master write
+Fri Feb  3 16:35:44 2023	     master writing: show-d
+Fri Feb  3 16:35:44 2023	MASTER LINE COMMAND: slave write
+Fri Feb  3 16:35:45 2023	      slave writing: true
+Fri Feb  3 16:35:46 2023	MASTER LINE COMMAND: master write
+Fri Feb  3 16:35:46 2023	     master writing: -1
+Fri Feb  3 16:35:46 2023	MASTER LINE COMMAND: slave write
+Fri Feb  3 16:35:46 2023	      slave writing: disconnecting

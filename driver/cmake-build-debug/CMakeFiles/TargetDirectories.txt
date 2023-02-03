@@ -1,3 +1,3 @@
-/home/onur/CLionProjects/bbx15-driver/driver/cmake-build-debug/CMakeFiles/program.dir
+/home/onur/CLionProjects/bbx15-driver/driver/cmake-build-debug/CMakeFiles/driver.dir
 /home/onur/CLionProjects/bbx15-driver/driver/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/onur/CLionProjects/bbx15-driver/driver/cmake-build-debug/CMakeFiles/rebuild_cache.dir
