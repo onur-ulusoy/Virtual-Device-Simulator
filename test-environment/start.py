@@ -6,7 +6,7 @@ It also allows the user to choose which device to simulate among several options
 ##
 # \mainpage Virtual Device Simulator Documentation
 #
-# **Project Description**
+# The main objective of this project is to develop a software platform that enables the creation, manipulation, and use of virtual devices in the user space of an operating system. The goal is to make it easier for developers to create and test embedded software without having to use physical hardware. This will save time and resources and allow for more efficient and streamlined software development processes. The platform will be designed to be flexible and user-friendly, making it accessible to a wide range of developers with varying skill levels.
 #
 #
 
