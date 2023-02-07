@@ -1,6 +1,14 @@
+/**
+ * @file testercommapi.cpp
+ * @brief Communication API for tester to provide functionality of transmitting and receiveing the commands between tester and driver.
+ *
+ * @author Onur Ulusoy
+ * @date 03/02/2023
+ */
 #include "testercommapi.h"
 
-namespace driverTester{
+namespace DriverTester{
+
     void master_writing(ofstream& com, string _command){
         com.open("communication-register", ios::app);
         com << now() << "\tMASTER LINE COMMAND: master write" << endl;

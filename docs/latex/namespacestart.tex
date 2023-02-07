@@ -1,0 +1,162 @@
+\hypertarget{namespacestart}{}\doxysection{start Namespace Reference}
+\label{namespacestart}\index{start@{start}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacestart_a1e792ecee5fe41c5d9b142511cc496e6}{compile\+\_\+and\+\_\+run}} (cpp\+\_\+files, exe\+\_\+file, sh, dir)
+\item 
+def \mbox{\hyperlink{namespacestart_ad9219e4d47458ba417e8445378acc89d}{compile}} (cpp\+\_\+files, exe\+\_\+file, dir)
+\item 
+def \mbox{\hyperlink{namespacestart_ac92722f9e099dd08ab170ccdd1f4226a}{run}} (exe\+\_\+file, sh)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacestart_aba9c7b071991c13d4a6d280e43fd103e}{paths}} = \mbox{[}\textquotesingle{}driver\textquotesingle{}, \textquotesingle{}\mbox{\hyperlink{namespacestart_ab9b9247fba61b0b959edacb4c36117a1}{tester}}\textquotesingle{}\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacestart_a0bcf94705722cf40b0382fa35aba9cd1}{driver\+\_\+cpp\+\_\+files}}
+\item 
+str \mbox{\hyperlink{namespacestart_aa502e874162f07433281fd054aada0b5}{driver\+\_\+exe\+\_\+file}} = \char`\"{}driver.\+out\char`\"{}
+\item 
+list \mbox{\hyperlink{namespacestart_ab0698db91b9b196572679694a07d877d}{tester\+\_\+cpp\+\_\+files}}
+\item 
+str \mbox{\hyperlink{namespacestart_af0692c746a6af453a6448c376bcc6b26}{tester\+\_\+exe\+\_\+file}} = \char`\"{}tester.\+out\char`\"{}
+\item 
+\mbox{\hyperlink{namespacestart_a7a8eab6f3181afee3e6260df33819a48}{try}} \+:
+\item 
+sys \mbox{\hyperlink{namespacestart_a05bafd158319133a3f244149fed3f0a0}{request}} = sys.\+argv\mbox{[}1\mbox{]}
+\item 
+Thread \mbox{\hyperlink{namespacestart_ab9b9247fba61b0b959edacb4c36117a1}{tester}} = Thread(target=\mbox{\hyperlink{namespacestart_ad9219e4d47458ba417e8445378acc89d}{compile}}, args=(\mbox{\hyperlink{namespacestart_ab0698db91b9b196572679694a07d877d}{tester\+\_\+cpp\+\_\+files}}, \mbox{\hyperlink{namespacestart_af0692c746a6af453a6448c376bcc6b26}{tester\+\_\+exe\+\_\+file}}, \char`\"{}tester\char`\"{}))
+\item 
+Thread \mbox{\hyperlink{namespacestart_a16b605d715add7b6fd1c445fe9ae416d}{program}} = Thread(target=\mbox{\hyperlink{namespacestart_ad9219e4d47458ba417e8445378acc89d}{compile}}, args=(\mbox{\hyperlink{namespacestart_a0bcf94705722cf40b0382fa35aba9cd1}{driver\+\_\+cpp\+\_\+files}}, \mbox{\hyperlink{namespacestart_aa502e874162f07433281fd054aada0b5}{driver\+\_\+exe\+\_\+file}}, \char`\"{}driver\char`\"{}))
+\item 
+list \mbox{\hyperlink{namespacestart_a96b1b6a7365d829d5346f2b924130905}{files}} = \mbox{[}\textquotesingle{}driver.\+out\textquotesingle{}, \textquotesingle{}tester.\+out\textquotesingle{}\mbox{]}
+\item 
+input \mbox{\hyperlink{namespacestart_a05b08c9dfdc8a520f408243d370ef2e4}{device}} = input(\char`\"{}Select device to simulate\+: gpio, spi, i2c, ethernet, usart, uart, can\textbackslash{}n\char`\"{})
+\item 
+open \mbox{\hyperlink{namespacestart_a00ef73c308cfc1deea5847533c1933b0}{file}} = open(\char`\"{}command\char`\"{}, \char`\"{}w\char`\"{}, encoding=\char`\"{}utf-\/8\char`\"{})
+\item 
+\mbox{\hyperlink{namespacestart_a9fdf573b07280bf16d367085d1f95cbb}{else}} \+:
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacestart_ad9219e4d47458ba417e8445378acc89d}\label{namespacestart_ad9219e4d47458ba417e8445378acc89d}} 
+\index{start@{start}!compile@{compile}}
+\index{compile@{compile}!start@{start}}
+\doxysubsubsection{\texorpdfstring{compile()}{compile()}}
+{\footnotesize\ttfamily def start.\+compile (\begin{DoxyParamCaption}\item[{}]{cpp\+\_\+files,  }\item[{}]{exe\+\_\+file,  }\item[{}]{dir }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacestart_a1e792ecee5fe41c5d9b142511cc496e6}\label{namespacestart_a1e792ecee5fe41c5d9b142511cc496e6}} 
+\index{start@{start}!compile\_and\_run@{compile\_and\_run}}
+\index{compile\_and\_run@{compile\_and\_run}!start@{start}}
+\doxysubsubsection{\texorpdfstring{compile\_and\_run()}{compile\_and\_run()}}
+{\footnotesize\ttfamily def start.\+compile\+\_\+and\+\_\+run (\begin{DoxyParamCaption}\item[{}]{cpp\+\_\+files,  }\item[{}]{exe\+\_\+file,  }\item[{}]{sh,  }\item[{}]{dir }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacestart_ac92722f9e099dd08ab170ccdd1f4226a}\label{namespacestart_ac92722f9e099dd08ab170ccdd1f4226a}} 
+\index{start@{start}!run@{run}}
+\index{run@{run}!start@{start}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def start.\+run (\begin{DoxyParamCaption}\item[{}]{exe\+\_\+file,  }\item[{}]{sh }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacestart_a05b08c9dfdc8a520f408243d370ef2e4}\label{namespacestart_a05b08c9dfdc8a520f408243d370ef2e4}} 
+\index{start@{start}!device@{device}}
+\index{device@{device}!start@{start}}
+\doxysubsubsection{\texorpdfstring{device}{device}}
+{\footnotesize\ttfamily input start.\+device = input(\char`\"{}Select device to simulate\+: gpio, spi, i2c, ethernet, usart, uart, can\textbackslash{}n\char`\"{})}
+
+\mbox{\Hypertarget{namespacestart_a0bcf94705722cf40b0382fa35aba9cd1}\label{namespacestart_a0bcf94705722cf40b0382fa35aba9cd1}} 
+\index{start@{start}!driver\_cpp\_files@{driver\_cpp\_files}}
+\index{driver\_cpp\_files@{driver\_cpp\_files}!start@{start}}
+\doxysubsubsection{\texorpdfstring{driver\_cpp\_files}{driver\_cpp\_files}}
+{\footnotesize\ttfamily list start.\+driver\+\_\+cpp\+\_\+files}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ [\ \textcolor{stringliteral}{"{}drivermain.cpp"{}},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}libdriver.cpp"{}},\ }
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}libdriver.h"{}},\ }
+\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}libdriverutility.cpp"{}},\ }
+\DoxyCodeLine{00005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}libdriverutility.h"{}},\ }
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}drivercommapi.cpp"{}},\ }
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}drivercommapi.h"{}}\ ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacestart_aa502e874162f07433281fd054aada0b5}\label{namespacestart_aa502e874162f07433281fd054aada0b5}} 
+\index{start@{start}!driver\_exe\_file@{driver\_exe\_file}}
+\index{driver\_exe\_file@{driver\_exe\_file}!start@{start}}
+\doxysubsubsection{\texorpdfstring{driver\_exe\_file}{driver\_exe\_file}}
+{\footnotesize\ttfamily str start.\+driver\+\_\+exe\+\_\+file = \char`\"{}driver.\+out\char`\"{}}
+
+\mbox{\Hypertarget{namespacestart_a9fdf573b07280bf16d367085d1f95cbb}\label{namespacestart_a9fdf573b07280bf16d367085d1f95cbb}} 
+\index{start@{start}!else@{else}}
+\index{else@{else}!start@{start}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily start.\+else \+:}
+
+\mbox{\Hypertarget{namespacestart_a00ef73c308cfc1deea5847533c1933b0}\label{namespacestart_a00ef73c308cfc1deea5847533c1933b0}} 
+\index{start@{start}!file@{file}}
+\index{file@{file}!start@{start}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily open start.\+file = open(\char`\"{}command\char`\"{}, \char`\"{}w\char`\"{}, encoding=\char`\"{}utf-\/8\char`\"{})}
+
+\mbox{\Hypertarget{namespacestart_a96b1b6a7365d829d5346f2b924130905}\label{namespacestart_a96b1b6a7365d829d5346f2b924130905}} 
+\index{start@{start}!files@{files}}
+\index{files@{files}!start@{start}}
+\doxysubsubsection{\texorpdfstring{files}{files}}
+{\footnotesize\ttfamily list start.\+files = \mbox{[}\textquotesingle{}driver.\+out\textquotesingle{}, \textquotesingle{}tester.\+out\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{namespacestart_aba9c7b071991c13d4a6d280e43fd103e}\label{namespacestart_aba9c7b071991c13d4a6d280e43fd103e}} 
+\index{start@{start}!paths@{paths}}
+\index{paths@{paths}!start@{start}}
+\doxysubsubsection{\texorpdfstring{paths}{paths}}
+{\footnotesize\ttfamily list start.\+paths = \mbox{[}\textquotesingle{}driver\textquotesingle{}, \textquotesingle{}\mbox{\hyperlink{namespacestart_ab9b9247fba61b0b959edacb4c36117a1}{tester}}\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{namespacestart_a16b605d715add7b6fd1c445fe9ae416d}\label{namespacestart_a16b605d715add7b6fd1c445fe9ae416d}} 
+\index{start@{start}!program@{program}}
+\index{program@{program}!start@{start}}
+\doxysubsubsection{\texorpdfstring{program}{program}}
+{\footnotesize\ttfamily Thread start.\+program = Thread(target=\mbox{\hyperlink{namespacestart_ad9219e4d47458ba417e8445378acc89d}{compile}}, args=(\mbox{\hyperlink{namespacestart_a0bcf94705722cf40b0382fa35aba9cd1}{driver\+\_\+cpp\+\_\+files}}, \mbox{\hyperlink{namespacestart_aa502e874162f07433281fd054aada0b5}{driver\+\_\+exe\+\_\+file}}, \char`\"{}driver\char`\"{}))}
+
+\mbox{\Hypertarget{namespacestart_a05bafd158319133a3f244149fed3f0a0}\label{namespacestart_a05bafd158319133a3f244149fed3f0a0}} 
+\index{start@{start}!request@{request}}
+\index{request@{request}!start@{start}}
+\doxysubsubsection{\texorpdfstring{request}{request}}
+{\footnotesize\ttfamily input start.\+request = sys.\+argv\mbox{[}1\mbox{]}}
+
+\mbox{\Hypertarget{namespacestart_ab9b9247fba61b0b959edacb4c36117a1}\label{namespacestart_ab9b9247fba61b0b959edacb4c36117a1}} 
+\index{start@{start}!tester@{tester}}
+\index{tester@{tester}!start@{start}}
+\doxysubsubsection{\texorpdfstring{tester}{tester}}
+{\footnotesize\ttfamily Thread start.\+tester = Thread(target=\mbox{\hyperlink{namespacestart_ad9219e4d47458ba417e8445378acc89d}{compile}}, args=(\mbox{\hyperlink{namespacestart_ab0698db91b9b196572679694a07d877d}{tester\+\_\+cpp\+\_\+files}}, \mbox{\hyperlink{namespacestart_af0692c746a6af453a6448c376bcc6b26}{tester\+\_\+exe\+\_\+file}}, \char`\"{}tester\char`\"{}))}
+
+\mbox{\Hypertarget{namespacestart_ab0698db91b9b196572679694a07d877d}\label{namespacestart_ab0698db91b9b196572679694a07d877d}} 
+\index{start@{start}!tester\_cpp\_files@{tester\_cpp\_files}}
+\index{tester\_cpp\_files@{tester\_cpp\_files}!start@{start}}
+\doxysubsubsection{\texorpdfstring{tester\_cpp\_files}{tester\_cpp\_files}}
+{\footnotesize\ttfamily list start.\+tester\+\_\+cpp\+\_\+files}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ [\ \textcolor{stringliteral}{"{}testermain.cpp"{}},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}libtesterutility.cpp"{}},\ }
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}libtesterutility.h"{}},\ }
+\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}testercommapi.cpp"{}},\ }
+\DoxyCodeLine{00005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}testercommapi.h"{}}\ ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacestart_af0692c746a6af453a6448c376bcc6b26}\label{namespacestart_af0692c746a6af453a6448c376bcc6b26}} 
+\index{start@{start}!tester\_exe\_file@{tester\_exe\_file}}
+\index{tester\_exe\_file@{tester\_exe\_file}!start@{start}}
+\doxysubsubsection{\texorpdfstring{tester\_exe\_file}{tester\_exe\_file}}
+{\footnotesize\ttfamily str start.\+tester\+\_\+exe\+\_\+file = \char`\"{}tester.\+out\char`\"{}}
+
+\mbox{\Hypertarget{namespacestart_a7a8eab6f3181afee3e6260df33819a48}\label{namespacestart_a7a8eab6f3181afee3e6260df33819a48}} 
+\index{start@{start}!try@{try}}
+\index{try@{try}!start@{start}}
+\doxysubsubsection{\texorpdfstring{try}{try}}
+{\footnotesize\ttfamily start.\+try \+:}
+

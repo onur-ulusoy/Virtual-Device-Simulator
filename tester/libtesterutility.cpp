@@ -1,6 +1,13 @@
+/**
+ * @file libtesterutility.cpp
+ * @brief Library of utility functions used in the tester such as string or file manipulation, directory creation.
+ *
+ * @author Onur Ulusoy
+ * @date 03/02/2023
+ */
 #include "libtesterutility.h"
 
-namespace driverTester {
+namespace DriverTester {
     string now(){
         auto now = std::chrono::system_clock::now();
         auto now_c = std::chrono::system_clock::to_time_t(now);

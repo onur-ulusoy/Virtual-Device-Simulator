@@ -1,7 +1,25 @@
+/**
+ * @file testermain.cpp
+ * @brief The main file of the tester program.
+ *
+ * @author Onur Ulusoy
+ * @date 03.02.2023
+ */
 #include "testercommapi.h"
 
-using namespace driverTester;
-
+using namespace DriverTester;
+/**
+ * @brief The main function of the tester program.
+ *
+ * This function creates the required device directories, prepares the communication-register file to be committed, outputs introductory messages,
+ * and takes user commands through the `get_and_transmit_command` function and transmits it to the device simulator.
+ *
+ * @return Returns 0 if the program terminates successfully.
+ * @param log Stream object to manage the log file that is log of communication between driver and tester
+ * @param directories Directories that devices take place when they are being simulated
+ * @param com Stream object to manage the communicator register file that contains the communication between tester and driver
+*  @param _command String to store the received command
+ */
 int main() {
     fstream log;
     string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};

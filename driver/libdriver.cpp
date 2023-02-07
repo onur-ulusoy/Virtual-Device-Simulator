@@ -1,6 +1,13 @@
+/**
+ * @file libdriver.cpp
+ * @brief Driver library contains device classes simulating their attributes and behaviors to create virtual devices.
+ *
+ * @author Onur Ulusoy
+ * @date 03/02/2023
+ */
 #include "libdriver.h"
 
-namespace DriverSim {
+namespace DeviceSim {
 
     GPIO_Device::GPIO_Device(char *dev_name) {
         this->dev_name = new char[strlen(dev_name) + 1];
@@ -224,7 +231,6 @@ namespace DriverSim {
         return word;
     }
 
-    string
     GPIO_Device::DeviceContent::write(int offset, string property, string new_value, GPIO_Device *gpioDevHandler) {
 
         //cout << gpioDevHandler->dev_name << endl;
@@ -304,7 +310,11 @@ namespace DriverSim {
 
         return "true";
     }
-
+    /**
+    @brief Parses a JSON file that contains default GPIO device properties and writes its content to a device file.
+    @param dir The directory of the JSON file.
+    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
+    */
     void parse_GPIO(string dir, GPIO_Device *gpioDevHandler) {
         std::ifstream jsonFile(dir);
 
@@ -331,7 +341,11 @@ namespace DriverSim {
 
         }
     }
-
+    /**
+    @brief Parses a JSON file that contains default SPI device properties and writes its content to a device file.
+    @param dir The directory of the JSON file.
+    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
+    */
     void parse_SPI(string dir, GPIO_Device *gpioDevHandler) {
         std::ifstream jsonFile(dir);
         nlohmann::json commands;
@@ -358,7 +372,11 @@ namespace DriverSim {
 
         }
     }
-
+    /**
+    @brief Parses a JSON file that contains default I2C device properties and writes its content to a device file.
+    @param dir The directory of the JSON file.
+    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
+    */
     void parse_I2C(string dir, GPIO_Device *gpioDevHandler) {
         std::ifstream jsonFile(dir);
         nlohmann::json commands;
@@ -382,7 +400,11 @@ namespace DriverSim {
             gpioDevHandler->fd << endl;
         }
     }
-
+    /**
+    @brief Parses a JSON file that contains default Ethernet device properties and writes its content to a device file.
+    @param dir The directory of the JSON file.
+    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
+    */
     void parse_ETHERNET(string dir, GPIO_Device *gpioDevHandler) {
         std::ifstream jsonFile(dir);
         nlohmann::json commands;
@@ -408,7 +430,11 @@ namespace DriverSim {
             gpioDevHandler->fd << endl;
         }
     }
-
+    /**
+    @brief Parses a JSON file that contains default USART device properties and writes its content to a device file.
+    @param dir The directory of the JSON file.
+    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
+    */
     void parse_USART(string dir, GPIO_Device *gpioDevHandler) {
         std::ifstream jsonFile(dir);
         nlohmann::json commands;
@@ -438,7 +464,11 @@ namespace DriverSim {
             gpioDevHandler->fd << endl;
         }
     }
-
+    /**
+    @brief Parses a JSON file that contains default UART device properties and writes its content to a device file.
+    @param dir The directory of the JSON file.
+    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
+    */
     void parse_UART(string dir, GPIO_Device *gpioDevHandler) {
         std::ifstream jsonFile(dir);
         nlohmann::json commands;
@@ -464,7 +494,11 @@ namespace DriverSim {
             gpioDevHandler->fd << endl;
         }
     }
-
+    /**
+    @brief Parses a JSON file that contains default CAN device properties and writes its content to a device file.
+    @param dir The directory of the JSON file.
+    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
+    */
     void parse_CAN(string dir, GPIO_Device *gpioDevHandler) {
         std::ifstream jsonFile(dir);
         nlohmann::json commands;

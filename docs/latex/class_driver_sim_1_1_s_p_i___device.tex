@@ -1,0 +1,140 @@
+\hypertarget{class_driver_sim_1_1_s_p_i___device}{}\doxysection{Driver\+Sim\+::SPI\+\_\+\+Device Class Reference}
+\label{class_driver_sim_1_1_s_p_i___device}\index{DriverSim::SPI\_Device@{DriverSim::SPI\_Device}}
+
+
+{\ttfamily \#include $<$libdriver.\+h$>$}
+
+Inheritance diagram for Driver\+Sim\+::SPI\+\_\+\+Device\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_driver_sim_1_1_s_p_i___device}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_driver_sim_1_1_s_p_i___device_a40abdcbf774027cae12021a27f32c2cf}{get\+Default\+Dir}} ()
+\item 
+string $\ast$ \mbox{\hyperlink{class_driver_sim_1_1_s_p_i___device_a91bb616f9e356e537632452048fd758a}{get\+Pack}} ()
+\item 
+int \mbox{\hyperlink{class_driver_sim_1_1_s_p_i___device_a3c0213dd5f918c4418f0587791f6910d}{get\+Pack\+Size}} ()
+\item 
+\mbox{\hyperlink{class_driver_sim_1_1_s_p_i___device_a6fbcfe1bf8ee74cf6feb40dc19a7d792}{SPI\+\_\+\+Device}} (char $\ast$\mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a5e0df651693de272e3ef23e77a377c61}{dev\+\_\+name}})
+\item 
+void \mbox{\hyperlink{class_driver_sim_1_1_s_p_i___device_a456090b415e4739899665559a44145fe}{parse}} (string dir, \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device}{GPIO\+\_\+\+Device}} $\ast$gpio\+Dev\+Handler)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device}{Driver\+Sim\+::\+GPIO\+\_\+\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a3304ae5c6837f1b4a5fc4e2701075b21}{GPIO\+\_\+\+Device}} (char $\ast$\mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a5e0df651693de272e3ef23e77a377c61}{dev\+\_\+name}})
+\item 
+void \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a95bea4811d5fdc5cbe9a13a8307132fa}{device\+\_\+open}} (\mbox{\hyperlink{namespace_driver_sim_a38607c4f85f9fafcf1f86838d7a608b9}{command}} request, \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device}{GPIO\+\_\+\+Device}} $\ast$gpio\+Dev\+Handler)
+\item 
+void \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a41a0c57f7a73818caf62f56e9e670c30}{device\+\_\+close}} ()
+\item 
+virtual string \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a426510bb36d39c094acda2abfb0d81db}{get\+Default\+Dir}} ()
+\item 
+virtual string $\ast$ \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a21323823eb4717167c86304985b6d6cc}{get\+Pack}} ()
+\item 
+virtual int \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a3054d43f026ab699c1ecca992a39adf3}{get\+Pack\+Size}} ()
+\item 
+virtual void \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a299f293db5743d98bd4a9dcabcce9077}{parse}} (string dir, \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device}{GPIO\+\_\+\+Device}} $\ast$gpio\+Dev\+Handler)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_driver_sim_1_1_s_p_i___device_aa4c36c6ba5093d31fa24bc20687da133}{default\+Dir}}
+\item 
+string \mbox{\hyperlink{class_driver_sim_1_1_s_p_i___device_a2b9d4be7c730b54be8aa07ab9867b662}{pack}} \mbox{[}9\mbox{]} = \{\char`\"{}offset\char`\"{}, \char`\"{}name\char`\"{}, \char`\"{}consumer\char`\"{}, \char`\"{}cpol\char`\"{}, \char`\"{}cpha\char`\"{}, \char`\"{}lsb\+\_\+first\char`\"{}, \char`\"{}cs\+\_\+high\char`\"{}, \char`\"{}3wire\char`\"{}, \char`\"{}loopback\char`\"{}\}
+\item 
+int \mbox{\hyperlink{class_driver_sim_1_1_s_p_i___device_a7a59efeaf609d9342fffddd525684086}{pack\+Size}} = 9
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device}{Driver\+Sim\+::\+GPIO\+\_\+\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_1_1_device_content}{Device\+Content}} \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a4b364960e7aeda320a8842b4d5573d30}{dev\+Content}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device}{Driver\+Sim\+::\+GPIO\+\_\+\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+fstream \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a93cb3e17b8c23f014490879a69a8f104}{fd}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_driver_sim_1_1_s_p_i___device_a6fbcfe1bf8ee74cf6feb40dc19a7d792}\label{class_driver_sim_1_1_s_p_i___device_a6fbcfe1bf8ee74cf6feb40dc19a7d792}} 
+\index{DriverSim::SPI\_Device@{DriverSim::SPI\_Device}!SPI\_Device@{SPI\_Device}}
+\index{SPI\_Device@{SPI\_Device}!DriverSim::SPI\_Device@{DriverSim::SPI\_Device}}
+\doxysubsubsection{\texorpdfstring{SPI\_Device()}{SPI\_Device()}}
+{\footnotesize\ttfamily Driver\+Sim\+::\+SPI\+\_\+\+Device\+::\+SPI\+\_\+\+Device (\begin{DoxyParamCaption}\item[{char $\ast$}]{dev\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_driver_sim_1_1_s_p_i___device_a40abdcbf774027cae12021a27f32c2cf}\label{class_driver_sim_1_1_s_p_i___device_a40abdcbf774027cae12021a27f32c2cf}} 
+\index{DriverSim::SPI\_Device@{DriverSim::SPI\_Device}!getDefaultDir@{getDefaultDir}}
+\index{getDefaultDir@{getDefaultDir}!DriverSim::SPI\_Device@{DriverSim::SPI\_Device}}
+\doxysubsubsection{\texorpdfstring{getDefaultDir()}{getDefaultDir()}}
+{\footnotesize\ttfamily string Driver\+Sim\+::\+SPI\+\_\+\+Device\+::get\+Default\+Dir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a426510bb36d39c094acda2abfb0d81db}{Driver\+Sim\+::\+GPIO\+\_\+\+Device}}.
+
+\mbox{\Hypertarget{class_driver_sim_1_1_s_p_i___device_a91bb616f9e356e537632452048fd758a}\label{class_driver_sim_1_1_s_p_i___device_a91bb616f9e356e537632452048fd758a}} 
+\index{DriverSim::SPI\_Device@{DriverSim::SPI\_Device}!getPack@{getPack}}
+\index{getPack@{getPack}!DriverSim::SPI\_Device@{DriverSim::SPI\_Device}}
+\doxysubsubsection{\texorpdfstring{getPack()}{getPack()}}
+{\footnotesize\ttfamily string $\ast$ Driver\+Sim\+::\+SPI\+\_\+\+Device\+::get\+Pack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a21323823eb4717167c86304985b6d6cc}{Driver\+Sim\+::\+GPIO\+\_\+\+Device}}.
+
+\mbox{\Hypertarget{class_driver_sim_1_1_s_p_i___device_a3c0213dd5f918c4418f0587791f6910d}\label{class_driver_sim_1_1_s_p_i___device_a3c0213dd5f918c4418f0587791f6910d}} 
+\index{DriverSim::SPI\_Device@{DriverSim::SPI\_Device}!getPackSize@{getPackSize}}
+\index{getPackSize@{getPackSize}!DriverSim::SPI\_Device@{DriverSim::SPI\_Device}}
+\doxysubsubsection{\texorpdfstring{getPackSize()}{getPackSize()}}
+{\footnotesize\ttfamily int Driver\+Sim\+::\+SPI\+\_\+\+Device\+::get\+Pack\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a3054d43f026ab699c1ecca992a39adf3}{Driver\+Sim\+::\+GPIO\+\_\+\+Device}}.
+
+\mbox{\Hypertarget{class_driver_sim_1_1_s_p_i___device_a456090b415e4739899665559a44145fe}\label{class_driver_sim_1_1_s_p_i___device_a456090b415e4739899665559a44145fe}} 
+\index{DriverSim::SPI\_Device@{DriverSim::SPI\_Device}!parse@{parse}}
+\index{parse@{parse}!DriverSim::SPI\_Device@{DriverSim::SPI\_Device}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily void Driver\+Sim\+::\+SPI\+\_\+\+Device\+::parse (\begin{DoxyParamCaption}\item[{string}]{dir,  }\item[{\mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device}{GPIO\+\_\+\+Device}} $\ast$}]{gpio\+Dev\+Handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_driver_sim_1_1_g_p_i_o___device_a299f293db5743d98bd4a9dcabcce9077}{Driver\+Sim\+::\+GPIO\+\_\+\+Device}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_driver_sim_1_1_s_p_i___device_aa4c36c6ba5093d31fa24bc20687da133}\label{class_driver_sim_1_1_s_p_i___device_aa4c36c6ba5093d31fa24bc20687da133}} 
+\index{DriverSim::SPI\_Device@{DriverSim::SPI\_Device}!defaultDir@{defaultDir}}
+\index{defaultDir@{defaultDir}!DriverSim::SPI\_Device@{DriverSim::SPI\_Device}}
+\doxysubsubsection{\texorpdfstring{defaultDir}{defaultDir}}
+{\footnotesize\ttfamily string Driver\+Sim\+::\+SPI\+\_\+\+Device\+::default\+Dir\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_driver_sim_1_1_s_p_i___device_a2b9d4be7c730b54be8aa07ab9867b662}\label{class_driver_sim_1_1_s_p_i___device_a2b9d4be7c730b54be8aa07ab9867b662}} 
+\index{DriverSim::SPI\_Device@{DriverSim::SPI\_Device}!pack@{pack}}
+\index{pack@{pack}!DriverSim::SPI\_Device@{DriverSim::SPI\_Device}}
+\doxysubsubsection{\texorpdfstring{pack}{pack}}
+{\footnotesize\ttfamily string Driver\+Sim\+::\+SPI\+\_\+\+Device\+::pack\mbox{[}9\mbox{]} = \{\char`\"{}offset\char`\"{}, \char`\"{}name\char`\"{}, \char`\"{}consumer\char`\"{}, \char`\"{}cpol\char`\"{}, \char`\"{}cpha\char`\"{}, \char`\"{}lsb\+\_\+first\char`\"{}, \char`\"{}cs\+\_\+high\char`\"{}, \char`\"{}3wire\char`\"{}, \char`\"{}loopback\char`\"{}\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_driver_sim_1_1_s_p_i___device_a7a59efeaf609d9342fffddd525684086}\label{class_driver_sim_1_1_s_p_i___device_a7a59efeaf609d9342fffddd525684086}} 
+\index{DriverSim::SPI\_Device@{DriverSim::SPI\_Device}!packSize@{packSize}}
+\index{packSize@{packSize}!DriverSim::SPI\_Device@{DriverSim::SPI\_Device}}
+\doxysubsubsection{\texorpdfstring{packSize}{packSize}}
+{\footnotesize\ttfamily int Driver\+Sim\+::\+SPI\+\_\+\+Device\+::pack\+Size = 9\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+driver/\mbox{\hyperlink{libdriver_8h}{libdriver.\+h}}\end{DoxyCompactItemize}

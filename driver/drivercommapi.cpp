@@ -1,8 +1,16 @@
+/**
+ * @file drivercommapi.cpp
+ * @brief Communication API for driver to provide functionality of transmitting and receiveing the commands between tester and driver.
+ *
+ * @author Onur Ulusoy
+ * @date 03/02/2023
+ */
 #include "drivercommapi.h"
 
 using namespace std;
 
-namespace DriverSim {
+namespace DeviceSim {
+
     int receive_command(enum command_request req, string devType, fstream& receiver, string& _command, ofstream& _com) {
         string returnVal = "false";
 

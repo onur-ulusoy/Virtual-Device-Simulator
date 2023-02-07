@@ -1,5 +1,13 @@
+/**
+ * @file libdriverutility.cpp
+ * @brief Library of utility functions used in the driver such as string or file manipulation.
+ *
+ * @author Onur Ulusoy
+ * @date 03/02/2023
+ */
 #include "libdriverutility.h"
-namespace DriverSim{
+namespace DeviceSim{
+
     fstream& GotoLine(std::fstream& file, unsigned int num){
         file.seekg(std::ios::beg);
         for(int i=0; i < num - 1; ++i){

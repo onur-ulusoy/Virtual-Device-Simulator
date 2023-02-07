@@ -3,4 +3,8 @@ project(tester)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(tester testermain.cpp)
+add_executable( tester testermain.cpp
+ 		libtesterutility.cpp
+		libtesterutility.h
+		testercommapi.cpp
+		testercommapi.h )

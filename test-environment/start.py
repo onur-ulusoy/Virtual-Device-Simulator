@@ -1,10 +1,25 @@
+"""
+The script implements a program for compiling and running source files for a driver and a tester concurrently by running different processes.
+It also allows the user to choose which device to simulate among several options.
+"""
+
+##
+# \mainpage Virtual Device Simulator Documentation
+#
+# **Project Description**
+#
+#
+
+## @namespace start 
+# @brief Runs the compiling and running processes of the system
 import sys
 from os import system, path
 from subprocess import Popen
 from threading import Thread
 
+## List of paths of source folders to append to the system path
 paths = ['driver', 'tester']
-
+## List of driver source files to compile
 driver_cpp_files = [ "drivermain.cpp",
                      "libdriver.cpp", 
                      "libdriver.h", 
@@ -13,23 +28,27 @@ driver_cpp_files = [ "drivermain.cpp",
                      "drivercommapi.cpp", 
                      "drivercommapi.h" ]
 
-
+## Output file name for the compiled driver
 driver_exe_file = "driver.out"
-
+## List of tester source files to compile
 tester_cpp_files = cpp_files = [ "testermain.cpp",
                                  "libtesterutility.cpp", 
                                  "libtesterutility.h", 
                                  "testercommapi.cpp", 
                                  "testercommapi.h" ]
-
+## Output file name for the compiled tester
 tester_exe_file = "tester.out"
 
-for PATH in paths:
-    sys.path.append(path.join(path.dirname(__file__), PATH))
-
-
 def compile_and_run(cpp_files, exe_file, sh, dir):
-
+    ##
+    # @brief Compile and run the given cpp files.
+    # The compiled program is stored in the exe_file.
+    #
+    # @param cpp_files: list of cpp files to compile
+    # @param exe_file: output file name for the compiled program
+    # @param sh: boolean indicating whether to run the program in shell
+    # @param dir: directory of the cpp files
+    #
     cpp_file = str()
     
     for i in cpp_files:
@@ -48,7 +67,14 @@ def compile_and_run(cpp_files, exe_file, sh, dir):
     process.terminate()
 
 def compile(cpp_files, exe_file, dir):
-
+    ##
+    # @brief Compile the given cpp files.
+    # The compiled program is stored in the exe_file.
+    #
+    # @param cpp_files: list of cpp files to compile
+    # @param exe_file: output file name for the compiled program
+    # @param dir: directory of the cpp files
+    #
     cpp_file = str()
     
     for i in cpp_files:
@@ -60,7 +86,18 @@ def compile(cpp_files, exe_file, dir):
     print(dir + " build finished.")
 
 def run(exe_file, sh):
-
+    ##
+    # @brief Runs the specified executable file.
+    #
+    # This function opens a new process for the specified executable file using Popen, sets the shell
+    # parameter based on the value of the `sh` argument, communicates with the process to retrieve the
+    # standard output and standard error, and terminates the process.
+    #
+    # @param exe_file The path to the executable file.
+    # @param sh Whether or not to run the process in a shell.
+    #
+    # @return The standard output and standard error from the process, and the return code.
+    #
     process = Popen("./{}".format(exe_file), shell=sh)
 
     out, err = process.communicate()
@@ -69,12 +106,21 @@ def run(exe_file, sh):
     process.kill()
     process.terminate()
 
-if __name__ == "__main__":
+## Main function for the program
+# 
+# This function provides three options to the user: compile, run, and compile_run.
+# Depending on the user's choice, the appropriate action is performed. The function uses
+# threads to perform actions in parallel and communicates with other threads using a file.
+# It also creates proper directories for virtual devices that will be simulated.
+def main():
     try:
         request = sys.argv[1]
     except IndexError:
         request = input("Enter one of them:\ncompile\nrun\ncompile_run\n")
 
+    for PATH in paths:
+        sys.path.append(path.join(path.dirname(__file__), PATH))
+            
     if request == "compile":
         print("\ntester is being built ...")
 
@@ -142,6 +188,9 @@ if __name__ == "__main__":
 
         program = Thread(target=compile_and_run, args=(tester_cpp_files, tester_exe_file, True, "tester"))
         program.start()
+
+if __name__ == "__main__":
+    main()
 
 
 
