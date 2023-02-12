@@ -1,8 +1,0 @@
-Fri Feb  3 16:35:44 2023	MASTER LINE COMMAND: master write
-Fri Feb  3 16:35:44 2023	     master writing: show-d
-Fri Feb  3 16:35:44 2023	MASTER LINE COMMAND: slave write
-Fri Feb  3 16:35:45 2023	      slave writing: true
-Fri Feb  3 16:35:46 2023	MASTER LINE COMMAND: master write
-Fri Feb  3 16:35:46 2023	     master writing: -1
-Fri Feb  3 16:35:46 2023	MASTER LINE COMMAND: slave write
-Fri Feb  3 16:35:46 2023	      slave writing: disconnecting

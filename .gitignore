@@ -1,0 +1,19 @@
+## CMake files used in development
+
+cmake-build-debug/
+.idea/
+CMakeLists.txt
+
+## Program files used in runtime
+command
+commandsText
+communication-register
+log
+
+## Compiled machine codes
+*.out
+
+## Doxygen config files
+Doxyfile
+
+
