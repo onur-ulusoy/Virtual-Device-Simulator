@@ -231,7 +231,7 @@ namespace DeviceSim {
         return word;
     }
 
-    GPIO_Device::DeviceContent::write(int offset, string property, string new_value, GPIO_Device *gpioDevHandler) {
+    string GPIO_Device::DeviceContent::write(int offset, string property, string new_value, GPIO_Device *gpioDevHandler) {
 
         //cout << gpioDevHandler->dev_name << endl;
         cout << "function 'GPIO_Device::DeviceContent::write' worked" << endl << endl;
