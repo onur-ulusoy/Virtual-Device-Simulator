@@ -8,7 +8,7 @@ import sys
 from os import path
 from subprocess import Popen
 from threading import Thread
-
+from time import sleep
 
 def run(exe_file, sh):
     ##
@@ -52,7 +52,9 @@ def main():
             print("Out files are missing.")
             sys.exit()
 
-    device = input("Select device to simulate: gpio, spi, i2c, ethernet, usart, uart, can\n")
+    device = sys.argv[1]
+    command = '-'.join(sys.argv[2:])
+    #device = input("Select device to simulate: gpio, spi, i2c, ethernet, usart, uart, can\n")
 
     file = open("command", "w", encoding="utf-8")
     file.write(device)
@@ -78,6 +80,23 @@ def main():
     tester = Thread(target=run, args=(exe_file, True))
     tester.start()
 
+    file = open("command", "w", encoding="utf-8")
+    file.write(command)
+    file.close()
+
+    file = open("command", "r", encoding="utf-8")
+
+    while file.readline() != "&":
+        file.seek(0, 0)
+    file.close()
+
+    sleep(2)
+    print("*******************************")
+    
+    file = open("command", "w", encoding="utf-8")
+    file.write("-1")
+    file.close()
+    
 if __name__ == "__main__":
     main()
     
