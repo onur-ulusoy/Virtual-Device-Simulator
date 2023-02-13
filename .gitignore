@@ -23,3 +23,6 @@ build/dev/i2c/
 build/dev/spi/
 build/dev/uart/
 build/dev/usart/
+
+## vscode config files
+.vscode/

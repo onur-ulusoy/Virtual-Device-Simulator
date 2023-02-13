@@ -2,7 +2,8 @@
 The script implements a program for running compiled files for a driver and a tester concurrently by running different processes.
 It also allows the user to input a command.
 """
-
+## @namespace run 
+# @brief Runs the machine codes belongs to driver and tester concurrently and manages them.
 import sys
 from os import path
 from subprocess import Popen

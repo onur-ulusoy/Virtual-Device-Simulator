@@ -204,6 +204,7 @@ namespace DeviceSim {
 
             else if (substrings[0] == ".commandSet") {
 
+                float sleep_time = .4;
                 fstream f;
                 f.open(substrings[1]);
 
@@ -211,10 +212,27 @@ namespace DeviceSim {
                     if(f.eof()) break;
                     _command.clear();
                     f >> _command;
+                    
                     if (_command.length()  == 0)
                         break;
                     receive_command(RECURSIVE, devType, receiver, _command, _com);
+                    transmit_response("&&" + _command);
+
+                    string master_response;
+
+                    while (master_response != "-2"){
+                        usleep(1000000 * sleep_time);
+                        master_response.clear();
+                        receiver.open("command");
+                        receiver >> master_response;
+                        receiver.close();
+                        cout << master_response << "ss" << endl;
+                    }
+                    
+
                 }
+
+                f.close();
 
             }
 
@@ -231,6 +249,12 @@ namespace DeviceSim {
     void throw_command(){
         ofstream outfile ("command");
         outfile << "&";
+        outfile.close();
+    }
+
+    void transmit_response(string message){
+        ofstream outfile ("command");
+        outfile << message;
         outfile.close();
     }
 
