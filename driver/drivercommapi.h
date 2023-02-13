@@ -39,6 +39,7 @@ namespace DeviceSim {
     *
     */
     void slave_writing(ofstream& com, string message);
+    void transmit_response(string message);
 }
 
 

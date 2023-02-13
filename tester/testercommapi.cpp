@@ -18,13 +18,14 @@ namespace DriverTester{
     }
 
     void evaluate_slave(string _command, string word, fstream& log){
+        cout << "..." << _command << endl;
         ifstream temp;
         if (_command.find("read-") != -1){
             log.open("log", ios::app);
 
             log << "Date: " << now() << endl << "Command: " << _command << endl;
             log << "Output: " << endl;
-            cout << "Chip info has read successfully" << endl << endl;
+            cout << "Chip info has been read successfully" << endl << endl;
             cout << "Data has been stored: " << word << endl;
             log << "Data has been stored: " << word << endl;
             log << endl << endl;
@@ -95,6 +96,7 @@ namespace DriverTester{
 
         string emptyString = "---";
         float delay = .4;
+        bool recursived = false;
 
         while (_command != "-1") {
             cin >> _command;
@@ -122,12 +124,32 @@ namespace DriverTester{
                 transmitter.open("command");
 
                 transmitter >> emptyString;
+                //RECURSIVE MODE
+                if (emptyString.find("&&") != -1){
+                    recursived = true;
+                    _command = emptyString.erase(0, 2);
+                    string last_word = get_last_word("communication-register");
+                    cout << last_word << "* " << _command << endl;
+                    cout << "...." << endl;
+                    evaluate_slave(_command, last_word, log);
+
+                    ofstream outfile ("command");
+                    
+
+                    outfile << "-2";
+                    outfile.close();
+                }
 
                 transmitter.close();
             }
 
-            string last_word = get_last_word("communication-register");
-            evaluate_slave(_command, last_word, log);
+            if (!recursived){
+                string last_word = get_last_word("communication-register");
+                evaluate_slave(_command, last_word, log);
+            }
+
+            else
+                recursived = false;
 
             usleep(1000000 * delay);
 

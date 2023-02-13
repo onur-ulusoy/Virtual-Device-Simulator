@@ -1,0 +1,28 @@
+## CMake files used in development
+cmake-build-debug/
+.idea/
+CMakeLists.txt
+
+## Program files used in runtime
+command
+commandsText
+communication-register
+log
+
+## Compiled machine codes
+*.out
+
+## Doxygen config files
+Doxyfile
+
+##Local fake devices
+build/dev/can/
+build/dev/ethernet/
+build/dev/gpio/
+build/dev/i2c/
+build/dev/spi/
+build/dev/uart/
+build/dev/usart/
+
+## vscode config files
+.vscode/
