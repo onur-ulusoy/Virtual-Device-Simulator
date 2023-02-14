@@ -5,7 +5,7 @@
  * @author Onur Ulusoy
  * @date 03/02/2023
  */
-#include "libtesterutility.h"
+#include "libtesterutility.hpp"
 
 namespace DriverTester {
     string now(){
@@ -63,7 +63,7 @@ namespace DriverTester {
 
     void create_directories(string directories[], int size) {
         for (int i = 0; i < size; i++) {
-            mkdir(directories[i].c_str(), 0777);
+            mkdir(directories[i].c_str());
         }
     }
 }

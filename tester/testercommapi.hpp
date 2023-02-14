@@ -1,12 +1,12 @@
 /**
- * @file testercommapi.h
+ * @file testercommapi.hpp
  * @brief Communication API for tester to provide functionality of transmitting and receiveing the commands between tester and driver.
  *
  * @author Onur Ulusoy
  * @date 03/02/2023
  */
-#ifndef TESTERCOMMAPI_H
-#define TESTERCOMMAPI_H
+#ifndef TESTERCOMMAPI_HPP
+#define TESTERCOMMAPI_HPP
 
 #include <iostream>
 #include <cstring>
@@ -16,7 +16,8 @@
 #include <time.h>
 #include <iomanip>
 #include <sys/stat.h>
-#include "libtesterutility.h"
+#include <sstream>
+#include "libtesterutility.hpp"
 
 using namespace std;
 /**
@@ -51,4 +52,4 @@ namespace DriverTester{
     void get_and_transmit_command(string _command, ofstream& com, fstream& log);
 }
 
-#endif //TESTERCOMMAPI_H
+#endif //TESTERCOMMAPI_HPP

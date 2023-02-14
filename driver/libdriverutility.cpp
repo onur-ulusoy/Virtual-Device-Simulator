@@ -5,7 +5,7 @@
  * @author Onur Ulusoy
  * @date 03/02/2023
  */
-#include "libdriverutility.h"
+#include "libdriverutility.hpp"
 namespace DeviceSim{
 
     fstream& GotoLine(std::fstream& file, unsigned int num){

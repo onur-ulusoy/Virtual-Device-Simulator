@@ -1,12 +1,12 @@
 /**
- * @file libdriver.h
+ * @file libdriver.hpp
  * @brief Driver library contains device classes simulating their attributes and behaviors to create virtual devices.
  *
  * @author Onur Ulusoy
  * @date 03/02/2023
  */
-#ifndef LIB_DRIVER_H
-#define LIB_DRIVER_H
+#ifndef LIB_DRIVER_HPP
+#define LIB_DRIVER_HPP
 
 #include <cstring>
 #include <errno.h>
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <nlohmann/json.hpp>
 #include <iostream>
-#include "libdriverutility.h"
+#include "libdriverutility.hpp"
 /**
 @brief Macro to specify the directory of temporary file while device is being manipulated.
 */
@@ -440,4 +440,4 @@ namespace DeviceSim {
         }
     };
 }
-#endif //LIB_DRIVER_H
+#endif //LIB_DRIVER_HPP

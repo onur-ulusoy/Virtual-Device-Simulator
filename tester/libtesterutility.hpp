@@ -1,14 +1,14 @@
 /**
- * @file libtesterutility.h
+ * @file libtesterutility.hpp
  * @brief Library of utility functions used in the tester such as string or file manipulation, directory creation.
  *
  * @author Onur Ulusoy
  * @date 03/02/2023
  */
-#ifndef LIBTESTERUTILITY_H
-#define LIBTESTERUTILITY_H
+#ifndef LIBTESTERUTILITY_HPP
+#define LIBTESTERUTILITY_HPP
 
-#include "testercommapi.h"
+#include "testercommapi.hpp"
 
 using namespace std;
 
@@ -40,4 +40,4 @@ namespace DriverTester {
 
 }
 
-#endif //LIBTESTERUTILITY_H
+#endif //LIBTESTERUTILITY_HPP

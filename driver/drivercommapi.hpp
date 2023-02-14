@@ -1,14 +1,14 @@
 /**
- * @file drivercommapi.h
+ * @file drivercommapi.hpp
  * @brief Communication API for driver to provide functionality of transmitting and receiveing the commands between tester and driver.
  *
  * @author Onur Ulusoy
  * @date 03/02/2023
  */
-#ifndef DRIVER_DRIVERCOMMAPI_H
-#define DRIVER_DRIVERCOMMAPI_H
+#ifndef DRIVER_DRIVERCOMMAPI_HPP
+#define DRIVER_DRIVERCOMMAPI_HPP
 
-#include "libdriver.h"
+#include "libdriver.hpp"
 /**
  * @namespace DeviceSim
  * @brief Gathers around all the tools contributing to simulate device under a frame.
@@ -43,4 +43,4 @@ namespace DeviceSim {
 }
 
 
-#endif //DRIVER_DRIVERCOMMAPI_H
+#endif //DRIVER_DRIVERCOMMAPI_HPP

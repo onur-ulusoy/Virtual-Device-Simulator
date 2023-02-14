@@ -1,12 +1,12 @@
 /**
- * @file libdriverutility.h
+ * @file libdriverutility.hpp
  * @brief Library of utility functions used in the driver such as string or file manipulation.
  *
  * @author Onur Ulusoy
  * @date 03/02/2023
  */
-#ifndef LIB_DRIVER_UTILITY_H
-#define LIB_DRIVER_UTILITY_H
+#ifndef LIB_DRIVER_UTILITY_HPP
+#define LIB_DRIVER_UTILITY_HPP
 
 #include <fstream>
 #include <unistd.h>
@@ -15,6 +15,8 @@
 #include <set>
 #include <unistd.h>
 #include <fcntl.h>
+#include <chrono>
+#include <sstream>
 #include <nlohmann/json.hpp>
 
 using namespace std;
@@ -48,4 +50,4 @@ namespace DeviceSim{
 }
 
 
-#endif //LIB_DRIVER_UTILITY_H
+#endif //LIB_DRIVER_UTILITY_HPP

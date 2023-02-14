@@ -1,7 +1,7 @@
 ## CMake files used in development
 cmake-build-debug/
 .idea/
-CMakeLists.txt
+build/
 
 ## Program files used in runtime
 command
