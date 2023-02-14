@@ -16,13 +16,16 @@ log
 Doxyfile
 
 ##Local fake devices
-build/dev/can/
-build/dev/ethernet/
-build/dev/gpio/
-build/dev/i2c/
-build/dev/spi/
-build/dev/uart/
-build/dev/usart/
+runtime-environment/dev/can/
+runtime-environment/dev/ethernet/
+runtime-environment/dev/gpio/
+runtime-environment/dev/i2c/
+runtime-environment/dev/spi/
+runtime-environment/dev/uart/
+runtime-environment/dev/usart/
 
 ## vscode config files
 .vscode/
+
+## googletest lib
+googletest/
