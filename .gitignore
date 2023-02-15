@@ -9,8 +9,9 @@ commandsText
 communication-register
 log
 
-## Compiled machine codes
+## Out files
 *.out
+*.exe
 
 ## Doxygen config files
 Doxyfile

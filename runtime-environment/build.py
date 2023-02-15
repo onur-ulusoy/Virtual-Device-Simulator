@@ -31,10 +31,13 @@ def build():
 # Builds all the source file of the software. 
 def main():
     
-    print("\ntester is being built ...")
-    print("driver is being built ...")
+    #print("\ntester is being built ...")
+    #print("driver is being built ...\n")
 
     build()
+
+    print("\ntester build finished.\n")
+    print("driver build finished.\n")
 
 
 if __name__ == "__main__":

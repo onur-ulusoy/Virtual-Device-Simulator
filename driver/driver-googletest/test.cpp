@@ -77,4 +77,5 @@ TEST(GPIO_DeviceTest, ShowTest) {
 
 int main(){
   std::cout << "CMake" << endl;
+  getchar();
 }
