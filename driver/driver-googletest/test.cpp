@@ -1,8 +1,10 @@
 #include "gtest/gtest.h"
 #include "libdriver.hpp"
 #include <iostream>
-/* // Tests the constructor of the GPIO_Device class.
-TEST(GPIO_DeviceTest, ConstructorTest) {
+
+using namespace DeviceSim;
+// Tests the constructor of the GPIO_Device class.
+TEST(GPIO_Device, ConstructorTest) {
   // Create a GPIO_Device object with a null device name.
   char *dev_name = NULL;
   GPIO_Device gpio_dev(dev_name);
@@ -21,6 +23,7 @@ TEST(GPIO_DeviceTest, ConstructorTest) {
   }
 }
 
+/*
 // Tests the device_open() and device_close() methods of the GPIO_Device class.
 TEST(GPIO_DeviceTest, OpenCloseTest) {
   // Create a GPIO_Device object with a null device name.
@@ -73,9 +76,9 @@ TEST(GPIO_DeviceTest, ShowTest) {
   std::string result = gpio_dev.DeviceContent::show(&gpio_dev);
   EXPECT_EQ(result, "true");
 }
- */
+*/
 
-int main(){
-  std::cout << "CMake" << endl;
-  getchar();
+int main(int argc, char **argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
