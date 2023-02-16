@@ -29,7 +29,9 @@ set(tester_src_files
 # Define the driver executable target
 add_executable(driver ${driver_src_files})
 target_include_directories(driver PRIVATE ../driver)
+set_target_properties(driver PROPERTIES OUTPUT_NAME "driver.out")
 
 # Define the tester executable target
 add_executable(tester ${tester_src_files})
 target_include_directories(tester PRIVATE ../tester)
+set_target_properties(tester PROPERTIES OUTPUT_NAME "tester.out")

@@ -18,7 +18,6 @@ namespace DriverTester{
     }
 
     void evaluate_slave(string _command, string word, fstream& log){
-        cout << "..." << _command << endl;
         ifstream temp;
         if (_command.find("read-") != -1){
             log.open("log", ios::app);
@@ -99,11 +98,17 @@ namespace DriverTester{
         bool recursived = false;
 
         while (_command != "-1") {
-            cin >> _command;
+            //cin >> _command;
+            fstream getcommand;
+            getcommand.open("command");
+            getcommand >> _command;
+
+            cout << _command << endl;
             ofstream outfile ("command");
             outfile.close();
 
             fstream transmitter;
+            
             transmitter.open("command");
 
             transmitter << _command;
@@ -124,17 +129,15 @@ namespace DriverTester{
                 transmitter.open("command");
 
                 transmitter >> emptyString;
+                if (emptyString == "-1") break;
                 //RECURSIVE MODE
                 if (emptyString.find("&&") != -1){
                     recursived = true;
                     _command = emptyString.erase(0, 2);
                     string last_word = get_last_word("communication-register");
-                    cout << last_word << "* " << _command << endl;
-                    cout << "...." << endl;
                     evaluate_slave(_command, last_word, log);
 
-                    ofstream outfile ("command");
-                    
+                    ofstream outfile ("command");      
 
                     outfile << "-2";
                     outfile.close();
@@ -155,5 +158,6 @@ namespace DriverTester{
 
             cout << "Enter command (-1 to terminate): " << endl;
         }
+
     }
 }

@@ -63,7 +63,7 @@ namespace DriverTester {
 
     void create_directories(string directories[], int size) {
         for (int i = 0; i < size; i++) {
-            mkdir(directories[i].c_str());
+            mkdir(directories[i].c_str(), 0777);
         }
     }
 }

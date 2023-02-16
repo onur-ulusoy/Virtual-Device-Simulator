@@ -28,7 +28,7 @@ namespace DeviceSim {
             return -1;
         }
 
-        else if (_command == "&"){
+        else if (_command == "&" || _command == ""){
             return 0;
         }
 
@@ -221,12 +221,17 @@ namespace DeviceSim {
                     string master_response;
 
                     while (master_response != "-2"){
+                        if (master_response == "-1"){
+                            slave_writing(_com, "Disconnecting");
+                            cout << "Program is terminating .." << endl;    
+                            exit(0);
+                        }
+                            
                         usleep(1000000 * sleep_time);
                         master_response.clear();
                         receiver.open("command");
                         receiver >> master_response;
                         receiver.close();
-                        cout << master_response << "ss" << endl;
                     }
                     
 
@@ -241,7 +246,7 @@ namespace DeviceSim {
             }
 
         }
-
+    
         throw_command();
         return 0;
     }

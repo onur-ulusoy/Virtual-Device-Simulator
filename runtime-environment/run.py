@@ -60,7 +60,7 @@ def main():
     file.write(device)
     file.close()
     ## Output file name for the compiled driver 
-    exe_file = "driver.out"
+    exe_file = files[0]
 
     program = Thread(target=run, args=(exe_file, True))
     program.start()
@@ -75,7 +75,7 @@ def main():
     file.write("&")
     file.close()
     ## Output file name for the compiled tester 
-    exe_file = "tester.out"
+    exe_file = files[1]
 
     tester = Thread(target=run, args=(exe_file, True))
     tester.start()

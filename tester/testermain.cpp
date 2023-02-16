@@ -45,6 +45,7 @@ int main() {
 
     get_and_transmit_command(_command, com, log);
 
+    cout << "Tester is terminating .." << endl;
     return 0;
 }
 
