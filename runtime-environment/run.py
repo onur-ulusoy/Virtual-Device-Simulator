@@ -86,11 +86,11 @@ def main():
 
     file = open("command", "r", encoding="utf-8")
 
-    while file.readline() != "&":
+    while file.readline() != "exit":
         file.seek(0, 0)
     file.close()
 
-    sleep(2)
+    #sleep(20)
     print("*******************************")
     
     file = open("command", "w", encoding="utf-8")
