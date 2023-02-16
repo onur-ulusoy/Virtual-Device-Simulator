@@ -91,6 +91,12 @@ namespace DeviceSim {
         * Initializes the `dev_name` member variable with the provided `dev_name` and opens the log file for appending.
         */
         GPIO_Device(char *dev_name);
+
+        char* getDevName() const { return dev_name; }
+        fstream& getLog() { return log; }
+        fstream& getFd() { return fd; }
+        
+
         /**
         @brief Opens the device with the specified request (READONLY, WRITEONLY, DEFAULT)
         @param request Enum representing the request type (READONLY, WRITEONLY, DEFAULT)

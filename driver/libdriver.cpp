@@ -66,7 +66,7 @@ namespace DeviceSim {
 
                 if (!fd.is_open()) {
                     printf("Unabled to open %s: %s\n", dev_name, strerror(errno));
-                    break;
+                    device_open(WRITEONLY, gpioDevHandler);
                 } else
                     cout << dev_name << " is opened successfully as DEFAULT" << endl;
 
@@ -83,10 +83,8 @@ namespace DeviceSim {
         if (fd.is_open()) {
             cout << dev_name << " is closed successfully" << endl;
             fd.close();
-        } else {
-            //fd = 0;
+        } else 
             cout << dev_name << " is already not open" << endl;
-        }
 
         cout << endl;
     }

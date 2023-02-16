@@ -2,7 +2,7 @@ from os import system, chdir
 
 def build():
     ## Run cmake command
-    cmake_command = 'cmake -B build -G "MinGW Makefiles"'
+    cmake_command = 'cmake -B build -G "Unix Makefiles"'
     system(cmake_command)
 
     ## Change directory to build/

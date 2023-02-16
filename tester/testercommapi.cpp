@@ -129,6 +129,9 @@ namespace DriverTester{
                 transmitter.open("command");
 
                 transmitter >> emptyString;
+                if (emptyString == "&1")
+                    exit(0);
+
                 if (emptyString == "-1") break;
                 //RECURSIVE MODE
                 if (emptyString.find("&&") != -1){
@@ -157,6 +160,13 @@ namespace DriverTester{
             usleep(1000000 * delay);
 
             cout << "Enter command (-1 to terminate): " << endl;
+            
+            outfile.open("command", ofstream::trunc);
+            outfile << "exit";
+            outfile.close();
+            
+            cout << "tester is terminating .." << endl;
+            exit(0);
         }
 
     }

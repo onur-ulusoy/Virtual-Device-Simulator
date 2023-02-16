@@ -49,5 +49,11 @@ namespace DeviceSim{
         // Get the string from the stringstream
         return ss.str();
     }
+
+    char* generateDevName (string path) {
+        char* dev_name = new char[path.length() + 1];
+        strcpy(dev_name, path.c_str());
+        return dev_name;
+    }
 }
 

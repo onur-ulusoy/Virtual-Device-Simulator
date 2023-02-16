@@ -55,7 +55,7 @@ int main() {
     while (receive_command(ONESHOT, device, receiver, _command, _com) != -1)
         usleep(1000000 * sleep_time);
 
-    cout << "Program is terminating .." << endl;
+    cout << "Device simulator is terminating .." << endl;
     return 0;
 }
 

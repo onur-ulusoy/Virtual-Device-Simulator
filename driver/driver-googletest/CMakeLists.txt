@@ -28,13 +28,13 @@ set(drivertest_src_files
 add_executable(drivertest ${drivertest_src_files})
 
 # Set the directory containing the gtest header files
-set(GTEST_INCLUDE_DIR "C:/Users/onuru/OneDrive/Desktop/Virtual-Device-Simulator/googletest/googletest/include")
+set(GTEST_INCLUDE_DIR "$ENV{HOME}/Desktop/Virtual-Device-Simulator/googletest/googletest/include")
 
 # Add the directory to the list of include directories
 include_directories(${GTEST_INCLUDE_DIR})
 
 # Set the directory containing the gtest library file
-set(GTEST_LIB_DIR "C:/Users/onuru/OneDrive/Desktop/Virtual-Device-Simulator/googletest/build/lib")
+set(GTEST_LIB_DIR "$ENV{HOME}/Desktop/Virtual-Device-Simulator/googletest/build/lib")
 
 # Add the gtest library to the test executable
 target_link_libraries(drivertest ${GTEST_LIB_DIR}/libgtest.a ${GTEST_LIB_DIR}/libgtest_main.a)

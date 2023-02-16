@@ -46,6 +46,7 @@ namespace DeviceSim{
     @return A string representation of the current date and time.
     */
     string now();
+    char* generateDevName (string path);
 }
 
 

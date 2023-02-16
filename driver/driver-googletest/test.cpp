@@ -1,82 +1,82 @@
 #include "gtest/gtest.h"
 #include "libdriver.hpp"
 #include <iostream>
+#include <vector>
+#include <cstdio>
 
 using namespace DeviceSim;
-// Tests the constructor of the GPIO_Device class.
-TEST(GPIO_Device, ConstructorTest) {
-  // Create a GPIO_Device object with a null device name.
-  char *dev_name = NULL;
-  GPIO_Device gpio_dev(dev_name);
 
-  // Verify that the default directory of the device is correct.
-  std::string default_dir = gpio_dev.getDefaultDir();
-  EXPECT_EQ(default_dir, "dev/default_GPIO_chipInfo.json");
+int counter = 0;
+vector<std::string> filenames = {"test_device", "log", "command", "communication-register"};
+void deleteGarbage(vector<string> filenames);
 
-  // Verify that the pack of the device is correct.
-  std::string expected_pack[8] = {"offset", "name", "consumer", "FLAG_IS_OUT", "FLAG_ACTIVE_LOW",
-                                  "FLAG_OPEN_DRAIN", "FLAG_OPEN_SOURCE", "FLAG_KERNEL"};
-  std::string *pack = gpio_dev.getPack();
-  int pack_size = gpio_dev.getPackSize();
-  for (int i = 0; i < pack_size; i++) {
-    EXPECT_EQ(pack[i], expected_pack[i]);
-  }
+TEST(GPIOTest, ConstructorTest) {
+    // Test constructor by creating a new instance of the class
+    char* dev_name = generateDevName("test_device");
+    GPIO_Device gpio(dev_name);
+
+    // Check that the instance was created successfully
+    ASSERT_STREQ(gpio.getDevName(), dev_name);
+    deleteGarbage(filenames);
+
 }
 
-/*
-// Tests the device_open() and device_close() methods of the GPIO_Device class.
-TEST(GPIO_DeviceTest, OpenCloseTest) {
-  // Create a GPIO_Device object with a null device name.
-  char *dev_name = NULL;
-  GPIO_Device gpio_dev(dev_name);
+TEST(GPIOTest, OpenReadOnlyTest) {
+    // Test device open and close
+    char* dev_name = generateDevName("test_device");
+    GPIO_Device gpio(dev_name);
 
-  // Open the device in READONLY mode and verify that it is open.
-  gpio_dev.device_open(READONLY, &gpio_dev);
-  EXPECT_TRUE(gpio_dev.fd.is_open());
-
-  // Close the device and verify that it is closed.
-  gpio_dev.device_close();
-  EXPECT_FALSE(gpio_dev.fd.is_open());
-
-  // Open the device in WRITEONLY mode and verify that it is open.
-  gpio_dev.device_open(WRITEONLY, &gpio_dev);
-  EXPECT_TRUE(gpio_dev.fd.is_open());
-
-  // Close the device and verify that it is closed.
-  gpio_dev.device_close();
-  EXPECT_FALSE(gpio_dev.fd.is_open());
-
-  // Open the device in DEFAULT mode and verify that it is open.
-  gpio_dev.device_open(DEFAULT, &gpio_dev);
-  EXPECT_TRUE(gpio_dev.fd.is_open());
-
-  // Close the device and verify that it is closed.
-  gpio_dev.device_close();
-  EXPECT_FALSE(gpio_dev.fd.is_open());
+    // Open the device for reading
+    gpio.device_open(READONLY, &gpio);
+    // Check that the device file stream is open
+    ASSERT_TRUE(gpio.getFd().is_open());
+    deleteGarbage(filenames);
 }
 
-// Tests the DeviceContent::config() method of the GPIO_Device class.
-TEST(GPIO_DeviceTest, ConfigTest) {
-  // Create a GPIO_Device object with a null device name.
-  char *dev_name = NULL;
-  GPIO_Device gpio_dev(dev_name);
+TEST(GPIOTest, OpenWriteOnlyTest) {
+    // Test device open and close
+    char* dev_name = generateDevName("test_device");
+    GPIO_Device gpio(dev_name);
 
-  // Call the config() method with the DEFAULT request type and verify that it returns "true".
-  std::string result = gpio_dev.DeviceContent::config(DEFAULT, &gpio_dev);
-  EXPECT_EQ(result, "true");
+    // Open the device for reading
+    gpio.device_open(WRITEONLY, &gpio);
+    // Check that the device file stream is open
+    ASSERT_TRUE(gpio.getFd().is_open());
+    deleteGarbage(filenames);
 }
 
-// Tests the DeviceContent::show() method of the GPIO_Device class.
-TEST(GPIO_DeviceTest, ShowTest) {
-  // Create a GPIO_Device object with a null device name.
-  char *dev_name = NULL;
-  GPIO_Device gpio_dev(dev_name);
+TEST(GPIOTest, OpenDefaultTest) {
+    // Test device open and close
+    char* dev_name = generateDevName("test_device");
+    GPIO_Device gpio(dev_name);
 
-  // Call the show() method and verify that it returns "true".
-  std::string result = gpio_dev.DeviceContent::show(&gpio_dev);
-  EXPECT_EQ(result, "true");
+    // Open the device for reading
+    gpio.device_open(DEFAULT, &gpio);
+    // Check that the device file stream is open
+    ASSERT_TRUE(gpio.getFd().is_open());
+    deleteGarbage(filenames);
 }
-*/
+
+TEST(GPIOTest, CloseTest) {
+    // Test device open and close
+    char* dev_name = generateDevName("test_device");
+    GPIO_Device gpio(dev_name);
+
+    // Open the device for reading
+    gpio.device_open(DEFAULT, &gpio);
+    gpio.device_close();
+    // Check that the device file stream is open
+    ASSERT_FALSE(gpio.getFd().is_open());
+    deleteGarbage(filenames);
+}
+
+void deleteGarbage(vector<string> filenames){
+    // iterate over the filenames and delete each file
+    cout << ++counter << endl;
+    for (const auto& filename : filenames) {
+      remove(filename.c_str());
+    }
+}
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
