@@ -11,18 +11,46 @@ vector<std::string> filenames = {"test_device", "log", "command", "communication
 void deleteGarbage(vector<string> filenames);
 bool areFilesEqual(const std::string& filePath1, const std::string& filePath2);
 
-TEST(GPIOTest, ConstructorTest) {
+TEST(DriverTest, AttributeGettersTest){
+  // GPIO (Main) Class Attribute Getters Test
+  char* dev_name = generateDevName("test_device");
+  GPIO_Device gpio(dev_name);
+
+  EXPECT_EQ("dev/default_GPIO_chipInfo.json", gpio.getDefaultDir());
+  EXPECT_EQ("offset", gpio.getPack()[0]);
+  EXPECT_EQ("FLAG_IS_OUT", gpio.getPack()[3]);
+  EXPECT_EQ(8,gpio.getPackSize());
+
+  deleteGarbage(filenames);
+}
+
+TEST(DriverTest, ConstructorTest) {
+    // GPIO (Main) Class Constructor Test
     // Test constructor by creating a new instance of the class
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
     // Check that the instance was created successfully
     ASSERT_STREQ(gpio.getDevName(), dev_name);
+
+    ifstream logFile("log");
+    EXPECT_TRUE(logFile.good());
+
+    deleteGarbage(filenames);
+
+    // SPI (Child) Class Constructor Test
+    SPI_Device spi(dev_name);
+
+    // Check that the instance was created successfully
+    ASSERT_STREQ(spi.getDevName(), dev_name);
+
+    EXPECT_TRUE(logFile.good());
+
     deleteGarbage(filenames);
 
 }
 
-TEST(GPIOTest, OpenReadOnlyTest) {
+TEST(DriverTest, OpenReadOnlyTest) {
     // Test device open and close
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
@@ -34,7 +62,7 @@ TEST(GPIOTest, OpenReadOnlyTest) {
     deleteGarbage(filenames);
 }
 
-TEST(GPIOTest, OpenWriteOnlyTest) {
+TEST(DriverTest, OpenWriteOnlyTest) {
     // Test device open and close
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
@@ -46,7 +74,7 @@ TEST(GPIOTest, OpenWriteOnlyTest) {
     deleteGarbage(filenames);
 }
 
-TEST(GPIOTest, OpenDefaultTest) {
+TEST(DriverTest, OpenDefaultTest) {
     // Test device open and close
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
@@ -58,7 +86,7 @@ TEST(GPIOTest, OpenDefaultTest) {
     deleteGarbage(filenames);
 }
 
-TEST(GPIOTest, CloseTest) {
+TEST(DriverTest, CloseTest) {
     // Test device open and close
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
@@ -71,7 +99,7 @@ TEST(GPIOTest, CloseTest) {
     deleteGarbage(filenames);
 }
 
-TEST(GPIOTest, ReadTest) {
+TEST(DriverTest, ReadTest) {
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -82,7 +110,7 @@ TEST(GPIOTest, ReadTest) {
     
 }
 
-TEST(GPIOTest, ParseGPIOTest) {
+TEST(DriverTest, ParseGPIOTest) {
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -115,7 +143,7 @@ TEST(GPIOTest, ParseGPIOTest) {
     
 }
 
-TEST(GPIOTest, ConfigTest) {
+TEST(DriverTest, ConfigTest) {
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -148,7 +176,7 @@ TEST(GPIOTest, ConfigTest) {
     
 }
 
-TEST(GPIOTest, WriteTest) {
+TEST(DriverTest, WriteTest) {
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -174,7 +202,7 @@ TEST(GPIOTest, WriteTest) {
     
 }
 
-TEST(GPIOTest, ShowTest) {
+TEST(DriverTest, ShowTest) {
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -188,7 +216,7 @@ TEST(GPIOTest, ShowTest) {
     deleteGarbage(filenames);
 }
 
-TEST(GPIOTest, ParseTest) {
+TEST(DriverTest, ParseTest) {
     //GPIO Parse Method Test
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
@@ -218,6 +246,7 @@ TEST(GPIOTest, ParseTest) {
     EXPECT_EQ("[...]", gpio.devContent.read(20, "FLAG_OPEN_SOURCE", &gpio));
     EXPECT_EQ("[]", gpio.devContent.read(20, "FLAG_KERNEL", &gpio));
     
+    deleteGarbage(filenames);
     // SPI Parse Method Test
     SPI_Device spi(dev_name);
 
@@ -249,7 +278,7 @@ TEST(GPIOTest, ParseTest) {
     EXPECT_EQ("false", spi.devContent.read(1, "3wire", &spi));
     EXPECT_EQ("false", spi.devContent.read(1, "loopback", &spi));
 
-    //deleteGarbage(filenames);
+    deleteGarbage(filenames);
     
 }
 
