@@ -216,16 +216,7 @@ namespace DeviceSim {
         }
         gpioDevHandler->fd >> word;
 
-        /*cout << endl;
-        cout << "Chip info is read successfully" << endl << endl;*/
-
-        //cout << "Data has been stored: " << word << endl;
-
-        //gpioDevHandler->log << "Data has been stored: " << word << endl;
-        //fstream log;
-
-
-
+        gpioDevHandler->device_close();
         return word;
     }
 
