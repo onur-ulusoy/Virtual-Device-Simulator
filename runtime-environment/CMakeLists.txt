@@ -31,7 +31,15 @@ add_executable(driver ${driver_src_files})
 target_include_directories(driver PRIVATE ../driver)
 set_target_properties(driver PROPERTIES OUTPUT_NAME "driver.out")
 
+
 # Define the tester executable target
 add_executable(tester ${tester_src_files})
 target_include_directories(tester PRIVATE ../tester)
 set_target_properties(tester PROPERTIES OUTPUT_NAME "tester.out")
+
+
+add_library(driverlib STATIC ${driver_src_files})
+set_target_properties(driverlib PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+
+add_library(testerlib STATIC ${tester_src_files})
+set_target_properties(testerlib PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)

@@ -1,4 +1,4 @@
 import os
 
 # Run the executable
-os.system('./drivertest')
+os.system('./drivertest.out')

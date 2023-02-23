@@ -38,3 +38,5 @@ set(GTEST_LIB_DIR "$ENV{HOME}/Desktop/Virtual-Device-Simulator/googletest/build/
 
 # Add the gtest library to the test executable
 target_link_libraries(drivertest ${GTEST_LIB_DIR}/libgtest.a ${GTEST_LIB_DIR}/libgtest_main.a)
+
+set_target_properties(drivertest PROPERTIES OUTPUT_NAME "drivertest.out")
