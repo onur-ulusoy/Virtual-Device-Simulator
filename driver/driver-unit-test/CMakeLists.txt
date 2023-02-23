@@ -15,7 +15,7 @@ include_directories(${LIBDRIVER_INCLUDE_DIR})
 
 # Add the source files for the driver and tester
 set(drivertest_src_files
-    test.cpp
+    unittestdriver.cpp
     ../libdriver.cpp
     ../libdriver.hpp
     ../libdriverutility.cpp

@@ -7,7 +7,9 @@
 using namespace DeviceSim;
 
 int counter = 0;
+// Files created in run time
 vector<std::string> filenames = {"test_device", "log", "command", "communication-register", "temp"};
+
 void deleteGarbage(vector<string> filenames);
 bool areFilesEqual(const std::string& filePath1, const std::string& filePath2);
 
@@ -61,7 +63,7 @@ TEST(DriverTest, ConstructorTest) {
 }
 
 TEST(DriverTest, OpenReadOnlyTest) {
-    // GPIO (Parent) Class OpenReadOnlyTest
+    // GPIO (Parent) class open (method) test to open device with argument readonly
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -71,7 +73,7 @@ TEST(DriverTest, OpenReadOnlyTest) {
     ASSERT_TRUE(gpio.getFd().is_open());
     deleteGarbage(filenames);
 
-    // SPI (Main) Class OpenReadOnlyTest
+    // SPI (Child) class open (method) test to open device with argument readonly
     SPI_Device spi(dev_name);
 
     // Open the device for reading
@@ -83,7 +85,7 @@ TEST(DriverTest, OpenReadOnlyTest) {
 }
 
 TEST(DriverTest, OpenWriteOnlyTest) {
-    // GPIO (Parent) Class OpenWriteOnlyTest
+    // GPIO (Parent) class open (method) test to open device with argument writeonly
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -93,7 +95,7 @@ TEST(DriverTest, OpenWriteOnlyTest) {
     ASSERT_TRUE(gpio.getFd().is_open());
     deleteGarbage(filenames);
 
-    // SPI (Child) Class OpenWriteOnlyTest
+    // SPI (Child) class open (method) test to open device with argument writeonly
     SPI_Device spi(dev_name);
 
     // Open the device for writing
@@ -104,7 +106,7 @@ TEST(DriverTest, OpenWriteOnlyTest) {
 }
 
 TEST(DriverTest, OpenDefaultTest) {
-    // GPIO (Parent) Class OpenWriteOnlyTest
+    // GPIO (Parent) class open (method) test to open device with argument default
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -114,8 +116,7 @@ TEST(DriverTest, OpenDefaultTest) {
     ASSERT_TRUE(gpio.getFd().is_open());
     deleteGarbage(filenames);    
 
-    // SPI (Child) Class OpenWriteOnlyTest
-
+    // SPI (Child) class open (method) test to open device with argument default
     SPI_Device spi(dev_name);
 
     // Open the device for reading and writing
@@ -127,7 +128,7 @@ TEST(DriverTest, OpenDefaultTest) {
 }
 
 TEST(DriverTest, CloseTest) {
-    // GPIO (Parent) Class Close Test
+    // GPIO (Parent) Class Close (Method) Test
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -138,7 +139,7 @@ TEST(DriverTest, CloseTest) {
     ASSERT_FALSE(gpio.getFd().is_open());
     deleteGarbage(filenames);
 
-    // SPI (Child) Class Close Test
+    // SPI (Child) Class Close (Method) Test
     SPI_Device spi(dev_name);
 
     // Open the device for reading
@@ -151,7 +152,7 @@ TEST(DriverTest, CloseTest) {
 }
 
 TEST(DriverTest, ReadTest) {
-    // GPIO (Parent) Class Read Test
+    // GPIO (Parent) Class Read (Method) Test
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -159,7 +160,7 @@ TEST(DriverTest, ReadTest) {
     gpio.devContent.read(10, "name", &gpio);
     deleteGarbage(filenames);
 
-    // SPI (Child) Class Read Test
+    // SPI (Child) Class Read (Method) Test
     SPI_Device spi(dev_name);
 
     //Check if the read function can return successfully
@@ -169,8 +170,8 @@ TEST(DriverTest, ReadTest) {
 }
 
 TEST(DriverTest, ParseGPIOTest) {
-    // Friend method ParseGPIO Test
-    // This function is copy of ParseSPI, ParseCAN in terms of behavior
+    // Friend function ParseGPIO Test
+    // This function is a copy of ParseSPI, ParseCAN etc. in terms of behavior
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -204,7 +205,7 @@ TEST(DriverTest, ParseGPIOTest) {
 }
 
 TEST(DriverTest, ConfigTest) {
-    // GPIO (Parent) Class Config Test
+    // GPIO (Parent) Class Config (Method) Test
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -229,7 +230,7 @@ TEST(DriverTest, ConfigTest) {
     
     deleteGarbage(filenames);
 
-    // SPI (Child) Class Config Test
+    // SPI (Child) Class Config (Method) Test
     SPI_Device spi(dev_name);
 
     spi.devContent.config(DEFAULT, &spi);
@@ -258,6 +259,7 @@ TEST(DriverTest, ConfigTest) {
 }
 
 TEST(DriverTest, WriteTest) {
+    // GPIO (Parent) Class Write (Method) Test
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -278,27 +280,59 @@ TEST(DriverTest, WriteTest) {
     // Assert that the values are correctly written to the file  
     EXPECT_EQ("[ACTIVE_LOW]", test_data);
 
-    
+    deleteGarbage(filenames);
+
+    // SPI (Child) Class Write (Method) Test
+    SPI_Device spi(dev_name);
+
+    spi.devContent.config(DEFAULT, &spi);
+
+    spi.devContent.write(1, "name", "test_name", &spi);
+    test_data = spi.devContent.read(1, "name", &spi);
+    // Assert that the values are correctly written to the file  
+    EXPECT_EQ("test_name", test_data);
+
+    spi.devContent.write(0, "consumer", "test_consumer", &spi);
+    test_data = spi.devContent.read(0, "consumer", &spi);
+    // Assert that the values are correctly written to the file  
+    EXPECT_EQ("test_consumer", test_data);
+
+    spi.devContent.write(1, "lsb_first", "true", &spi);
+    test_data = spi.devContent.read(1, "lsb_first", &spi);
+    // Assert that the values are correctly written to the file  
+    EXPECT_EQ("true", test_data);
+
     deleteGarbage(filenames);
     
 }
 
 TEST(DriverTest, ShowTest) {
+    // GPIO (Parent) Class Show (Method) Test
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
     gpio.devContent.config(DEFAULT, &gpio);
 
     gpio.devContent.show(&gpio);
-    //It's gonna generate temp file
+    //The temp file is generated 
 
-    ASSERT_TRUE(areFilesEqual("temp", "defaultConfigShow"));
+    ASSERT_TRUE(areFilesEqual("temp", "defaultConfigShowGPIO"));
+    deleteGarbage(filenames);
+
+    SPI_Device spi(dev_name);
+
+    spi.devContent.config(DEFAULT, &spi);
+
+    spi.devContent.show(&spi);
+    //The temp file is generated 
+
+    ASSERT_TRUE(areFilesEqual("temp", "defaultConfigShowSPI"));
     
     deleteGarbage(filenames);
 }
 
 TEST(DriverTest, ParseTest) {
-    //GPIO Parse Method Test
+    //GPIO Parse (Method) Test
     char* dev_name = generateDevName("test_device");
     GPIO_Device gpio(dev_name);
 
@@ -328,7 +362,8 @@ TEST(DriverTest, ParseTest) {
     EXPECT_EQ("[]", gpio.devContent.read(20, "FLAG_KERNEL", &gpio));
     
     deleteGarbage(filenames);
-    // SPI Parse Method Test
+
+    // SPI Parse (Method) Test
     SPI_Device spi(dev_name);
 
     // Open device
@@ -360,7 +395,6 @@ TEST(DriverTest, ParseTest) {
     EXPECT_EQ("false", spi.devContent.read(1, "loopback", &spi));
 
     deleteGarbage(filenames);
-    
 }
 
 int main(int argc, char **argv) {
@@ -370,7 +404,7 @@ int main(int argc, char **argv) {
 
 void deleteGarbage(vector<string> filenames){
     // iterate over the filenames and delete each file
-    cout << ++counter << " behaviors tested." << endl;
+    cout << ++counter << " behaviors from driver tested." << endl;
     for (const auto& filename : filenames) {
       remove(filename.c_str());
     }
