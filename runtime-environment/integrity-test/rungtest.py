@@ -1,4 +1,4 @@
 import os
 
 # Run the executable
-os.system('../integritytest.out')
+os.system('./integritytest.out')

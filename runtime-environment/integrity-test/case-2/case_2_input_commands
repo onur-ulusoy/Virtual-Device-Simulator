@@ -1,0 +1,6 @@
+config-spidevice
+read-spidevice-0-name
+show-spidevice
+read-spidevice-1-cpol
+write-spidevice-1-3wire-true
+read-spidevice-2-name

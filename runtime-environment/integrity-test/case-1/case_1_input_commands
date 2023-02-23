@@ -1,0 +1,6 @@
+config-gpiodevice
+show-gpiodevice
+read-gpiodevice-2-FLAG_IS_OUT
+write-gpiodevice-3-name-GPIO_3
+show-gpiodevice
+read-gpiodevice-3-name

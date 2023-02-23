@@ -1,0 +1,8 @@
+config-i2cdevice
+show-i2cdevice
+write-i2cdevice-1-clock_speed-17000
+read-i2cdevice-1-clock_speed
+show-i2cdevice
+config-i2cdevice
+show-i2cdevice
+read-i2cdevice-0-name
