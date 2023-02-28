@@ -15,7 +15,7 @@ log
 ## Doxygen config files
 Doxyfile
 
-##Local fake devices
+## Local fake devices
 runtime-environment/dev/can/
 runtime-environment/dev/ethernet/
 runtime-environment/dev/gpio/
@@ -27,5 +27,8 @@ runtime-environment/dev/usart/
 ## vscode config files
 .vscode/
 
-## googletest lib
+## googletest lib folder
 googletest/
+
+## python cache folders
+__pycache__/
