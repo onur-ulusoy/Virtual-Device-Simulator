@@ -15,5 +15,5 @@ namespace IntegrationTest{
 
     bool areFilesEqual(const string& filePath1, const string& filePath2, ComparisonMode mode);
     void deleteGarbage(vector<string> filenames);
-  
+    void RunIntegrationTest(int CaseNum);  
 }

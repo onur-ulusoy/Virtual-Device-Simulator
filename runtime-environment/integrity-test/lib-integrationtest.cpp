@@ -2,30 +2,44 @@
 
 namespace IntegrationTest{
 
-    vector<std::string> filenames = {"../case_1_input_commands"};
-
     TEST(IntegrationTest, Case1){
-        
-        string arg_filename = "case-1/case_1_input_arguments";
+        RunIntegrationTest(1);
+    }
+
+    TEST(IntegrationTest, Case2){
+        RunIntegrationTest(2);
+    }
+
+    TEST(IntegrationTest, Case3){
+        RunIntegrationTest(3);
+    }
+    
+    TEST(IntegrationTest, Case4){
+        RunIntegrationTest(4);
+    }
+
+    void RunIntegrationTest(int CaseNum) {
+
+        string arg_filename = "case-" + to_string(CaseNum) + "/case_" + to_string(CaseNum) + "_input_arguments";
+
         ifstream argfile(arg_filename.c_str());
         if (!argfile.good()) {
             throw runtime_error("Error: could not open file ");
-
         }
         string argv;
         getline(argfile, argv);
         argfile.close();
         cout << argv << endl;
-        
+
         auto *buffers = new string[4];
 
         Split(argv, " ", buffers);
         string device_type = buffers[1];
 
         cout << device_type << endl;
-        
-        string commands_dir = "case-1/case_1_input_commands";
-        string commands_targetDir = "../case_1_input_commands";
+
+        string commands_dir = "case-" + to_string(CaseNum) + "/case_" + to_string(CaseNum) + "_input_commands";
+        string commands_targetDir = "../case_" + to_string(CaseNum) + "_input_commands";
         ifstream comfile(commands_dir.c_str());
         if (!comfile.good()) {
             throw runtime_error("Error: could not open file ");
@@ -63,9 +77,9 @@ namespace IntegrationTest{
         if (!o_file3.good())
             throw runtime_error("Output dev could not be found.");
 
-        string expected_file1 = "case-1/case-1-output/log";
-        string expected_file2 = "case-1/case-1-output/communication-register";
-        string expected_file3 = "case-1/case-1-output/" + device_type + "device";
+        string expected_file1 = "case-" + to_string(CaseNum) + "/case-" + to_string(CaseNum) + "-output/log";
+        string expected_file2 = "case-" + to_string(CaseNum) + "/case-" + to_string(CaseNum) + "-output/communication-register";
+        string expected_file3 = "case-" + to_string(CaseNum) + "/case-" + to_string(CaseNum) + "-output/" + device_type + "device";
 
         ifstream e_file1(expected_file1);
         ifstream e_file2(expected_file2);
@@ -84,8 +98,9 @@ namespace IntegrationTest{
         EXPECT_TRUE(areFilesEqual(output_file2, expected_file2, REGISTER_LOG));
         EXPECT_TRUE(areFilesEqual(output_file3, expected_file3, DEFAULT_MODE));
 
-        deleteGarbage(filenames);
+        vector<std::string> filenames = {commands_targetDir};
 
+        deleteGarbage(filenames);
     }
 
     bool areFilesEqual(const string& filePath1, const string& filePath2, ComparisonMode mode) {
