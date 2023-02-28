@@ -9,7 +9,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/../")
 
 # Add the source files for the driver and tester
 set(integrity_src_files
-    integrity_test.cpp
+    integration_test_main.cpp
+    lib-integrationtest.cpp
+    lib-integrationtest.hpp
 )
 
 # Define the driver executable target
