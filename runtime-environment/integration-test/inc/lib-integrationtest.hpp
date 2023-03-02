@@ -1,3 +1,6 @@
+#ifndef INTEGRATIONTEST_LIB_INTEGRATION_HPP
+#define INTEGRATIONTEST_LIB_INTEGRATION_HPP
+
 #include <fstream>
 #include <gtest/gtest.h>
 #include "libdriver.hpp"
@@ -17,3 +20,5 @@ namespace IntegrationTestSuite{
     void deleteGarbage(vector<string> filenames);
     void RunIntegrationTest(int CaseNum);  
 }
+
+#endif

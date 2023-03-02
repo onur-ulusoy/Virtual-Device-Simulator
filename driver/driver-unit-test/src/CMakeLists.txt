@@ -13,13 +13,28 @@ include_directories(${LIBDRIVER_INCLUDE_DIR})
 
 # Add the source files for the driver and tester
 set(drivertest_src_files
-    unittestdriver.cpp
+    unit_test_main.cpp
+    lib-unittest.cpp
+    AttributeGettersTest.cpp
+    ConstructorTest.cpp
+    OpenReadOnlyTest.cpp
+    OpenWriteOnlyTest.cpp
+    OpenDefaultTest.cpp
+    CloseTest.cpp
+    ReadTest.cpp
+    ParseGPIOTest.cpp
+    ConfigTest.cpp
+    WriteTest.cpp
+    ShowTest.cpp
+    ParseTest.cpp
+    
     ../../src/libdriver.cpp
     ../../src/libdriverutility.cpp
     ../../src/drivercommapi.cpp
 )
 
 set(drivertest_inc_files
+    ../inc/lib-unittest.hpp
     ../../inc/libdriver.hpp
     ../../inc/libdriverutility.hpp
     ../../inc/drivercommapi.hpp
