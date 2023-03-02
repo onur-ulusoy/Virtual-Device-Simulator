@@ -5,7 +5,7 @@
 
 using namespace DeviceSim;
 //namespace Tests-Vds{
-namespace IntegrationTest{
+namespace IntegrationTestSuite{
 
     enum ComparisonMode {
             LOG,

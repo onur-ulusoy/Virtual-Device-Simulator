@@ -9,9 +9,9 @@ def run_utests():
     chdir("../../")
 
 def run_itests():
-    sys.path.append('runtime-environment/integrity-test')
+    sys.path.append('runtime-environment/integration-test')
     import run_itests
-    chdir("runtime-environment/integrity-test")
+    chdir("runtime-environment/integration-test")
     run_itests.main()
 
 def argument_error():

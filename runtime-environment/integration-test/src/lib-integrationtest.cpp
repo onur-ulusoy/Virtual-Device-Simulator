@@ -1,6 +1,6 @@
 #include "lib-integrationtest.hpp"
 
-namespace IntegrationTest{
+namespace IntegrationTestSuite{
 
     TEST(IntegrationTest, Case1){
         RunIntegrationTest(1);
@@ -13,7 +13,7 @@ namespace IntegrationTest{
     TEST(IntegrationTest, Case3){
         RunIntegrationTest(3);
     }
-    
+
     TEST(IntegrationTest, Case4){
         RunIntegrationTest(4);
     }

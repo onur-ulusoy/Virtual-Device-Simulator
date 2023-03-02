@@ -1,6 +1,6 @@
 #include "lib-integrationtest.hpp"
 
-using namespace IntegrationTest;
+using namespace IntegrationTestSuite;
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);

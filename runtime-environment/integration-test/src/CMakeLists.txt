@@ -1,21 +1,19 @@
-cmake_minimum_required(VERSION 3.0)
-
-project(integritytest)
-
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+include_directories(../inc)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/../")
 
-# Add the source files for the driver and tester
-set(integrity_src_files
+# Add the source and include files
+set(integration_src_files
     integration_test_main.cpp
     lib-integrationtest.cpp
-    lib-integrationtest.hpp
+)
+
+set(integration_inc_files
+    ../inc/lib-integrationtest.hpp
 )
 
 # Define the driver executable target
-add_executable(integritytest ${integrity_src_files})
+add_executable(integrationtest ${integration_src_files} ${integration_inc_files})
 
 # Set the directory containing the gtest header files
 set(GTEST_INCLUDE_DIR "$ENV{HOME}/Desktop/Virtual-Device-Simulator/googletest/googletest/include")
@@ -27,7 +25,7 @@ include_directories(${GTEST_INCLUDE_DIR})
 set(GTEST_LIB_DIR "$ENV{HOME}/Desktop/Virtual-Device-Simulator/googletest/build/lib")
 
 # Add the gtest library to the test executable
-target_link_libraries(integritytest ${GTEST_LIB_DIR}/libgtest.a ${GTEST_LIB_DIR}/libgtest_main.a)
+target_link_libraries(integrationtest ${GTEST_LIB_DIR}/libgtest.a ${GTEST_LIB_DIR}/libgtest_main.a)
 
 # Set the directory containing the driver header files
 set(DRIVER_INCLUDE_DIR "${CMAKE_BINARY_DIR}/../../../driver")
@@ -50,8 +48,8 @@ add_subdirectory(${SUBDIR_BINARY_DIR} lib)
 
 # Add a link with the driver and tester targets
 set(DEV_LIB_DIR "${CMAKE_BINARY_DIR}/lib")
-target_link_libraries(integritytest ${DEV_LIB_DIR}/libdriverlib.a ${DEV_LIB_DIR}/libtesterlib.a)
+target_link_libraries(integrationtest ${DEV_LIB_DIR}/libdriverlib.a ${DEV_LIB_DIR}/libtesterlib.a)
 
-set_target_properties(integritytest PROPERTIES OUTPUT_NAME "integritytest.out")
+set_target_properties(integrationtest PROPERTIES OUTPUT_NAME "integrationtest.out")
 
-add_dependencies(integritytest driverlib testerlib)
+add_dependencies(integrationtest driverlib testerlib)

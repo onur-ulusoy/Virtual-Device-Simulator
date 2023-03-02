@@ -2,7 +2,7 @@ from os import system
 
 def main():
     # Run the executable
-    system('./integritytest.out')
+    system('./integrationtest.out')
 
 if __name__ == "__main__":
     main()
