@@ -1,5 +1,8 @@
 include_directories(../inc)
 
+include_directories(../../inc)
+include_directories(../../src)
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/../")
 
 # Set the path to the directory containing libdriver.hpp
@@ -11,15 +14,15 @@ include_directories(${LIBDRIVER_INCLUDE_DIR})
 # Add the source files for the driver and tester
 set(drivertest_src_files
     unittestdriver.cpp
-    ../../libdriver.cpp
-    ../../libdriver.hpp
-    ../../libdriverutility.cpp
-    ../../libdriverutility.hpp
-    ../../drivercommapi.cpp
-    ../../drivercommapi.hpp
+    ../../src/libdriver.cpp
+    ../../src/libdriverutility.cpp
+    ../../src/drivercommapi.cpp
 )
 
 set(drivertest_inc_files
+    ../../inc/libdriver.hpp
+    ../../inc/libdriverutility.hpp
+    ../../inc/drivercommapi.hpp
 )
 
 # Define the driver executable target

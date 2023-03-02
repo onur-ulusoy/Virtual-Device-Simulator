@@ -51,8 +51,13 @@ def main():
             print("Out files are missing.")
             sys.exit()
 
-    device = sys.argv[1]
-    command = '-'.join(sys.argv[2:])
+    try:
+        device = sys.argv[1]
+        command = '-'.join(sys.argv[2:])
+    except IndexError:
+        print("Arguments have not been passed properly.")
+        print("Example: python3 spi config spidevice")
+        exit()
     #device = input("Select device to simulate: gpio, spi, i2c, ethernet, usart, uart, can\n")
 
     file = open("command", "w", encoding="utf-8")
