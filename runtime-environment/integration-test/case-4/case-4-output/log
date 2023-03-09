@@ -1,0 +1,54 @@
+Date: Thu Feb 23 15:32:57 2023
+Command: config-i2cdevice
+Output: 
+Default chip info is written to the file successfully
+
+
+Date: Thu Feb 23 15:32:58 2023
+Command: show-i2cdevice
+Output: 
+offset: 0   name: I2C_0   consumer: -   clock_speed: 100000   address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+offset: 1   name: I2C_1   consumer: -   clock_speed: 100000   address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+offset: 2   name: I2C_2   consumer: -   clock_speed: 100000   address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+
+
+Date: Thu Feb 23 15:32:58 2023
+Command: write-i2cdevice-1-clock_speed-17000
+Output: 
+Chip info is changed successfully
+
+
+Date: Thu Feb 23 15:32:59 2023
+Command: read-i2cdevice-1-clock_speed
+Output: 
+Data has been stored: 17000
+
+
+Date: Thu Feb 23 15:32:59 2023
+Command: show-i2cdevice
+Output: 
+offset: 0   name: I2C_0   consumer: -   clock_speed: 100000   address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+offset: 1   name: I2C_1   consumer: -   clock_speed: 17000    address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+offset: 2   name: I2C_2   consumer: -   clock_speed: 100000   address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+
+
+Date: Thu Feb 23 15:32:59 2023
+Command: config-i2cdevice
+Output: 
+Default chip info is written to the file successfully
+
+
+Date: Thu Feb 23 15:33:00 2023
+Command: show-i2cdevice
+Output: 
+offset: 0   name: I2C_0   consumer: -   clock_speed: 100000   address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+offset: 1   name: I2C_1   consumer: -   clock_speed: 100000   address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+offset: 2   name: I2C_2   consumer: -   clock_speed: 100000   address_mode: 7   10bit_mode: false   sda_hold_time: 10   
+
+
+Date: Thu Feb 23 15:33:00 2023
+Command: read-i2cdevice-0-name
+Output: 
+Data has been stored: I2C_0
+
+

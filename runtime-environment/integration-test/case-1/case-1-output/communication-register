@@ -1,0 +1,10 @@
+Thu Feb 23 15:02:20 2023	MASTER LINE COMMAND: master write
+Thu Feb 23 15:02:20 2023	     master writing: .commandSet-case_1_input_commands
+Thu Feb 23 15:02:20 2023	MASTER LINE COMMAND: slave write
+Thu Feb 23 15:02:21 2023	      slave writing: true
+Thu Feb 23 15:02:21 2023	      slave writing: true
+Thu Feb 23 15:02:21 2023	      slave writing: [INPUT]
+Thu Feb 23 15:02:22 2023	      slave writing: true
+Thu Feb 23 15:02:22 2023	      slave writing: true
+Thu Feb 23 15:02:23 2023	      slave writing: GPIO_3
+Thu Feb 23 15:02:24 2023	      slave writing: disconnecting

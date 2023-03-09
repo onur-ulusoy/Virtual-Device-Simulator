@@ -1,0 +1,9 @@
+Thu Feb 23 15:24:02 2023	MASTER LINE COMMAND: master write
+Thu Feb 23 15:24:02 2023	     master writing: .commandSet-case_3_input_commands
+Thu Feb 23 15:24:02 2023	MASTER LINE COMMAND: slave write
+Thu Feb 23 15:24:03 2023	      slave writing: true
+Thu Feb 23 15:24:03 2023	      slave writing: true
+Thu Feb 23 15:24:04 2023	      slave writing: test
+Thu Feb 23 15:24:04 2023	      slave writing: true
+Thu Feb 23 15:24:04 2023	      slave writing: true
+Thu Feb 23 15:24:06 2023	      slave writing: disconnecting
