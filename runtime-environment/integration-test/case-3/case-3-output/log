@@ -1,0 +1,33 @@
+Date: Thu Feb 23 15:24:03 2023
+Command: config-candevice
+Output: 
+Default chip info is written to the file successfully
+
+
+Date: Thu Feb 23 15:24:03 2023
+Command: write-candevice-2-consumer-test
+Output: 
+Chip info is changed successfully
+
+
+Date: Thu Feb 23 15:24:04 2023
+Command: read-candevice-2-consumer
+Output: 
+Data has been stored: test
+
+
+Date: Thu Feb 23 15:24:04 2023
+Command: write-candevice-3-bitrate-19500
+Output: 
+Chip info is changed successfully
+
+
+Date: Thu Feb 23 15:24:05 2023
+Command: show-candevice
+Output: 
+offset: 0   name: CAN_0   consumer: -      bitrate: 500000   acceptance_filter: standard   loopback_mode: false   listen_only_mode: false   transceiver_type: SN65HVD230   
+offset: 1   name: CAN_1   consumer: -      bitrate: 500000   acceptance_filter: standard   loopback_mode: false   listen_only_mode: false   transceiver_type: SN65HVD230   
+offset: 2   name: CAN_2   consumer: test   bitrate: 500000   acceptance_filter: standard   loopback_mode: false   listen_only_mode: false   transceiver_type: SN65HVD230   
+offset: 3   name: CAN_3   consumer: -      bitrate: 19500    acceptance_filter: standard   loopback_mode: false   listen_only_mode: false   transceiver_type: SN65HVD230   
+
+
