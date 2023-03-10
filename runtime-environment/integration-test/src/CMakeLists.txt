@@ -22,13 +22,13 @@ set(integration_inc_files
 add_executable(integrationtest ${integration_src_files} ${integration_inc_files})
 
 # Set the directory containing the gtest header files
-set(GTEST_INCLUDE_DIR "$ENV{HOME}/Desktop/Virtual-Device-Simulator/googletest/googletest/include")
+set(GTEST_INCLUDE_DIR "${CMAKE_BINARY_DIR}/../../../googletest/googletest/include")
 
 # Add the directory to the list of include directories
 include_directories(${GTEST_INCLUDE_DIR})
 
 # Set the directory containing the gtest library file
-set(GTEST_LIB_DIR "$ENV{HOME}/Desktop/Virtual-Device-Simulator/googletest/build/lib")
+set(GTEST_LIB_DIR "${CMAKE_BINARY_DIR}/../../../googletest/build/lib")
 
 # Add the gtest library to the test executable
 target_link_libraries(integrationtest ${GTEST_LIB_DIR}/libgtest.a ${GTEST_LIB_DIR}/libgtest_main.a)
