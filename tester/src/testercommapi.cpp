@@ -134,6 +134,10 @@ namespace DriverTester{
 
                 if (emptyString == "&1"){
                     cout << "tester is terminating .." << endl;
+                    ofstream file;
+                    file.open("command4");
+                    file << "exit";
+                    file.close();
                     exit(0);
                 }
 
@@ -141,8 +145,11 @@ namespace DriverTester{
                 //RECURSIVE MODE
                 transmitter.close();
                 ofstream ofile("command0");
-
                 cout << _command  << "***" << endl;
+                if (_command == ""){
+                    cout << "*|*" << endl;
+                    break;
+                }
                 if (emptyString.find("&&") != -1){
                     recursived = true;
                     string _commandd = emptyString.erase(0, 2);
@@ -173,7 +180,7 @@ namespace DriverTester{
         }
 
         ofstream file;
-        file.open("command", ofstream::trunc);
+        file.open("command4");
         file << "exit";
         file.close();
             

@@ -94,7 +94,10 @@ def main():
     file.write(command)
     file.close()
 
-    file = open("command", "r", encoding="utf-8")
+    file = open("command4", "w", encoding="utf-8")
+    file.close()
+    
+    file = open("command4", "r", encoding="utf-8")
 
     while file.readline() != "exit":
         file.seek(0,0)

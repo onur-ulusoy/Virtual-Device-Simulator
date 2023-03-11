@@ -14,16 +14,18 @@ namespace IntegrationTestSuite{
                 old_files = {"../dev/spi/spidevice"};
                 break;
             case 3:
-                old_files = {"../can/can/candevice"};
+                old_files = {"../dev/can/candevice"};
                 break;
             case 4:
-                old_files = {"../i2c/i2c/i2cdevice"};
+                old_files = {"../dev/i2c/i2cdevice"};
                 break;
             default:
                 break;
         }
 
         deleteGarbage(old_files);
+
+        //usleep(1000000*0.5);
 
         string arg_filename = "case-" + to_string(CaseNum) + "/case_" + to_string(CaseNum) + "_input_arguments";
 
@@ -64,7 +66,7 @@ namespace IntegrationTestSuite{
         cout << start_test_shell << endl;
         // Change to the parent directory and execute the command with arguments
         system(start_test_shell);
-
+        
         string output_file1 = "../log";
         string output_file2 = "../communication-register";
         string output_file3 = "../dev/" + device_type + "/" + device_type + "device";
@@ -103,9 +105,12 @@ namespace IntegrationTestSuite{
         EXPECT_TRUE(areFilesEqual(output_file2, expected_file2, REGISTER_LOG));
         EXPECT_TRUE(areFilesEqual(output_file3, expected_file3, DEFAULT_MODE));
 
-        vector<std::string> new_files = {commands_targetDir, "../command", "../communication-register", "../log", "../temp"};
+        vector<std::string> new_files = {commands_targetDir};
 
         deleteGarbage(new_files);
+        deleteGarbage(old_files);
+
+        sleep(0.1);
     }
 
     bool areFilesEqual(const string& filePath1, const string& filePath2, ComparisonMode mode) {

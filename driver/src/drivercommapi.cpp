@@ -204,7 +204,7 @@ namespace DeviceSim {
             else if (substrings[0] == ".commandSet") {
                 int line_count = count_lines(substrings[1]);
                 cout << "Command count:" << line_count << endl;
-                float sleep_time = .04;
+                float sleep_time = 0.0006;
                 fstream f;
                 f.open(substrings[1]);
                 int counter = 0;
