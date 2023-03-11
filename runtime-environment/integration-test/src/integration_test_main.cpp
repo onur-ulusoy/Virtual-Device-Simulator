@@ -20,7 +20,7 @@ TEST(IntegrationTest, Case4){
 } 
 
 
-vector<int> main(int argc, char **argv) {
+int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
 
     
@@ -52,15 +52,32 @@ vector<int> main(int argc, char **argv) {
     }
 
     // print the test results array
-    std::cout << "[";
+    cout << "[ ";
     for (int i = 0; i < test_results.size(); i++) {
-        std::cout << test_results[i];
+        if (test_results[i] == 1) {
+            cout << "\033[32m";
+            cout << "✓ ";
+        } else {
+            cout << "\033[31m";
+            cout << "✗ ";
+        }
         if (i < test_results.size() - 1) {
             std::cout << " ";
         }
     }
-    std::cout << "]" << std::endl;
+    cout << "\033[0m";
+    cout << "]" << std::endl;
+
+    ofstream file("test_results.txt");
+    for (int i = 0; i < test_results.size(); i++) {
+        if (test_results[i] == 1) {
+            file << "✓\n";
+        } else {
+            file << "✗\n";
+        }
+    }
+    file.close();
     
 
-    return test_results;
+    return result;
 }

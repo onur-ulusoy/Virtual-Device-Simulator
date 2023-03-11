@@ -11,6 +11,8 @@ command3
 commandsText
 communication-register
 log
+test_results
+test_results_serial
 
 ## Compiled machine codes
 *.out
