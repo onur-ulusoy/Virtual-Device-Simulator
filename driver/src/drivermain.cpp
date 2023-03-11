@@ -28,6 +28,8 @@ int main() {
     ofstream _com;
     string _command;
 
+    ofstream outf ("command0");
+
     float sleep_time = 0.2;
 
     cout << "device simulator started working."<< endl;

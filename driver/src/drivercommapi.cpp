@@ -12,16 +12,15 @@ using namespace std;
 namespace DeviceSim {
 
     int receive_command(enum command_request req, string devType, fstream& receiver, string& _command, ofstream& _com) {
+
+
         string returnVal = "false";
 
         if (req == ONESHOT){
-            receiver.open("command");
+            receiver.open("command2");
             receiver >> _command;
             receiver.close();
         }
-
-        else if (req == RECURSIVE)
-            ;
 
         if (_command == "-1"){
             slave_writing(_com, "disconnecting");
@@ -203,12 +202,13 @@ namespace DeviceSim {
             }
 
             else if (substrings[0] == ".commandSet") {
-
-                float sleep_time = .4;
+                int line_count = count_lines(substrings[1]);
+                cout << "Command count:" << line_count << endl;
+                float sleep_time = .04;
                 fstream f;
                 f.open(substrings[1]);
-
-                while (true) {
+                int counter = 0;
+                while (counter++ < line_count) {
                     if(f.eof()) break;
                     _command.clear();
                     f >> _command;
@@ -221,11 +221,6 @@ namespace DeviceSim {
                     string master_response;
 
                     while (master_response != "-2"){
-                        if (master_response == "-1"){
-                            slave_writing(_com, "Disconnecting");
-                            cout << "Program is terminating .." << endl;    
-                            exit(0);
-                        }
                             
                         usleep(1000000 * sleep_time);
                         master_response.clear();
@@ -233,11 +228,18 @@ namespace DeviceSim {
                         receiver >> master_response;
                         receiver.close();
                     }
-                    
-
                 }
 
                 f.close();
+                slave_writing(_com, "disconnecting");
+                cout << "Driver is terminating .." << endl;    
+                
+                transmit_response("&1");
+                ofstream outfile ("command");
+                outfile << "-1";
+                outfile.close();
+
+                exit(0);
 
             }
 
@@ -246,7 +248,7 @@ namespace DeviceSim {
             }
 
         }
-    
+        
         throw_command();
         return 0;
     }
@@ -258,7 +260,7 @@ namespace DeviceSim {
     }
 
     void transmit_response(string message){
-        ofstream outfile ("command");
+        ofstream outfile ("command0");
         outfile << message;
         outfile.close();
     }

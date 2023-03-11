@@ -55,5 +55,17 @@ namespace DeviceSim{
         strcpy(dev_name, path.c_str());
         return dev_name;
     }
+
+    int count_lines(const string& filename) {
+        ifstream infile(filename);  // Open the input file
+        string line;
+        int line_count = 0;
+        
+        while (getline(infile, line)) {
+            ++line_count;
+        }
+        
+        return line_count;
+    }
 }
 

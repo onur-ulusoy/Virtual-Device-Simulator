@@ -91,29 +91,31 @@ namespace DriverTester{
 
     }
 
-    void get_and_transmit_command(string _command, ofstream& com, fstream& log){
-
+    void get_and_transmit_command(string& _command, ofstream& com, fstream& log){
         string emptyString = "---";
-        float delay = .4;
+        float delay = .01;
         bool recursived = false;
 
         while (_command != "-1") {
             //cin >> _command;
-            fstream getcommand;
-            getcommand.open("command");
+            ifstream getcommand;
+            getcommand.open("command3");
             getcommand >> _command;
+            getcommand.close();
 
             cout << _command << endl;
-            ofstream outfile ("command");
+            cout << "---" << endl;
+            
+            ofstream outfile ("command2");
             outfile.close();
 
             fstream transmitter;
             
-            transmitter.open("command");
+            transmitter.open("command2");
 
             transmitter << _command;
 
-            outfile.close();
+            transmitter.close();
 
             master_writing(com, _command);
 
@@ -121,32 +123,39 @@ namespace DriverTester{
 
             if (_command == "-1") break;
 
-            usleep(1000000 * delay);
+            //usleep(1000000 * delay);
             emptyString.clear();
 
-            while (emptyString != "&"){
+            while (emptyString != "&"){ 
                 usleep(1000000 * delay);
-                transmitter.open("command");
-
+                transmitter.open("command0");
                 transmitter >> emptyString;
-                if (emptyString == "&1")
+                //cout << emptyString << "*" <<  endl;
+
+                if (emptyString == "&1"){
+                    cout << "tester is terminating .." << endl;
                     exit(0);
+                }
 
                 if (emptyString == "-1") break;
                 //RECURSIVE MODE
+                transmitter.close();
+                ofstream ofile("command0");
+
+                cout << _command  << "***" << endl;
                 if (emptyString.find("&&") != -1){
                     recursived = true;
-                    _command = emptyString.erase(0, 2);
+                    string _commandd = emptyString.erase(0, 2);
                     string last_word = get_last_word("communication-register");
-                    evaluate_slave(_command, last_word, log);
+                    evaluate_slave(_commandd, last_word, log);
 
                     ofstream outfile ("command");      
-
                     outfile << "-2";
                     outfile.close();
+                    //emptyString.clear();
                 }
 
-                transmitter.close();
+                
             }
 
             if (!recursived){
@@ -160,14 +169,16 @@ namespace DriverTester{
             usleep(1000000 * delay);
 
             cout << "Enter command (-1 to terminate): " << endl;
-            
-            outfile.open("command", ofstream::trunc);
-            outfile << "exit";
-            outfile.close();
-            
-            cout << "tester is terminating .." << endl;
-            exit(0);
+    
         }
+
+        ofstream file;
+        file.open("command", ofstream::trunc);
+        file << "exit";
+        file.close();
+            
+        cout << "tester is terminating .." << endl;
+        exit(0);
 
     }
 }

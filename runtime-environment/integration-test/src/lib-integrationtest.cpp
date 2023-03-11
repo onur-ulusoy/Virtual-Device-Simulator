@@ -2,23 +2,28 @@
 
 namespace IntegrationTestSuite{
 
-    TEST(IntegrationTest, Case1){
-        RunIntegrationTest(1);
-    }
-
-    TEST(IntegrationTest, Case2){
-        RunIntegrationTest(2);
-    }
-
-    TEST(IntegrationTest, Case3){
-        RunIntegrationTest(3);
-    }
-
-    TEST(IntegrationTest, Case4){
-        RunIntegrationTest(4);
-    }
-
     void RunIntegrationTest(int CaseNum) {
+
+        vector<std::string> old_files;
+        
+        switch (CaseNum) {
+            case 1:
+                old_files = {"../dev/gpio/gpiodevice"};
+                break;
+            case 2:
+                old_files = {"../dev/spi/spidevice"};
+                break;
+            case 3:
+                old_files = {"../can/can/candevice"};
+                break;
+            case 4:
+                old_files = {"../i2c/i2c/i2cdevice"};
+                break;
+            default:
+                break;
+        }
+
+        deleteGarbage(old_files);
 
         string arg_filename = "case-" + to_string(CaseNum) + "/case_" + to_string(CaseNum) + "_input_arguments";
 
@@ -98,9 +103,9 @@ namespace IntegrationTestSuite{
         EXPECT_TRUE(areFilesEqual(output_file2, expected_file2, REGISTER_LOG));
         EXPECT_TRUE(areFilesEqual(output_file3, expected_file3, DEFAULT_MODE));
 
-        vector<std::string> filenames = {commands_targetDir};
+        vector<std::string> new_files = {commands_targetDir, "../command", "../communication-register", "../log", "../temp"};
 
-        deleteGarbage(filenames);
+        deleteGarbage(new_files);
     }
 
     bool areFilesEqual(const string& filePath1, const string& filePath2, ComparisonMode mode) {

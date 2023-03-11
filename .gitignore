@@ -5,6 +5,9 @@ build/
 
 ## Program files used in runtime
 command
+command0
+command2
+command3
 commandsText
 communication-register
 log

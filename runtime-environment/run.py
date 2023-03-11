@@ -5,9 +5,10 @@ It also allows the user to input a command.
 ## @namespace run 
 # @brief Runs the machine codes belongs to driver and tester concurrently and manages them.
 import sys
-from os import path
+from os import path, remove
 from subprocess import Popen
 from threading import Thread
+from time import sleep
 
 def run(exe_file, sh):
     ##
@@ -73,7 +74,7 @@ def main():
 
     while file.readline() != "start":
         file.seek(0, 0)
-
+    
     file.close()
     file = open("command", "w", encoding="utf-8")
     file.write("&")
@@ -84,14 +85,20 @@ def main():
     tester = Thread(target=run, args=(exe_file, True))
     tester.start()
 
-    file = open("command", "w", encoding="utf-8")
+    print(command + " *****")
+    if path.exists("command"):
+        # Delete the file
+        remove("command")
+    
+    file = open("command3", "w", encoding="utf-8")
     file.write(command)
     file.close()
 
     file = open("command", "r", encoding="utf-8")
 
     while file.readline() != "exit":
-        file.seek(0, 0)
+        file.seek(0,0)
+
     file.close()
 
     #sleep(20)

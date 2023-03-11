@@ -49,7 +49,7 @@ namespace DriverTester{
     * @param com Reference to the ofstream object for communcation-register file
     * @param log Reference to the fstream object used to open the log file
     */
-    void get_and_transmit_command(string _command, ofstream& com, fstream& log);
+    void get_and_transmit_command(string& _command, ofstream& com, fstream& log);
 }
 
 #endif //TESTERCOMMAPI_HPP

@@ -48,6 +48,7 @@ namespace DeviceSim{
     */
     string now();
     char* generateDevName (string path);
+    int count_lines(const string& filename);
 }
 
 

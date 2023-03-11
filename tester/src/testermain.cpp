@@ -42,6 +42,8 @@ int main() {
     cout << endl;
 
     cout << "Enter command (-1 to terminate): " << endl;
+    
+    //usleep(1000000 * 1);
 
     get_and_transmit_command(_command, com, log);
 
