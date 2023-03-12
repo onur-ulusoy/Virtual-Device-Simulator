@@ -3,17 +3,19 @@
 The main objective of this project is to develop a software platform that enables the creation, manipulation, and use of virtual devices in the user space of an operating system. The goal is to make it easier for developers to create and test embedded software without having to use physical hardware. This will save time and resources and allow for more efficient and streamlined software development processes. The platform will be designed to be flexible and user-friendly, making it accessible to a wide range of developers with varying skill levels.
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Documentation](#documentation)
-- [Built With](#built-with)
-- [Contributing](#contributing)
-- [Versioning](#versioning)
-- [Authors](#authors)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Virtual Device Simulator](#virtual-device-simulator)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Usage](#usage)
+  - [Documentation](#documentation)
+  - [Built With](#built-with)
+  - [Contributing](#contributing)
+  - [Versioning](#versioning)
+  - [Authors](#authors)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
 
 ## Getting Started
 
@@ -46,6 +48,25 @@ $ cmake ..
 $ make
 $ make install
 ```
+
+## Understanding Devices
+
+...
+
+### Linux devices operating scenerio
+...
+
+![Real device schematic](schematics/real_device_schematic.png)
+
+### Fake device operating scenerio
+...
+
+![Fake device schematic](schematics/fake_device_schematic.png)
+
+
+
+
+
 ## Usage
 
 1. Navigate to the project directory:
