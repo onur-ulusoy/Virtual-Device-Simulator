@@ -7,3 +7,4 @@ TEST(MockTest, LibDriverUtilityMockTest){
     EXPECT_CALL(lu, _generateDevName("test_device")).Times(1).WillOnce(Return(expectedDevName));
     EXPECT_EQ(lu.mockGenerateDevName("test_device"), expectedDevName);
 }
+
