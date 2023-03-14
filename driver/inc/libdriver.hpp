@@ -95,7 +95,6 @@ namespace DeviceSim {
         char* getDevName() const { return dev_name; }
         fstream& getLog() { return log; }
         fstream& getFd() { return fd; }
-        
 
         /**
         @brief Opens the device with the specified request (READONLY, WRITEONLY, DEFAULT)
@@ -445,5 +444,6 @@ namespace DeviceSim {
             parse_CAN(dir, gpioDevHandler);
         }
     };
+    
 }
 #endif //LIB_DRIVER_HPP

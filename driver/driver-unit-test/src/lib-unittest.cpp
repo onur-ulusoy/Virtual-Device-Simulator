@@ -1,19 +1,11 @@
 #include "lib-unittest.hpp"
 
 namespace UnitTestSuite{
+
     vector<std::string> getFileNames(){
         return {"test_device", "log", "command", "communication-register", "temp"};
     }
 
-/*     int* initCounter(){
-        int counter = 0;
-        int* counterptr = &counter;
-        return counterptr;
-    }
-
-    void increaseCounter(int* counterptr){
-        cout << counterptr[0] << " behaviors from driver tested." << endl;
-    } */
     void deleteGarbage(vector<string> filenames){
         // iterate over the filenames and delete each file
         for (const auto& filename : filenames) {
