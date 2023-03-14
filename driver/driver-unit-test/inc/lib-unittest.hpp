@@ -27,33 +27,46 @@ namespace UnitTestSuite{
         MOCK_METHOD(char*, _generateDevName, (string path), (override));
     }; 
 
-    class GPIODevice{
+    class GPIO_Device{
     public:
-        virtual ~GPIODevice() {}
+        virtual ~GPIO_Device() {}
 
-        void mockGpioContructor(char* dev_name) {gpioConstructor(dev_name);}
+        void mockGpioContructor(char* dev_name) { gpioConstructor(dev_name); }
         fstream& mockGetFd() { return getFd(); }
         fstream& mockGetLog() { return getLog(); }
-        char* mockGetDevName(string path) { return getDevName();};
+        char* mockGetDevName(string path) { return getDevName(); }
+        string mockGetDefaultDir() { return getDefaultDir(); }
+        string* mockGetPack() { return getPack(); }
+        int mockGetPackSize() { return getPackSize(); }
+        void mockDeviceOpen(command request, GPIO_Device *gpioDevHandler) { device_open(request, gpioDevHandler); }
+        void mockDeviceClose() { device_close(); };
 
-
-        //char* mockDeviceOpen(string path) {return deviceOpen(path);};
 
     private:
         virtual void gpioConstructor(char* dev_name){};
-        virtual fstream& getFd() { fstream fd; return fd; }
-        virtual fstream& getLog() { fstream log; return log; }
+        virtual fstream& getFd() { fstream* fd = new fstream(); return *fd; }
+        virtual fstream& getLog() { fstream* log = new fstream(); return *log; }
         virtual char* getDevName() { return(nullptr); }
+        virtual string getDefaultDir() { return nullptr; }
+        virtual string* getPack() { return nullptr; }
+        virtual int getPackSize() { return 0; }
+        virtual void device_open(command request, GPIO_Device *gpioDevHandler){};
+        virtual void device_close() {};
 
-        //virtual void deviceOpen(string path) {return(nullptr);}
     };
 
-    class GPIODeviceMock : public GPIODevice{
+    class GPIODeviceMock : public GPIO_Device{
     public:
         MOCK_METHOD(void, gpioConstructor, (char* dev_name), (override));
         MOCK_METHOD(fstream&, getFd, (), (override));
         MOCK_METHOD(fstream&, getLog, (), (override));
         MOCK_METHOD(char*, getDevName, (), (override));
+        MOCK_METHOD(string, getDefaultDir, (), (override));
+        MOCK_METHOD(string*, getPack, (), (override));
+        MOCK_METHOD(int, getPackSize, (), (override));
+        MOCK_METHOD(void, device_open, (command request, GPIO_Device *gpioDevHandler), (override));
+        MOCK_METHOD(void, device_close, (), (override));
+
     };  
 
     // Returns the files created in run time
