@@ -39,7 +39,8 @@ namespace UnitTestSuite{
         string* mockGetPack() { return getPack(); }
         int mockGetPackSize() { return getPackSize(); }
         void mockDeviceOpen(command request, GPIO_Device *gpioDevHandler) { device_open(request, gpioDevHandler); }
-        void mockDeviceClose() { device_close(); };
+        void mockDeviceClose() { device_close(); }
+        void mockParse(string dir, GPIO_Device *gpioDevHandler) { parse(dir, gpioDevHandler); }
 
 
     private:
@@ -50,8 +51,9 @@ namespace UnitTestSuite{
         virtual string getDefaultDir() { return nullptr; }
         virtual string* getPack() { return nullptr; }
         virtual int getPackSize() { return 0; }
-        virtual void device_open(command request, GPIO_Device *gpioDevHandler){};
-        virtual void device_close() {};
+        virtual void device_open(command request, GPIO_Device *gpioDevHandler){}
+        virtual void device_close() {}
+        virtual void parse(string dir, GPIO_Device *gpioDevHandler) {}
 
     };
 
@@ -66,8 +68,37 @@ namespace UnitTestSuite{
         MOCK_METHOD(int, getPackSize, (), (override));
         MOCK_METHOD(void, device_open, (command request, GPIO_Device *gpioDevHandler), (override));
         MOCK_METHOD(void, device_close, (), (override));
+        MOCK_METHOD(void, parse, (string dir, GPIO_Device *gpioDevHandler), (override));
 
     };  
+
+    class GPIO_DevContent{
+    public:
+        virtual ~GPIO_DevContent() {}
+
+        void mockConfig(command request, GPIO_Device *gpioDevHandler) { config(request, gpioDevHandler); }
+        string mockRead(int offset, string property, GPIO_Device *gpioDevHandler) { return read(offset, property, gpioDevHandler); }
+        string mockWrite(int offset, string property, string new_value, GPIO_Device *gpioDevHandler) { return write(offset, property, new_value, gpioDevHandler); }
+        string mockShow(GPIO_Device *gpioDevHandler) {return show(gpioDevHandler); }
+        
+
+    private:
+        virtual void config(command request, GPIO_Device *gpioDevHandler) {}
+        virtual string read(int offset, string property, GPIO_Device *gpioDevHandler) { return nullptr; }
+        virtual string write(int offset, string property, string new_value, GPIO_Device *gpioDevHandler) { return nullptr; }
+        virtual string show(GPIO_Device *gpioDevHandler) { return nullptr; }
+    };
+
+    class GPIODevContentMock : public GPIO_DevContent{
+    public:
+        MOCK_METHOD(void, config, (command request, GPIO_Device *gpioDevHandler), (override));
+        MOCK_METHOD(string, read, (int offset, string property, GPIO_Device *gpioDevHandler), (override));
+        MOCK_METHOD(string, write, (int offset, string property, string new_value, GPIO_Device *gpioDevHandler), (override));
+        MOCK_METHOD(string, show, (GPIO_Device *gpioDevHandler), (override));
+
+    };  
+
+
 
     // Returns the files created in run time
     vector<std::string> getFileNames();
