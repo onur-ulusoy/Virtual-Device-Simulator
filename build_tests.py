@@ -1,5 +1,5 @@
 import sys
-from os import chdir, getcwd
+from os import chdir
 
 def build_utests():
     sys.path.append('driver/driver-unit-test')
@@ -16,7 +16,6 @@ def build_itests():
     chdir("../../")
 
 def build_drv_itests():
-    print(getcwd())
     sys.path.append('driver/driver-int-tests')
     import build_drv_itests
     chdir("driver/driver-int-tests")
@@ -43,7 +42,7 @@ def main():
     elif sys.argv[1] == "drvintegrationtests":
         build_drv_itests()
     elif sys.argv[1] == "sysintegrationtests":
-        build_itests
+        build_itests()
     elif sys.argv[1] == "allintegrationtests":
         build_itests()
         build_drv_itests()
