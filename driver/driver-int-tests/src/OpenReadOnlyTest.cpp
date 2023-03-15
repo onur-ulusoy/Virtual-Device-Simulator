@@ -1,5 +1,5 @@
-#include "lib-unittest.hpp"
-using namespace UnitTestSuite;
+#include "lib-drv-itest.hpp"
+using namespace DriverIntTestSuite;
 
 TEST(DriverTest, OpenReadOnlyTest) {
 

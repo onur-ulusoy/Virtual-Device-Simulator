@@ -1,6 +1,6 @@
-#include "lib-unittest.hpp"
+#include "lib-drv-itest.hpp"
 
-namespace UnitTestSuite{
+namespace DriverIntTestSuite{
 
     vector<std::string> getFileNames(){
         return {"test_device", "log", "command", "communication-register", "temp"};
