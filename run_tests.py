@@ -20,7 +20,7 @@ def run_drv_itests():
     import run_drv_itests
     chdir("driver/driver-int-tests")
     run_drv_itests.main()
-    chdir("../../..")
+    chdir("../../")
 
 def argument_error():
     print("***************************")
