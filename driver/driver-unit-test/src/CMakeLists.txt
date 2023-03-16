@@ -18,9 +18,9 @@ set(drivertest_src_files
     MockTests.cpp
     AttributeGettersTest.cpp
     #ConstructorTest.cpp
-    #OpenReadOnlyTest.cpp
-    #OpenWriteOnlyTest.cpp
-    #OpenDefaultTest.cpp
+    OpenReadOnlyTest.cpp
+    OpenWriteOnlyTest.cpp
+    OpenDefaultTest.cpp
     CloseTest.cpp
     #ReadTest.cpp
     #ParseGPIOTest.cpp
