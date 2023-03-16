@@ -17,7 +17,7 @@ set(drivertest_src_files
     lib-unittest.cpp
     MockTests.cpp
     AttributeGettersTest.cpp
-    #ConstructorTest.cpp
+    ConstructorTest.cpp
     OpenReadOnlyTest.cpp
     OpenWriteOnlyTest.cpp
     OpenDefaultTest.cpp
