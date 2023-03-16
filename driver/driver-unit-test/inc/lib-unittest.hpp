@@ -3,6 +3,7 @@
 
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
+
 #include "libdriver.hpp"
 #include <iostream>
 #include <vector>
@@ -30,6 +31,7 @@ namespace UnitTestSuite{
     class GPIO_Device{
     public:
         virtual ~GPIO_Device() {}
+        fstream fd;
 
         void mockGpioContructor(char* dev_name) { gpioConstructor(dev_name); }
         fstream& mockGetFd() { return getFd(); }
@@ -97,7 +99,6 @@ namespace UnitTestSuite{
         MOCK_METHOD(string, show, (GPIO_Device *gpioDevHandler), (override));
 
     };  
-
 
 
     // Returns the files created in run time
