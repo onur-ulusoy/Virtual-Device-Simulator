@@ -95,6 +95,10 @@ namespace DeviceSim {
         char* getDevName() const { return dev_name; }
         fstream& getLog() { return log; }
         fstream& getFd() { return fd; }
+        void setFd(fstream* fPtr) {
+            fd = std::move(*fPtr);
+        }
+        //for unit testing
 
         /**
         @brief Opens the device with the specified request (READONLY, WRITEONLY, DEFAULT)

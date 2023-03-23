@@ -5,9 +5,13 @@ TEST(DriverTest, AttributeGettersTest){
     
     vector<std::string> filenames = getFileNames();
 
+    LibUtilityMock lu;
+    char expectedDevName[] = "test_device";
+    EXPECT_CALL(lu, _generateDevName("test_device")).Times(1).WillOnce(Return(expectedDevName));
+
     // GPIO (Parent) Class Attribute Getters Test
-    char* dev_name = generateDevName("test_device");
-    GPIO_Device gpio(dev_name);
+    char* dev_name = lu.mockGenerateDevName("test_device");
+    DeviceSim::GPIO_Device gpio(dev_name);
 
     EXPECT_EQ("dev/default_GPIO_chipInfo.json", gpio.getDefaultDir());
     EXPECT_EQ("offset", gpio.getPack()[0]);

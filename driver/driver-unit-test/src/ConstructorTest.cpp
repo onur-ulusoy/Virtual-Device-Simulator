@@ -4,10 +4,14 @@ using namespace UnitTestSuite;
 TEST(DriverTest, ConstructorTest) {
     vector<std::string> filenames = getFileNames();
 
+    LibUtilityMock lu;
+    char expectedDevName[] = "test_device";
+    EXPECT_CALL(lu, _generateDevName("test_device")).Times(1).WillOnce(Return(expectedDevName));
+
     // GPIO (Parent) Class Constructor Test
     // Test constructor by creating a new instance of the class
-    char* dev_name = generateDevName("test_device");
-    GPIO_Device gpio(dev_name);
+    char* dev_name = lu.mockGenerateDevName("test_device");
+    DeviceSim::GPIO_Device gpio(dev_name);
 
     // Check that the instance was created successfully
     ASSERT_STREQ(gpio.getDevName(), dev_name);

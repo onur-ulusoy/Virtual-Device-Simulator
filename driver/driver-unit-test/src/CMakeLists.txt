@@ -16,12 +16,12 @@ set(drivertest_src_files
     unit_test_main.cpp
     lib-unittest.cpp
     MockTests.cpp
-    #AttributeGettersTest.cpp
-    #ConstructorTest.cpp
-    #OpenReadOnlyTest.cpp
-    #OpenWriteOnlyTest.cpp
-    #OpenDefaultTest.cpp
-    #CloseTest.cpp
+    AttributeGettersTest.cpp
+    ConstructorTest.cpp
+    OpenReadOnlyTest.cpp
+    OpenWriteOnlyTest.cpp
+    OpenDefaultTest.cpp
+    CloseTest.cpp
     #ReadTest.cpp
     #ParseGPIOTest.cpp
     #ConfigTest.cpp
