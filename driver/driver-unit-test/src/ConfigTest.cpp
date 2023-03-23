@@ -6,7 +6,7 @@ TEST(DriverTest, ConfigTest) {
     
     // GPIO (Parent) Class Config (Method) Test
     char* dev_name = generateDevName("test_device");
-    GPIO_Device gpio(dev_name);
+    DeviceSim::GPIO_Device gpio(dev_name);
 
     gpio.devContent.config(DEFAULT, &gpio);
 
