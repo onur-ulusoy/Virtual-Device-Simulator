@@ -1,6 +1,6 @@
 offset: 0
-name: "-"
-consumer: "-"
+name: "GPIO_0"
+consumer: "master"
 FLAG_IS_OUT: "[INPUT]"
 FLAG_ACTIVE_LOW: "[ACTIVE_HIGH]"
 FLAG_OPEN_DRAIN: "[...]"

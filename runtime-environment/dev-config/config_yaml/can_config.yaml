@@ -1,0 +1,9 @@
+offset: 0
+name: CAN_0
+consumer: "master"
+bitrate: 500000
+acceptance_filter: "standard"
+loopback_mode: "false"
+listen_only_mode: "false"
+transceiver_type: "SN65HVD230"
+buffer: "00000000"

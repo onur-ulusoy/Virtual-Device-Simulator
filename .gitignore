@@ -13,6 +13,7 @@ communication-register
 log
 test_results.txt
 test_results_serial.txt
+device
 
 ## Compiled machine codes
 *.out

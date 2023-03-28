@@ -64,6 +64,7 @@ int main() {
     cout << gpioDevHandler->getDevName() << endl;
     cout << gpioDevHandler->getDefaultDir() << endl;
     cout << gpioDevHandler->getPackSize() << endl;
+    cout << gpioDevHandler->getPack()[5] << endl;
     gpioDevHandler->parse();
     return 0;
 }

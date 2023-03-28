@@ -2,25 +2,42 @@
   "Devices": [
     {
       "offset": 0,
-      "name": "ETH_0",
+      "name": "ETHERNET_0",
+      "consumer": "master",
       "mac_address": "00:11:22:33:44:55",
       "ip_address": "192.168.1.100",
       "netmask": "255.255.255.0",
       "gateway": "192.168.1.1",
       "vlan_enable": "false",
       "vlan_id": 0,
-      "link_speed": 1000
+      "link_speed": 1000,
+      "buffer": "00000000"
     },
     {
       "offset": 1,
-      "name": "ETH_1",
+      "name": "ETHERNET_1",
+      "consumer": "master",
       "mac_address": "00:11:22:33:44:55",
       "ip_address": "192.168.1.100",
       "netmask": "255.255.255.0",
       "gateway": "192.168.1.1",
       "vlan_enable": "false",
       "vlan_id": 0,
-      "link_speed": 1000
-    } 
+      "link_speed": 1000,
+      "buffer": "00000000"
+    }
+  ],
+  "keys": [
+    "offset",
+    "name",
+    "consumer",
+    "mac_address",
+    "ip_address",
+    "netmask",
+    "gateway",
+    "vlan_enable",
+    "vlan_id",
+    "link_speed",
+    "buffer"
   ]
 }

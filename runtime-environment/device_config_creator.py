@@ -28,7 +28,7 @@ class DeviceConfigCreator:
         with open(config_file, 'r') as file:
             self.config = yaml.safe_load(file)
 
-    def create_devices(self, device_amount):
+    def create_devices(self, device_amount, device_type):
         """
         @brief Creates device configurations for multiple instances of the device
         @param device_amount Number of device instances to create
@@ -40,6 +40,7 @@ class DeviceConfigCreator:
             for key in self.config:
                 device[key] = self.config[key]
             device["offset"] = i
+            device["name"] = device_type.upper() + "_" + str(i)
             devices.append(device)
         return devices
 
@@ -63,13 +64,13 @@ if __name__ == "__main__":
     device_amount = int(sys.argv[2])
 
     # Check if the device configuration file exists
-    config_file = f"dev-config/yaml_configs/{device_type}_config.yaml"
+    config_file = f"dev-config/config_yaml/{device_type}_config.yaml"
     if not os.path.exists(config_file):
         print(f"Error: Configuration file {config_file} does not exist.")
         sys.exit(1)
 
-    output_file = f"dev-config/json_configs/{device_type}_config.json"
+    output_file = f"dev-config/config_json/{device_type}_config.json"
 
     creator = DeviceConfigCreator(config_file)
-    devices = creator.create_devices(device_amount)
+    devices = creator.create_devices(device_amount, device_type)
     creator.write_json_file(devices, output_file)

@@ -3,43 +3,57 @@
     {
       "offset": 0,
       "name": "CAN_0",
-      "consumer": "-",
+      "consumer": "master",
       "bitrate": 500000,
       "acceptance_filter": "standard",
       "loopback_mode": "false",
       "listen_only_mode": "false",
-      "transceiver_type": "SN65HVD230"
+      "transceiver_type": "SN65HVD230",
+      "buffer": "00000000"
     },
     {
       "offset": 1,
       "name": "CAN_1",
-      "consumer": "-",
+      "consumer": "master",
       "bitrate": 500000,
       "acceptance_filter": "standard",
       "loopback_mode": "false",
       "listen_only_mode": "false",
-      "transceiver_type": "SN65HVD230"
+      "transceiver_type": "SN65HVD230",
+      "buffer": "00000000"
     },
     {
       "offset": 2,
       "name": "CAN_2",
-      "consumer": "-",
+      "consumer": "master",
       "bitrate": 500000,
       "acceptance_filter": "standard",
       "loopback_mode": "false",
       "listen_only_mode": "false",
-      "transceiver_type": "SN65HVD230"
+      "transceiver_type": "SN65HVD230",
+      "buffer": "00000000"
     },
     {
       "offset": 3,
       "name": "CAN_3",
-      "consumer": "-",
+      "consumer": "master",
       "bitrate": 500000,
       "acceptance_filter": "standard",
       "loopback_mode": "false",
       "listen_only_mode": "false",
-      "transceiver_type": "SN65HVD230"
+      "transceiver_type": "SN65HVD230",
+      "buffer": "00000000"
     }
-    
+  ],
+  "keys": [
+    "offset",
+    "name",
+    "consumer",
+    "bitrate",
+    "acceptance_filter",
+    "loopback_mode",
+    "listen_only_mode",
+    "transceiver_type",
+    "buffer"
   ]
 }

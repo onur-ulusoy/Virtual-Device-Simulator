@@ -3,47 +3,62 @@
     {
       "offset": 0,
       "name": "UART_0",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
       "parity": "none",
       "flow_control": "none",
-      "fifo_depth": 64
+      "fifo_depth": 64,
+      "buffer": "0000000000"
     },
     {
       "offset": 1,
       "name": "UART_1",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
       "parity": "none",
       "flow_control": "none",
-      "fifo_depth": 64
+      "fifo_depth": 64,
+      "buffer": "0000000000"
     },
     {
       "offset": 2,
       "name": "UART_2",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
       "parity": "none",
       "flow_control": "none",
-      "fifo_depth": 64
+      "fifo_depth": 64,
+      "buffer": "0000000000"
     },
     {
       "offset": 3,
       "name": "UART_3",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
       "parity": "none",
       "flow_control": "none",
-      "fifo_depth": 64
+      "fifo_depth": 64,
+      "buffer": "0000000000"
     }
-    
+  ],
+  "keys": [
+    "offset",
+    "name",
+    "consumer",
+    "baud_rate",
+    "data_bits",
+    "stop_bits",
+    "parity",
+    "flow_control",
+    "fifo_depth",
+    "buffer"
   ]
 }

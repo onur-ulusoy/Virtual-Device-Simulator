@@ -3,7 +3,7 @@
     {
       "offset": 0,
       "name": "USART_0",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
@@ -13,12 +13,13 @@
       "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
-      "clock_rate": 16000000
+      "clock_rate": 16000000,
+      "buffer": "0000000000"
     },
     {
       "offset": 1,
       "name": "USART_1",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
@@ -28,12 +29,13 @@
       "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
-      "clock_rate": 16000000
+      "clock_rate": 16000000,
+      "buffer": "0000000000"
     },
     {
       "offset": 2,
       "name": "USART_2",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
@@ -43,12 +45,13 @@
       "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
-      "clock_rate": 16000000
+      "clock_rate": 16000000,
+      "buffer": "0000000000"
     },
     {
       "offset": 3,
       "name": "USART_3",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
@@ -58,12 +61,13 @@
       "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
-      "clock_rate": 16000000
+      "clock_rate": 16000000,
+      "buffer": "0000000000"
     },
     {
       "offset": 4,
       "name": "USART_4",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
@@ -73,12 +77,13 @@
       "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
-      "clock_rate": 16000000
+      "clock_rate": 16000000,
+      "buffer": "0000000000"
     },
     {
       "offset": 5,
       "name": "USART_5",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
@@ -88,12 +93,13 @@
       "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
-      "clock_rate": 16000000
+      "clock_rate": 16000000,
+      "buffer": "0000000000"
     },
     {
       "offset": 6,
       "name": "USART_6",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
@@ -103,12 +109,13 @@
       "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
-      "clock_rate": 16000000
+      "clock_rate": 16000000,
+      "buffer": "0000000000"
     },
     {
       "offset": 7,
       "name": "USART_7",
-      "consumer": "-",
+      "consumer": "master",
       "baud_rate": 115200,
       "data_bits": 8,
       "stop_bits": 1,
@@ -118,8 +125,24 @@
       "synchronous_mode": "true",
       "clock_polarity": "low",
       "clock_phase": "first",
-      "clock_rate": 16000000
+      "clock_rate": 16000000,
+      "buffer": "0000000000"
     }
-    
+  ],
+  "keys": [
+    "offset",
+    "name",
+    "consumer",
+    "baud_rate",
+    "data_bits",
+    "stop_bits",
+    "parity",
+    "flow_control",
+    "fifo_depth",
+    "synchronous_mode",
+    "clock_polarity",
+    "clock_phase",
+    "clock_rate",
+    "buffer"
   ]
 }

@@ -300,16 +300,9 @@ namespace DeviceSim {
         return "true";
     }
     
-    /**
-     * @brief Parses a JSON device file and outputs the device information to a file
-     * in the order of the keys specified in the file.
-     *
-     * @param dir The directory of the JSON device file to parse.
-     * @param output_file The file to write the parsed device information to.
-     */
-    void parse_device(const std::string& dir, std::fstream& output_file) {
+    void parse_device(const string& dir, fstream& output_file) {
         // Read the JSON file
-        std::ifstream input_file(dir);
+        ifstream input_file(dir);
 
         // Parse the JSON file
         json json_data;
@@ -339,6 +332,25 @@ namespace DeviceSim {
             // Write a newline after processing each device
             output_file << std::endl;
         }
+    }
+
+    vector<string> get_device_keys(const string& device_type) {
+        string json_config_file = "dev-config/config_json/" + device_type + "_config.json";
+
+        // Read the JSON file
+        ifstream input_file(json_config_file);
+        json json_data;
+        input_file >> json_data;
+
+        // Get the keys array from the JSON
+        json keys_array = json_data["keys"];
+
+        // Convert the keys to a vector of strings and return them
+        vector<string> keys;
+        for (const auto& key : keys_array) {
+            keys.push_back(key);
+        }
+        return keys;
     }
 
 }

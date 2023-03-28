@@ -1,0 +1,10 @@
+offset: 0
+name: UART_0
+consumer: "master"
+baud_rate: 115200
+data_bits: 8
+stop_bits: 1
+parity: "none"
+flow_control: "none"
+fifo_depth: 64
+buffer: "0000000000"
