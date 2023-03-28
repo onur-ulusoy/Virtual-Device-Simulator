@@ -213,7 +213,7 @@ namespace DeviceSim {
         */
         GPIO_Device(char *dev_name) : Device(dev_name) {
             this->fd.open(dev_name, ios::out);
-            this->defaultDir = "dev/default_GPIO_chipInfo.json";
+            this->defaultDir = "dev-config/json_configs/gpio_config.json";
             this->pack = {"offset", "name", "consumer", "FLAG_IS_OUT", "FLAG_ACTIVE_LOW", "FLAG_OPEN_DRAIN",
                           "FLAG_OPEN_SOURCE", "FLAG_KERNEL"};
             this->packSize = this->pack.size();

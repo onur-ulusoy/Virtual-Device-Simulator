@@ -300,6 +300,13 @@ namespace DeviceSim {
         return "true";
     }
     
+    /**
+     * @brief Parses a JSON device file and outputs the device information to a file
+     * in the order of the keys specified in the file.
+     *
+     * @param dir The directory of the JSON device file to parse.
+     * @param output_file The file to write the parsed device information to.
+     */
     void parse_device(const std::string& dir, std::fstream& output_file) {
         // Read the JSON file
         std::ifstream input_file(dir);
@@ -310,21 +317,28 @@ namespace DeviceSim {
 
         // Get the "Devices" array from the JSON
         json devices_array = json_data["Devices"];
+        json keys = json_data["keys"];
 
         // Iterate over the "Devices" array
         for (const auto& device : devices_array) {
-            // Iterate over the key-value pairs in the device object
-            for (const auto& [key, value] : device.items()) {
-                // Check if the value is a string, and if so, output it without quotes
-                if (value.is_string()) {
-                    output_file << value.get<std::string>() << " ";
+            // Iterate over the keys in order
+            for (const auto& key : keys) {
+                // Write the value for the key to the output file, followed by a space
+                auto it = device.find(key.get<std::string>());
+                if (it != device.end()) {
+                    json value = it.value();
+                    if (value.is_string()) {
+                        output_file << value.get<std::string>() << " ";
+                    } else {
+                        output_file << value << " ";
+                    }
                 } else {
-                    // Write the value to the output file, followed by a space
-                    output_file << value << " ";
+                    output_file << "- ";
                 }
             }
             // Write a newline after processing each device
             output_file << std::endl;
         }
     }
+
 }
