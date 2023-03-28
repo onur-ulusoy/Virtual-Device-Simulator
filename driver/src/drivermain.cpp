@@ -24,7 +24,7 @@ listens for commands sent to it. The commands are processed and appropriate resp
 * @param _com     Stream object for writing responses to communication register.
 */
 int main() {
-    fstream receiver;
+    /* fstream receiver;
     ofstream _com;
     string _command;
 
@@ -57,7 +57,14 @@ int main() {
     while (receive_command(ONESHOT, device, receiver, _command, _com) != -1)
         usleep(1000000 * sleep_time);
 
-    cout << "Device simulator is terminating .." << endl;
+    cout << "Device simulator is terminating .." << endl; */
+
+    char* dev_name = generateDevName("device");
+    GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
+    cout << gpioDevHandler->getDevName() << endl;
+    cout << gpioDevHandler->getDefaultDir() << endl;
+    cout << gpioDevHandler->getPackSize() << endl;
+    gpioDevHandler->parse();
     return 0;
 }
 

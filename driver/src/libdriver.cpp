@@ -9,30 +9,30 @@
 
 namespace DeviceSim {
 
-    GPIO_Device::GPIO_Device(char *dev_name) {
+    Device::Device(char *dev_name) {
         this->dev_name = new char[strlen(dev_name) + 1];
         strcpy(this->dev_name, dev_name);
         log.open("log", ios::app);
     }
 
-    void GPIO_Device::device_open(command request, GPIO_Device *gpioDevHandler) {
+    void Device::device_open(command request, Device *devHandler) {
 
         switch (request) {
 
             case READONLY:
-                cout << "function 'GPIO_Device::device_open' worked as READONLY" << endl;
+                cout << "function 'Device::device_open' worked as READONLY" << endl;
 
 
                 fd.open(dev_name, ios::in);
                 //cout << fd.is_open() << endl;
 
                 if (!fd.is_open()) {
-                    GPIO_Device::device_open(WRITEONLY, gpioDevHandler);
+                    Device::device_open(WRITEONLY, devHandler);
 
-                    devContent.config(DEFAULT, gpioDevHandler);
+                    devContent.config(DEFAULT, devHandler);
 
-                    GPIO_Device::device_close();
-                    GPIO_Device::device_open(READONLY, gpioDevHandler);
+                    Device::device_close();
+                    Device::device_open(READONLY, devHandler);
                     break;
 
                 }
@@ -47,7 +47,7 @@ namespace DeviceSim {
                 break;
 
             case WRITEONLY:
-                cout << "function 'GPIO_Device::device_open' worked as WRITEONLY" << endl;
+                cout << "function 'Device::device_open' worked as WRITEONLY" << endl;
                 fd.open(dev_name, ios::out | ios::trunc);
 
                 if (!fd.is_open()) {
@@ -60,13 +60,13 @@ namespace DeviceSim {
                 break;
 
             default:
-                cout << "function 'GPIO_Device::device_open' worked as DEFAULT" << endl << endl;
+                cout << "function 'Device::device_open' worked as DEFAULT" << endl << endl;
                 //device_close();
-                fd.open(gpioDevHandler->dev_name);
+                fd.open(devHandler->dev_name);
 
                 if (!fd.is_open()) {
                     printf("Unabled to open %s: %s\n", dev_name, strerror(errno));
-                    device_open(WRITEONLY, gpioDevHandler);
+                    device_open(WRITEONLY, devHandler);
                 } else
                     cout << dev_name << " is opened successfully as DEFAULT" << endl;
 
@@ -76,9 +76,9 @@ namespace DeviceSim {
         }
     }
 
-    void GPIO_Device::device_close() {
+    void Device::device_close() {
 
-        cout << "function 'GPIO_Device::device_close' worked" << endl;
+        cout << "function 'Device::device_close' worked" << endl;
 
         if (fd.is_open()) {
             cout << dev_name << " is closed successfully" << endl;
@@ -89,36 +89,36 @@ namespace DeviceSim {
         cout << endl;
     }
 
-    string GPIO_Device::DeviceContent::config(command request, GPIO_Device *gpioDevHandler) {
+    string Device::DeviceContent::config(command request, Device *devHandler) {
 
-        string dir = gpioDevHandler->getDefaultDir();
+        string dir = devHandler->getDefaultDir();
 
-        cout << "function 'GPIO_Device::DeviceContent::config' worked" << endl;
-        gpioDevHandler->device_open(WRITEONLY, gpioDevHandler);
+        cout << "function 'Device::DeviceContent::config' worked" << endl;
+        devHandler->device_open(WRITEONLY, devHandler);
 
         if (request == DEFAULT) {
             cout << dir << endl;
 
-            gpioDevHandler->parse(dir, gpioDevHandler);
+            //devHandler->parse(dir, devHandler);
 
         }
-        gpioDevHandler->device_close();
+        devHandler->device_close();
         return "true";
     }
 
-    string GPIO_Device::DeviceContent::show(GPIO_Device *gpioDevHandler) {
+    string Device::DeviceContent::show(Device *devHandler) {
         ofstream temp;
         temp.open("temp", ios::app);
 
-        cout << "function 'GPIO_Device::DeviceContent::show' worked" << endl << endl;
+        cout << "function 'Device::DeviceContent::show' worked" << endl << endl;
 
-        string dir = gpioDevHandler->getDefaultDir();
+        string dir = devHandler->getDefaultDir();
 
-        string *pack = gpioDevHandler->getPack();
-        int packSize = gpioDevHandler->getPackSize();
-        //cout<< "Length of pack:" << gpioDevHandler->getPackSize() << endl;
+        vector<string> pack = devHandler->getPack();
+        int packSize = devHandler->getPackSize();
+        //cout<< "Length of pack:" << devHandler->getPackSize() << endl;
 
-        gpioDevHandler->device_open(READONLY, gpioDevHandler);
+        devHandler->device_open(READONLY, devHandler);
 
         //cout << "Chip info is being shown ..." << endl << endl;
 
@@ -132,11 +132,11 @@ namespace DeviceSim {
         while (true) {
             string line, word;
             for (int i = 0; i < packSize; i++) {
-                gpioDevHandler->fd >> word;
+                devHandler->getFd() >> word;
                 line += word + "/";
             }
 
-            if (gpioDevHandler->fd.eof()) break;
+            if (devHandler->getFd().eof()) break;
 
             auto *buffers = new string[packSize + 1];
             Split(line, "/", buffers);
@@ -148,18 +148,18 @@ namespace DeviceSim {
             delete[] buffers;
         }
 
-        gpioDevHandler->fd.clear();
-        gpioDevHandler->fd.seekg(0, ios::beg);
+        devHandler->getFd().clear();
+        devHandler->getFd().seekg(0, ios::beg);
 
-        //cout << "Data was shown for '" << gpioDevHandler->dev_name << "':" << endl;
+        //cout << "Data was shown for '" << devHandler->dev_name << "':" << endl;
         while (true) {
             string line, word;
             for (int i = 0; i < packSize; i++) {
-                gpioDevHandler->fd >> word;
+                devHandler->getFd() >> word;
                 line += word + "/";
             }
 
-            if (gpioDevHandler->fd.eof()) break;
+            if (devHandler->getFd().eof()) break;
 
             auto *buffers = new string[packSize + 1];
             Split(line, "/", buffers);
@@ -183,14 +183,14 @@ namespace DeviceSim {
         return "true";
     }
 
-    string GPIO_Device::DeviceContent::read(int offset, string property, GPIO_Device *gpioDevHandler) {
+    string Device::DeviceContent::read(int offset, string property, Device *devHandler) {
 
-        cout << "function 'GPIO_Device::DeviceContent::read' worked" << endl << endl;
+        cout << "function 'Device::DeviceContent::read' worked" << endl << endl;
 
-        string dir = gpioDevHandler->getDefaultDir();
+        string dir = devHandler->getDefaultDir();
 
-        string *pack = gpioDevHandler->getPack();
-        int packSize = gpioDevHandler->getPackSize();
+        vector<string> pack = devHandler->getPack();
+        int packSize = devHandler->getPackSize();
 
         int request = -2;
 
@@ -205,30 +205,30 @@ namespace DeviceSim {
             return "false";
         }
 
-        gpioDevHandler->device_open(DEFAULT, gpioDevHandler);
+        devHandler->device_open(DEFAULT, devHandler);
 
-        GotoLine(gpioDevHandler->fd, offset + 1);
+        GotoLine(devHandler->getFd(), offset + 1);
 
         string word, empty;
 
         for (int i = 0; i < request; i++) {
-            gpioDevHandler->fd >> empty;
+            devHandler->getFd() >> empty;
         }
-        gpioDevHandler->fd >> word;
+        devHandler->getFd() >> word;
 
-        gpioDevHandler->device_close();
+        devHandler->device_close();
         return word;
     }
 
-    string GPIO_Device::DeviceContent::write(int offset, string property, string new_value, GPIO_Device *gpioDevHandler) {
+    string Device::DeviceContent::write(int offset, string property, string new_value, Device *devHandler) {
 
-        //cout << gpioDevHandler->dev_name << endl;
-        cout << "function 'GPIO_Device::DeviceContent::write' worked" << endl << endl;
+        //cout << devHandler->dev_name << endl;
+        cout << "function 'Device::DeviceContent::write' worked" << endl << endl;
 
-        string dir = gpioDevHandler->getDefaultDir();
+        string dir = devHandler->getDefaultDir();
 
-        string *pack = gpioDevHandler->getPack();
-        int packSize = gpioDevHandler->getPackSize();
+        vector<string> pack = devHandler->getPack();
+        int packSize = devHandler->getPackSize();
 
         int request = -2;
 
@@ -242,13 +242,13 @@ namespace DeviceSim {
             return "false";
             //return 0;
         }
-        //cout << gpioDevHandler->dev_name << endl;
-        gpioDevHandler->device_open(DEFAULT, gpioDevHandler);
+        //cout << devHandler->dev_name << endl;
+        devHandler->device_open(DEFAULT, devHandler);
 
-        GotoLine(gpioDevHandler->fd, offset + 1);
+        GotoLine(devHandler->getFd(), offset + 1);
 
         string line;
-        getline(gpioDevHandler->fd, line);
+        getline(devHandler->getFd(), line);
         //cout << line << endl;
 
         auto *buffers = new string[packSize];
@@ -267,7 +267,7 @@ namespace DeviceSim {
         //cout << new_line << endl << endl;
 
 
-        GotoLine(gpioDevHandler->fd, 1);
+        GotoLine(devHandler->getFd(), 1);
 
         fstream newfile;
         ofstream outfile(NEW_FILE);
@@ -279,237 +279,52 @@ namespace DeviceSim {
         while (true) {
 
             if (i != offset) {
-                getline(gpioDevHandler->fd, line);
+                getline(devHandler->getFd(), line);
                 newfile << line << endl;
             } else {
                 newfile << new_line << endl;
-                GotoLine(gpioDevHandler->fd, i + 2);
+                GotoLine(devHandler->getFd(), i + 2);
             }
 
             i++;
-            if (gpioDevHandler->fd.eof()) break;
+            if (devHandler->getFd().eof()) break;
         }
 
         newfile.close();
 
-        gpioDevHandler->device_close();
+        devHandler->device_close();
 
-        remove(gpioDevHandler->dev_name);
-        rename(NEW_FILE, gpioDevHandler->dev_name);
+        remove(devHandler->dev_name);
+        rename(NEW_FILE, devHandler->dev_name);
 
         return "true";
     }
-    /**
-    @brief Parses a JSON file that contains default GPIO device properties and writes its content to a device file.
-    @param dir The directory of the JSON file.
-    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
-    */
-    void parse_GPIO(string dir, GPIO_Device *gpioDevHandler) {
-        std::ifstream jsonFile(dir);
+    
+    void parse_device(const std::string& dir, std::fstream& output_file) {
+        // Read the JSON file
+        std::ifstream input_file(dir);
 
-        nlohmann::json commands;
-        jsonFile >> commands;
+        // Parse the JSON file
+        json json_data;
+        input_file >> json_data;
 
-        nlohmann::json data = commands["Devices"];
+        // Get the "Devices" array from the JSON
+        json devices_array = json_data["Devices"];
 
-        unsigned long dataSize = data.size();
-
-        cout << "Number of device: " << data.size() << endl << endl;
-
-        for (int i = 0; i < dataSize; i++) {
-
-            gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
-            gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_IS_OUT", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_ACTIVE_LOW", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_DRAIN", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_OPEN_SOURCE", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("FLAG_KERNEL", "-");
-            gpioDevHandler->fd << endl;
-
-        }
-    }
-    /**
-    @brief Parses a JSON file that contains default SPI device properties and writes its content to a device file.
-    @param dir The directory of the JSON file.
-    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
-    */
-    void parse_SPI(string dir, GPIO_Device *gpioDevHandler) {
-        std::ifstream jsonFile(dir);
-        nlohmann::json commands;
-        jsonFile >> commands;
-
-        nlohmann::json data = commands["Devices"];
-
-        unsigned long dataSize = data.size();
-
-        cout << "Number of device: " << data.size() << endl << endl;
-
-        for (int i = 0; i < dataSize; i++) {
-            gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
-            gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("cpol", 0) << " ";
-            gpioDevHandler->fd << data.at(i).value("cpha", 0) << " ";
-            gpioDevHandler->fd << data.at(i).value("lsb_first", "false") << " ";
-            gpioDevHandler->fd << data.at(i).value("cs_high", "false") << " ";
-            gpioDevHandler->fd << data.at(i).value("3wire", "false") << " ";
-            gpioDevHandler->fd << data.at(i).value("loopback", "false");
-
-            gpioDevHandler->fd << endl;
-
-        }
-    }
-    /**
-    @brief Parses a JSON file that contains default I2C device properties and writes its content to a device file.
-    @param dir The directory of the JSON file.
-    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
-    */
-    void parse_I2C(string dir, GPIO_Device *gpioDevHandler) {
-        std::ifstream jsonFile(dir);
-        nlohmann::json commands;
-        jsonFile >> commands;
-
-        nlohmann::json data = commands["Devices"];
-
-        unsigned long dataSize = data.size();
-
-        cout << "Number of device: " << data.size() << endl << endl;
-
-        for (int i = 0; i < dataSize; i++) {
-
-            gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
-            gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("clock_speed", 100000) << " ";
-            gpioDevHandler->fd << data.at(i).value("address_mode", 7) << " ";
-            gpioDevHandler->fd << data.at(i).value("10bit_mode", "false") << " ";
-            gpioDevHandler->fd << data.at(i).value("sda_hold_time", 10);
-            gpioDevHandler->fd << endl;
-        }
-    }
-    /**
-    @brief Parses a JSON file that contains default Ethernet device properties and writes its content to a device file.
-    @param dir The directory of the JSON file.
-    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
-    */
-    void parse_ETHERNET(string dir, GPIO_Device *gpioDevHandler) {
-        std::ifstream jsonFile(dir);
-        nlohmann::json commands;
-        jsonFile >> commands;
-
-        nlohmann::json data = commands["Devices"];
-
-        unsigned long dataSize = data.size();
-
-        cout << "Number of device: " << data.size() << endl << endl;
-
-        for (int i = 0; i < dataSize; i++) {
-
-            gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
-            gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("mac_address", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("ip_address", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("netmask", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("gateway", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("vlan_enable", "false") << " ";
-            gpioDevHandler->fd << data.at(i).value("vlan_id", 0) << " ";
-            gpioDevHandler->fd << data.at(i).value("link_speed", 1000);
-            gpioDevHandler->fd << endl;
-        }
-    }
-    /**
-    @brief Parses a JSON file that contains default USART device properties and writes its content to a device file.
-    @param dir The directory of the JSON file.
-    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
-    */
-    void parse_USART(string dir, GPIO_Device *gpioDevHandler) {
-        std::ifstream jsonFile(dir);
-        nlohmann::json commands;
-        jsonFile >> commands;
-
-        nlohmann::json data = commands["Devices"];
-
-        unsigned long dataSize = data.size();
-
-        cout << "Number of device: " << data.size() << endl << endl;
-
-        for (int i = 0; i < dataSize; i++) {
-
-            gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
-            gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("baud_rate", 115200) << " ";
-            gpioDevHandler->fd << data.at(i).value("data_bits", 8) << " ";
-            gpioDevHandler->fd << data.at(i).value("stop_bits", 1) << " ";
-            gpioDevHandler->fd << data.at(i).value("parity", "none") << " ";
-            gpioDevHandler->fd << data.at(i).value("flow_control", "none") << " ";
-            gpioDevHandler->fd << data.at(i).value("fifo_depth", 64) << " ";
-            gpioDevHandler->fd << data.at(i).value("synchronous_mode", "true") << " ";
-            gpioDevHandler->fd << data.at(i).value("clock_polarity", "low") << " ";
-            gpioDevHandler->fd << data.at(i).value("clock_phase", "first") << " ";
-            gpioDevHandler->fd << data.at(i).value("clock_rate", 16000000);
-            gpioDevHandler->fd << endl;
-        }
-    }
-    /**
-    @brief Parses a JSON file that contains default UART device properties and writes its content to a device file.
-    @param dir The directory of the JSON file.
-    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
-    */
-    void parse_UART(string dir, GPIO_Device *gpioDevHandler) {
-        std::ifstream jsonFile(dir);
-        nlohmann::json commands;
-        jsonFile >> commands;
-
-        nlohmann::json data = commands["Devices"];
-
-        unsigned long dataSize = data.size();
-
-        cout << "Number of device: " << data.size() << endl << endl;
-
-        for (int i = 0; i < dataSize; i++) {
-
-            gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
-            gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("baud_rate", 115200) << " ";
-            gpioDevHandler->fd << data.at(i).value("data_bits", 8) << " ";
-            gpioDevHandler->fd << data.at(i).value("stop_bits", 1) << " ";
-            gpioDevHandler->fd << data.at(i).value("parity", "none") << " ";
-            gpioDevHandler->fd << data.at(i).value("flow_control", "none") << " ";
-            gpioDevHandler->fd << data.at(i).value("fifo_depth", 64);
-            gpioDevHandler->fd << endl;
-        }
-    }
-    /**
-    @brief Parses a JSON file that contains default CAN device properties and writes its content to a device file.
-    @param dir The directory of the JSON file.
-    @param gpioDevHandler Pointer to the GPIO_Device object which will receive the data.
-    */
-    void parse_CAN(string dir, GPIO_Device *gpioDevHandler) {
-        std::ifstream jsonFile(dir);
-        nlohmann::json commands;
-        jsonFile >> commands;
-
-        nlohmann::json data = commands["Devices"];
-
-        unsigned long dataSize = data.size();
-
-        cout << "Number of device: " << data.size() << endl << endl;
-
-        for (int i = 0; i < dataSize; i++) {
-
-            gpioDevHandler->fd << data.at(i).value("offset", 0) << " ";
-            gpioDevHandler->fd << data.at(i).value("name", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("consumer", "-") << " ";
-            gpioDevHandler->fd << data.at(i).value("bitrate", 500000) << " ";
-            gpioDevHandler->fd << data.at(i).value("acceptance_filter", "standard") << " ";
-            gpioDevHandler->fd << data.at(i).value("loopback_mode", "false") << " ";
-            gpioDevHandler->fd << data.at(i).value("listen_only_mode", "false") << " ";
-            gpioDevHandler->fd << data.at(i).value("transceiver_type", "SN65HVD230");
-            gpioDevHandler->fd << endl;
+        // Iterate over the "Devices" array
+        for (const auto& device : devices_array) {
+            // Iterate over the key-value pairs in the device object
+            for (const auto& [key, value] : device.items()) {
+                // Check if the value is a string, and if so, output it without quotes
+                if (value.is_string()) {
+                    output_file << value.get<std::string>() << " ";
+                } else {
+                    // Write the value to the output file, followed by a space
+                    output_file << value << " ";
+                }
+            }
+            // Write a newline after processing each device
+            output_file << std::endl;
         }
     }
 }
