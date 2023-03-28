@@ -18,13 +18,13 @@ set(driver_src_files
     ../driver/src/drivermain.cpp
     ../driver/src/libdriver.cpp
     ../driver/src/libdriverutility.cpp
-    ../driver/src/drivercommapi.cpp
+    #../driver/src/drivercommapi.cpp
 )
 
 set(driver_inc_files
     ../driver/inc/libdriver.hpp
     ../driver/inc/libdriverutility.hpp
-    ../driver/inc/drivercommapi.hpp
+    #../driver/inc/drivercommapi.hpp
 )
 
 set(tester_src_files
