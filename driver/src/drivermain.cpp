@@ -61,6 +61,8 @@ int main() {
 
     char* dev_name = generateDevName("device");
     GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
+    gpioDevHandler->device_open(DEFAULT, gpioDevHandler);
+
     cout << gpioDevHandler->getDevName() << endl;
     cout << gpioDevHandler->getDefaultDir() << endl;
     cout << gpioDevHandler->getPackSize() << endl;

@@ -300,7 +300,7 @@ namespace DeviceSim {
         return "true";
     }
     
-    void parse_device(const string& dir, fstream& output_file) {
+    void Device::parse_device(const string& dir, fstream& output_file) {
         // Read the JSON file
         ifstream input_file(dir);
 
@@ -334,7 +334,7 @@ namespace DeviceSim {
         }
     }
 
-    vector<string> get_device_keys(const string& device_type) {
+    vector<string> Device::get_device_keys(const string& device_type) {
         string json_config_file = "dev-config/config_json/" + device_type + "_config.json";
 
         // Read the JSON file

@@ -50,21 +50,6 @@ namespace DeviceSim {
     enum command {
         DEFAULT, READONLY, WRITEONLY
     };
-    /**
-     * @brief Parses a JSON device file and outputs the device information to a file
-     * in the order of the keys specified in the file.
-     *
-     * @param dir The directory of the JSON device file to parse.
-     * @param output_file The file to write the parsed device information to.
-     */
-    void parse_device(const std::string& dir, std::fstream& output_file);
-    /**
-     * @brief Returns the keys of a device as a vector of strings in the order specified in the JSON config file
-     *
-     * @param device_type The type of the device (e.g. "ethernet", "spi", "i2c")
-     * @return std::vector<string> The keys of the device in the order specified in the JSON config file
-     */
-    vector<string> get_device_keys(const string& device_type);
 
     /**
     * @class Device 
@@ -91,6 +76,7 @@ namespace DeviceSim {
         @brief Vector of strings storing information about the device's properties, such as offset, name, consumer, and flags.
         */
         char *dev_name;
+        string dev_type;
         fstream log;
         string defaultDir;
         int packSize;
@@ -150,6 +136,22 @@ namespace DeviceSim {
         * This function uses the function related to the class to parse the data from the given directory and store it in the devHandler object.
         */
         virtual void parse() = 0;
+        /**
+         * @brief Parses a JSON device file and outputs the device information to a file
+         * in the order of the keys specified in the file.
+         *
+         * @param dir The directory of the JSON device file to parse.
+         * @param output_file The file to write the parsed device information to.
+         */
+        void parse_device(const std::string& dir, std::fstream& output_file);
+        /**
+         * @brief Returns the keys of a device as a vector of strings in the order specified in the JSON config file
+         *
+         * @param device_type The type of the device (e.g. "ethernet", "spi", "i2c")
+         * @return std::vector<string> The keys of the device in the order specified in the JSON config file
+         */
+        vector<string> get_device_keys(const string& device_type);
+
         /**
         @class DeviceContent
         @brief Includes device beheviours referenced when it is simulated.
@@ -225,12 +227,11 @@ namespace DeviceSim {
         * Calls the constructor of the child class `SPI_Device` and initializes the `defaultDir` member variable to "dev/default_SPI_chipInfo.json".
         */
         GPIO_Device(char *dev_name) : Device(dev_name) {
-            this->fd.open(dev_name, ios::out);
-            this->defaultDir = "dev-config/config_json/gpio_config.json";
+            this->dev_type = "gpio";
+            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
             this->pack = get_device_keys("gpio");
             this->packSize = this->pack.size();
         };
-        friend void parse_device(string dir, fstream& fd);
         
         void parse() override {
             parse_device(this->defaultDir, this->fd);
