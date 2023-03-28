@@ -209,7 +209,7 @@ namespace DeviceSim {
 
     /**
     * @class GPIO_Device
-    * @brief Models a GPIO device that is being simulated.
+    * @brief Models a GPIO device that is being simulated, implements pure virtual class Device.
     */
     class GPIO_Device : public Device {
 
@@ -229,7 +229,7 @@ namespace DeviceSim {
         GPIO_Device(char *dev_name) : Device(dev_name) {
             this->dev_type = "gpio";
             this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
-            this->pack = get_device_keys("gpio");
+            this->pack = get_device_keys(this->dev_type);
             this->packSize = this->pack.size();
         };
         
@@ -237,248 +237,201 @@ namespace DeviceSim {
             parse_device(this->defaultDir, this->fd);
         }
 
-    };
-    
-    // /**
-    // * @class SPI_Device
-    // * @brief Models an SPI device that is being simulated.
-    // */
-    // class SPI_Device : public Device {
-    // private:
-    //     /**
-    //     @var string defaultDir
-    //     @brief The directory path to the device default information file.
-    //     @var int packSize
-    //     @brief The number of elements in the pack array.
-    //     @var string pack[8]
-    //     @brief Array of strings storing information about the device's properties, such as offset, name, consumer, and flags.
-    //     */
-    //     string defaultDir;
-    //     string pack[9] = {"offset", "name", "consumer", "cpol", "cpha", "lsb_first", "cs_high", "3wire", "loopback"};
-    //     int packSize = 9;
+    };   
 
-    // public:
-    //     string getDefaultDir() { return defaultDir; }
+    /**
+    * @class SPI_Device
+    * @brief Models a SPI device that is being simulated, implements pure virtual class Device.
+    */
+    class SPI_Device : public Device {
 
-    //     getPack() { return pack; }
+    public:
+        string getDefaultDir() override { return defaultDir; }
 
-    //     int getPackSize() { return packSize; }
-    //     /**
-    //     * @brief Constructor for the SPI_Device class
-    //     *
-    //     * @param dev_name A character array representing the device name
-    //     *
-    //     * Calls the constructor of the child class `SPI_Device` and initializes the `defaultDir` member variable to "dev/default_SPI_chipInfo.json".
-    //     */
-    //     SPI_Device(char *dev_name) : Device(dev_name) {
-    //         this->defaultDir = "dev/default_SPI_chipInfo.json";
-    //     };
+        vector<string> getPack() override { return pack; }
 
-    //     void parse(string dir, Device *gpioDevHandler) {
-    //         parse_SPI(dir, gpioDevHandler);
-    //     }
+        int getPackSize() override { return packSize; }
+        /**
+        * @brief Constructor for the SPI_Device class
+        *
+        * @param dev_name A character array representing the device name
+        *
+        * Calls the constructor of the child class `SPI_Device` and initializes attributes to start device
+        */
+        SPI_Device(char *dev_name) : Device(dev_name) {
+            this->dev_type = "spi";
+            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
+            this->pack = get_device_keys(this->dev_type);
+            this->packSize = this->pack.size();
+        };
+        
+        void parse() override {
+            parse_device(this->defaultDir, this->fd);
+        }
 
-    // };
-    // /**
-    // * @class I2C_Device
-    // * @brief Models an I2C device that is being simulated.
-    // */
-    // class I2C_Device : public Device {
-    // private:
-    //     /**
-    //     @var string defaultDir
-    //     @brief The directory path to the device default information file.
-    //     @var int packSize
-    //     @brief The number of elements in the pack array.
-    //     @var string pack[7]
-    //     @brief Array of strings storing information about the device's properties, such as offset, name, consumer or clock_speed.
-    //     */
-    //     string defaultDir;
-    //     string pack[7] = {"offset", "name", "consumer", "clock_speed", "address_mode", "10bit_mode", "sda_hold_time"};
-    //     int packSize = 7;
+    };  
 
-    // public:
-    //     string getDefaultDir() { return defaultDir; }
+    /**
+    * @class I2C_Device
+    * @brief Models a I2C device that is being simulated, implements pure virtual class Device.
+    */
+    class I2C_Device : public Device {
 
-    //     string *getPack() { return pack; }
+    public:
+        string getDefaultDir() override { return defaultDir; }
 
-    //     int getPackSize() { return packSize; }
-    //     /**
-    //     * @brief Constructor for the I2C_Device class
-    //     *
-    //     * @param dev_name A character array representing the device name
-    //     *
-    //     * Calls the constructor of the child class `I2C_Device` and initializes the `defaultDir` member variable to "dev/default_I2C_chipInfo.json".
-    //     */
-    //     I2C_Device(char *dev_name) : Device(dev_name) {
-    //         this->defaultDir = "dev/default_I2C_chipInfo.json";
-    //     };
+        vector<string> getPack() override { return pack; }
 
-    //     void parse(string dir, Device *gpioDevHandler) {
-    //         parse_I2C(dir, gpioDevHandler);
-    //     }
-    // };
-    // /**
-    // * @class ETHERNET_Device
-    // * @brief Models an ETHERNET device that is being simulated.
-    // */
-    // class ETHERNET_Device : public Device {
-    // private:
-    //     /**
-    //     @var string defaultDir
-    //     @brief The directory path to the device default information file.
-    //     @var int packSize
-    //     @brief The number of elements in the pack array.
-    //     @var string pack[9]
-    //     @brief Array of strings storing information about the device's properties, such as offset, name, mac_address, ip_address.
-    //     */
-    //     string defaultDir;
-    //     string pack[9] = {"offset", "name", "mac_address", "ip_address", "netmask", "gateway", "vlan_enable", "vlan_id",
-    //                       "link_speed"};
-    //     int packSize = 9;
+        int getPackSize() override { return packSize; }
+        /**
+        * @brief Constructor for the I2C_Device class
+        *
+        * @param dev_name A character array representing the device name
+        *
+        * Calls the constructor of the child class `I2C_Device` and initializes attributes to start device
+        */
+        I2C_Device(char *dev_name) : Device(dev_name) {
+            this->dev_type = "i2c";
+            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
+            this->pack = get_device_keys(this->dev_type);
+            this->packSize = this->pack.size();
+        };
+        
+        void parse() override {
+            parse_device(this->defaultDir, this->fd);
+        }
 
-    // public:
-    //     string getDefaultDir() { return defaultDir; }
+    };  
 
-    //     string *getPack() { return pack; }
+    /**
+    * @class UART_Device
+    * @brief Models a UART device that is being simulated, implements pure virtual class Device.
+    */
+    class UART_Device : public Device {
 
-    //     int getPackSize() { return packSize; }
-    //     /**
-    //     * @brief Constructor for the ETHERNET_Device class
-    //     *
-    //     * @param dev_name A character array representing the device name
-    //     *
-    //     * Calls the constructor of the child class `ETHERNET_Device` and initializes the `defaultDir` member variable to "dev/default_ETHERNET_chipInfo.json".
-    //     */
-    //     ETHERNET_Device(char *dev_name) : Device(dev_name) {
-    //         this->defaultDir = "dev/default_ETHERNET_chipInfo.json";
-    //     };
+    public:
+        string getDefaultDir() override { return defaultDir; }
 
-    //     void parse(string dir, Device *gpioDevHandler) {
-    //         parse_ETHERNET(dir, gpioDevHandler);
-    //     }
-    // };
-    // /**
-    // * @class USART_Device
-    // * @brief Models a USART device that is being simulated.
-    // */
-    // class USART_Device : public Device {
-    // private:
-    //     /**
-    //     @var string defaultDir
-    //     @brief The directory path to the device default information file.
-    //     @var int packSize
-    //     @brief The number of elements in the pack array.
-    //     @var string pack[13]
-    //     @brief Array of strings storing information about the device's properties, such as offset, name, consumer, baud_rate.
-    //     */
-    //     string defaultDir;
-    //     string pack[13] = {"offset", "name", "consumer", "baud_rate", "data_bits", "stop_bits", "parity",
-    //                        "flow_control", "fifo_depth", "synchronous_mode", "clock_polarity", "clock_phase",
-    //                        "clock_rate"};
-    //     int packSize = 13;
+        vector<string> getPack() override { return pack; }
 
-    // public:
-    //     string getDefaultDir() { return defaultDir; }
+        int getPackSize() override { return packSize; }
+        /**
+        * @brief Constructor for the UART_Device class
+        *
+        * @param dev_name A character array representing the device name
+        *
+        * Calls the constructor of the child class `UART_Device` and initializes attributes to start device
+        */
+        UART_Device(char *dev_name) : Device(dev_name) {
+            this->dev_type = "uart";
+            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
+            this->pack = get_device_keys(this->dev_type);
+            this->packSize = this->pack.size();
+        };
+        
+        void parse() override {
+            parse_device(this->defaultDir, this->fd);
+        }
 
-    //     string *getPack() { return pack; }
+    };  
 
-    //     int getPackSize() { return packSize; }
-    //     /**
-    //     * @brief Constructor for the USART_Device class
-    //     *
-    //     * @param dev_name A character array representing the device name
-    //     *
-    //     * Calls the constructor of the child class `USART_Device` and initializes the `defaultDir` member variable to "dev/default_USART_chipInfo.json".
-    //     */
-    //     USART_Device(char *dev_name) : Device(dev_name) {
-    //         this->defaultDir = "dev/default_USART_chipInfo.json";
-    //     };
+    /**
+    * @class USART_Device
+    * @brief Models a USART device that is being simulated, implements pure virtual class Device.
+    */
+    class USART_Device : public Device {
 
-    //     void parse(string dir, Device *gpioDevHandler) {
-    //         parse_USART(dir, gpioDevHandler);
-    //     }
-    // };
-    // /**
-    // * @class UART_Device
-    // * @brief Models a UART device that is being simulated.
-    // */
-    // class UART_Device : public Device {
-    // private:
-    //     /**
-    //     @var string defaultDir
-    //     @brief The directory path to the device default information file.
-    //     @var int packSize
-    //     @brief The number of elements in the pack array.
-    //     @var string pack[9]
-    //     @brief Array of strings storing information about the device's properties, such as offset, name, consumer, baud_rate.
-    //     */
-    //     string defaultDir;
-    //     string pack[9] = {"offset", "name", "consumer", "baud_rate", "data_bits", "stop_bits", "parity", "flow_control",
-    //                       "fifo_depth"};
-    //     int packSize = 9;
+    public:
+        string getDefaultDir() override { return defaultDir; }
 
-    // public:
-    //     string getDefaultDir() { return defaultDir; }
+        vector<string> getPack() override { return pack; }
 
-    //     string *getPack() { return pack; }
+        int getPackSize() override { return packSize; }
+        /**
+        * @brief Constructor for the USART_Device class
+        *
+        * @param dev_name A character array representing the device name
+        *
+        * Calls the constructor of the child class `USART_Device` and initializes attributes to start device
+        */
+        USART_Device(char *dev_name) : Device(dev_name) {
+            this->dev_type = "usart";
+            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
+            this->pack = get_device_keys(this->dev_type);
+            this->packSize = this->pack.size();
+        };
+        
+        void parse() override {
+            parse_device(this->defaultDir, this->fd);
+        }
 
-    //     int getPackSize() { return packSize; }
-    //     /**
-    //     * @brief Constructor for the UART_Device class
-    //     *
-    //     * @param dev_name A character array representing the device name
-    //     *
-    //     * Calls the constructor of the child class `UART_Device` and initializes the `defaultDir` member variable to "dev/default_UART_chipInfo.json".
-    //     */
-    //     UART_Device(char *dev_name) : Device(dev_name) {
-    //         this->defaultDir = "dev/default_UART_chipInfo.json";
-    //     };
+    };  
 
-    //     void parse(string dir, Device *gpioDevHandler) {
-    //         parse_UART(dir, gpioDevHandler);
-    //     }
-    // };
-    // /**
-    // * @class CAN_Device
-    // * @brief Models a CAN device that is being simulated.
-    // */
-    // class CAN_Device : public Device {
-    // private:
-    //     /**
-    //     @var string defaultDir
-    //     @brief The directory path to the device default information file.
-    //     @var int packSize
-    //     @brief The number of elements in the pack array.
-    //     @var string pack[8]
-    //     @brief Array of strings storing information about the device's properties, such as offset, name, consumer, bitrate.
-    //     */
-    //     string defaultDir;
-    //     string pack[8] = {"offset", "name", "consumer", "bitrate", "acceptance_filter", "loopback_mode",
-    //                       "listen_only_mode", "transceiver_type",};
-    //     int packSize = 8;
+    /**
+    * @class Ethernet_Device
+    * @brief Models a Ethernet device that is being simulated, implements pure virtual class Device.
+    */
+    class Ethernet_Device : public Device {
 
-    // public:
-    //     string getDefaultDir() { return defaultDir; }
+    public:
+        string getDefaultDir() override { return defaultDir; }
 
-    //     string *getPack() { return pack; }
+        vector<string> getPack() override { return pack; }
 
-    //     int getPackSize() { return packSize; }
-    //     /**
-    //     * @brief Constructor for the CAN_Device class
-    //     *
-    //     * @param dev_name A character array representing the device name
-    //     *
-    //     * Calls the constructor of the child class `CAN_Device` and initializes the `defaultDir` member variable to "dev/default_CAN_chipInfo.json".
-    //     */
-    //     CAN_Device(char *dev_name) : Device(dev_name) {
-    //         this->defaultDir = "dev/default_CAN_chipInfo.json";
-    //     };
+        int getPackSize() override { return packSize; }
+        /**
+        * @brief Constructor for the Ethernet_Device class
+        *
+        * @param dev_name A character array representing the device name
+        *
+        * Calls the constructor of the child class `Ethernet_Device` and initializes attributes to start device
+        */
+        Ethernet_Device(char *dev_name) : Device(dev_name) {
+            this->dev_type = "ethernet";
+            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
+            this->pack = get_device_keys(this->dev_type);
+            this->packSize = this->pack.size();
+        };
+        
+        void parse() override {
+            parse_device(this->defaultDir, this->fd);
+        }
 
-    //     void parse(string dir, Device *gpioDevHandler) {
-    //         parse_CAN(dir, gpioDevHandler);
-    //     }
-    // };
+    };  
+
+    /**
+    * @class CAN_Device
+    * @brief Models a CAN device that is being simulated, implements pure virtual class Device.
+    */
+    class CAN_Device : public Device {
+
+    public:
+        string getDefaultDir() override { return defaultDir; }
+
+        vector<string> getPack() override { return pack; }
+
+        int getPackSize() override { return packSize; }
+        /**
+        * @brief Constructor for the CAN_Device class
+        *
+        * @param dev_name A character array representing the device name
+        *
+        * Calls the constructor of the child class `CAN_Device` and initializes attributes to start device
+        */
+        CAN_Device(char *dev_name) : Device(dev_name) {
+            this->dev_type = "can";
+            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
+            this->pack = get_device_keys(this->dev_type);
+            this->packSize = this->pack.size();
+        };
+        
+        void parse() override {
+            parse_device(this->defaultDir, this->fd);
+        }
+
+    };  
+
+   
     
 }
 #endif //LIB_DRIVER_HPP

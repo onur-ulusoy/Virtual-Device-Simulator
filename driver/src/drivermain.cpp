@@ -60,14 +60,14 @@ int main() {
     cout << "Device simulator is terminating .." << endl; */
 
     char* dev_name = generateDevName("device");
-    GPIO_Device* gpioDevHandler = new GPIO_Device(dev_name);
-    gpioDevHandler->device_open(DEFAULT, gpioDevHandler);
+    I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
+    i2cDevHandler->device_open(WRITEONLY, i2cDevHandler);
 
-    cout << gpioDevHandler->getDevName() << endl;
-    cout << gpioDevHandler->getDefaultDir() << endl;
-    cout << gpioDevHandler->getPackSize() << endl;
-    cout << gpioDevHandler->getPack()[5] << endl;
-    gpioDevHandler->parse();
+    cout << i2cDevHandler->getDevName() << endl;
+    cout << i2cDevHandler->getDefaultDir() << endl;
+    cout << i2cDevHandler->getPackSize() << endl;
+    cout << i2cDevHandler->getPack()[5] << endl;
+    i2cDevHandler->parse();
     return 0;
 }
 
