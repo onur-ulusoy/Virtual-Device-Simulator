@@ -1,0 +1,8 @@
+offset: 0
+name: "-"
+consumer: "-"
+FLAG_IS_OUT: "[INPUT]"
+FLAG_ACTIVE_LOW: "[ACTIVE_HIGH]"
+FLAG_OPEN_DRAIN: "[...]"
+FLAG_OPEN_SOURCE: "[...]"
+FLAG_KERNEL: "[]"
