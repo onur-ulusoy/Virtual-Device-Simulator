@@ -1,33 +1,75 @@
+#!/usr/bin/env python3
+"""
+@brief This script reads a YAML configuration file for a specific device and generates a JSON file
+containing the configuration information for multiple instances of that device.
+
+@file device_config_creator.py
+@author Onur Ulusoy
+@date 28/03/2023
+@license MIT
+"""
+
+import sys
+import os.path
 import yaml
 import json
-import sys
 
-def create_device_config(device_amount, config_file, output_file):
-    with open(config_file, 'r') as yaml_file:
-        config_data = yaml.safe_load(yaml_file)
 
-    devices = []
-    for i in range(device_amount):
-        devices.append(config_data)
+class DeviceConfigCreator:
+    """
+    @brief Class that creates device configurations from a YAML file and writes them to a JSON file
+    """
 
-    keys = list(config_data.keys())
+    def __init__(self, config_file):
+        """
+        @brief Constructor that reads the YAML configuration file for the device
+        @param config_file Path to the YAML configuration file
+        """
+        with open(config_file, 'r') as file:
+            self.config = yaml.safe_load(file)
 
-    output_data = {
-        "Devices": devices,
-        "keys": keys
-    }
+    def create_devices(self, device_amount):
+        """
+        @brief Creates device configurations for multiple instances of the device
+        @param device_amount Number of device instances to create
+        @return List of device configurations
+        """
+        devices = []
+        for i in range(device_amount):
+            device = {}
+            for key in self.config:
+                device[key] = self.config[key]
+            device["offset"] = i
+            devices.append(device)
+        return devices
 
-    with open(output_file, 'w') as json_file:
-        json.dump(output_data, json_file, indent=2)
+    def write_json_file(self, devices, output_file):
+        """
+        @brief Writes the device configurations to a JSON file
+        @param devices List of device configurations
+        @param output_file Path to the output JSON file
+        """
+        data = {"Devices": devices, "keys": list(self.config.keys())}
+        with open(output_file, 'w') as file:
+            json.dump(data, file, indent=2)
+
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python3 device_config_creator.py <device_amount>")
+    if len(sys.argv) < 3:
+        print("Usage: python3 device_config_creator.py <device_type> <device_amount>")
         sys.exit(1)
 
-    device_amount = int(sys.argv[1])
+    device_type = sys.argv[1]
+    device_amount = int(sys.argv[2])
 
-    config_file = "dev-config/yaml_configs/gpio_config.yaml"
-    output_file = "dev-config/json_configs/gpio_config.json"
+    # Check if the device configuration file exists
+    config_file = f"dev-config/yaml_configs/{device_type}_config.yaml"
+    if not os.path.exists(config_file):
+        print(f"Error: Configuration file {config_file} does not exist.")
+        sys.exit(1)
 
-    create_device_config(device_amount, config_file, output_file)
+    output_file = f"dev-config/json_configs/{device_type}_config.json"
+
+    creator = DeviceConfigCreator(config_file)
+    devices = creator.create_devices(device_amount)
+    creator.write_json_file(devices, output_file)
