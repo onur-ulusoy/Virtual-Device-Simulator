@@ -191,7 +191,7 @@ namespace DeviceSim {
         return "true";
     }
 
-    string Device::DeviceContent::read(int offset, string property) {
+    string Device::DeviceContent::read(const int offset, const string property) {
 
         cout << "function 'Device::DeviceContent::read' worked" << endl << endl;
 
@@ -228,7 +228,7 @@ namespace DeviceSim {
         return word;
     }
 
-    string Device::DeviceContent::write(int offset, string property, string new_value) {
+    string Device::DeviceContent::write(const int offset, const string property, const string new_value) {
 
         //cout << devHandler->dev_name << endl;
         cout << "function 'Device::DeviceContent::write' worked" << endl << endl;
