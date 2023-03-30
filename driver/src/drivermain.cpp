@@ -59,15 +59,27 @@ int main() {
 
     cout << "Device simulator is terminating .." << endl; */
 
-    char* dev_name = generateDevName("device");
-    I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
-    i2cDevHandler->device_open(WRITEONLY, i2cDevHandler);
+    // char* dev_name = generateDevName("device");
+    // I2C_Device* i2cDevHandler = new I2C_Device(dev_name);
+    // i2cDevHandler->device_open(WRITEONLY, i2cDevHandler);
 
-    cout << i2cDevHandler->getDevName() << endl;
-    cout << i2cDevHandler->getDefaultDir() << endl;
-    cout << i2cDevHandler->getPackSize() << endl;
-    cout << i2cDevHandler->getPack()[5] << endl;
-    i2cDevHandler->parse();
+    // cout << i2cDevHandler->getDevName() << endl;
+    // cout << i2cDevHandler->getDefaultDir() << endl;
+    // cout << i2cDevHandler->getPackSize() << endl;
+    // cout << i2cDevHandler->getPack()[5] << endl;
+    // i2cDevHandler->parse();
+
+    GPIO_Device& gpio = GPIO_Device::getInstance("device");    
+    cout << gpio.getDevName() << endl;
+
+    GPIO_Device& gpio1 = GPIO_Device::getInstance("device1");    
+    cout << gpio1.getDevName() << endl;
+
+    GPIO_Device& gpio2 = GPIO_Device::getInstance("device2");    
+    cout << gpio2.getDevName() << endl;
+    gpio2.device_open(WRITEONLY);
+    gpio2.parse();
+
     return 0;
 }
 
