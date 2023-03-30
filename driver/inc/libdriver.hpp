@@ -91,6 +91,7 @@ namespace DeviceSim {
         * Initializes the `dev_name` member variable with the provided `dev_name` and opens the log file for appending.
         */
         Device(char *dev_name);
+
         virtual ~Device() = default;
         
         char* getDevName() const { return dev_name; }
@@ -129,7 +130,6 @@ namespace DeviceSim {
         * @return int The size of the pack of the device
         */
         virtual int getPackSize() = 0;
-
         /**
         * @brief Virtual function to parse data from a given directory
         * 
@@ -214,6 +214,17 @@ namespace DeviceSim {
     class GPIO_Device : public Device {
 
     public:
+
+        static GPIO_Device& getInstance(char* dev_name){
+            char* defaultDevName;
+            static GPIO_Device instance(defaultDevName);
+            if (strlen(dev_name) > 0) {
+                instance.dev_name = dev_name;
+            }
+            return instance;
+        }
+
+
         string getDefaultDir() override { return defaultDir; }
 
         vector<string> getPack() override { return pack; }
@@ -226,17 +237,17 @@ namespace DeviceSim {
         *
         * Calls the constructor of the child class `SPI_Device` and initializes the `defaultDir` member variable to "dev/default_SPI_chipInfo.json".
         */
+        void parse() override {
+            parse_device(this->defaultDir, this->fd);
+        }
+
+    private:
         GPIO_Device(char *dev_name) : Device(dev_name) {
             this->dev_type = "gpio";
             this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
             this->pack = get_device_keys(this->dev_type);
             this->packSize = this->pack.size();
         };
-        
-        void parse() override {
-            parse_device(this->defaultDir, this->fd);
-        }
-
     };   
 
     /**
