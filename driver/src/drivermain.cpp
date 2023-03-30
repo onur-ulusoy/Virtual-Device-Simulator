@@ -80,7 +80,7 @@ int main() {
     char* dev_name2 = generateDevName("device2");
     GPIO_Device& gpio2 = GPIO_Device::getInstance(dev_name2);    
     cout << gpio2.getDevName() << endl;
-    gpio2.device_open(WRITEONLY, &gpio2);
+    gpio2.device_open(WRITEONLY);
     gpio2.parse();
 
     return 0;

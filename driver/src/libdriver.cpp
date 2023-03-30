@@ -9,13 +9,21 @@
 
 namespace DeviceSim {
 
-    Device::Device(char *dev_name) {
-        this->dev_name = new char[strlen(dev_name) + 1];
-        strcpy(this->dev_name, dev_name);
+    GPIO_Device& GPIO_Device::getInstance(string dev_name){
+        static GPIO_Device instance("");
+        if (dev_name.length() > 0) {
+            instance.dev_name = dev_name;
+        }
+        return instance;
+    }
+       
+    Device::Device(string dev_name) {
+        // this->dev_name = new char[strlen(dev_name) + 1];
+        // strcpy(this->dev_name, dev_name);
         log.open("log", ios::app);
     }
 
-    void Device::device_open(command request, Device *devHandler) {
+    void Device::device_open(command request) {
 
         switch (request) {
 
@@ -27,18 +35,18 @@ namespace DeviceSim {
                 //cout << fd.is_open() << endl;
 
                 if (!fd.is_open()) {
-                    Device::device_open(WRITEONLY, devHandler);
+                    Device::device_open(WRITEONLY);
 
                     devContent.config(DEFAULT, devHandler);
 
                     Device::device_close();
-                    Device::device_open(READONLY, devHandler);
+                    Device::device_open(READONLY);
                     break;
 
                 }
 
                 if (!fd.is_open()) {
-                    printf("Unabled to open %s: %s\n", dev_name, strerror(errno));
+                    std::cerr << "Unable to open " << dev_name << ": " << std::strerror(errno) << std::endl;
                     break;
                 } else
                     cout << dev_name << " is opened successfully as READONLY" << endl;
@@ -51,7 +59,7 @@ namespace DeviceSim {
                 fd.open(dev_name, ios::out | ios::trunc);
 
                 if (!fd.is_open()) {
-                    printf("Unabled to open %s: %s\n", dev_name, strerror(errno));
+                    std::cerr << "Unable to open " << dev_name << ": " << std::strerror(errno) << std::endl;
                     break;
                 } else
                     cout << dev_name << " is opened successfully as WRITEONLY" << endl;
@@ -65,8 +73,8 @@ namespace DeviceSim {
                 fd.open(devHandler->dev_name);
 
                 if (!fd.is_open()) {
-                    printf("Unabled to open %s: %s\n", dev_name, strerror(errno));
-                    device_open(WRITEONLY, devHandler);
+                    std::cerr << "Unable to open " << dev_name << ": " << std::strerror(errno) << std::endl;
+                    device_open(WRITEONLY);
                 } else
                     cout << dev_name << " is opened successfully as DEFAULT" << endl;
 
@@ -94,7 +102,7 @@ namespace DeviceSim {
         string dir = devHandler->getDefaultDir();
 
         cout << "function 'Device::DeviceContent::config' worked" << endl;
-        devHandler->device_open(WRITEONLY, devHandler);
+        devHandler->device_open(WRITEONLY);
 
         if (request == DEFAULT) {
             cout << dir << endl;
@@ -118,7 +126,7 @@ namespace DeviceSim {
         int packSize = devHandler->getPackSize();
         //cout<< "Length of pack:" << devHandler->getPackSize() << endl;
 
-        devHandler->device_open(READONLY, devHandler);
+        devHandler->device_open(READONLY);
 
         //cout << "Chip info is being shown ..." << endl << endl;
 
@@ -205,7 +213,7 @@ namespace DeviceSim {
             return "false";
         }
 
-        devHandler->device_open(DEFAULT, devHandler);
+        devHandler->device_open(DEFAULT);
 
         GotoLine(devHandler->getFd(), offset + 1);
 
@@ -243,7 +251,7 @@ namespace DeviceSim {
             //return 0;
         }
         //cout << devHandler->dev_name << endl;
-        devHandler->device_open(DEFAULT, devHandler);
+        devHandler->device_open(DEFAULT);
 
         GotoLine(devHandler->getFd(), offset + 1);
 
@@ -294,8 +302,8 @@ namespace DeviceSim {
 
         devHandler->device_close();
 
-        remove(devHandler->dev_name);
-        rename(NEW_FILE, devHandler->dev_name);
+        remove(devHandler->dev_name.c_str());
+        rename(NEW_FILE, devHandler->dev_name.c_str());
 
         return "true";
     }

@@ -64,7 +64,7 @@ namespace DeviceSim {
         fstream fd;
         
         /**
-        @var char *dev_name
+        @var string dev_name
         @brief Stores the name of the device.
         @var fstream log
         @brief File stream object for logging information.
@@ -75,12 +75,13 @@ namespace DeviceSim {
         @var vector<string> pack
         @brief Vector of strings storing information about the device's properties, such as offset, name, consumer, and flags.
         */
-        char *dev_name;
+        string dev_name;
         string dev_type;
         fstream log;
         string defaultDir;
         int packSize;
         vector<string> pack;
+        Device* devHandler = this;
 
     public:
         /**
@@ -90,11 +91,11 @@ namespace DeviceSim {
         *
         * Initializes the `dev_name` member variable with the provided `dev_name` and opens the log file for appending.
         */
-        Device(char *dev_name);
+        Device(string dev_name);
 
         virtual ~Device() = default;
         
-        char* getDevName() const { return dev_name; }
+        string getDevName() const { return dev_name; }
         fstream& getLog() { return log; }
         fstream& getFd() { return fd; }
 
@@ -103,7 +104,7 @@ namespace DeviceSim {
         @param request Enum representing the request type (READONLY, WRITEONLY, DEFAULT)
         @param devHandler Pointer to the Device object
         */
-        virtual void device_open(command request, Device *devHandler);
+        virtual void device_open(command request);
         /**
         * @brief Closes the file stream 'fd' associated with the device.
         * 
@@ -215,16 +216,8 @@ namespace DeviceSim {
 
     public:
 
-        static GPIO_Device& getInstance(char* dev_name){
-            char* defaultDevName;
-            static GPIO_Device instance(defaultDevName);
-            if (strlen(dev_name) > 0) {
-                instance.dev_name = dev_name;
-            }
-            return instance;
-        }
-
-
+        static GPIO_Device& getInstance(string dev_name);
+        
         string getDefaultDir() override { return defaultDir; }
 
         vector<string> getPack() override { return pack; }
@@ -242,7 +235,7 @@ namespace DeviceSim {
         }
 
     private:
-        GPIO_Device(char *dev_name) : Device(dev_name) {
+        GPIO_Device(string dev_name) : Device(dev_name) {
             this->dev_type = "gpio";
             this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
             this->pack = get_device_keys(this->dev_type);
@@ -269,7 +262,7 @@ namespace DeviceSim {
         *
         * Calls the constructor of the child class `SPI_Device` and initializes attributes to start device
         */
-        SPI_Device(char *dev_name) : Device(dev_name) {
+        SPI_Device(string dev_name) : Device(dev_name) {
             this->dev_type = "spi";
             this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
             this->pack = get_device_keys(this->dev_type);
@@ -301,7 +294,7 @@ namespace DeviceSim {
         *
         * Calls the constructor of the child class `I2C_Device` and initializes attributes to start device
         */
-        I2C_Device(char *dev_name) : Device(dev_name) {
+        I2C_Device(string dev_name) : Device(dev_name) {
             this->dev_type = "i2c";
             this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
             this->pack = get_device_keys(this->dev_type);
@@ -333,7 +326,7 @@ namespace DeviceSim {
         *
         * Calls the constructor of the child class `UART_Device` and initializes attributes to start device
         */
-        UART_Device(char *dev_name) : Device(dev_name) {
+        UART_Device(string dev_name) : Device(dev_name) {
             this->dev_type = "uart";
             this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
             this->pack = get_device_keys(this->dev_type);
@@ -365,7 +358,7 @@ namespace DeviceSim {
         *
         * Calls the constructor of the child class `USART_Device` and initializes attributes to start device
         */
-        USART_Device(char *dev_name) : Device(dev_name) {
+        USART_Device(string dev_name) : Device(dev_name) {
             this->dev_type = "usart";
             this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
             this->pack = get_device_keys(this->dev_type);
@@ -397,7 +390,7 @@ namespace DeviceSim {
         *
         * Calls the constructor of the child class `Ethernet_Device` and initializes attributes to start device
         */
-        Ethernet_Device(char *dev_name) : Device(dev_name) {
+        Ethernet_Device(string dev_name) : Device(dev_name) {
             this->dev_type = "ethernet";
             this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
             this->pack = get_device_keys(this->dev_type);
@@ -429,7 +422,7 @@ namespace DeviceSim {
         *
         * Calls the constructor of the child class `CAN_Device` and initializes attributes to start device
         */
-        CAN_Device(char *dev_name) : Device(dev_name) {
+        CAN_Device(string dev_name) : Device(dev_name) {
             this->dev_type = "can";
             this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
             this->pack = get_device_keys(this->dev_type);
