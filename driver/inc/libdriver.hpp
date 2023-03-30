@@ -81,9 +81,13 @@ namespace DeviceSim {
         string defaultDir;
         int packSize;
         vector<string> pack;
-        Device* devHandler = this;
-
+         
     public:
+        /**
+         * @var devHandler 
+         * @brief Pointer to the Device object
+         */
+        Device* devHandler = this;
         /**
         * @brief Constructor for the Device class
         *
@@ -91,8 +95,10 @@ namespace DeviceSim {
         *
         * Initializes the `dev_name` member variable with the provided `dev_name` and opens the log file for appending.
         */
-        Device(string dev_name);
-
+        Device(string dev_name) : devContent(this) {
+        // constructor body
+        }
+        
         virtual ~Device() = default;
         
         string getDevName() const { return dev_name; }
@@ -102,7 +108,6 @@ namespace DeviceSim {
         /**
         @brief Opens the device with the specified request (READONLY, WRITEONLY, DEFAULT)
         @param request Enum representing the request type (READONLY, WRITEONLY, DEFAULT)
-        @param devHandler Pointer to the Device object
         */
         virtual void device_open(command request);
         /**
@@ -118,7 +123,7 @@ namespace DeviceSim {
         * 
         * @return string The default directory of the device
         */
-        virtual string getDefaultDir() = 0;
+        virtual string getDefaultDir() const = 0;
         /**
         * @brief Returns the pack of the device
         * 
@@ -159,6 +164,7 @@ namespace DeviceSim {
         */
         class DeviceContent {
         public:
+            DeviceContent(Device* devHandler) : devHandler(devHandler) {}
             /**
             * @brief Configures the device according to the default device information with specified request from JSON file.
             * 
@@ -171,13 +177,13 @@ namespace DeviceSim {
             * 
             * @return returns "true" if operation is successful.
             */
-            string config(command request, Device *gpioDevHandler);
+            string config(command request);
             /**
             * @brief function to show the device content.
             * @param gpioDevHandler pointer to Device object.
             * @return returns "true" if operation is successful.
             */
-            static string show(Device *gpioDevHandler);
+            string show();
             /**
             * @brief function to read device content at a given offset.
             * @param offset line number from which data should be read.
@@ -185,7 +191,7 @@ namespace DeviceSim {
             * @param gpioDevHandler pointer to Device object.
             * @return returns the value of the specified property.
             */
-            static string read(int offset, string property, Device *gpioDevHandler);
+            string read(int offset, string property);
             /**
             * @brief function to manipulate device content at a given offset.
             *
@@ -198,12 +204,13 @@ namespace DeviceSim {
             *
             * @return "true" if write operation is successful, "false" otherwise
             */
-            string write(int offset, string property, string new_value, Device *gpioDevHandler);
-
+            string write(int offset, string property, string new_value);
+        
+        private:
+            Device* devHandler;
         };
-
+        
         DeviceContent devContent;
-
     };
 
     using json = nlohmann::json;
@@ -218,7 +225,7 @@ namespace DeviceSim {
 
         static GPIO_Device& getInstance(string dev_name);
         
-        string getDefaultDir() override { return defaultDir; }
+        string getDefaultDir() const override { return defaultDir; }
 
         vector<string> getPack() override { return pack; }
 
@@ -250,7 +257,7 @@ namespace DeviceSim {
     class SPI_Device : public Device {
 
     public:
-        string getDefaultDir() override { return defaultDir; }
+        string getDefaultDir() const override { return defaultDir; }
 
         vector<string> getPack() override { return pack; }
 
@@ -282,7 +289,7 @@ namespace DeviceSim {
     class I2C_Device : public Device {
 
     public:
-        string getDefaultDir() override { return defaultDir; }
+        string getDefaultDir() const override { return defaultDir; }
 
         vector<string> getPack() override { return pack; }
 
@@ -314,7 +321,7 @@ namespace DeviceSim {
     class UART_Device : public Device {
 
     public:
-        string getDefaultDir() override { return defaultDir; }
+        string getDefaultDir() const override { return defaultDir; }
 
         vector<string> getPack() override { return pack; }
 
@@ -346,7 +353,7 @@ namespace DeviceSim {
     class USART_Device : public Device {
 
     public:
-        string getDefaultDir() override { return defaultDir; }
+        string getDefaultDir() const override { return defaultDir; }
 
         vector<string> getPack() override { return pack; }
 
@@ -378,7 +385,7 @@ namespace DeviceSim {
     class Ethernet_Device : public Device {
 
     public:
-        string getDefaultDir() override { return defaultDir; }
+        string getDefaultDir() const override { return defaultDir; }
 
         vector<string> getPack() override { return pack; }
 
@@ -410,7 +417,7 @@ namespace DeviceSim {
     class CAN_Device : public Device {
 
     public:
-        string getDefaultDir() override { return defaultDir; }
+        string getDefaultDir() const override { return defaultDir; }
 
         vector<string> getPack() override { return pack; }
 

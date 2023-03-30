@@ -17,11 +17,11 @@ namespace DeviceSim {
         return instance;
     }
        
-    Device::Device(string dev_name) {
-        // this->dev_name = new char[strlen(dev_name) + 1];
-        // strcpy(this->dev_name, dev_name);
-        log.open("log", ios::app);
-    }
+    // Device::Device(string dev_name) {
+    //     // this->dev_name = new char[strlen(dev_name) + 1];
+    //     // strcpy(this->dev_name, dev_name);
+    //     log.open("log", ios::app);
+    // }
 
     void Device::device_open(command request) {
 
@@ -37,7 +37,7 @@ namespace DeviceSim {
                 if (!fd.is_open()) {
                     Device::device_open(WRITEONLY);
 
-                    devContent.config(DEFAULT, devHandler);
+                    devContent.config(DEFAULT);
 
                     Device::device_close();
                     Device::device_open(READONLY);
@@ -97,7 +97,7 @@ namespace DeviceSim {
         cout << endl;
     }
 
-    string Device::DeviceContent::config(command request, Device *devHandler) {
+    string Device::DeviceContent::config(command request) {
 
         string dir = devHandler->getDefaultDir();
 
@@ -114,12 +114,12 @@ namespace DeviceSim {
         return "true";
     }
 
-    string Device::DeviceContent::show(Device *devHandler) {
+    string Device::DeviceContent::show() {
         ofstream temp;
         temp.open("temp", ios::app);
 
         cout << "function 'Device::DeviceContent::show' worked" << endl << endl;
-
+        
         string dir = devHandler->getDefaultDir();
 
         vector<string> pack = devHandler->getPack();
@@ -191,7 +191,7 @@ namespace DeviceSim {
         return "true";
     }
 
-    string Device::DeviceContent::read(int offset, string property, Device *devHandler) {
+    string Device::DeviceContent::read(int offset, string property) {
 
         cout << "function 'Device::DeviceContent::read' worked" << endl << endl;
 
@@ -228,7 +228,7 @@ namespace DeviceSim {
         return word;
     }
 
-    string Device::DeviceContent::write(int offset, string property, string new_value, Device *devHandler) {
+    string Device::DeviceContent::write(int offset, string property, string new_value) {
 
         //cout << devHandler->dev_name << endl;
         cout << "function 'Device::DeviceContent::write' worked" << endl << endl;
