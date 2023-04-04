@@ -78,8 +78,16 @@ int main() {
     GPIO_Device& gpio2 = GPIO_Device::getInstance("device2");    
     cout << gpio2.getDevName() << endl;
     gpio2.device_open(WRITEONLY);
-    gpio2.parse();
 
+    //gpio2.parse();
+    gpio2.devContent.config(DEFAULT);
+    gpio2.devContent.show();
+    cout << gpio2.devContent.read(1, "name") << endl;
+    gpio2.devContent.write(1, "consumer", "button");
+    cout << gpio2.devContent.read(1, "consumer") << endl;
+    gpio2.devContent.show();
+
+    gpio2.device_close();
     return 0;
 }
 

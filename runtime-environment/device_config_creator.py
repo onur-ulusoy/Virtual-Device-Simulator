@@ -7,6 +7,8 @@ containing the configuration information for multiple instances of that device.
 @author Onur Ulusoy
 @date 28/03/2023
 @license MIT
+
+@usage python3 device_config_creator.py <device_type> <device_amount>
 """
 
 import sys

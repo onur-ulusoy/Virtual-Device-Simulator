@@ -3,7 +3,7 @@
  * @brief Driver library contains device classes simulating their attributes and behaviors to create virtual devices.
  *
  * @author Onur Ulusoy
- * @date 03/02/2023
+ * @date 03/02/2023 Reworked: 28/03/2022
  */
 #include "libdriver.hpp"
 
@@ -16,23 +16,18 @@ namespace DeviceSim {
         }
         return instance;
     }
-       
-    // Device::Device(string dev_name) {
-    //     // this->dev_name = new char[strlen(dev_name) + 1];
-    //     // strcpy(this->dev_name, dev_name);
-    //     log.open("log", ios::app);
-    // }
 
     void Device::device_open(command request) {
+        if (dev_is_open){
+            device_close();
+        }
 
         switch (request) {
 
             case READONLY:
                 cout << "function 'Device::device_open' worked as READONLY" << endl;
 
-
                 fd.open(dev_name, ios::in);
-                //cout << fd.is_open() << endl;
 
                 if (!fd.is_open()) {
                     Device::device_open(WRITEONLY);
@@ -48,9 +43,12 @@ namespace DeviceSim {
                 if (!fd.is_open()) {
                     std::cerr << "Unable to open " << dev_name << ": " << std::strerror(errno) << std::endl;
                     break;
-                } else
+                } 
+                
+                else
                     cout << dev_name << " is opened successfully as READONLY" << endl;
 
+                dev_is_open = true;
                 cout << endl;
                 break;
 
@@ -61,15 +59,17 @@ namespace DeviceSim {
                 if (!fd.is_open()) {
                     std::cerr << "Unable to open " << dev_name << ": " << std::strerror(errno) << std::endl;
                     break;
-                } else
+                } 
+                
+                else
                     cout << dev_name << " is opened successfully as WRITEONLY" << endl;
 
+                dev_is_open = true;
                 cout << endl;
                 break;
 
             default:
                 cout << "function 'Device::device_open' worked as DEFAULT" << endl << endl;
-                //device_close();
                 fd.open(devHandler->dev_name);
 
                 if (!fd.is_open()) {
@@ -78,10 +78,12 @@ namespace DeviceSim {
                 } else
                     cout << dev_name << " is opened successfully as DEFAULT" << endl;
 
+                dev_is_open = true;
                 cout << endl;
                 break;
 
-        }
+            }
+        
     }
 
     void Device::device_close() {
@@ -94,6 +96,7 @@ namespace DeviceSim {
         } else 
             cout << dev_name << " is already not open" << endl;
 
+        dev_is_open = false;
         cout << endl;
     }
 
@@ -106,10 +109,9 @@ namespace DeviceSim {
 
         if (request == DEFAULT) {
             cout << dir << endl;
-
-            //devHandler->parse(dir, devHandler);
-
+            devHandler->parse();
         }
+
         devHandler->device_close();
         return "true";
     }
@@ -200,8 +202,10 @@ namespace DeviceSim {
         vector<string> pack = devHandler->getPack();
         int packSize = devHandler->getPackSize();
 
-        int request = -2;
-
+        /**
+         * Check whether the property is exist in the device or not
+         */
+        int request = -1;
         for (int i = 0; i < packSize; i++) {
             if (property == pack[i]) {
                 request = i;
@@ -209,9 +213,8 @@ namespace DeviceSim {
             }
         }
 
-        if (request == -2) {
+        if (request == -1)
             return "false";
-        }
 
         devHandler->device_open(DEFAULT);
 
@@ -230,7 +233,6 @@ namespace DeviceSim {
 
     string Device::DeviceContent::write(const int offset, const string property, const string new_value) {
 
-        //cout << devHandler->dev_name << endl;
         cout << "function 'Device::DeviceContent::write' worked" << endl << endl;
 
         string dir = devHandler->getDefaultDir();
@@ -238,7 +240,7 @@ namespace DeviceSim {
         vector<string> pack = devHandler->getPack();
         int packSize = devHandler->getPackSize();
 
-        int request = -2;
+        int request = -1;
 
         for (int i = 0; i < packSize; i++) {
             if (property == pack[i]) {
@@ -246,22 +248,19 @@ namespace DeviceSim {
                 break;
             }
         }
-        if (request == -2) {
+        if (request == -1) 
             return "false";
-            //return 0;
-        }
-        //cout << devHandler->dev_name << endl;
-        devHandler->device_open(DEFAULT);
 
+        devHandler->device_open(DEFAULT);
         GotoLine(devHandler->getFd(), offset + 1);
 
         string line;
         getline(devHandler->getFd(), line);
-        //cout << line << endl;
-
-        auto *buffers = new string[packSize];
+        
+        auto *buffers = new string[packSize + 1];
+            
         Split(line, " ", buffers);
-
+        
         string new_line;
 
         for (int i = 0; i < packSize; i++) {
@@ -272,7 +271,6 @@ namespace DeviceSim {
                 new_line += buffers[i] + " ";
         }
         rtrim(new_line);
-        //cout << new_line << endl << endl;
 
 
         GotoLine(devHandler->getFd(), 1);

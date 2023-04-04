@@ -74,6 +74,8 @@ namespace DeviceSim {
         @brief The number of elements in the pack vector.
         @var vector<string> pack
         @brief Vector of strings storing information about the device's properties, such as offset, name, consumer, and flags.
+        @var dev_is_open
+        @brief Vector of strings storing information about the device's properties, such as offset, name, consumer, and flags.
         */
         string dev_name;
         string dev_type;
@@ -81,7 +83,8 @@ namespace DeviceSim {
         string defaultDir;
         int packSize;
         vector<string> pack;
-         
+        bool dev_is_open;
+
     public:
         /**
          * @var devHandler 
@@ -97,6 +100,7 @@ namespace DeviceSim {
         */
         Device(string dev_name) : devContent(this) {
             log.open("log", ios::app);
+            dev_is_open = false;
         }
         
         virtual ~Device() = default;
