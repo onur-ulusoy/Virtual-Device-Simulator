@@ -89,13 +89,6 @@ namespace DeviceSim {
         int packSize;
         vector<string> pack;
         bool dev_is_open;
-
-    public:
-        /**
-         * @var devHandler 
-         * @brief Pointer to the Device object for the base class itself
-         */
-        Device* devHandler = this;
         /**
         * @brief Constructor for the Device class
         *
@@ -111,6 +104,13 @@ namespace DeviceSim {
          * @brief Virtual destructor for the Device class. Uses default behavior.
          */
         virtual ~Device() = default; 
+        /**
+         * @var devHandler 
+         * @brief Pointer to the Device object for the base class itself
+         */
+        Device* devHandler = this;
+
+    public:
         /**
          * @brief Retrieves the device's name.
          * @return const string - A string representing the device name.
@@ -157,6 +157,10 @@ namespace DeviceSim {
         * @return int The size of the pack of the device
         */
         virtual const int getPackSize() const = 0;
+
+        virtual void setDevName(string dev_name){
+            this->dev_name = dev_name;
+        }
         /**
         * @brief Virtual function to parse data from a given directory
         * 
@@ -232,26 +236,70 @@ namespace DeviceSim {
          * @brief Object to the DeviceContent belongs to the main class to use main behaivors of the device
          */
         DeviceContent devContent;
+
+        private:
+            /**
+             * @brief Copy constructor and copy assignment operator are deleted to prevent copying of Device objects.
+             *
+             * Copying of Device objects is not allowed because each device should be uniquely identified by its name and ID.
+             * Copying a Device object would result in two instances with the same name and ID, which is not allowed.
+             * Therefore, the copy constructor and copy assignment operator are deleted.
+             */
+            Device(const Device&) = delete;
+            Device& operator=(const Device&) = delete;
+    };
+
+    /**
+     * @brief Template class to implement the Singleton design pattern for any type T.
+     *
+     * @tparam T The type for which a single instance is required of. Can be any device class (Ex: GPIO_Device).
+     */
+    template <typename T>
+    class Singleton {
+    public:
+        /**
+         * @brief Gets the single instance of the type T.
+         *
+         * If the input `dev_name` is non-empty, it sets the device name for the instance.
+         *
+         * @param dev_name A string representing the device name. If not provided or empty, the device name is not modified.
+         * @return T& A reference to the singleton instance of type T.
+         */
+        static T& getInstance(const string& dev_name){
+            static T instance(dev_name);
+            if (!dev_name.empty()) {
+                instance.setDevName(dev_name);
+            }
+            return instance;
+        }
+
+    protected:
+        Singleton() = default;
+        virtual ~Singleton() = default;
+
+    private:
+        /**
+         * @brief The copy constructor of the Singleton class is deleted to prevent copying.
+         */
+        Singleton(const Singleton&) = delete;
+
+        /**
+         * @brief The assignment operator of the Singleton class is deleted to prevent copying.
+         * @return Singleton&
+         */
+        Singleton& operator=(const Singleton&) = delete;
     };
 
     using json = nlohmann::json;
 
     /**
-    * @class GPIO_Device
+    * @class GPIO_Device    
     * @brief Models a GPIO device that is being simulated, implements pure virtual class Device.
     */
-    class GPIO_Device : public Device {
+    class GPIO_Device : public Device, public Singleton<GPIO_Device> {
 
     public:
-        /**
-         * @brief Singleton implementation to provide a single instance of GPIO_Device with a specific device name.
-         *
-         * If the input dev_name is non-empty, it sets the device name for the instance.
-         *
-         * @param dev_name - A string representing the device name. If not provided or empty, the device name is not modified.
-         * @return GPIO_Device& - A reference to the singleton instance of GPIO_Device.
-         */
-        static GPIO_Device& getInstance(string dev_name);
+        friend class Singleton<GPIO_Device>;
         
         const string getDefaultDir() const override { return defaultDir; }
 
@@ -277,24 +325,17 @@ namespace DeviceSim {
             this->pack = get_device_keys(this->dev_type);
             this->packSize = this->pack.size();
         };
+        
     };   
 
     /**
     * @class SPI_Device
     * @brief Models an SPI device that is being simulated, implements pure virtual class Device.
     */
-    class SPI_Device : public Device {
+    class SPI_Device : public Device, public Singleton<SPI_Device>{
 
     public:
-        /**
-         * @brief Singleton implementation to provide a single instance of SPI_Device with a specific device name.
-         *
-         * If the input dev_name is non-empty, it sets the device name for the instance.
-         *
-         * @param dev_name - A string representing the device name. If not provided or empty, the device name is not modified.
-         * @return SPI_Device& - A reference to the singleton instance of SPI_Device.
-         */
-        static SPI_Device& getInstance(string dev_name);
+        friend class Singleton<SPI_Device>;
         
         const string getDefaultDir() const override { return defaultDir; }
 
@@ -329,15 +370,7 @@ namespace DeviceSim {
     class I2C_Device : public Device {
 
     public:
-        /**
-         * @brief Singleton implementation to provide a single instance of I2C_Device with a specific device name.
-         *
-         * If the input dev_name is non-empty, it sets the device name for the instance.
-         *
-         * @param dev_name - A string representing the device name. If not provided or empty, the device name is not modified.
-         * @return I2C_Device& - A reference to the singleton instance of I2C_Device.
-         */
-        static I2C_Device& getInstance(string dev_name);
+        friend class Singleton<I2C_Device>;
         
         const string getDefaultDir() const override { return defaultDir; }
 
@@ -372,16 +405,8 @@ namespace DeviceSim {
     class UART_Device : public Device {
 
     public:
-        /**
-         * @brief Singleton implementation to provide a single instance of UART_Device with a specific device name.
-         *
-         * If the input dev_name is non-empty, it sets the device name for the instance.
-         *
-         * @param dev_name - A string representing the device name. If not provided or empty, the device name is not modified.
-         * @return UART_Device& - A reference to the singleton instance of UART_Device.
-         */
-        static UART_Device& getInstance(string dev_name);
-        
+        friend class Singleton<UART_Device>;
+
         const string getDefaultDir() const override { return defaultDir; }
 
         vector<string> getPack() const override { return pack; }
@@ -414,15 +439,7 @@ namespace DeviceSim {
     class USART_Device : public Device {
 
     public:
-        /**
-         * @brief Singleton implementation to provide a single instance of USART_Device with a specific device name.
-         *
-         * If the input dev_name is non-empty, it sets the device name for the instance.
-         *
-         * @param dev_name - A string representing the device name. If not provided or empty, the device name is not modified.
-         * @return USART_Device& - A reference to the singleton instance of USART_Device.
-         */
-        static USART_Device& getInstance(string dev_name);
+        friend class Singleton<USART_Device>;
         
         const string getDefaultDir() const override { return defaultDir; }
 
@@ -457,15 +474,7 @@ namespace DeviceSim {
     class CAN_Device : public Device {
 
     public:
-        /**
-         * @brief Singleton implementation to provide a single instance of CAN_Device with a specific device name.
-         *
-         * If the input dev_name is non-empty, it sets the device name for the instance.
-         *
-         * @param dev_name - A string representing the device name. If not provided or empty, the device name is not modified.
-         * @return CAN_Device& - A reference to the singleton instance of CAN_Device.
-         */
-        static CAN_Device& getInstance(string dev_name);
+        friend class Singleton<CAN_Device>;
         
         const string getDefaultDir() const override { return defaultDir; }
 
@@ -500,15 +509,7 @@ namespace DeviceSim {
     class Ethernet_Device : public Device {
 
     public:
-        /**
-         * @brief Singleton implementation to provide a single instance of Ethernet_Device with a specific device name.
-         *
-         * If the input dev_name is non-empty, it sets the device name for the instance.
-         *
-         * @param dev_name - A string representing the device name. If not provided or empty, the device name is not modified.
-         * @return Ethernet_Device& - A reference to the singleton instance of Ethernet_Device.
-         */
-        static Ethernet_Device& getInstance(string dev_name);
+        friend class Singleton<Ethernet_Device>;
         
         const string getDefaultDir() const override { return defaultDir; }
 
@@ -535,6 +536,5 @@ namespace DeviceSim {
             this->packSize = this->pack.size();
         };
     };  
-    
 }
 #endif //LIB_DRIVER_HPP
