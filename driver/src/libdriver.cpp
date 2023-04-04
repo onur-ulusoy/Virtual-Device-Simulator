@@ -9,14 +9,6 @@
 
 namespace DeviceSim {
 
-    GPIO_Device& GPIO_Device::getInstance(string dev_name){
-        static GPIO_Device instance("");
-        if (dev_name.length() > 0) {
-            instance.dev_name = dev_name;
-        }
-        return instance;
-    }
-
     void Device::device_open(command request) {
         if (dev_is_open){
             device_close();
@@ -359,4 +351,11 @@ namespace DeviceSim {
         return keys;
     }
 
+    GPIO_Device& GPIO_Device::getInstance(string dev_name){
+        static GPIO_Device instance("");
+        if (dev_name.length() > 0) {
+            instance.dev_name = dev_name;
+        }
+        return instance;
+    }
 }
