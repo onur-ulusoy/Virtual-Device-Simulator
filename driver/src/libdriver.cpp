@@ -1,13 +1,21 @@
 /**
- * @file libdriver.cpp
+ * @file libdriver.hpp
  * @brief Driver library contains device classes simulating their attributes and behaviors to create virtual devices.
  *
  * @author Onur Ulusoy
  * @date 03/02/2023 Reworked: 28/03/2022
+ *
+ * @section LICENSE
+ *
+ * Licensed under the MIT License. See LICENSE file in the root directory for details.
  */
 #include "libdriver.hpp"
 
 namespace DeviceSim {
+
+    void Device::setDevName(const string dev_name){
+        this->dev_name = dev_name;
+    }
 
     void Device::device_open(command request) {
         if (dev_is_open){

@@ -157,10 +157,11 @@ namespace DeviceSim {
         * @return int The size of the pack of the device
         */
         virtual const int getPackSize() const = 0;
-
-        virtual void setDevName(string dev_name){
-            this->dev_name = dev_name;
-        }
+        /**
+        * @brief Sets the device name for the Device object.
+        * @param dev_name - A string representing the device name to set.
+        */
+        virtual void setDevName(const string dev_name);
         /**
         * @brief Virtual function to parse data from a given directory
         * 
@@ -310,6 +311,17 @@ namespace DeviceSim {
         void parse() override {
             parse_device(this->defaultDir, this->fd);
         }
+
+        class GPIO_Pin{
+        public:
+            int id;
+            GPIO_Pin(const int id){
+                this->id = id;
+                //cout << getDefaultDir() << endl;
+            }
+
+
+        };
 
     private:
         /**

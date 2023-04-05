@@ -65,31 +65,15 @@ int main() {
 
     // cout << i2cDevHandler->getDevName() << endl;
     // cout << i2cDevHandler->getDefaultDir() << endl;
-    // cout << i2cDevHandler->getPackSize() << endl;
+    // cout << i2cDevHandler->getPackSize() << endl;z
     // cout << i2cDevHandler->getPack()[5] << endl;
     // i2cDevHandler->parse();
 
-    GPIO_Device& gpio = GPIO_Device::getInstance("device");    
-    cout << gpio.getDevName() << endl;
+    GPIO_Device& gpio_dev = GPIO_Device::getInstance("device");    
+    GPIO_Device::GPIO_Pin PA0 = GPIO_Device::GPIO_Pin(1);
+    
+    cout << PA0.id << endl;
 
-    GPIO_Device& gpio1 = GPIO_Device::getInstance("device1");    
-    cout << gpio1.getDevName() << endl;
-    gpio1.devContent.config(DEFAULT);
-    gpio1.devContent.show();
-
-    SPI_Device& spi = SPI_Device::getInstance("device2");    
-    cout << spi.getDevName() << endl;
-    spi.device_open(WRITEONLY);
-
-    //spi.parse();
-    spi.devContent.config(DEFAULT);
-    spi.devContent.show();
-    cout << spi.devContent.read(1, "name") << endl;
-    spi.devContent.write(1, "consumer", "button");
-    cout << spi.devContent.read(1, "consumer") << endl;
-    spi.devContent.show();
-
-    spi.device_close();
     return 0;
 }
 
