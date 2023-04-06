@@ -69,10 +69,13 @@ int main() {
     // cout << i2cDevHandler->getPack()[5] << endl;
     // i2cDevHandler->parse();
 
-    GPIO_Device& gpio_dev = GPIO_Device::getInstance("device");    
-    GPIO_Device::GPIO_Pin PA0 = GPIO_Device::GPIO_Pin(1);
-    
-    cout << PA0.id << endl;
+    Device& gpio_dev = GPIO_Device::getInstance("device"); 
+    gpio_dev.device_open(WRITEONLY);
+    gpio_dev.devContent.config(DEFAULT);
+    cout << gpio_dev.devContent.read(2, "name") << endl;
+    gpio_dev.device_close();
+
+
 
     return 0;
 }

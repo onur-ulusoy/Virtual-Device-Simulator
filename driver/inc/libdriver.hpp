@@ -144,19 +144,19 @@ namespace DeviceSim {
         * 
         * @return string The default directory of the device
         */
-        virtual const string getDefaultDir() const = 0;
+        virtual const string getDefaultDir() const { return defaultDir; }
         /**
         * @brief Returns the pack of the device
         * 
         * @return string* Pointer to the pack of the device
         */
-        virtual vector<string> getPack() const = 0;
+        virtual vector<string> getPack() const { return pack; }
         /**
         * @brief Returns the size of the pack of the device
         * 
         * @return int The size of the pack of the device
         */
-        virtual const int getPackSize() const = 0;
+        virtual const int getPackSize() const { return packSize; }
         /**
         * @brief Sets the device name for the Device object.
         * @param dev_name - A string representing the device name to set.
@@ -302,26 +302,9 @@ namespace DeviceSim {
     public:
         friend class Singleton<GPIO_Device>;
         
-        const string getDefaultDir() const override { return defaultDir; }
-
-        vector<string> getPack() const override { return pack; }
-
-        int const getPackSize() const override { return packSize; }
-        
         void parse() override {
             parse_device(this->defaultDir, this->fd);
         }
-
-        class GPIO_Pin{
-        public:
-            int id;
-            GPIO_Pin(const int id){
-                this->id = id;
-                //cout << getDefaultDir() << endl;
-            }
-
-
-        };
 
     private:
         /**
@@ -348,12 +331,6 @@ namespace DeviceSim {
 
     public:
         friend class Singleton<SPI_Device>;
-        
-        const string getDefaultDir() const override { return defaultDir; }
-
-        vector<string> getPack() const override { return pack; }
-
-        int const getPackSize() const override { return packSize; }
         
         void parse() override {
             parse_device(this->defaultDir, this->fd);
@@ -384,12 +361,6 @@ namespace DeviceSim {
     public:
         friend class Singleton<I2C_Device>;
         
-        const string getDefaultDir() const override { return defaultDir; }
-
-        vector<string> getPack() const override { return pack; }
-
-        int const getPackSize() const override { return packSize; }
-        
         void parse() override {
             parse_device(this->defaultDir, this->fd);
         }
@@ -419,11 +390,11 @@ namespace DeviceSim {
     public:
         friend class Singleton<UART_Device>;
 
-        const string getDefaultDir() const override { return defaultDir; }
+        void parse() override {
+            parse_device(this->defaultDir, this->fd);
+        }
 
-        vector<string> getPack() const override { return pack; }
-
-        int const getPackSize() const override { return packSize; }
+    private:
         /**
         * @brief Constructor for the UART_Device class
         *
@@ -431,11 +402,6 @@ namespace DeviceSim {
         *
         * Calls the constructor of the child class `UART_Device` and initializes the main attributes.
         */
-        void parse() override {
-            parse_device(this->defaultDir, this->fd);
-        }
-
-    private:
         UART_Device(string dev_name) : Device(dev_name) {
             this->dev_type = "UART";
             this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
@@ -452,12 +418,6 @@ namespace DeviceSim {
 
     public:
         friend class Singleton<USART_Device>;
-        
-        const string getDefaultDir() const override { return defaultDir; }
-
-        vector<string> getPack() const override { return pack; }
-
-        int const getPackSize() const override { return packSize; }
         
         void parse() override {
             parse_device(this->defaultDir, this->fd);
@@ -488,12 +448,6 @@ namespace DeviceSim {
     public:
         friend class Singleton<CAN_Device>;
         
-        const string getDefaultDir() const override { return defaultDir; }
-
-        vector<string> getPack() const override { return pack; }
-
-        int const getPackSize() const override { return packSize; }
-        
         void parse() override {
             parse_device(this->defaultDir, this->fd);
         }
@@ -522,12 +476,6 @@ namespace DeviceSim {
 
     public:
         friend class Singleton<Ethernet_Device>;
-        
-        const string getDefaultDir() const override { return defaultDir; }
-
-        vector<string> getPack() const override { return pack; }
-
-        int const getPackSize() const override { return packSize; }
         
         void parse() override {
             parse_device(this->defaultDir, this->fd);
