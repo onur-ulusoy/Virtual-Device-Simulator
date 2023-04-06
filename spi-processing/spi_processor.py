@@ -16,6 +16,9 @@ class SpiFileProcessor:
         encrypted_data = f.encrypt(data.encode())
         return key, encrypted_data
 
+    def decrypt(self, key, encrypted_data):
+        f = Fernet(key)
+        return f.decrypt(encrypted_data).decode()
 
     def process_spi(self):
         with open(self.input_file, 'r') as infile:
@@ -43,15 +46,42 @@ class SpiFileProcessor:
 
         conn.close()
 
+class SQLiteDatabase:
+    def __init__(self, db_path):
+        self.conn = sqlite3.connect(db_path)
 
-def main(input_file):
+    def get_all_tables(self):
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        tables = [table[0] for table in cursor.fetchall()]
+        return tables
+
+    def read_table(self, table_name):
+        cursor = self.conn.cursor()
+        cursor.execute(f"SELECT * FROM {table_name};")
+        return cursor.fetchall()
+
+def main(input_file, decrypt_flag=False):
     spi_processor = SpiFileProcessor(input_file)
-    spi_processor.process_spi()
+    if not decrypt_flag:
+        spi_processor.process_spi()
+    else:
+        db = SQLiteDatabase("spi_data.db")
+        rows = db.read_table("spi_data")
+        for row in rows:
+            key, encrypted_data, spi_read_line = row
+            decrypted_data = spi_processor.decrypt(key, encrypted_data)
+            print(f"{spi_read_line.strip()} -> {decrypted_data}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process input file.")
-    parser.add_argument("input", help="The input text file.")
+    parser.add_argument("-i", "--input", help="The input text file.", default=None)
+    parser.add_argument("-d", "--decrypt", help="Decrypt and display the data.", action="store_true")
     
     args = parser.parse_args()
-    
-    main(args.input)
+
+    if not args.decrypt and args.input is None:
+        print("Error: An input file is required when not using the --decrypt flag.")
+        parser.print_help()
+    else:
+        main(args.input, args.decrypt)

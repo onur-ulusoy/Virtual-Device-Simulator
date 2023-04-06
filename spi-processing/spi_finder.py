@@ -1,5 +1,6 @@
 import sqlite3
 from cryptography.fernet import Fernet
+import argparse
 
 class SpiReadFinder:
     def __init__(self, db_file):
@@ -26,17 +27,26 @@ class SpiReadFinder:
         conn.close()
         return None
 
-def main():
+def main(input_file):
     spi_read_finder = SpiReadFinder("spi_data.db")
     
-    user_input = input("Enter spi_write data: ")
-    spi_read_line = spi_read_finder.find_spi_read_line(user_input)
-    
-    if spi_read_line:
-        print("Associated spi_read line:")
-        print(spi_read_line)
-    else:
-        print("No such key found.")
+    with open(input_file, 'r') as infile:
+        for spi_write_data in infile:
+            spi_write_data = spi_write_data.strip()
+            spi_read_line = spi_read_finder.find_spi_read_line(spi_write_data)
+            
+            print(f"Searching for: {spi_write_data}")
+            if spi_read_line:
+                print("Associated spi_read line:")
+                print(spi_read_line)
+            else:
+                print("No such key found.")
+            print("------")
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Process input file with spi_write data.")
+    parser.add_argument("input", help="The input text file.")
+    
+    args = parser.parse_args()
+    
+    main(args.input)
