@@ -38,3 +38,6 @@ googletest/
 
 ## python cache folders
 __pycache__/
+
+## database of spi logs retrieved in real machine
+spi_data.db
