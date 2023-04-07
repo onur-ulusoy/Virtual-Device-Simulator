@@ -23,27 +23,24 @@ class SpiFileProcessor:
 
     def process_spi(self):
         with open(self.input_file, 'r') as infile:
-            saved_spi_writes = set()
             for line in infile:
                 if line.startswith("spi_write"):
                     self.spi_write_data += line
                 elif line.startswith("spi_read"):
                     key, encrypted_data = self.encrypt(self.spi_write_data)
                     self.save_to_db(key, encrypted_data, line)
-                    saved_spi_writes.add(self.spi_write_data)
                     self.spi_write_data = ""
-            # Save the remaining spi_write_data if it has not been saved yet
-            if self.spi_write_data and self.spi_write_data not in saved_spi_writes:
+            # Save the remaining spi_write_data
+            if self.spi_write_data:
                 key, encrypted_data = self.encrypt(self.spi_write_data)
                 self.save_to_db(key, encrypted_data, "")
-
 
     def save_to_db(self, key, encrypted_data, spi_read_line):
         conn = sqlite3.connect("spi_data.db")
         cursor = conn.cursor()
 
-        # Create a hash of the spi_write and spi_read lines to use as the table name
-        table_name = "spi_" + hashlib.sha1((self.spi_write_data + spi_read_line).encode()).hexdigest()
+        # Create a hash of the spi_write line to use as the table name
+        table_name = "spi_" + hashlib.sha1(self.spi_write_data.encode()).hexdigest()
 
         cursor.execute(
             f"""CREATE TABLE IF NOT EXISTS {table_name} (
@@ -51,25 +48,27 @@ class SpiFileProcessor:
             )"""
         )
 
-        cursor.execute(f"SELECT COUNT(*), COALESCE(entry_count, 0) FROM {table_name} WHERE spi_write_line = ?", (self.spi_write_data,))
-        count, entry_count = cursor.fetchone()
+        cursor.execute(f"SELECT *, ROWID FROM {table_name} ORDER BY ROWID DESC LIMIT 1")
+        last_row = cursor.fetchone()
 
-        if count == 0:
+        if last_row is None or last_row[3] != spi_read_line:
             cursor.execute(
                 f"""INSERT INTO {table_name} (encryption_key, encrypted_value, spi_write_line, spi_read_line, entry_count)
                 VALUES (?, ?, ?, ?, ?)""",
                 (key, encrypted_data, self.spi_write_data, spi_read_line, 1),
             )
         else:
-            entry_count += 1
+            entry_count = last_row[-2] + 1
+            row_id = last_row[-1]
             cursor.execute(
-                f"""UPDATE {table_name} SET encryption_key = ?, encrypted_value = ?, spi_read_line = ?, entry_count = ?
-                WHERE spi_write_line = ?""",
-                (key, encrypted_data, spi_read_line, entry_count, self.spi_write_data),
+                f"""UPDATE {table_name} SET encryption_key = ?, encrypted_value = ?, entry_count = ? WHERE ROWID = ?""",
+                (key, encrypted_data, entry_count, row_id),
             )
 
         conn.commit()
         conn.close()
+
+
 
 
 class SQLiteDatabase:
@@ -93,13 +92,17 @@ def main(input_file, decrypt_flag=False):
         spi_processor.process_spi()
     else:
         db = SQLiteDatabase("spi_data.db")
-        rows = db.read_table("spi_data")
-        for row in rows:
-            print("\n****************")
-            key, encrypted_data, spi_read_line = row
-            decrypted_data = spi_processor.decrypt(key, encrypted_data)
-            print(f"{decrypted_data}->\n{spi_read_line.strip()}")
-            print("****************\n")
+        tables = db.get_all_tables()
+        for table_name in tables:
+            rows = db.read_table(table_name)
+            for row in rows:
+                print("\n****************")
+                _, key, encrypted_data, spi_write_line, spi_read_line, entry_count = row
+                decrypted_data = spi_processor.decrypt(key, encrypted_data)
+                print(f"spi_write:\n{decrypted_data}")
+                print(f"spi_read:\n{spi_read_line.strip()}")
+                print(f"Entry Count: {entry_count}")
+                print("****************\n")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process input file.")
