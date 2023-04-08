@@ -1,6 +1,6 @@
 import sqlite3
-from cryptography.fernet import Fernet
 import argparse
+from spi_processor import encrypt_write_data
 
 class SpiReadFinder:
     def __init__(self, db_file):
@@ -10,38 +10,40 @@ class SpiReadFinder:
         conn = sqlite3.connect(self.db_file)
         cursor = conn.cursor()
 
-        cursor.execute("SELECT encrypted_value, encryption_key FROM spi_data")
-        rows = cursor.fetchall()
+        # Create a hash of the spi_write line to use as the table name
+        table_name = encrypt_write_data(spi_write_data)
 
-        for row in rows:
-            encrypted_data, key = row
-            f = Fernet(key)
-            decrypted_data = f.decrypt(encrypted_data)
+        # Strip any leading or trailing whitespace or non-printable characters
+        spi_write_line = spi_write_data.strip()
 
-            if decrypted_data.decode() == spi_write_data:
-                cursor.execute("SELECT spi_read_line FROM spi_data WHERE encryption_key = ? AND encrypted_value = ?", (key, encrypted_data))
-                spi_read_line = cursor.fetchone()[0]
-                conn.close()
-                return spi_read_line
+        cursor.execute(f"SELECT spi_read_line FROM {table_name} WHERE spi_write_line = ?", (spi_write_line,))
+        spi_read_line = cursor.fetchone()
 
         conn.close()
-        return None
+
+        if spi_read_line:
+            return spi_read_line[0]
+        else:
+            return None
+
+
 
 def main(input_file):
     spi_read_finder = SpiReadFinder("spi_data.db")
-    
+
     with open(input_file, 'r') as infile:
-        for spi_write_data in infile:
-            spi_write_data = spi_write_data.strip()
-            spi_read_line = spi_read_finder.find_spi_read_line(spi_write_data)
-            
-            print(f"Searching for: {spi_write_data}")
-            if spi_read_line:
-                print("Associated spi_read line:")
-                print(spi_read_line)
-            else:
-                print("No such key found.")
-            print("------")
+        spi_write_data = infile.read().strip()
+        print(spi_write_data.__len__())
+        spi_read_line = spi_read_finder.find_spi_read_line(spi_write_data)
+
+        print(f"Searching for:\n{spi_write_data}")
+        if spi_read_line:
+            print("Associated spi_read line:")
+            print(spi_read_line)
+        else:
+            print("No such key found.")
+        print("------")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process input file with spi_write data.")

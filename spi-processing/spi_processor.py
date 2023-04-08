@@ -25,21 +25,23 @@ class SpiFileProcessor:
         conn = sqlite3.connect("spi_data.db")
         cursor = conn.cursor()
 
-        # Create a hash of the spi_write line to use as the table name
-        table_name = "spi_" + hashlib.sha1(spi_write_data.encode()).hexdigest()
+        self.spi_write_data = self.spi_write_data.rstrip("\n")
+        #print(self.spi_write_data)
+        self.table_name = encrypt_write_data(self.spi_write_data)
+        #print(self.table_name)
 
         cursor.execute(
-            f"""CREATE TABLE IF NOT EXISTS {table_name} (
+            f"""CREATE TABLE IF NOT EXISTS {self.table_name} (
                 spi_write_line TEXT, spi_read_line TEXT, entry_count INTEGER
             )"""
         )
 
-        cursor.execute(f"SELECT *, ROWID FROM {table_name} ORDER BY ROWID DESC LIMIT 1")
+        cursor.execute(f"SELECT *, ROWID FROM {self.table_name} ORDER BY ROWID DESC LIMIT 1")
         last_row = cursor.fetchone()
 
         if last_row is None or last_row[1] != spi_read_line:
             cursor.execute(
-                f"""INSERT INTO {table_name} (spi_write_line, spi_read_line, entry_count)
+                f"""INSERT INTO {self.table_name} (spi_write_line, spi_read_line, entry_count)
                 VALUES (?, ?, ?)""",
                 (spi_write_data, spi_read_line, 1),
             )
@@ -47,7 +49,7 @@ class SpiFileProcessor:
             entry_count = last_row[2] + 1
             row_id = last_row[3]
             cursor.execute(
-                f"""UPDATE {table_name} SET entry_count = ? WHERE ROWID = ?""",
+                f"""UPDATE {self.table_name} SET entry_count = ? WHERE ROWID = ?""",
                 (entry_count, row_id),
             )
 
@@ -79,6 +81,11 @@ class SpiFileProcessor:
                 print(f"{colored_spi_write_data}\nassociates\n{colored_spi_read_line}\n\n(entry count: {entry_count})")
                 print("\n")
 
+def encrypt_write_data(spi_write_data):
+        # Create a hash of the spi_write line to use as the table name
+        table_name = "spi_" + hashlib.sha1(spi_write_data.encode()).hexdigest()
+        return table_name
+
 class SQLiteDatabase:
     def __init__(self, db_path):
         self.conn = sqlite3.connect(db_path)
@@ -93,6 +100,7 @@ class SQLiteDatabase:
         cursor = self.conn.cursor()
         cursor.execute(f"SELECT * FROM {table_name};")
         return cursor.fetchall()
+
 
 def main(input_file, display_flag=False):
     spi_processor = SpiFileProcessor(input_file)
