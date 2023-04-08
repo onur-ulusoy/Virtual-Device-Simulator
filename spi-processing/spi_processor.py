@@ -68,8 +68,36 @@ class SpiFileProcessor:
         conn.commit()
         conn.close()
 
+    def decrypt_and_display(self):
 
+        # ANSI escape codes for colors
+        RED = "\033[31m"
+        GREEN = "\033[32m"
+        YELLOW = "\033[33m"
+        BLUE = "\033[34m"
+        MAGENTA = "\033[35m"
+        CYAN = "\033[36m"
+        RESET = "\033[0m"
 
+        # Choose the color you want to use for each string
+        decrypted_data_color = YELLOW
+        spi_read_line_color = GREEN
+        
+        db = SQLiteDatabase("spi_data.db")
+
+        table_names = db.get_all_tables()
+        for table_name in table_names:
+            rows = db.read_table(table_name)
+            for row in rows:
+                key, encrypted_data, spi_write_line, spi_read_line, entry_count = row
+                decrypted_data = self.decrypt(key, encrypted_data)
+                # Add color to the strings
+                colored_decrypted_data = f"{decrypted_data_color}{decrypted_data.strip()}{RESET}"
+                colored_spi_read_line = f"{spi_read_line_color}{spi_read_line.strip()}{RESET}"
+                
+                print("\n")
+                print(f"{colored_decrypted_data}\nassociates\n{colored_spi_read_line}\n\n(entry count: {entry_count})")
+                print("\n")
 
 class SQLiteDatabase:
     def __init__(self, db_path):
@@ -91,18 +119,8 @@ def main(input_file, decrypt_flag=False):
     if not decrypt_flag:
         spi_processor.process_spi()
     else:
-        db = SQLiteDatabase("spi_data.db")
-        tables = db.get_all_tables()
-        for table_name in tables:
-            rows = db.read_table(table_name)
-            for row in rows:
-                print("\n****************")
-                _, key, encrypted_data, spi_write_line, spi_read_line, entry_count = row
-                decrypted_data = spi_processor.decrypt(key, encrypted_data)
-                print(f"spi_write:\n{decrypted_data}")
-                print(f"spi_read:\n{spi_read_line.strip()}")
-                print(f"Entry Count: {entry_count}")
-                print("****************\n")
+        spi_processor.decrypt_and_display()
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process input file.")
