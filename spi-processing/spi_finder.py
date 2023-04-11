@@ -14,15 +14,24 @@ class SpiReadFinder:
 
         table_name = encrypt_write_data(spi_write_data)
 
-        cursor.execute(f"SELECT spi_read_line FROM {table_name} WHERE spi_write_line = ?", (spi_write_data,))
-        spi_read_line = cursor.fetchone()
+        cursor.execute(f"SELECT spi_read_line, entry_count, iteration, ROWID FROM {table_name} WHERE spi_write_line = ? AND iteration != 0", (spi_write_data,))
+        row = cursor.fetchone()
+
+        if row:
+            spi_read_line, entry_count, iteration, row_id = row
+            if iteration < entry_count:
+                cursor.execute(f"UPDATE {table_name} SET iteration = iteration + 1 WHERE ROWID = ?", (row_id,))
+            else:
+                cursor.execute(f"UPDATE {table_name} SET iteration = 0 WHERE ROWID = ?", (row_id,))
+                cursor.execute(f"UPDATE {table_name} SET iteration = 1 WHERE ROWID = ?", (row_id + 1,))
+
+            conn.commit()
+        else:
+            spi_read_line = None
 
         conn.close()
 
-        if spi_read_line:
-            return spi_read_line[0]
-        else:
-            return None
+        return spi_read_line
 
     def duplicate_db_and_update(self):
         new_db_file = "spi_data_copy.db"
