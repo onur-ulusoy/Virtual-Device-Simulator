@@ -1,6 +1,4 @@
 import sqlite3
-import argparse
-import os
 import shutil
 from spi_processor import encrypt_write_data
 
@@ -19,11 +17,17 @@ class SpiReadFinder:
 
         if row:
             spi_read_line, entry_count, iteration, row_id = row
+            print(f"Iteration: {iteration}, Entry Count: {entry_count}, Cell Number: {row_id}")
             if iteration < entry_count:
                 cursor.execute(f"UPDATE {table_name} SET iteration = iteration + 1 WHERE ROWID = ?", (row_id,))
             else:
                 cursor.execute(f"UPDATE {table_name} SET iteration = 0 WHERE ROWID = ?", (row_id,))
-                cursor.execute(f"UPDATE {table_name} SET iteration = 1 WHERE ROWID = ?", (row_id + 1,))
+                cursor.execute(f"SELECT COUNT(*) FROM {table_name}")
+                total_rows = cursor.fetchone()[0]
+                if row_id == total_rows:
+                    cursor.execute(f"UPDATE {table_name} SET iteration = 1 WHERE ROWID = 1")
+                else:
+                    cursor.execute(f"UPDATE {table_name} SET iteration = 1 WHERE ROWID = ?", (row_id + 1,))
 
             conn.commit()
         else:
