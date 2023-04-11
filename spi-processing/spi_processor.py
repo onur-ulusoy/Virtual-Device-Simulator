@@ -12,23 +12,23 @@ class SpiFileProcessor:
     def process_spi(self):
         with open(self.input_file, 'r') as infile:
             for line in infile:
+                line = line.strip()  # Remove extra spaces and newlines
                 if line.startswith("spi_write"):
-                    self.spi_write_data += line
+                    self.spi_write_data += line + '\n'  # Add newline after each line
                 elif line.startswith("spi_read"):
-                    self.save_to_db(self.spi_write_data, line)
+                    self.save_to_db(self.spi_write_data.strip(), line)  # Remove extra spaces and newlines
                     self.spi_write_data = ""
             # Save the remaining spi_write_data
             if self.spi_write_data:
-                self.save_to_db(self.spi_write_data, "")
+                self.save_to_db(self.spi_write_data.strip(), "")
+
 
     def save_to_db(self, spi_write_data, spi_read_line):
         conn = sqlite3.connect("spi_data.db")
         cursor = conn.cursor()
 
         self.spi_write_data = self.spi_write_data.rstrip("\n")
-        #print(self.spi_write_data)
         self.table_name = encrypt_write_data(self.spi_write_data)
-        #print(self.table_name)
 
         cursor.execute(
             f"""CREATE TABLE IF NOT EXISTS {self.table_name} (

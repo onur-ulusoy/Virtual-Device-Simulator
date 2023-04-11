@@ -13,10 +13,7 @@ class SpiReadFinder:
         # Create a hash of the spi_write line to use as the table name
         table_name = encrypt_write_data(spi_write_data)
 
-        # Strip any leading or trailing whitespace or non-printable characters
-        spi_write_line = spi_write_data.strip()
-
-        cursor.execute(f"SELECT spi_read_line FROM {table_name} WHERE spi_write_line = ?", (spi_write_line,))
+        cursor.execute(f"SELECT spi_read_line FROM {table_name} WHERE spi_write_line = ?", (spi_write_data,))
         spi_read_line = cursor.fetchone()
 
         conn.close()
@@ -27,13 +24,11 @@ class SpiReadFinder:
             return None
 
 
-
 def main(input_file):
     spi_read_finder = SpiReadFinder("spi_data.db")
 
     with open(input_file, 'r') as infile:
         spi_write_data = infile.read().strip()
-        print(spi_write_data.__len__())
         spi_read_line = spi_read_finder.find_spi_read_line(spi_write_data)
 
         print(f"Searching for:\n{spi_write_data}")
