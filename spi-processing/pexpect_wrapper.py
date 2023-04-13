@@ -1,7 +1,7 @@
 import pexpect
 
 def send_input_to_spi_finder(input_file):
-    child = pexpect.spawn("python spi_finder.py")
+    child = pexpect.spawn("python3 spi_finder.py")
     child.expect(".*")
     child.sendline(input_file)
     child.expect("------")

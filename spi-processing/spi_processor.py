@@ -1,13 +1,14 @@
-#!/usr/bin/env python3
-
 import argparse
-import sqlite3
 import hashlib
+import json
+from collections import defaultdict
 
 class SpiFileProcessor:
     def __init__(self, input_file):
+        self.json_file = "spi_data.json"
         self.input_file = input_file
         self.spi_write_data = ""
+        self.spi_data = defaultdict(list)
 
     def process_spi(self):
         with open(self.input_file, 'r') as infile:
@@ -16,45 +17,36 @@ class SpiFileProcessor:
                 if line.startswith("spi_write"):
                     self.spi_write_data += line + '\n'  # Add newline after each line
                 elif line.startswith("spi_read"):
-                    self.save_to_db(self.spi_write_data.strip(), line)  # Remove extra spaces and newlines
+                    self.save_to_json(self.spi_write_data.strip(), line)  # Remove extra spaces and newlines
                     self.spi_write_data = ""
             # Save the remaining spi_write_data
             if self.spi_write_data:
-                self.save_to_db(self.spi_write_data.strip(), "")
+                self.save_to_json(self.spi_write_data.strip(), "")
 
+    def save_to_json(self, spi_write_data, spi_read_line):
+        table_name = encrypt_write_data(spi_write_data)
 
-    def save_to_db(self, spi_write_data, spi_read_line):
-        conn = sqlite3.connect("spi_data.db")
-        cursor = conn.cursor()
+        if table_name not in self.spi_data:
+            self.spi_data[table_name] = []
 
-        self.spi_write_data = self.spi_write_data.rstrip("\n")
-        self.table_name = encrypt_write_data(self.spi_write_data)
+        last_row = None
+        if self.spi_data[table_name]:
+            last_row = self.spi_data[table_name][-1]
 
-        cursor.execute(
-            f"""CREATE TABLE IF NOT EXISTS {self.table_name} (
-                spi_write_line TEXT, spi_read_line TEXT, entry_count INTEGER
-            )"""
-        )
-
-        cursor.execute(f"SELECT *, ROWID FROM {self.table_name} ORDER BY ROWID DESC LIMIT 1")
-        last_row = cursor.fetchone()
-
-        if last_row is None or last_row[1] != spi_read_line:
-            cursor.execute(
-                f"""INSERT INTO {self.table_name} (spi_write_line, spi_read_line, entry_count)
-                VALUES (?, ?, ?)""",
-                (spi_write_data, spi_read_line, 1),
-            )
+        if last_row is None or last_row["spi_read_line"] != spi_read_line:
+            new_entry = {"spi_write_line": spi_write_data, "spi_read_line": spi_read_line, "entry_count": 1}
+            self.spi_data[table_name].append(new_entry)
         else:
-            entry_count = last_row[2] + 1
-            row_id = last_row[3]
-            cursor.execute(
-                f"""UPDATE {self.table_name} SET entry_count = ? WHERE ROWID = ?""",
-                (entry_count, row_id),
-            )
+            last_row["entry_count"] += 1
 
-        conn.commit()
-        conn.close()
+        with open(self.json_file, "w") as outfile:
+            json.dump(self.spi_data, outfile, indent=4)
+
+
+    def create_tree_from_json(self):
+        json_file = 'spi_data.json'
+        with open(json_file, 'r') as f:
+            self.spi_data = json.load(f)
 
     def display_spi_data(self):
         # ANSI escape codes for colors
@@ -66,12 +58,10 @@ class SpiFileProcessor:
         spi_write_data_color = YELLOW
         spi_read_line_color = GREEN
 
-        db = SQLiteDatabase("spi_data.db")
-        table_names = db.get_all_tables()
-        for table_name in table_names:
-            rows = db.read_table(table_name)
+        self.create_tree_from_json()
+        for table_name, rows in self.spi_data.items():
             for row in rows:
-                spi_write_line, spi_read_line, entry_count = row
+                spi_write_line, spi_read_line, entry_count = row.values()
 
                 # Add color to the strings
                 colored_spi_write_data = f"{spi_write_data_color}{spi_write_line.strip()}{RESET}"
@@ -82,25 +72,9 @@ class SpiFileProcessor:
                 print("\n")
 
 def encrypt_write_data(spi_write_data):
-        # Create a hash of the spi_write line to use as the table name
-        table_name = "spi_" + hashlib.sha1(spi_write_data.encode()).hexdigest()
-        return table_name
-
-class SQLiteDatabase:
-    def __init__(self, db_path):
-        self.conn = sqlite3.connect(db_path)
-
-    def get_all_tables(self):
-        cursor = self.conn.cursor()
-        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-        tables = [table[0] for table in cursor.fetchall()]
-        return tables
-
-    def read_table(self, table_name):
-        cursor = self.conn.cursor()
-        cursor.execute(f"SELECT * FROM {table_name};")
-        return cursor.fetchall()
-
+    # Create a hash of the spi_write line to use as the table name
+    table_name = "spi_" + hashlib.sha1(spi_write_data.encode()).hexdigest()
+    return table_name
 
 def main(input_file, display_flag=False):
     spi_processor = SpiFileProcessor(input_file)
