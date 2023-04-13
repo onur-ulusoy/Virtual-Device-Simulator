@@ -25,7 +25,7 @@ class SpiFileProcessor:
                 self.save_to_json(self.spi_write_data.strip(), "")
 
     def save_to_json(self, spi_write_data, spi_read_line):
-        table_name = encrypt_write_data(spi_write_data)
+        table_name = self.encrypt_write_data()
 
         if os.path.exists(self.json_file):
             with open(self.json_file, "r") as infile:
@@ -150,10 +150,10 @@ class SpiFileProcessor:
                 print(f"{colored_spi_write_data}\nassociates\n{colored_spi_read_line}\n\n(entry count: {entry_count})")
                 print("\n")
 
-def encrypt_write_data(spi_write_data):
-    # Create a hash of the spi_write line to use as the table name
-    table_name = "spi_" + hashlib.sha1(spi_write_data.encode()).hexdigest()
-    return table_name
+    def encrypt_write_data(self):
+        # Create a hash of the spi_write line to use as the table name
+        table_name = "spi_" + hashlib.sha1(self.spi_write_data.encode()).hexdigest()
+        return table_name
 
 def main(input_file, display_flag=False, find_flag=False, print_tree_flag=False):
     spi_processor = SpiFileProcessor(input_file)
