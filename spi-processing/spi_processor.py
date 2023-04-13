@@ -48,8 +48,35 @@ class SpiFileProcessor:
 
         with open(self.json_file, "w") as outfile:
             json.dump(self.spi_data, outfile, indent=4)
+    # spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00
+    def get_associated_spi_read(self, spi_write_data):
+        spi_read_lines = []
 
+        if spi_write_data in self.spi_tree:
+            all_zero = all(iteration_number == 0 for _, _, iteration_number in self.spi_tree[spi_write_data])
 
+            if all_zero:
+                spi_read_line, entry_count, _ = self.spi_tree[spi_write_data][0]
+                self.spi_tree[spi_write_data][0] = (spi_read_line, entry_count, 1)
+
+            for i, (spi_read_line, entry_count, iteration_number) in enumerate(self.spi_tree[spi_write_data]):
+                if iteration_number != 0:
+                    spi_read_lines.append(spi_read_line)
+                    # Increment iteration_number by 1
+                    new_iteration_number = iteration_number + 1
+
+                    # If iteration count == entry count, make it 0 and set the next cell's iteration to 1
+                    if new_iteration_number > entry_count:
+                        new_iteration_number = 0
+                        if i + 1 < len(self.spi_tree[spi_write_data]):
+                            next_spi_read_line, next_entry_count, _ = self.spi_tree[spi_write_data][i + 1]
+                            self.spi_tree[spi_write_data][i + 1] = (next_spi_read_line, next_entry_count, 1)
+
+                    self.spi_tree[spi_write_data][i] = (spi_read_line, entry_count, new_iteration_number)
+                    break  # exit the loop once we've found the entry with a non-zero iteration number
+        self.print_spi_tree()
+        return spi_read_lines
+    
     def create_tree_from_json(self):
         json_file = 'spi_data.json'
         with open(json_file, 'r') as f:
@@ -76,6 +103,30 @@ class SpiFileProcessor:
                 print(f"  {spi_read_line} {GREEN}x{entry_count}, {YELLOW} iteration: {iteration_number}{RESET}")
             print()
 
+    def get_associated_spi_read_from_input(self):
+        while True:
+            try:
+                spi_write_line = input("Enter the spi_write line: ").strip()
+                if not spi_write_line:
+                    print("Please enter a valid spi_write line.")
+                    continue
+
+                associated_spi_read_lines = self.get_associated_spi_read(spi_write_line)
+
+                print(f"Searching for:\n{spi_write_line}")
+                if associated_spi_read_lines:
+                    print("Associated spi_read lines:")
+                    for spi_read_line in associated_spi_read_lines:
+                        print(spi_read_line)
+                else:
+                    print("No such key found.")
+                print("------")
+
+            except KeyboardInterrupt:
+                print("\nExiting the program.")
+                break
+            except Exception as e:
+                print(f"Error: {e}")
 
     def display_spi_data(self):
         # ANSI escape codes for colors
@@ -99,30 +150,6 @@ class SpiFileProcessor:
                 print(f"{colored_spi_write_data}\nassociates\n{colored_spi_read_line}\n\n(entry count: {entry_count})")
                 print("\n")
 
-# class SpiReadFinder:
-#     def __init__(self, json_file):
-#         self.json_file = json_file
-#         self.spi_data = {}
-
-#     def load_spi_data(self):
-#         with open(self.json_file, 'r') as infile:
-#             self.spi_data = json.load(infile)
-
-#     def find_spi_read_line(self, spi_write_data):
-#         self.load_spi_data()
-
-#         table_name = encrypt_write_data(spi_write_data)
-
-#         if table_name not in self.spi_data:
-#             return None
-
-#         rows = self.spi_data[table_name]
-#         for row in rows:
-#             if row["spi_write_line"] == spi_write_data:
-#                 return row["spi_read_line"]
-
-#         return None
-    
 def encrypt_write_data(spi_write_data):
     # Create a hash of the spi_write line to use as the table name
     table_name = "spi_" + hashlib.sha1(spi_write_data.encode()).hexdigest()
@@ -137,7 +164,7 @@ def main(input_file, display_flag=False, find_flag=False, print_tree_flag=False)
         spi_processor.display_spi_data()
     elif find_flag:
         spi_processor.create_tree_from_json()
-        ##
+        spi_processor.get_associated_spi_read_from_input()
     elif print_tree_flag:
         spi_processor.create_tree_from_json()
         spi_processor.print_spi_tree()
