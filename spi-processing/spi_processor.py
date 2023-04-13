@@ -2,6 +2,7 @@ import argparse
 import hashlib
 import json
 from collections import defaultdict
+import os
 
 class SpiFileProcessor:
     def __init__(self, input_file):
@@ -26,18 +27,24 @@ class SpiFileProcessor:
     def save_to_json(self, spi_write_data, spi_read_line):
         table_name = encrypt_write_data(spi_write_data)
 
+        if os.path.exists(self.json_file):
+            with open(self.json_file, "r") as infile:
+                self.spi_data = json.load(infile)
+        else:
+            self.spi_data = {}
+
         if table_name not in self.spi_data:
             self.spi_data[table_name] = []
 
-        last_row = None
-        if self.spi_data[table_name]:
-            last_row = self.spi_data[table_name][-1]
-
-        if last_row is None or last_row["spi_read_line"] != spi_read_line:
-            new_entry = {"spi_write_line": spi_write_data, "spi_read_line": spi_read_line, "entry_count": 1}
+        if not self.spi_data[table_name] or self.spi_data[table_name][-1]["spi_read_line"] != spi_read_line:
+            new_entry = {
+                "spi_write_line": spi_write_data,
+                "spi_read_line": spi_read_line,
+                "entry_count": 1,
+            }
             self.spi_data[table_name].append(new_entry)
         else:
-            last_row["entry_count"] += 1
+            self.spi_data[table_name][-1]["entry_count"] += 1
 
         with open(self.json_file, "w") as outfile:
             json.dump(self.spi_data, outfile, indent=4)
@@ -54,7 +61,6 @@ class SpiFileProcessor:
         YELLOW = "\033[33m"
         RESET = "\033[0m"
 
-        # Choose the color you want to use for each string
         spi_write_data_color = YELLOW
         spi_read_line_color = GREEN
 
