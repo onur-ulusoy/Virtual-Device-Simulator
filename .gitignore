@@ -41,3 +41,6 @@ __pycache__/
 
 ## database of spi logs retrieved in real machine
 spi_data.db
+
+## Text files contains plans to do for the next commits
+todo

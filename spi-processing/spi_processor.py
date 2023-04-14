@@ -1,23 +1,32 @@
 import argparse
 import hashlib
 import json
-from collections import defaultdict
 import os
 import time
+import yaml
 
 class SpiFileProcessor:
-    def __init__(self, input_file):
-        self.json_file = "spi_data.json"
-        self.input_file_find_mode = "in"
-        self.sleep_time_find_mode = 1
-        self.output_file_find_mode = "out"
-
-        self.input_file = input_file
+    def __init__(self):
+        self.config = self.load_config()
+        self.spi_data_file = self.config["spi_data_file"]
+        self.input_file_find_mode = self.config["input_file_find_mode"]
+        self.sleep_time_find_mode = self.config["sleep_time_find_mode"]
+        self.output_file_find_mode = self.config["output_file_find_mode"]
+        self.input_file_input_mode = self.config["input_file_input_mode"]
         self.spi_write_data = ""
-        self.spi_data = defaultdict(list)
+
+    def load_config(self):
+        config_file = "config.yaml"
+        if os.path.exists(config_file):
+            with open(config_file, 'r') as yaml_file:
+                config = yaml.safe_load(yaml_file)
+        else:
+            assert("Config file cannot be found.")
+
+        return config
 
     def process_spi(self):
-        with open(self.input_file, 'r') as infile:
+        with open(self.input_file_input_mode, 'r') as infile:
             for line in infile:
                 line = line.strip()  # Remove extra spaces and newlines
                 if line.startswith("spi_write"):
@@ -32,8 +41,8 @@ class SpiFileProcessor:
     def save_to_json(self, spi_write_data, spi_read_line):
         table_name = self.encrypt_write_data()
 
-        if os.path.exists(self.json_file):
-            with open(self.json_file, "r") as infile:
+        if os.path.exists(self.spi_data_file):
+            with open(self.spi_data_file, "r") as infile:
                 self.spi_data = json.load(infile)
         else:
             self.spi_data = {}
@@ -51,7 +60,7 @@ class SpiFileProcessor:
         else:
             self.spi_data[table_name][-1]["entry_count"] += 1
 
-        with open(self.json_file, "w") as outfile:
+        with open(self.spi_data_file, "w") as outfile:
             json.dump(self.spi_data, outfile, indent=4)
 
     def get_associated_spi_read(self, spi_write_data):
@@ -134,7 +143,6 @@ class SpiFileProcessor:
                     print("No such key found.")
                 print("------")
 
-
     def display_spi_data(self):
         # ANSI escape codes for colors
         GREEN = "\033[32m"
@@ -166,10 +174,10 @@ class SpiFileProcessor:
         time.sleep(self.sleep_time_find_mode)
         
 
-def main(input_file, display_flag=False, find_flag=False, print_tree_flag=False):
-    spi_processor = SpiFileProcessor(input_file)
+def main(display_flag=False, find_flag=False, print_tree_flag=False):
+    spi_processor = SpiFileProcessor()
 
-    if not display_flag and not find_flag and not print_tree_flag and input_file is not None:
+    if not display_flag and not find_flag and not print_tree_flag:
         spi_processor.process_spi()
     elif display_flag:
         spi_processor.display_spi_data()
@@ -184,16 +192,17 @@ def main(input_file, display_flag=False, find_flag=False, print_tree_flag=False)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process input file.")
-    parser.add_argument("-i", "--input", help="The input text file.", default=None)
+    parser.add_argument("-i", "--input", help="The input text file.", action="store_true")
     parser.add_argument("-d", "--display", help="Display the SPI data.", action="store_true")
     parser.add_argument("-f", "--find", help="Find the associated SPI read line.", action="store_true")
     parser.add_argument("-p", "--print-tree", help="Print the SPI tree.", action="store_true")
 
     args = parser.parse_args()
 
-    if not args.display and not args.find and not args.print_tree and args.input is None:
+    if not args.display and not args.find and not args.print_tree and not args.input:
         print("Error: An input file is required when not using the --display, --find, or --print-tree flags.")
         parser.print_help()
     else:
-        main(args.input, args.display, args.find, args.print_tree)
+        main(args.display, args.find, args.print_tree)
+
 
