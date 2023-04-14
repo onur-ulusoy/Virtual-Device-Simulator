@@ -2,5 +2,5 @@ spi_data_file: spi_data.json
 input_file_find_mode: in
 sleep_time_find_mode: 1
 output_file_find_mode: out
-input_file_input_mode: Rs_SPI_Log.txt
+input_file_input_mode: SPI_Log.txt
 
