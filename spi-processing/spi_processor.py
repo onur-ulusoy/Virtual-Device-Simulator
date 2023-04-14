@@ -3,10 +3,15 @@ import hashlib
 import json
 from collections import defaultdict
 import os
+import time
 
 class SpiFileProcessor:
     def __init__(self, input_file):
         self.json_file = "spi_data.json"
+        self.input_file_find_mode = "in"
+        self.sleep_time_find_mode = 1
+        self.output_file_find_mode = "out"
+
         self.input_file = input_file
         self.spi_write_data = ""
         self.spi_data = defaultdict(list)
@@ -48,7 +53,7 @@ class SpiFileProcessor:
 
         with open(self.json_file, "w") as outfile:
             json.dump(self.spi_data, outfile, indent=4)
-    # spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00
+
     def get_associated_spi_read(self, spi_write_data):
         spi_read_lines = []
 
@@ -102,31 +107,33 @@ class SpiFileProcessor:
             for spi_read_line, entry_count, iteration_number in associated_spi_read_lines:
                 print(f"  {spi_read_line} {GREEN}x{entry_count}, {YELLOW} iteration: {iteration_number}{RESET}")
             print()
+    
+    def get_associated_spi_read_from_file(self):
+        with open(self.input_file_find_mode, 'r') as infile:
+            spi_write_lines = infile.read().strip()
 
-    def get_associated_spi_read_from_input(self):
-        while True:
-            try:
-                spi_write_line = input("Enter the spi_write line: ").strip()
-                if not spi_write_line:
-                    print("Please enter a valid spi_write line.")
-                    continue
+        with open(self.output_file_find_mode, 'w') as outfile:
+            if not spi_write_lines:
+                print("spi_write buffer is empty.")
+            else:
+                print(spi_write_lines, "*")
 
-                associated_spi_read_lines = self.get_associated_spi_read(spi_write_line)
+                if spi_write_lines == "TERMINATE":
+                    print("spi_processor script is terminating")
+                    exit()
+                
+                associated_spi_read_lines = self.get_associated_spi_read(spi_write_lines)
 
-                print(f"Searching for:\n{spi_write_line}")
+                print(f"Searching for:\n{spi_write_lines}")
                 if associated_spi_read_lines:
                     print("Associated spi_read lines:")
                     for spi_read_line in associated_spi_read_lines:
                         print(spi_read_line)
+                        outfile.write(f"{spi_read_line}\n")
                 else:
                     print("No such key found.")
                 print("------")
 
-            except KeyboardInterrupt:
-                print("\nExiting the program.")
-                break
-            except Exception as e:
-                print(f"Error: {e}")
 
     def display_spi_data(self):
         # ANSI escape codes for colors
@@ -154,6 +161,10 @@ class SpiFileProcessor:
         # Create a hash of the spi_write line to use as the table name
         table_name = "spi_" + hashlib.sha1(self.spi_write_data.encode()).hexdigest()
         return table_name
+    
+    def sleep(self):
+        time.sleep(self.sleep_time_find_mode)
+        
 
 def main(input_file, display_flag=False, find_flag=False, print_tree_flag=False):
     spi_processor = SpiFileProcessor(input_file)
@@ -164,7 +175,9 @@ def main(input_file, display_flag=False, find_flag=False, print_tree_flag=False)
         spi_processor.display_spi_data()
     elif find_flag:
         spi_processor.create_tree_from_json()
-        spi_processor.get_associated_spi_read_from_input()
+        while True:
+            spi_processor.get_associated_spi_read_from_file()
+            spi_processor.sleep()
     elif print_tree_flag:
         spi_processor.create_tree_from_json()
         spi_processor.print_spi_tree()
