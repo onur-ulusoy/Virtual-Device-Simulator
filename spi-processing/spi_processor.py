@@ -4,19 +4,23 @@ import json
 import os
 import time
 import yaml
-
+import sys
 class SpiFileProcessor:
     def __init__(self):
         self.config = self.load_config()
+
         self.spi_data_file = self.config["spi_data_file"]
         self.input_file_find_mode = self.config["input_file_find_mode"]
-        self.sleep_time_find_mode = self.config["sleep_time_find_mode"]
         self.output_file_find_mode = self.config["output_file_find_mode"]
         self.input_file_input_mode = self.config["input_file_input_mode"]
+
+        self.sleep_time_find_mode = self.config["sleep_time_find_mode"]
+
         self.spi_write_data = ""
 
     def load_config(self):
         config_file = "config.yaml"
+
         if os.path.exists(config_file):
             with open(config_file, 'r') as yaml_file:
                 config = yaml.safe_load(yaml_file)
