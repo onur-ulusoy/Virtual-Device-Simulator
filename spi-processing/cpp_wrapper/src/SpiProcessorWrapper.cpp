@@ -27,7 +27,7 @@ void SpiProcessorWrapper::run_with_f_flag() {
     // Create "in" and "out" files
     std::ofstream in_file("../../in");
     std::ofstream out_file("../../out");
-
+    std::cout << "*"<<std::endl;
     in_file.close();
     out_file.close();
 

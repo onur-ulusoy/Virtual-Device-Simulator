@@ -8,6 +8,7 @@
 * @date 03/02/2023
 */
 #include "drivercommapi.hpp"
+#include "SpiProcessorWrapper.hpp"
 
 using namespace DeviceSim;
 /**
@@ -69,12 +70,15 @@ int main() {
     // cout << i2cDevHandler->getPack()[5] << endl;
     // i2cDevHandler->parse();
 
-    Device& gpio_dev = GPIO_Device::getInstance("device"); 
-    gpio_dev.device_open(WRITEONLY);
-    gpio_dev.devContent.config(DEFAULT);
-    cout << gpio_dev.devContent.read(2, "name") << endl;
-    gpio_dev.device_close();
+    // Device& gpio_dev = GPIO_Device::getInstance("device"); 
+    // gpio_dev.device_open(WRITEONLY);
+    // gpio_dev.devContent.config(DEFAULT);
+    // cout << gpio_dev.devContent.read(2, "name") << endl;
+    // gpio_dev.device_close();
 
+    SpiProcessorWrapper spi_wrapper;
+
+        spi_wrapper.run_with_f_flag();
 
 
     return 0;
