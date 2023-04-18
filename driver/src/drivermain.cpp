@@ -76,10 +76,43 @@ int main() {
     // cout << gpio_dev.devContent.read(2, "name") << endl;
     // gpio_dev.device_close();
 
+    std::string spi_processor_workpath = "../spi-processing/cpp_wrapper/src";
+    chdir(spi_processor_workpath.c_str());
+
     SpiProcessorWrapper spi_wrapper;
 
-        spi_wrapper.run_with_f_flag();
+    //std::string input_file_path = "SPI_Log2.txt";
+    //std::string target_path = "../../SPI_Log.txt";
+    //fs::copy_file("../../../runtime-environment/" + input_file_path, target_path, fs::copy_options::overwrite_existing);
 
+    float stime = 0.01;
+
+    spi_wrapper.run_with_i_flag();
+    usleep((int) (stime * 1000000));
+
+    std::string write_line;
+    std::string read_line;
+    
+    spi_wrapper.run_with_f_flag();
+    
+
+    for (size_t i = 0; i < 30; i++)
+    {
+        write_line = "spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00";
+        read_line = spi_wrapper.request_read_line(write_line);
+
+        std::cout << "Read line: " << read_line << std::endl;
+            
+        usleep((int) (stime * 1000000));
+
+    }
+
+    usleep((int) (stime * 1000000));
+
+    write_line = "TERMINATE";
+    read_line = spi_wrapper.request_read_line(write_line);
+
+    std::cout << "Read line: " << read_line << std::endl;
 
     return 0;
 }

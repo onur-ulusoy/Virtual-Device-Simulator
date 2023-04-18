@@ -13,21 +13,27 @@ void SpiProcessorWrapper::copy_file(const std::string& input_file_path) {
 }
 
 void SpiProcessorWrapper::run_with_i_flag() {
-    // Change to the objective directory
-    std::string workpath = "../../";
-    chdir(workpath.c_str());
+    std::string command = "cd ../.. && python3 spi_processor.py -i";
+    int result = std::system(command.c_str());
 
-    std::string command = "python3 spi_processor.py -i ";
+    if (result == 0) {
+        std::cout << "Data saved to json successfully." << std::endl;
+    } else {
+        std::cerr << "Failed to run spi_processor.py" << std::endl;
+    }
+}
+
+void SpiProcessorWrapper::kill_i_flag_process() {
+    std::string command = "pkill -f 'python3 spi_processor.py -i'";
     std::system(command.c_str());
-
-    std::cout << "Data saved to json successfully." << std::endl;
+    std::cout << "i flag process terminated." << std::endl;
 }
 
 void SpiProcessorWrapper::run_with_f_flag() {
     // Create "in" and "out" files
     std::ofstream in_file("../../in");
     std::ofstream out_file("../../out");
-    std::cout << "*"<<std::endl;
+    //std::cout << "*" <<std::endl;
     in_file.close();
     out_file.close();
 
@@ -48,6 +54,7 @@ std::string SpiProcessorWrapper::request_read_line(const std::string& write_line
     in_file.close();
 
     std::string read_line;
+    std::string identifier;
 
     // Loop until a valid spi_read line is found
     while (true) {
@@ -56,8 +63,8 @@ std::string SpiProcessorWrapper::request_read_line(const std::string& write_line
         if (out_file.is_open()) {
             std::getline(out_file, read_line);
             out_file.close();
-
-            if (read_line.substr(0, 8) == "spi_read") {
+            identifier = read_line.substr(0, 8);
+            if ( identifier == "spi_read" || identifier == "TERMINAT") {
                 break;
             }
         }

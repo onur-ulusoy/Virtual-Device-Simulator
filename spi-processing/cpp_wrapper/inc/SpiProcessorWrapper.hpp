@@ -18,6 +18,8 @@ public:
 
     void run_with_i_flag();
 
+    void kill_i_flag_process();
+
     void run_with_f_flag();
 
     std::string request_read_line(const std::string& write_line);

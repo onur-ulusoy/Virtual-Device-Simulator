@@ -132,6 +132,7 @@ class SpiFileProcessor:
 
                 if spi_write_lines == "TERMINATE":
                     print("spi_processor script is terminating")
+                    outfile.write("TERMINATED")
                     exit()
                 
                 associated_spi_read_lines = self.get_associated_spi_read(spi_write_lines)
@@ -182,6 +183,7 @@ def main(display_flag=False, find_flag=False, print_tree_flag=False):
 
     if not display_flag and not find_flag and not print_tree_flag:
         spi_processor.process_spi()
+        exit()
     elif display_flag:
         spi_processor.display_spi_data()
     elif find_flag:
