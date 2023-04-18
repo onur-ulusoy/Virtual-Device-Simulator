@@ -4,23 +4,44 @@
 #include <vector>
 #include <nlohmann/json.hpp>
 
-class SpiProcessorUtil {
+class SpiDevEntry {
 public:
-    static void raw_to_json(const std::string &filename, const std::string &device, int offset) {
+    std::string device_type;
+    int offset_number;
+    std::vector<std::vector<std::string>> spi_write; 
+
+    void print() const {
+        std::cout << "Device Type: " << device_type << std::endl;
+        std::cout << "Offset Number: " << offset_number << std::endl;
+        std::cout << "SPI Write: " << std::endl;
+        for (const auto& group : spi_write) { 
+            for (const auto& write : group) {
+                std::cout << "  " << write << std::endl;
+            }
+            std::cout << std::endl;
+        }
+    }
+};
+
+class SpiDevRequest {
+public:
+    SpiDevRequest(const std::string &filename, const int offset)
+    : filename(filename), offset(offset) { setRawName(); }
+
+    void raw_to_json() {
         std::ifstream infile(filename);
         std::string line;
         nlohmann::json output;
 
-        output["device_type"] = device;
+        output["device_type"] = m_device;
         output["offset_number"] = offset;
 
         std::vector<std::vector<std::string>> spi_write_groups;
         std::vector<std::string> current_group;
 
         while (std::getline(infile, line)) {
-            // Remove any '\r' characters that might be present
             line.erase(std::remove(line.begin(), line.end(), '\r'), line.end());
-            
+
             if (line.empty()) {
                 if (!current_group.empty()) {
                     spi_write_groups.push_back(current_group);
@@ -37,27 +58,59 @@ public:
 
         output["spi_write"] = spi_write_groups;
 
-        std::string raw_file_name = getRawName(filename);
-        std::ofstream outfile(raw_file_name + ".json");
+        std::ofstream outfile(raw_filename + ".json");
         outfile << output.dump(4);
     }
 
-    static std::string getRawName(std::string fileName) {
-        // Find the position of the last dot (.)
-        size_t pos = fileName.find_last_of(".");
-        
-        // If the dot is found, remove the file extension
-        if (pos != std::string::npos) {
-            return fileName.substr(0, pos);
+    SpiDevEntry parse_json_file() {
+        std::ifstream infile(raw_filename + ".json");
+        nlohmann::json input;
+
+        infile >> input;
+
+        devEntry.device_type = input["device_type"];
+        devEntry.offset_number = input["offset_number"];
+
+        for (const auto &group : input["spi_write"]) {
+            std::vector<std::string> current_group;
+            for (const auto &write : group) {
+                current_group.push_back(write);
+            }
+            devEntry.spi_write.push_back(current_group);
         }
-        
-        // If the dot is not found, return the original file name
-        return fileName;
+
+        return devEntry;
     }
 
+    SpiDevEntry getDevEntry() const {
+        return devEntry;
+    }
+
+private:
+    std::string filename;
+    std::string raw_filename;
+
+    const std::string m_device = "spi";
+    int offset;      
+    SpiDevEntry devEntry;
+
+    void setRawName() {
+        size_t pos = filename.find_last_of(".");
+
+        if (pos != std::string::npos) {
+            raw_filename = filename.substr(0, pos);
+        }
+
+        else
+            raw_filename = filename;
+    }
 };
 
 int main() {
-    SpiProcessorUtil::raw_to_json("SPI_A.txt", "spi", 0);
+    SpiDevRequest spi("SPI_A.txt", 0);
+    spi.raw_to_json();
+    spi.parse_json_file();
+    spi.getDevEntry().print();
+
     return 0;
 }
