@@ -4,7 +4,6 @@ import json
 import os
 import time
 import yaml
-import sys
 class SpiFileProcessor:
     def __init__(self):
         self.config = self.load_config()

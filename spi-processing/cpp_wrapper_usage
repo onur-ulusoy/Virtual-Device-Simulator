@@ -1,0 +1,51 @@
+i mode
+
+SpiProcessorWrapper spi_wrapper;
+std::string input_file_path = "SPI_Log_Trial.txt";
+
+spi_wrapper.copy_file(input_file_path);
+spi_wrapper.run_with_i_flag();
+    
+    
+f mode
+SpiProcessorWrapper spi_wrapper;
+spi_wrapper.run_with_f_flag();
+std::string write_line = "spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00";
+std::string read_line = spi_wrapper.request_read_line(write_line);
+
+Example main:
+
+#include <random>
+
+int main() {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    
+    SpiProcessorWrapper spi_wrapper;
+    std::string input_file_path = "SPI_Log_Trial.txt";
+
+    spi_wrapper.copy_file(input_file_path);
+    spi_wrapper.run_with_i_flag();
+
+    // spi_wrapper.run_with_f_flag();
+
+    // for (size_t i = 0; i < 30; i++)
+    // {
+    //     std::string write_line = "spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00";
+    //     std::string read_line = spi_wrapper.request_read_line(write_line);
+
+    //     std::cout << "Read line: " << read_line << std::endl;
+    //     std::uniform_real_distribution<float> dis(0.1f, 2.0f);
+    //      float random_num = dis(gen);
+    //     float stime = random_num;
+    //     usleep((int) (stime * 1000000));
+
+    // }
+    
+    
+
+    return 0;
+}
+
+
+
