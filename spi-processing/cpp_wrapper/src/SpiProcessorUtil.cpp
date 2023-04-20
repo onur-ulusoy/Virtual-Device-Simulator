@@ -6,9 +6,31 @@
 
 class SpiDevEntry {
 public:
-    std::string device_type;
-    int offset_number;
-    std::vector<std::vector<std::string>> spi_write;
+    // Getters
+    std::string get_device_type() const {
+        return device_type;
+    }
+
+    int get_offset_number() const {
+        return offset_number;
+    }
+
+    std::vector<std::vector<std::string>> get_spi_write() const {
+        return spi_write;
+    }
+
+    // Setters
+    void set_device_type(const std::string &new_device_type) {
+        device_type = new_device_type;
+    }
+
+    void set_offset_number(const int new_offset_number) {
+        offset_number = new_offset_number;
+    }
+
+    void push_back_spi_write(const std::vector<std::string> &group) {
+        spi_write.push_back(group);
+    }
 
     void print() const {
         std::cout << "Device Type: " << device_type << std::endl;
@@ -21,7 +43,13 @@ public:
             std::cout << std::endl;
         }
     }
+
+private:
+    std::string device_type;
+    int offset_number;
+    std::vector<std::vector<std::string>> spi_write;
 };
+
 
 class SpiDevRequest {
 public:
@@ -62,34 +90,32 @@ public:
         outfile << output.dump(4);
     }
 
-    SpiDevEntry parse_json_file() {
+    void parse_json_file() {
         std::ifstream infile(raw_filename + ".json");
         nlohmann::json input;
 
         infile >> input;
 
-        devEntry.device_type = input["device_type"];
-        devEntry.offset_number = input["offset_number"];
+        devEntry.set_device_type(input["device_type"]);
+        devEntry.set_offset_number(input["offset_number"]);
 
         for (const auto &group : input["spi_write"]) {
             std::vector<std::string> current_group;
             for (const auto &write : group) {
                 current_group.push_back(write);
             }
-            devEntry.spi_write.push_back(current_group);
+            devEntry.push_back_spi_write(current_group);
         }
-
-        return devEntry;
     }
 
-    SpiDevEntry parse_processed_json_file() {
+    void parse_processed_json_file() {
         std::ifstream infile(raw_filename + "_processed" + ".json");
         nlohmann::json input;
 
         infile >> input;
 
-        devEntry.device_type = input["device_type"];
-        devEntry.offset_number = input["offset_number"];
+        devEntryProcessed.set_device_type(input["device_type"]);
+        devEntryProcessed.set_offset_number(input["offset_number"]);
 
         for (const auto &group : input["spi_write"]) {
             std::vector<std::string> current_group;
@@ -98,10 +124,8 @@ public:
                     current_group.push_back(write);
                 }
             }
-            devEntry.spi_write.push_back(current_group);
+            devEntryProcessed.push_back_spi_write(current_group);
         }
-
-        return devEntry;
     }
     
     void process_and_save_json() {
@@ -150,6 +174,10 @@ public:
         return devEntry;
     }
 
+    SpiDevEntry getDevEntryProcessed() const {
+        return devEntryProcessed;
+    }
+
 private:
     std::string filename;
     std::string raw_filename;
@@ -157,6 +185,7 @@ private:
     const std::string dev_type = "spi";
     int offset;      
     SpiDevEntry devEntry;
+    SpiDevEntry devEntryProcessed;
 
     void setRawName() {
         size_t pos = filename.find_last_of(".");
@@ -175,9 +204,10 @@ int main() {
     spi.raw_to_json();
     spi.parse_json_file();
     spi.getDevEntry().print();
+    std::cout << "*************" << std::endl;
     spi.process_and_save_json();
     spi.parse_processed_json_file();
-    spi.getDevEntry().print();
+    spi.getDevEntryProcessed().print();
 
     return 0;
 }
