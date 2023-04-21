@@ -1,11 +1,30 @@
+#!/usr/bin/env python3
+
+"""
+@file spi_processor.py
+@brief A Python script that processes files of SPI communication data by running the input file through spi_processor.py with different flags.
+The script can copy the input file, process it with spi_processor.py with either the -i or -f flag, and read from the SPI communication buffer.
+@author Onur Ulusoy
+@date 13.04.2023
+@license MIT
+"""
+
 import argparse
 import hashlib
 import json
 import os
 import time
 import yaml
+
 class SpiFileProcessor:
+    """
+    @class SpiFileProcessor
+    @brief A class that provides methods to process files of SPI communication data by running the input file through spi_processor.py with different flags.
+    """
     def __init__(self):
+        """
+        @brief Initializes a new instance of the SpiFileProcessor class and loads configuration parameters from config.yaml.
+        """
         self.config = self.load_config()
 
         self.spi_data_file = self.config["spi_data_file"]
@@ -16,8 +35,12 @@ class SpiFileProcessor:
         self.sleep_time_find_mode = self.config["sleep_time_find_mode"]
 
         self.spi_write_data = ""
-
+    
     def load_config(self):
+        """
+        @brief Loads the configuration parameters from the `config.yaml` file.
+        @return A dictionary containing the configuration parameters.
+        """
         config_file = "config.yaml"
 
         if os.path.exists(config_file):
@@ -28,7 +51,10 @@ class SpiFileProcessor:
 
         return config
 
-    def process_spi(self):
+    def commit_spi(self):
+        """
+        @brief Reads the input file and saves the SPI data to a JSON file.
+        """
         with open(self.input_file_input_mode, 'r') as infile:
             for line in infile:
                 line = line.strip()  # Remove extra spaces and newlines
@@ -42,6 +68,11 @@ class SpiFileProcessor:
                 self.save_to_json(self.spi_write_data.strip(), "")
 
     def save_to_json(self, spi_write_data, spi_read_line):
+        """
+        @brief Saves the SPI data to a JSON file.
+        @param spi_write_data The SPI write data.
+        @param spi_read_line The SPI read line.
+        """
         table_name = self.encrypt_write_data()
 
         if os.path.exists(self.spi_data_file):
@@ -67,6 +98,11 @@ class SpiFileProcessor:
             json.dump(self.spi_data, outfile, indent=4)
 
     def get_associated_spi_read(self, spi_write_data):
+        """
+        @brief Gets the associated SPI read lines from the spi_tree dictionary based on the input spi_write_data string.
+        @param spi_write_data The string to search for in the spi_tree dictionary.
+        @return A list of associated SPI read lines.
+        """
         spi_read_lines = []
 
         if spi_write_data in self.spi_tree:
@@ -95,6 +131,9 @@ class SpiFileProcessor:
         return spi_read_lines
     
     def create_tree_from_json(self):
+        """
+        @brief Parses the SPI data from JSON file and creates a dictionary for the associated SPI reads.
+        """
         json_file = 'spi_data.json'
         with open(json_file, 'r') as f:
             self.spi_data = json.load(f)
@@ -109,6 +148,9 @@ class SpiFileProcessor:
                 self.spi_tree[spi_write_line].append((spi_read_line, entry_count, iteration_number))
 
     def print_spi_tree(self):
+        """
+        @brief Prints the associated SPI reads tree to console with color-coded output to provide easy debug.
+        """
         # ANSI escape codes for colors
         GREEN = "\033[32m"
         RESET = "\033[0m"
@@ -121,6 +163,9 @@ class SpiFileProcessor:
             print()
     
     def get_associated_spi_read_from_file(self):
+        """
+        @brief Reads SPI write data from the data tree and searches for associated SPI reads.
+        """
         with open(self.input_file_find_mode, 'r') as infile:
             spi_write_lines = infile.read().strip()
 
@@ -148,6 +193,9 @@ class SpiFileProcessor:
                 print("------")
 
     def display_spi_data(self):
+        """
+        @brief Displays the SPI data stored in JSON file with color-coded output for easy debug.
+        """
         # ANSI escape codes for colors
         GREEN = "\033[32m"
         YELLOW = "\033[33m"
@@ -170,19 +218,31 @@ class SpiFileProcessor:
                 print("\n")
 
     def encrypt_write_data(self):
+        """
+        @brief Creates a hash of the spi_write line to use as the representitive table name in json.
+        @return The table name created by hashing the spi_write line.
+        """
         # Create a hash of the spi_write line to use as the table name
         table_name = "spi_" + hashlib.sha1(self.spi_write_data.encode()).hexdigest()
         return table_name
     
     def sleep(self):
+        """
+        @brief Causes the current thread to sleep for a specified amount of time configured in config.yaml.
+        """
         time.sleep(self.sleep_time_find_mode)
-        
 
 def main(display_flag=False, find_flag=False, print_tree_flag=False):
+    """
+    @brief The main function that executes the SpiFileProcessor class and its behaviors.
+    @param display_flag: If True, displays the SPI data.
+    @param find_flag: If True, finds the associated SPI read line.
+    @param print_tree_flag: If True, prints the SPI tree.
+    """
     spi_processor = SpiFileProcessor()
 
     if not display_flag and not find_flag and not print_tree_flag:
-        spi_processor.process_spi()
+        spi_processor.commit_spi()
         exit()
     elif display_flag:
         spi_processor.display_spi_data()
