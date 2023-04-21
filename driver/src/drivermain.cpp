@@ -77,15 +77,6 @@ int main() {
     // cout << gpio_dev.devContent.read(2, "name") << endl;
     // gpio_dev.device_close();
 
-    SpiDevRequest spi("SPI_A.txt", 0);
-    spi.rawToJson();
-    spi.parseJsonFile();
-    spi.getDevEntry().print();
-    std::cout << "*************" << std::endl;
-    spi.processAndSaveJson();
-    spi.parseProcessedJsonFile();
-    spi.getDevEntryProcessed().print();
-
     return 0;
 }
 
