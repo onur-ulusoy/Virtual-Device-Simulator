@@ -1,6 +1,18 @@
+/**
+ * @file SpiProcessorWrapper.hpp
+ * @brief C++ wrapper containing the SpiProcessorWrapper class, which provides a high-level interface for processing the SPI communication output.
+ * 
+ * The SpiProcessorWrapper class provides a set of methods to copy an input file, run the spi_processor.py script with different flags,
+ * request a read operation from SPI communication, and kill the SPI communication process.
+ * 
+ * @author Onur Ulusoy
+ * @date 18.04.2023
+ * @license MIT
+ */
+
 #include "SpiProcessorWrapper.hpp"
 
-void SpiProcessorWrapper::copy_file(const std::string& input_file_path) {
+void SpiProcessorWrapper::copyFile(const std::string& input_file_path) {
     const fs::path target_path = "../../SPI_Log.txt";
         
     try {
@@ -12,7 +24,7 @@ void SpiProcessorWrapper::copy_file(const std::string& input_file_path) {
     }
 }
 
-void SpiProcessorWrapper::run_with_i_flag() {
+void SpiProcessorWrapper::runWithIFlag() {
     std::string command = "cd ../.. && python3 spi_processor.py -i";
     int result = std::system(command.c_str());
 
@@ -23,13 +35,13 @@ void SpiProcessorWrapper::run_with_i_flag() {
     }
 }
 
-void SpiProcessorWrapper::kill_i_flag_process() {
+void SpiProcessorWrapper::killIFlagProcess() {
     std::string command = "pkill -f 'python3 spi_processor.py -i'";
     std::system(command.c_str());
     std::cout << "i flag process terminated." << std::endl;
 }
 
-void SpiProcessorWrapper::run_with_f_flag() {
+void SpiProcessorWrapper::runWithFFlag() {
     // Create "in" and "out" files
     std::ofstream in_file("../../in");
     std::ofstream out_file("../../out");
@@ -47,7 +59,7 @@ void SpiProcessorWrapper::run_with_f_flag() {
     }
 }
 
-std::string SpiProcessorWrapper::request_read_line(const std::string& write_line) {
+std::string SpiProcessorWrapper::requestReadLine(const std::string& write_line) {
     // Save write_line to "in" file
     std::ofstream in_file("../../in");
     in_file << write_line;
