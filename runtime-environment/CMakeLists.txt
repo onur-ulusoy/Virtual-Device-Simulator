@@ -43,12 +43,21 @@ add_executable(driver ${driver_src_files} ${driver_inc_files})
 target_include_directories(driver PRIVATE ../driver)
 set_target_properties(driver PROPERTIES OUTPUT_NAME "driver.out")
 
+set(SpiProcessorWrapperDir "${CMAKE_CURRENT_SOURCE_DIR}/../spi-processing/cpp_wrapper/src/build")
+
+# Add the spi processor library to the driver executable
+target_link_libraries(driver ${SpiProcessorWrapperDir}/libSpiProcessorWrapper.a)
+
+# Set the directory containing the spi processor header files
+set(SpiProcessorWrapperIncDir "${CMAKE_CURRENT_SOURCE_DIR}/../spi-processing/cpp_wrapper/inc")
+
+# Add the directory to the list of include directories
+include_directories(${SpiProcessorWrapperIncDir})
 
 # Define the tester executable target
 add_executable(tester ${tester_src_files} ${tester_inc_files})
 target_include_directories(tester PRIVATE ../tester)
 set_target_properties(tester PROPERTIES OUTPUT_NAME "tester.out")
-
 
 add_library(driverlib STATIC ${driver_src_files} ${driver_inc_files})
 set_target_properties(driverlib PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)

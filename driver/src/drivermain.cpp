@@ -8,6 +8,8 @@
 * @date 03/02/2023
 */
 #include "drivercommapi.hpp"
+#include "SpiProcessorWrapper.hpp"
+#include "SpiProcessorUtil.hpp"
 
 using namespace DeviceSim;
 /**
@@ -65,20 +67,24 @@ int main() {
 
     // cout << i2cDevHandler->getDevName() << endl;
     // cout << i2cDevHandler->getDefaultDir() << endl;
-    // cout << i2cDevHandler->getPackSize() << endl;
+    // cout << i2cDevHandler->getPackSize() << endl;z
     // cout << i2cDevHandler->getPack()[5] << endl;
     // i2cDevHandler->parse();
 
-    GPIO_Device& gpio = GPIO_Device::getInstance("device");    
-    cout << gpio.getDevName() << endl;
+    // Device& gpio_dev = GPIO_Device::getInstance("device"); 
+    // gpio_dev.device_open(WRITEONLY);
+    // gpio_dev.devContent.config(DEFAULT);
+    // cout << gpio_dev.devContent.read(2, "name") << endl;
+    // gpio_dev.device_close();
 
-    GPIO_Device& gpio1 = GPIO_Device::getInstance("device1");    
-    cout << gpio1.getDevName() << endl;
-
-    GPIO_Device& gpio2 = GPIO_Device::getInstance("device2");    
-    cout << gpio2.getDevName() << endl;
-    gpio2.device_open(WRITEONLY);
-    gpio2.parse();
+    SpiDevRequest spi("SPI_A.txt", 0);
+    spi.rawToJson();
+    spi.parseJsonFile();
+    spi.getDevEntry().print();
+    std::cout << "*************" << std::endl;
+    spi.processAndSaveJson();
+    spi.parseProcessedJsonFile();
+    spi.getDevEntryProcessed().print();
 
     return 0;
 }

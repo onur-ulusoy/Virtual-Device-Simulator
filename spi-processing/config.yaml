@@ -1,0 +1,6 @@
+spi_data_file: spi_data.json
+input_file_find_mode: in
+sleep_time_find_mode: 0.01
+output_file_find_mode: out
+input_file_input_mode: SPI_Log.txt
+
