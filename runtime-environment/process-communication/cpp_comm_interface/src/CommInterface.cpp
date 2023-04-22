@@ -1,3 +1,16 @@
+/**
+ * @file CommInterface.cpp
+ * @brief Contains the Publisher and Subscriber classes for communication between processes using ZeroMQ.
+ * 
+ * Provides a C++ implementation of the ZeroMQ publisher-subscriber communication pattern. 
+ * The Publisher class sends messages to one or more subscribers using a publisher socket, and the 
+ * Subscriber class receives messages from a publisher using a subscriber socket.
+ * 
+ * @author Onur Ulusoy
+ * @date 22.04.2023
+ * @license MIT
+ */
+
 #include "CommInterface.hpp"
 
 Publisher::Publisher(const std::string& localAddress, const std::string& processName)
