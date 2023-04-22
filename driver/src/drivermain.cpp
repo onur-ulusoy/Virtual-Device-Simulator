@@ -10,6 +10,7 @@
 #include "drivercommapi.hpp"
 #include "SpiProcessorWrapper.hpp"
 #include "SpiProcessorUtil.hpp"
+#include "CommInterface.hpp"
 
 using namespace DeviceSim;
 /**
@@ -76,6 +77,25 @@ int main() {
     // gpio_dev.devContent.config(DEFAULT);
     // cout << gpio_dev.devContent.read(2, "name") << endl;
     // gpio_dev.device_close();
+
+    // Publisher publisher("tcp://*:5555", "driver");
+    // int counter = 0;
+
+    // while (counter < 5) {
+    //     sleep(2);
+    //     publisher.publish("C++ publisher from driver " + std::to_string(counter));
+    //     ++counter;
+    // }
+
+    int counter = 0;
+
+    std::string localAddress = "tcp://127.0.0.1:5555";
+    Subscriber subscriber(localAddress);
+
+    while (counter < 5) {
+        subscriber.receive();
+        ++counter;
+    }
 
     return 0;
 }
