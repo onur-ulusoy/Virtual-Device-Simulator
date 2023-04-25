@@ -45,6 +45,9 @@ def prepare_data(spi_write_file, remote_directory, local_directory=os.getcwd(), 
     
     return True
 
+# def prepare_data(spi_read_file):
+#     # spi_b
+#     pass
 
 def run_program_to_be_tested():
     """
@@ -86,14 +89,46 @@ def send_data_when_asked(spi_write_file, subscriber, publisher, local_directory=
         publisher.publish(line.strip())
         time.sleep(0.1)
 
-def expect(spi_read_file):
+def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
     """
     Compare the received spi_read responses (spi_b) from the tester to the expected spi_read responses to determine
     if the program behaves correctly.
 
     @param spi_read_file: The file containing expected spi_read responses (spi_b)
+    @param subscriber: A Subscriber object to receive messages from the channel
+    @param local_directory: The local directory where the spi_read_file is located (default: current working directory)
     """
-    pass
+
+    # Read data from the spi_read_file
+    local_file_path = os.path.join(local_directory, spi_read_file)
+    with open(local_file_path, "r") as file:
+        file_lines = file.readlines()
+
+    # Find the first empty line
+    first_empty_line_index = file_lines.index("\n")
+
+    # Read data from the beginning to the first empty line
+    expected_responses = file_lines[:first_empty_line_index]
+
+    # Delete the read part from the file
+    file_lines = file_lines[first_empty_line_index+1:]
+    with open(local_file_path, "w") as file:
+        file.writelines(file_lines)
+
+    received_responses = []
+
+    # Listen to the channel and collect received messages
+    for _ in range(len(expected_responses)):
+        message = subscriber.receive()
+        received_responses.append(message)
+
+    # Compare received messages with expected responses and print the results
+    for expected, received in zip(expected_responses, received_responses):
+        if expected.strip() == received:
+            print(f"Match: Expected: {expected.strip()} | Received: {received}")
+        else:
+            print(f"Mismatch: Expected: {expected.strip()} | Received: {received}")
+
 
 def run_tester_and_driver(local_directory=os.getcwd()):
     """

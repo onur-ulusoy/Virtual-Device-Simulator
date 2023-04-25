@@ -7,16 +7,22 @@ prepare_data(spi_write_file="SPI_A.txt",
 
 # run_tester_and_driver()
 
-signal_topic="tcp://localhost:5555"
-data_topic="tcp://localhost:5557"
+signal_topic = "tcp://localhost:5555"
+write_data_topic = "tcp://localhost:5557"
+read_data_topic = "tcp://localhost:5559"
 
 # Create a Subscriber object to listen for the signal to send data
 subscriber = Subscriber(signal_topic)
 
 # Create a Publisher object to send the data
-publisher = Publisher(data_topic, "test")
+publisher_write = Publisher(write_data_topic, "test")
+
+# Create a Publisher object to send the data
+subscriber_read = Subscriber(read_data_topic)
 
 spi_write_file = "SPI_A.txt"
+spi_read_file = "SPI_B.txt"
+
 local_directory = os.getcwd()
 
 while True:
@@ -27,12 +33,10 @@ while True:
             os.remove(local_file_path)  # Remove the empty file
             break
 
-    send_data_when_asked(spi_write_file, subscriber, publisher, local_directory)
+    send_data_when_asked(spi_write_file, subscriber, publisher_write, local_directory)
+    expect(spi_read_file, subscriber_read, local_directory)
     print("\n", "*************************")
 
 # Close the subscriber and publisher sockets
 subscriber.close()
-publisher.close()
-
-publisher.close()
-subscriber.close()
+publisher_write.close()

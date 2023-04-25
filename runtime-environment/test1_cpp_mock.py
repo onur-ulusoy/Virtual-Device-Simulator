@@ -6,12 +6,16 @@ from comm_interface import *
 
 def main():
     signal_topic = "tcp://localhost:5555"
-    data_topic = "tcp://localhost:5557"
+    write_data_topic = "tcp://localhost:5557"
+    read_data_topic = "tcp://localhost:5559"
+
+    mock_read_line = "spi_read: Bytes read: 5: 0xA5 0xB9 0x01 0x00 0x00"
 
     # Create a Publisher object and send the expected signal
     publisher = Publisher(signal_topic, "mock")
+    publisher_read = Publisher(read_data_topic, "mock")
     # Create a Subscriber object and subscribe to the send_data topic
-    subscriber = Subscriber(data_topic)
+    subscriber = Subscriber(write_data_topic)
     
     time_out = 0
     time.sleep(1)
@@ -20,7 +24,7 @@ def main():
         
         publisher.publish("Requesting data")
 
-        time.sleep(1)
+        time.sleep(0.2)
         
         # Receive and print the message
         while True:
@@ -29,6 +33,7 @@ def main():
                 time_out += 1
                 break
             else:
+                publisher_read.publish(mock_read_line)
                 time_out = 0
 
         print("*****")
