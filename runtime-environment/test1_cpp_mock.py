@@ -31,11 +31,11 @@ def main():
     subscriber = Subscriber(write_data_topic)
     
     # Initialize timeout counter
-    time_out = 0
+    timeout_ct = 0
     time.sleep(1)
 
     # Continuously request data and receive messages
-    while time_out < 2:
+    while timeout_ct < 2:
         # Send a request for data
         publisher_write.publish("Requesting data")
 
@@ -45,12 +45,12 @@ def main():
         while True:
             message = subscriber.receive(timeout=100)
             if (not message):
-                time_out += 1
+                timeout_ct += 1
                 break
             else:
                 # Publish the mock read line
                 publisher_read.publish(mock_read_line)
-                time_out = 0
+                timeout_ct = 0
 
         print("*****")
             

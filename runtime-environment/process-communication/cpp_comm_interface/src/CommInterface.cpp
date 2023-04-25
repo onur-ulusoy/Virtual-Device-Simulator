@@ -15,7 +15,9 @@
 
 Publisher::Publisher(const std::string& localAddress, const std::string& processName)
     : context(1), socket(context, ZMQ_PUB), processName(processName) {
-    socket.bind(localAddress);
+    std::string port = localAddress.substr(localAddress.find_last_of(':') + 1);
+    std::string endpoint = "tcp://*:" + port;
+    socket.bind(endpoint);
 }
 
 void Publisher::publish(const std::string& message) {
@@ -27,13 +29,18 @@ void Publisher::publish(const std::string& message) {
     std::cout << "Sent: " << messageWithProcessName << std::endl;
 }
 
+void Publisher::close() {
+    socket.close();
+    context.close();
+}
+
 Subscriber::Subscriber(const std::string& localAddress)
     : context(1), socket(context, ZMQ_SUB) {
     socket.connect(localAddress);
     socket.set(zmq::sockopt::subscribe, "");  // Updated function call
 }
 
-void Subscriber::receive() {
+std::string Subscriber::receive() {
     zmq::message_t packedMessage;
     auto result = socket.recv(packedMessage, zmq::recv_flags::none);  // Handle the return value
     if (result) {
@@ -42,5 +49,13 @@ void Subscriber::receive() {
         std::string message;
         deserialized.convert(message);
         std::cout << "Received: " << message << std::endl;
+        return message;
     }
+
+    return "";
+}
+
+void Subscriber::close() {
+    socket.close();
+    context.close();
 }

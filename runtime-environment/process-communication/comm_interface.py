@@ -71,10 +71,12 @@ class Subscriber:
 
     def receive(self, timeout=None):
         """
-        Receives a message using the Subscriber object's socket.
-        
+        @brief Receives a message using the Subscriber object's socket and returns the received message.
+
         @details The received message is deserialized using the msgpack library and printed to the console.
+        If no message is received or a timeout occurs, None is returned.
         @param timeout: The maximum time to wait for a message, in milliseconds. None (default) means wait indefinitely.
+        @return The received message as a string or None if no message is received or a timeout occurs.
         """
         self.socket.setsockopt(zmq.RCVTIMEO, timeout if timeout is not None else -1)
         try:

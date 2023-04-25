@@ -79,6 +79,34 @@ int main() {
     // gpio_dev.device_close();
 
     // Publisher publisher("tcp://*:5555", "driver");
+
+     // Pipeline of commands from tester to driver
+    string commands_topic = "tcp://localhost:6000";
+
+    // Pipeline of responses to a command from driver to tester
+    string responses_topic = "tcp://localhost:6002";
+
+    Subscriber tester_listener(commands_topic);
+    string command;
+
+    while (true) { // keep listening for messages indefinitely
+        
+        // receive a message from the topic
+        std::string command = tester_listener.receive();
+
+        // purify the message
+        std::string delimiter = ": ";
+        size_t pos = command.find(delimiter);
+        if (pos != std::string::npos) {
+            command = command.substr(pos + delimiter.length());
+        }
+
+        // print the message to the console
+        std::cout << command << std::endl;
+
+    }
+
+
     
 }
 

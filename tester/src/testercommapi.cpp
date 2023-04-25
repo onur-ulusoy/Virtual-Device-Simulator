@@ -188,4 +188,8 @@ namespace DriverTester{
         exit(0);
 
     }
+
+    void send_command(Publisher& publisher, const std::string& command) {
+        publisher.publish(command);
+    }
 }

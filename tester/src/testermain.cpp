@@ -6,6 +6,7 @@
  * @date 03.02.2023
  */
 #include "testercommapi.hpp"
+#include <vector>
 
 using namespace DriverTester;
 /**
@@ -21,31 +22,47 @@ using namespace DriverTester;
 *  @param _command String to store the received command
  */
 int main() {
-    fstream log;
-    string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};
-    create_directories(directories, 7);
+    // fstream log;
+    // string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};
+    // create_directories(directories, 7);
 
-    ofstream com ("communication-register");
-    com.close();
+    // ofstream com ("communication-register");
+    // com.close();
 
-    cout << "tester started working" << endl;
-    string _command;
+    // cout << "tester started working" << endl;
+    // string _command;
 
-    cout << endl;
+    // cout << endl;
 
-    cout << "Commands: " << endl;
-    cout << "show-gpiochipx: shows gpiox set" << endl;
-    cout << "read-gpiochipx-offset-property: reads gpiox spesific preperty from offset" << endl;
-    cout << "write-gpiochipx-offset-property-newValue: writes new value to gpiox spesific property from offset" << endl;
-    cout << "config-gpiochipx: configs gpiox set from default" << endl;
-    cout << ".commandSet-textfile: Executes commands from file" << endl;
-    cout << endl;
+    vector<string> commands;
+    string line;
+    ifstream infile("commandsText");
+    if(infile.is_open()) {
+        while(getline(infile, line)) {
+            commands.push_back(line);
+        }
+        infile.close();
+    }
+    else {
+        cout << "Unable to open file" << endl;
+        return 1;
+    }
 
-    cout << "Enter command (-1 to terminate): " << endl;
-    
-    //usleep(1000000 * 1);
+    // Pipeline of commands from tester to driver
+    string commands_topic = "tcp://lcaolhost:6000";
 
-    get_and_transmit_command(_command, com, log);
+    // Pipeline of responses to a command from driver to tester
+    string responses_topic = "tcp://localhost:6002";
+
+    Publisher driver_speaker(commands_topic, "tester");
+
+    for(auto& command : commands) {
+        sleep(1);
+        cout << command << endl;
+        send_command(driver_speaker, command);
+    }
+
+
 
     cout << "Tester is terminating .." << endl;
     return 0;
