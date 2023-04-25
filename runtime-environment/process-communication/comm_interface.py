@@ -28,7 +28,7 @@ class Publisher:
         """
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.PUB)
-        self.socket.bind(local_address)
+        self.socket.bind(f"tcp://*:{local_address.split(':')[-1]}")  # Bind using the wildcard
         self.process_name = process_name
 
     def publish(self, message):
