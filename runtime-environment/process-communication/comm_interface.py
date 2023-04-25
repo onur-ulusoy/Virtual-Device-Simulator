@@ -81,7 +81,10 @@ class Subscriber:
             packed_message = self.socket.recv()
             message = msgpack.unpackb(packed_message, raw=False)
             print(f"Received: {message}")
+            
+            message = message.split(':', 1)[-1].strip()
             return message
+        
         except zmq.error.Again:
             print("Timeout occurred while waiting for a message.")
             return None

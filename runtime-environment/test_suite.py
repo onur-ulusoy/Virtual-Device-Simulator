@@ -124,11 +124,18 @@ def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
 
     # Compare received messages with expected responses and print the results
     for expected, received in zip(expected_responses, received_responses):
-        if expected.strip() == received:
+        expected_parts = expected.strip().split(':', 1)
+        received_parts = received.split(':', 1)
+        
+        if len(expected_parts) == 2 and len(received_parts) == 2 and expected_parts[1].strip() == received_parts[1].strip():
             print(f"Match: Expected: {expected.strip()} | Received: {received}")
         else:
             print(f"Mismatch: Expected: {expected.strip()} | Received: {received}")
 
+    # Check if SPI_B.txt is empty
+    with open(local_file_path, 'r') as file:
+        if not file.read(1):
+            os.remove(local_file_path)  # Remove the empty file
 
 def run_tester_and_driver(local_directory=os.getcwd()):
     """
