@@ -41,6 +41,17 @@ class Publisher:
         packed_message = msgpack.packb(message_with_process_name)
         self.socket.send(packed_message)
         print(f"Sent: {message_with_process_name}")
+    
+    def close(self):
+        """
+        @brief Close the publisher socket and terminate the ZeroMQ context.
+
+        @details This method closes the socket associated with the Publisher object and
+        terminates the ZeroMQ context, which releases any resources being used by the socket
+        and context.
+        """
+        self.socket.close()
+        self.context.term()
 
 class Subscriber:
     """
@@ -58,12 +69,32 @@ class Subscriber:
         self.socket.connect(local_address)
         self.socket.setsockopt_string(zmq.SUBSCRIBE, "")
 
-    def receive(self):
+    def receive(self, timeout=None):
         """
         Receives a message using the Subscriber object's socket.
         
         @details The received message is deserialized using the msgpack library and printed to the console.
+        @param timeout: The maximum time to wait for a message, in milliseconds. None (default) means wait indefinitely.
         """
-        packed_message = self.socket.recv()
-        message = msgpack.unpackb(packed_message, raw=False)
-        print(f"Received: {message}")
+        self.socket.setsockopt(zmq.RCVTIMEO, timeout if timeout is not None else -1)
+        try:
+            packed_message = self.socket.recv()
+            message = msgpack.unpackb(packed_message, raw=False)
+            print(f"Received: {message}")
+            return message
+        except zmq.error.Again:
+            print("Timeout occurred while waiting for a message.")
+            return None
+    
+    def close(self):
+        """
+        @brief Close the subscriber socket and terminate the ZeroMQ context.
+
+        @details This method closes the socket associated with the Subscriber object and
+        terminates the ZeroMQ context, which releases any resources being used by the socket
+        and context.
+        """
+        self.socket.close()
+        self.context.term()
+
+

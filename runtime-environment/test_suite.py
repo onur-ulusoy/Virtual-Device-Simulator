@@ -52,18 +52,15 @@ def run_program_to_be_tested():
     """
     pass
 
-def send_data_when_asked(spi_write_file, local_directory=os.getcwd(), signal_topic="tcp://localhost:5555", publish_topic="tcp://localhost:5557"):
+def send_data_when_asked(spi_write_file, subscriber, publisher, local_directory=os.getcwd()):
     """
     Send the spi_write commands (spi_a) to the program to be tested.
 
     @param spi_write_file: The file containing spi_write commands (spi_a)
+    @param subscriber: The Subscriber object to receive the signal to send data
+    @param publisher: The Publisher object to send the spi_write commands (spi_a)
     @param local_directory: The local directory where the file is located (default: current working directory)
-    @param signal_topic: The topic to listen for the signal to send data (default: "tcp://localhost:5555")
-    @param publish_topic: The topic to publish the data on (default: "tcp://localhost:5556")
     """
-
-    # Create a Subscriber object to listen for the signal to send data
-    subscriber = Subscriber(signal_topic)
 
     # Wait for the signal to ask for data
     subscriber.receive()
@@ -84,12 +81,10 @@ def send_data_when_asked(spi_write_file, local_directory=os.getcwd(), signal_top
     with open(local_file_path, "w") as file:
         file.writelines(file_lines)
 
-    # Create a Publisher object to send the data
-    publisher = Publisher(publish_topic, "test")
-
     # Publish the data
     for line in data_to_send:
         publisher.publish(line.strip())
+        time.sleep(0.1)
 
 def expect(spi_read_file):
     """
