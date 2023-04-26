@@ -356,7 +356,7 @@ namespace DeviceSim {
     * @class I2C_Device
     * @brief Models a I2C device that is being simulated, implements pure virtual class Device.
     */
-    class I2C_Device : public Device {
+    class I2C_Device : public Device, public Singleton<I2C_Device> {
 
     public:
         friend class Singleton<I2C_Device>;
@@ -385,7 +385,7 @@ namespace DeviceSim {
     * @class UART_Device
     * @brief Models a UART device that is being simulated, implements pure virtual class Device.
     */
-    class UART_Device : public Device {
+    class UART_Device : public Device, public Singleton<UART_Device> {
 
     public:
         friend class Singleton<UART_Device>;
@@ -414,7 +414,7 @@ namespace DeviceSim {
     * @class USART_Device
     * @brief Models a USART device that is being simulated, implements pure virtual class Device.
     */
-    class USART_Device : public Device {
+    class USART_Device : public Device, public Singleton<USART_Device> {
 
     public:
         friend class Singleton<USART_Device>;
@@ -443,7 +443,7 @@ namespace DeviceSim {
     * @class CAN_Device
     * @brief Models a CAN device that is being simulated, implements pure virtual class Device.
     */
-    class CAN_Device : public Device {
+    class CAN_Device : public Device, public Singleton<CAN_Device> {
 
     public:
         friend class Singleton<CAN_Device>;
@@ -472,7 +472,7 @@ namespace DeviceSim {
     * @class Ethernet_Device
     * @brief Models a Ethernet device that is being simulated, implements pure virtual class Device.
     */
-    class Ethernet_Device : public Device {
+    class Ethernet_Device : public Device, public Singleton<Ethernet_Device> {
 
     public:
         friend class Singleton<Ethernet_Device>;

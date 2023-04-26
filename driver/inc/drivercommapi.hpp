@@ -9,6 +9,8 @@
 #define DRIVER_DRIVERCOMMAPI_HPP
 
 #include "libdriver.hpp"
+#include "CommInterface.hpp"
+
 /**
  * @namespace DeviceSim
  * @brief Gathers around all the tools contributing to simulate device under a frame.
@@ -26,7 +28,13 @@ namespace DeviceSim {
     *
     * @return -1 if the command is to disconnect the device, 0 if the command is to process the device or to execute nothing.
     */
-    int receive_command(enum command_request req, string devType, fstream& receiver, string& _command, ofstream& _com);
+    //int receive_command(enum command_request req, string devType, fstream& receiver, string& _command, ofstream& _com);
+
+
+    void receive_command(Subscriber& subscriber);
+
+    string execute_command(const enum command_request request, const string dev_type, const string command, ofstream& register_file);
+
     /**
     * @brief Transmits a command to tester by writing "&" to the file "command" meaning that driver is ready to receive a new command.
     */
@@ -40,6 +48,7 @@ namespace DeviceSim {
     */
     void slave_writing(ofstream& com, string message);
     void transmit_response(string message);
+    Device& create_device(const std::string& dev_type, const std::string& dev_name);
 }
 
 

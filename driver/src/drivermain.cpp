@@ -10,7 +10,6 @@
 #include "drivercommapi.hpp"
 #include "SpiProcessorWrapper.hpp"
 #include "SpiProcessorUtil.hpp"
-#include "CommInterface.hpp"
 
 using namespace DeviceSim;
 /**
@@ -80,7 +79,10 @@ int main() {
 
     // Publisher publisher("tcp://*:5555", "driver");
 
-     // Pipeline of commands from tester to driver
+    string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};
+    create_directories(directories, 7);
+
+    // Pipeline of commands from tester to driver
     string commands_topic = "tcp://localhost:6000";
 
     // Pipeline of responses to a command from driver to tester
@@ -89,20 +91,11 @@ int main() {
     Subscriber tester_listener(commands_topic);
     string command;
 
+    ofstream register_file;
+    execute_command(ONESHOT, "spi", "example_command", register_file);
     while (true) { // keep listening for messages indefinitely
         
-        // receive a message from the topic
-        std::string command = tester_listener.receive();
-
-        // purify the message
-        std::string delimiter = ": ";
-        size_t pos = command.find(delimiter);
-        if (pos != std::string::npos) {
-            command = command.substr(pos + delimiter.length());
-        }
-
-        // print the message to the console
-        std::cout << command << std::endl;
+        receive_command(tester_listener);
 
     }
 

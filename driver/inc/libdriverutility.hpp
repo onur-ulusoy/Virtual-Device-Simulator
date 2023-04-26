@@ -18,6 +18,7 @@
 #include <chrono>
 #include <sstream>
 #include <nlohmann/json.hpp>
+#include <sys/stat.h>
 
 using namespace std;
 
@@ -49,6 +50,9 @@ namespace DeviceSim{
     string now();
     char* generateDevName (string path);
     int count_lines(const string& filename);
+
+    void create_directories(string directories[], int size);
+    std::vector<std::string> split_string(const std::string& input, const std::string& delimiter);
 }
 
 
