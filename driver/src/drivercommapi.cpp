@@ -26,12 +26,41 @@ namespace DeviceSim {
         std::cout << command << std::endl;
     }
 
-    string execute_command(const enum command_request request, const string dev_type, const string command, ofstream& register_file) {
+    string execute_command(const enum command_request request_type, const string dev_type, const string command, ofstream& register_file) {
 
         string driver_response = "false";
-        string dev_name = "spidev";
-        Device& dev = create_device(dev_type, dev_name);
-        cout << dev.getDevName() << "**" << endl;
+        
+        std::vector<std::string> substrings = split_string(command, "-");
+
+        static string operation, device_name, property_name, property_new_value;
+        static int offset;
+
+        device_name = substrings[1];
+        string device_path = "dev/" + dev_type + "/" + device_name;
+        
+        Device& dev = create_device(dev_type, device_path);
+
+        operation = substrings[0];
+
+        if (request_type == ONESHOT){
+            if (operation == "write"){
+                
+                if (!does_directory_exist(device_path))
+                    dev.devContent.config(DEFAULT);
+                    
+                offset = stoi(substrings[2]);
+                property_name = substrings[3];
+                property_new_value = substrings[4];
+                cout << property_name << endl;
+                dev.devContent.write(offset, property_name, property_new_value);
+            }
+
+            // else if ...
+
+        }
+
+
+
         /*if (request == ONESHOT) {
             
             std::vector<std::string> substrings = split_string(command, "-");

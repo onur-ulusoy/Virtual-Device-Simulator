@@ -92,8 +92,9 @@ int main() {
     string command;
 
     ofstream register_file;
-    execute_command(ONESHOT, "spi", "example_command", register_file);
-    while (true) { // keep listening for messages indefinitely
+    string example_command = "write-example_device-2-name-example";
+    execute_command(ONESHOT, "spi", example_command, register_file);
+    while (false) { // keep listening for messages indefinitely
         
         receive_command(tester_listener);
 

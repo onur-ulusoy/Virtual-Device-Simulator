@@ -10,6 +10,7 @@
 
 #include "libdriver.hpp"
 #include "CommInterface.hpp"
+#include <unordered_map>
 
 /**
  * @namespace DeviceSim

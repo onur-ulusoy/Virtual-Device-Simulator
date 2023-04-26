@@ -98,5 +98,9 @@ namespace DeviceSim{
 
     return substrings;
 }
+
+    bool does_directory_exist(const std::string& path) {
+        return std::filesystem::is_directory(path);
+    }
 }
 

@@ -53,6 +53,7 @@ namespace DeviceSim{
 
     void create_directories(string directories[], int size);
     std::vector<std::string> split_string(const std::string& input, const std::string& delimiter);
+    bool does_directory_exist(const std::string& path);
 }
 
 
