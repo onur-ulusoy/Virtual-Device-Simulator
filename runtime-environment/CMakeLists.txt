@@ -84,7 +84,7 @@ target_include_directories(driver PUBLIC ${ZeroMQ_INCLUDE_DIR})
 
 target_link_libraries(driver PUBLIC ${ZeroMQ_LIBRARY} ${comm_interface_dir}/libcomm_interface.a ${SpiProcessorWrapperDir}/libSpiProcessorWrapper.a)
 
-target_link_libraries(tester PUBLIC ${ZeroMQ_LIBRARY} ${comm_interface_dir}/libcomm_interface.a)
+target_link_libraries(tester PUBLIC ${ZeroMQ_LIBRARY} ${comm_interface_dir}/libcomm_interface.a ${SpiProcessorWrapperDir}/libSpiProcessorWrapper.a)
 
 # Create libraries
 add_library(driverlib STATIC ${driver_src_files} ${driver_inc_files})

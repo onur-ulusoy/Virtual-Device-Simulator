@@ -1,0 +1,18 @@
+{
+    "device_type": "spi",
+    "offset_number": 0,
+    "spi_write": [
+        [
+            "spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00"
+        ],
+        [
+            "spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00"
+        ],
+        [
+            "spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00"
+        ],
+        [
+            "spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00"
+        ]
+    ]
+}

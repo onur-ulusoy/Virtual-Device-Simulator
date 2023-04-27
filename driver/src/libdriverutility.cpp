@@ -6,6 +6,7 @@
  * @date 03/02/2023
  */
 #include "libdriverutility.hpp"
+
 namespace DeviceSim{
 
     fstream& GotoLine(std::fstream& file, unsigned int num){
@@ -100,7 +101,8 @@ namespace DeviceSim{
 }
 
     bool does_directory_exist(const std::string& path) {
-        return std::filesystem::is_directory(path);
+        std::ifstream file(path);
+        return file.good();
     }
 }
 

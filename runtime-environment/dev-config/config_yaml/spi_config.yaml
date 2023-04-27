@@ -7,4 +7,6 @@ lsb_first: "false"
 cs_high: "false"
 3wire: "false"
 loopback: "false"
-buffer: "00000000"
+buffer: "0x00"
+dataSize: "1"
+

@@ -7,6 +7,7 @@
  */
 #include "testercommapi.hpp"
 #include <vector>
+#include "SpiProcessorUtil.hpp"
 
 using namespace DriverTester;
 /**
@@ -34,6 +35,8 @@ int main() {
 
     // cout << endl;
 
+
+    //spi_dev_req.parseJsonFile();
     vector<string> commands;
     string line;
     ifstream infile("commandsText");
@@ -43,13 +46,14 @@ int main() {
         }
         infile.close();
     }
+
     else {
         cout << "Unable to open file" << endl;
         return 1;
     }
-
+    
     // Pipeline of commands from tester to driver
-    string commands_topic = "tcp://lcaolhost:6000";
+    string commands_topic = "tcp://localhost:6000";
 
     // Pipeline of responses to a command from driver to tester
     string responses_topic = "tcp://localhost:6002";
@@ -58,11 +62,13 @@ int main() {
 
     for(auto& command : commands) {
         sleep(1);
-        cout << command << endl;
+        
+        //cout << command << endl;
+
         send_command(driver_speaker, command);
     }
 
-
+    
 
     cout << "Tester is terminating .." << endl;
     return 0;

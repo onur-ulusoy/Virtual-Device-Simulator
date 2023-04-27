@@ -19,6 +19,10 @@
 #include <sstream>
 #include <nlohmann/json.hpp>
 #include <sys/stat.h>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 
 using namespace std;
 

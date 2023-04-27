@@ -11,7 +11,7 @@ using namespace std;
 
 namespace DeviceSim {
     
-    void receive_command(Subscriber& subscriber){
+    string receive_command(Subscriber& subscriber){
         // receive a message from the topic
         std::string command = subscriber.receive();
 
@@ -24,6 +24,7 @@ namespace DeviceSim {
 
         // print the message to the console
         std::cout << command << std::endl;
+        return command;
     }
 
     string execute_command(const enum command_request request_type, const string dev_type, const string command, ofstream& register_file) {
@@ -47,7 +48,7 @@ namespace DeviceSim {
                 
                 if (!does_directory_exist(device_path))
                     dev.devContent.config(DEFAULT);
-                    
+
                 offset = stoi(substrings[2]);
                 property_name = substrings[3];
                 property_new_value = substrings[4];

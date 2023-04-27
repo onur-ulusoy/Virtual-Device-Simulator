@@ -89,14 +89,15 @@ int main() {
     string responses_topic = "tcp://localhost:6002";
 
     Subscriber tester_listener(commands_topic);
-    string command;
 
     ofstream register_file;
-    string example_command = "write-example_device-2-name-example";
-    execute_command(ONESHOT, "spi", example_command, register_file);
-    while (false) { // keep listening for messages indefinitely
+    string command;
+    //execute_command(ONESHOT, "spi", example_command, register_file);
+    while (true) { // keep listening for messages indefinitely
         
-        receive_command(tester_listener);
+        command = receive_command(tester_listener);
+        execute_command(ONESHOT, "spi", command, register_file);
+        sleep(1);
 
     }
 

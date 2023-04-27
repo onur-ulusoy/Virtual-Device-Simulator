@@ -66,4 +66,32 @@ namespace DriverTester {
             mkdir(directories[i].c_str(), 0777);
         }
     }
+
+    void remove_empty_lines(const std::string& file_path) {
+        std::ifstream inputFile(file_path);
+        std::ostringstream output;
+        std::string line;
+
+        if (!inputFile) {
+            std::cerr << "Error opening file: " << file_path << std::endl;
+            return;
+        }
+
+        while (std::getline(inputFile, line)) {
+            if (!line.empty()) {
+                output << line << '\n';
+            }
+        }
+
+        inputFile.close();
+
+        std::ofstream outputFile(file_path);
+        if (!outputFile) {
+            std::cerr << "Error opening file for writing: " << file_path << std::endl;
+            return;
+        }
+
+        outputFile << output.str();
+        outputFile.close();
+    }
 }
