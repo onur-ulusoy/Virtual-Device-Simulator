@@ -7,6 +7,7 @@
  */
 #include "testercommapi.hpp"
 #include <vector>
+#include "SpiProcessorWrapper.hpp"
 #include "SpiProcessorUtil.hpp"
 
 using namespace DriverTester;
@@ -86,6 +87,12 @@ int main() {
     vector<vector<string>> spi_write_groups = spi_dev_request.getDevEntry().getSpiWrite();
     size_t group_count = spi_write_groups.size();
 
+    std::string spi_processor_workpath = "../spi-processing/cpp_wrapper/src";
+    chdir(spi_processor_workpath.c_str());
+
+    SpiProcessorWrapper spi_wrapper;    
+    spi_wrapper.runWithFFlag();
+
     for (size_t i = 0; i < group_count; ++i) {
         // First cycle
         sleep(1);
@@ -103,12 +110,17 @@ int main() {
             const auto& group = spi_write_groups[i];
             for (const auto& write : group) {
                 cout << write << std::endl;
-            }
+                
+                std::string read_line = spi_wrapper.requestReadLine(write);
+                cout << read_line << endl;                
+            }        
         } else {
             throw std::runtime_error("One of the responses is 'failure'");
         }
     }
-
+    
+    sleep(1);
+    spi_wrapper.requestReadLine("TERMINATE");
     cout << "Tester is terminating .." << endl;
     return 0;
 }

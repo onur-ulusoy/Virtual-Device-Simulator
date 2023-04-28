@@ -71,7 +71,7 @@ int main() {
 
     std::string input_file_path = "SPI_Log2.txt";
     std::string target_path = "../../SPI_Log.txt";
-    fs::copyFile("../../../runtime-environment/" + input_file_path, target_path, fs::copy_options::overwrite_existing);
+    fs::copy_file("../../../runtime-environment/" + input_file_path, target_path, fs::copy_options::overwrite_existing);
 
     float stime = 0.01;
 
