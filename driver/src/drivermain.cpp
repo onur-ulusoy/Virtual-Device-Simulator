@@ -89,15 +89,18 @@ int main() {
     string responses_topic = "tcp://localhost:6002";
 
     Subscriber tester_listener(commands_topic);
+    Publisher tester_speaker(responses_topic, "driver");
 
     ofstream register_file;
     string command;
-    //execute_command(ONESHOT, "spi", example_command, register_file);
+    string response;
+
     while (true) { // keep listening for messages indefinitely
         
         command = receive_command(tester_listener);
         cout << command << endl;
-        execute_command(ONESHOT, "spi", command, register_file);
+        response = execute_command(ONESHOT, "spi", command, register_file);
+        transmit_response(tester_speaker, response);
         sleep(1);
 
     }

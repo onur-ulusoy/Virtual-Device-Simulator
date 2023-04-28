@@ -53,6 +53,7 @@ namespace DriverTester{
     void get_and_transmit_command(string& _command, ofstream& com, fstream& log);
 
     void send_command(Publisher& publisher, const std::string& command);
+    string receive_response(Subscriber& subscriber);
 }
 
 #endif //TESTERCOMMAPI_HPP

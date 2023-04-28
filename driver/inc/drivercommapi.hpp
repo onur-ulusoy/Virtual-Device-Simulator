@@ -48,8 +48,9 @@ namespace DeviceSim {
     *
     */
     void slave_writing(ofstream& com, string message);
-    void transmit_response(string message);
     Device& create_device(const std::string& dev_type, const std::string& dev_name);
+    void transmit_response(Publisher& publisher, const string msg);
+
 }
 
 

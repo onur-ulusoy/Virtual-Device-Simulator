@@ -27,7 +27,7 @@ namespace DeviceSim {
 
     string execute_command(const enum command_request request_type, const string dev_type, const string command, ofstream& register_file) {
 
-        string driver_response = "false";
+        string driver_response = "failure";
         
         std::vector<std::string> substrings = split_string(command, "-");
 
@@ -52,13 +52,12 @@ namespace DeviceSim {
                 property_new_value = substrings[4];
                 cout << property_name << endl;
                 dev.devContent.write(offset, property_name, property_new_value);
+                driver_response = "success";
             }
 
             // else if ...
 
         }
-
-
 
         /*if (request == ONESHOT) {
             
@@ -301,15 +300,13 @@ namespace DeviceSim {
         }
     }
 
+    void transmit_response(Publisher& publisher, const string msg){
+        publisher.publish(msg);
+    }
+
     void throw_command(){
         ofstream outfile ("command");
         outfile << "&";
-        outfile.close();
-    }
-
-    void transmit_response(string message){
-        ofstream outfile ("command0");
-        outfile << message;
         outfile.close();
     }
 

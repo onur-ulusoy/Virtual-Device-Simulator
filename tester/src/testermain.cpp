@@ -41,7 +41,8 @@ int main() {
     spi_dev_request.processAndSaveJson();
     spi_dev_request.parseJsonFile();
     spi_dev_request.parseProcessedJsonFile();
-    //spi_dev_request.getDevEntryProcessed().print();
+    // spi_dev_request.getDevEntryProcessed().print();
+    // spi_dev_request.getDevEntry().print(); 
 
     // Open the output file
     std::ofstream outfile("commandsText");
@@ -78,16 +79,35 @@ int main() {
     string responses_topic = "tcp://localhost:6002";
 
     Publisher driver_speaker(commands_topic, "tester");
+    Subscriber driver_listener(responses_topic);
 
-    for(auto& command : commands) {
+    string response;
+
+    vector<vector<string>> spi_write_groups = spi_dev_request.getDevEntry().getSpiWrite();
+    size_t group_count = spi_write_groups.size();
+
+    for (size_t i = 0; i < group_count; ++i) {
+        // First cycle
         sleep(1);
-        
-        //cout << command << endl;
+        send_command(driver_speaker, commands[2 * i]);
+        string response1 = receive_response(driver_listener);
 
-        send_command(driver_speaker, command);
+        // Second cycle
+        sleep(1);
+        send_command(driver_speaker, commands[2 * i + 1]);
+        string response2 = receive_response(driver_listener);
+
+        // Check if both responses are "success"
+        if (response1 == "success" && response2 == "success") {
+            // Process and print the SPI write group
+            const auto& group = spi_write_groups[i];
+            for (const auto& write : group) {
+                cout << write << std::endl;
+            }
+        } else {
+            throw std::runtime_error("One of the responses is 'failure'");
+        }
     }
-
-    
 
     cout << "Tester is terminating .." << endl;
     return 0;
