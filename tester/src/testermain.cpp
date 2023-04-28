@@ -35,8 +35,27 @@ int main() {
 
     // cout << endl;
 
+    SpiDevRequest spi_dev_request("commands.txt", 0);
+    spi_dev_request.rawToJson();
 
-    //spi_dev_req.parseJsonFile();
+    spi_dev_request.processAndSaveJson();
+    spi_dev_request.parseJsonFile();
+    spi_dev_request.parseProcessedJsonFile();
+    //spi_dev_request.getDevEntryProcessed().print();
+
+    // Open the output file
+    std::ofstream outfile("commandsText");
+
+    // Write the output to the file instead of the console
+    for (const auto& group : spi_dev_request.getDevEntryProcessed().getSpiWrite()) {
+        for (const auto& write : group) {
+            outfile << write << std::endl;
+        }
+    }
+
+    // Close the output file
+    outfile.close();
+
     vector<string> commands;
     string line;
     ifstream infile("commandsText");

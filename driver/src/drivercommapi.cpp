@@ -22,8 +22,6 @@ namespace DeviceSim {
             command = command.substr(pos + delimiter.length());
         }
 
-        // print the message to the console
-        std::cout << command << std::endl;
         return command;
     }
 

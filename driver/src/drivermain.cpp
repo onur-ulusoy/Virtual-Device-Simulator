@@ -96,6 +96,7 @@ int main() {
     while (true) { // keep listening for messages indefinitely
         
         command = receive_command(tester_listener);
+        cout << command << endl;
         execute_command(ONESHOT, "spi", command, register_file);
         sleep(1);
 
