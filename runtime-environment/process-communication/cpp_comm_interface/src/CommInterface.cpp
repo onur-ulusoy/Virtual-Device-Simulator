@@ -40,8 +40,10 @@ Subscriber::Subscriber(const std::string& localAddress)
     socket.set(zmq::sockopt::subscribe, "");  // Updated function call
 }
 
-std::string Subscriber::receive() {
+std::string Subscriber::receive(int timeout) {
     zmq::message_t packedMessage;
+    socket.set(zmq::sockopt::rcvtimeo, timeout);
+
     auto result = socket.recv(packedMessage, zmq::recv_flags::none);  // Handle the return value
     if (result) {
         msgpack::object_handle oh = msgpack::unpack(static_cast<const char*>(packedMessage.data()), packedMessage.size());
@@ -49,7 +51,16 @@ std::string Subscriber::receive() {
         std::string message;
         deserialized.convert(message);
         std::cout << "Received: " << message << std::endl;
+
+        size_t delimiterPos = message.find(':');
+        if (delimiterPos != std::string::npos) {
+            message = message.substr(delimiterPos + 1);
+            message = message.substr(message.find_first_not_of(' '));
+        }
         return message;
+    } else if (timeout > 0 && zmq_errno() == EAGAIN) {
+        std::cout << "Timeout occurred while waiting for a message." << std::endl;
+        return "";
     }
 
     return "";

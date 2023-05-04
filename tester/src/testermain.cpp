@@ -36,6 +36,46 @@ int main() {
 
     // cout << endl;
 
+    // Define communication topics to test script
+    std::string signal_topic = "tcp://localhost:5555";
+    std::string write_data_topic = "tcp://localhost:5557";
+    std::string read_data_topic = "tcp://localhost:5559";
+
+    // Create Publisher objects for the signal topic and read data topic
+    Publisher data_requester(signal_topic, "tester");
+    Publisher data_supplier(read_data_topic, "tester");
+
+    // Create a Subscriber object to listen for write data
+    Subscriber data_listener(write_data_topic);
+
+    int timeout_ct = 0;
+    const int timeout_ms = 100;
+    const int sleep_ms = 100;
+
+    while (timeout_ct < 2) {
+        // Send a request for data
+        data_requester.publish("Requesting data");
+
+        usleep(sleep_ms * 1000);
+
+        // Receive and process messages, with a timeout
+        while (true) {
+            auto message = data_listener.receive(timeout_ms);
+            if (message == "") {
+                timeout_ct++;
+                break;
+            } else {
+                // Publish the mock read line
+                // publisher_read.publish(mock_read_line);
+                cout << "*!" << endl;
+                timeout_ct = 0;
+            }
+        }
+
+        std::cout << "*****\n";
+        usleep(sleep_ms * 1000);
+    }
+
     SpiDevRequest spi_dev_request("commands.txt", 0);
     spi_dev_request.rawToJson();
 

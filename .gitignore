@@ -48,3 +48,7 @@ todo
 ## in and out files of spi_processor
 in
 out
+commands.json
+commands_processed.json
+commands.txt
+
