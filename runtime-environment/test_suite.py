@@ -149,7 +149,7 @@ def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
         if not file.read(1):
             os.remove(local_file_path)  # Remove the empty file
 
-def run_tester_and_driver(local_directory=os.getcwd()):
+def run_assembly(local_directory=os.getcwd()):
     """
     Starts processes tester and driver ./tester.out and ./driver.out in separate consoles.
     """
@@ -161,8 +161,9 @@ def run_tester_and_driver(local_directory=os.getcwd()):
     tester_command = command_template.format(tester_path)
     driver_command = command_template.format(driver_path)
 
-    subprocess.run(tester_command, shell=True, cwd=local_directory)
     subprocess.run(driver_command, shell=True, cwd=local_directory)
+    time.sleep(0.5)
+    subprocess.run(tester_command, shell=True, cwd=local_directory)
 
 
 def wait_response():

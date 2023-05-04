@@ -85,7 +85,6 @@ int main() {
     string response;
 
     vector<vector<string>> spi_write_groups = spi_dev_request.getDevEntry().getSpiWrite();
-    size_t group_count = spi_write_groups.size();
 
     std::string spi_processor_workpath = "../spi-processing/cpp_wrapper/src";
     chdir(spi_processor_workpath.c_str());
@@ -120,6 +119,7 @@ int main() {
         usleep(sleep_ms * 1000);
 
         // Receive and process messages, with a timeout
+        size_t group_index = 0;
         while (true) {
             // Set timeout for the first message or regular messages
             int current_timeout = first_msg ? first_msg_timeout_ms : regular_timeout_ms;
@@ -142,33 +142,32 @@ int main() {
                 first_msg = false;
                 consecutive_timeouts = 0;
 
-                for (size_t i = 0; i < group_count; ++i) {
-                    // First cycle
-                    sleep(1);
-                    send_command(driver_speaker, commands[2 * i]);
-                    string response1 = receive_response(driver_listener);
+                // First cycle
+                sleep(1);
+                send_command(driver_speaker, commands[2 * group_index]);
+                string response1 = receive_response(driver_listener);
 
-                    // Second cycle
-                    sleep(1);
-                    send_command(driver_speaker, commands[2 * i + 1]);
-                    string response2 = receive_response(driver_listener);
+                // Second cycle
+                sleep(1);
+                send_command(driver_speaker, commands[2 * group_index + 1]);
+                string response2 = receive_response(driver_listener);
 
-                    // Check if both responses are "success"
-                    if (response1 == "success" && response2 == "success") {
-                        // Process and print the SPI write group
-                        const auto& group = spi_write_groups[i];
-                        for (const auto& write : group) {
-                            cout << write << std::endl;
-                            
-                            std::string read_line = spi_wrapper.requestReadLine(write);
-                            cout << read_line << endl;  
-                            // Publish the read line
-                            data_supplier.publish(read_line);              
-                        }        
-                    } else {
-                        throw std::runtime_error("One of the responses is 'failure'");
-                    }
-                }                
+                // Check if both responses are "success"
+                if (response1 == "success" && response2 == "success") {
+                    // Process and print the SPI write group
+                    const auto& group = spi_write_groups[group_index];
+                    for (const auto& write : group) {
+                        cout << write << std::endl;
+
+                        std::string read_line = spi_wrapper.requestReadLine(write);
+                        cout << read_line << endl;  
+                        // Publish the read line
+                        data_supplier.publish(read_line);              
+                    }        
+                } else {
+                    throw std::runtime_error("One of the responses is 'failure'");
+                }
+                group_index++;         
             }
         }
 
@@ -180,7 +179,7 @@ int main() {
     
     sleep(1);
     spi_wrapper.requestReadLine("TERMINATE");
-    cout << "Tester is terminating .." << endl;
+    cout << "Tester is being terminated .." << endl;
     return 0;
 }
 

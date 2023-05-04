@@ -30,6 +30,7 @@ spi_read_file = "SPI_B.txt"
 local_directory = os.getcwd()
 
 run_sp_with_f_flag()
+run_assembly()
 time.sleep(0.1)
 # Continuously send data and expect read data
 while True:
