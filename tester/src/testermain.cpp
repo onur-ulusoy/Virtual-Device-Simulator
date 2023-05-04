@@ -48,31 +48,46 @@ int main() {
     // Create a Subscriber object to listen for write data
     Subscriber data_listener(write_data_topic);
 
-    int timeout_ct = 0;
-    const int timeout_ms = 100;
+    const int regular_timeout_ms = 100;
+    const int first_msg_timeout_ms = 10000;
     const int sleep_ms = 100;
+    bool first_msg = true;
+    bool communication_running = true;
+    int consecutive_timeouts = 0;
+    
+    usleep(0.5 * 1000000);
 
-    while (timeout_ct < 2) {
+    while (consecutive_timeouts < 2 && communication_running) {
         // Send a request for data
         data_requester.publish("Requesting data");
-
         usleep(sleep_ms * 1000);
 
         // Receive and process messages, with a timeout
         while (true) {
-            auto message = data_listener.receive(timeout_ms);
-            if (message == "") {
-                timeout_ct++;
-                break;
+            // Set timeout for the first message or regular messages
+            int current_timeout = first_msg ? first_msg_timeout_ms : regular_timeout_ms;
+            auto message = data_listener.receive(current_timeout);
+
+            if (message.empty()) {
+                if (first_msg) {
+                    // If the first message didn't arrive within the specified time, exit the loop
+                    communication_running = false;
+                    break;
+                } else {
+                    // If it's not the first message, increment the consecutive timeouts counter and break the inner loop
+                    consecutive_timeouts++;
+                    break;
+                }
             } else {
+                first_msg = false;
+                consecutive_timeouts = 0;
                 // Publish the mock read line
-                // publisher_read.publish(mock_read_line);
-                cout << "*!" << endl;
-                timeout_ct = 0;
+                data_supplier.publish("mock_read_line");
+                std::cout << "*!" << std::endl;
             }
         }
 
-        std::cout << "*****\n";
+        std::cout << "*****" << std::endl;
         usleep(sleep_ms * 1000);
     }
 

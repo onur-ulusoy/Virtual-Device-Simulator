@@ -51,4 +51,5 @@ out
 commands.json
 commands_processed.json
 commands.txt
-
+SPI_A.txt
+SPI_B.txt
