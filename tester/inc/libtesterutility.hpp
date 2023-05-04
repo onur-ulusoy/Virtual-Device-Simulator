@@ -36,8 +36,7 @@ namespace DriverTester {
     * @param size Size of the input array.
     */
     void create_directories(string directories[], int size);
-
-
+    void remove_empty_lines(const std::string& file_path);
 }
 
 #endif //LIBTESTERUTILITY_HPP

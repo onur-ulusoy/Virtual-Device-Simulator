@@ -18,6 +18,7 @@
 #include <iomanip>
 #include <sys/stat.h>
 #include "libtesterutility.hpp"
+#include "CommInterface.hpp"
 
 using namespace std;
 /**
@@ -50,6 +51,9 @@ namespace DriverTester{
     * @param log Reference to the fstream object used to open the log file
     */
     void get_and_transmit_command(string& _command, ofstream& com, fstream& log);
+
+    void send_command(Publisher& publisher, const std::string& command);
+    string receive_response(Subscriber& subscriber);
 }
 
 #endif //TESTERCOMMAPI_HPP

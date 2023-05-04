@@ -272,7 +272,6 @@ namespace DeviceSim {
         }
         rtrim(new_line);
 
-
         GotoLine(devHandler->getFd(), 1);
 
         fstream newfile;
@@ -283,17 +282,21 @@ namespace DeviceSim {
         int i = 0;
 
         while (true) {
-
             if (i != offset) {
                 getline(devHandler->getFd(), line);
-                newfile << line << endl;
+                newfile << line;
             } else {
-                newfile << new_line << endl;
+                newfile << new_line;
                 GotoLine(devHandler->getFd(), i + 2);
             }
 
             i++;
-            if (devHandler->getFd().eof()) break;
+
+            if (!devHandler->getFd().eof()) {
+                newfile << '\n'; // Write a newline only if it's not the last line
+            } else {
+                break;
+            }
         }
 
         newfile.close();
@@ -321,24 +324,31 @@ namespace DeviceSim {
         // Iterate over the "Devices" array
         for (const auto& device : devices_array) {
             // Iterate over the keys in order
-            for (const auto& key : keys) {
+            size_t key_count = keys.size();
+            for (size_t i = 0; i < key_count; i++) {
+                const auto& key = keys[i];
                 // Write the value for the key to the output file, followed by a space
                 auto it = device.find(key.get<std::string>());
                 if (it != device.end()) {
                     json value = it.value();
                     if (value.is_string()) {
-                        output_file << value.get<std::string>() << " ";
+                        output_file << value.get<std::string>();
                     } else {
-                        output_file << value << " ";
+                        output_file << value;
                     }
                 } else {
-                    output_file << "- ";
+                    output_file << "-";
+                }
+                
+                if (i != key_count - 1) {
+                    output_file << " "; // Add a space only if it's not the last key
                 }
             }
             // Write a newline after processing each device
             output_file << std::endl;
         }
     }
+
 
     vector<string> Device::get_device_keys(const string& device_type) {
         string json_config_file = "dev-config/config_json/" + device_type + "_config.json";

@@ -10,36 +10,60 @@
 using namespace std;
 
 namespace DeviceSim {
+    
+    string receive_command(Subscriber& subscriber){
+        // receive a message from the topic
+        std::string command = subscriber.receive();
 
-    int receive_command(enum command_request req, string devType, fstream& receiver, string& _command, ofstream& _com) {
-
-
-        string returnVal = "false";
-
-        if (req == ONESHOT){
-            receiver.open("command2");
-            receiver >> _command;
-            receiver.close();
+        // purify the message
+        std::string delimiter = ": ";
+        size_t pos = command.find(delimiter);
+        if (pos != std::string::npos) {
+            command = command.substr(pos + delimiter.length());
         }
 
-        if (_command == "-1"){
-            slave_writing(_com, "disconnecting");
-            return -1;
-        }
+        return command;
+    }
 
-        else if (_command == "&" || _command == ""){
-            return 0;
-        }
+    string execute_command(const enum command_request request_type, const string dev_type, const string command, ofstream& register_file) {
 
-        else {
-            string delimiter = "-";
-            vector<string> substrings;
-            stringstream ss(_command);
-            string item;
+        string driver_response = "failure";
+        
+        std::vector<std::string> substrings = split_string(command, "-");
 
-            while (getline(ss, item, delimiter[0])) {
-                substrings.push_back(item);
+        static string operation, device_name, property_name, property_new_value;
+        static int offset;
+
+        device_name = substrings[1];
+        string device_path = "dev/" + dev_type + "/" + device_name;
+        
+        Device& dev = create_device(dev_type, device_path);
+
+        operation = substrings[0];
+
+        if (request_type == ONESHOT){
+            if (operation == "write"){
+                
+                if (!does_directory_exist(device_path))
+                    dev.devContent.config(DEFAULT);
+
+                offset = stoi(substrings[2]);
+                property_name = substrings[3];
+                property_new_value = substrings[4];
+                cout << property_name << endl;
+                dev.devContent.write(offset, property_name, property_new_value);
+                driver_response = "success";
             }
+
+            // else if ...
+
+        }
+
+        /*if (request == ONESHOT) {
+            
+            std::vector<std::string> substrings = split_string(command, "-");
+
+
 
             if (substrings[0] == "show") {
                 string path = "dev/" + devType + "/" + substrings[1];
@@ -241,27 +265,48 @@ namespace DeviceSim {
 
                 exit(0);
 
-            }
+            }*/
 
-            else {
-                slave_writing(_com, "Invalid command");
-            }
+            // else {
+            //     slave_writing(_com, "Invalid command");
+            // }
 
-        }
         
-        throw_command();
-        return 0;
+        
+        //throw_command();
+        return driver_response;
+    }
+
+    Device& create_device(const std::string& dev_type, const std::string& dev_name) {
+        // create and return the appropriate device object
+        if (dev_type == "gpio") {
+            return GPIO_Device::getInstance(dev_name);
+        } else if (dev_type == "spi") {
+            return SPI_Device::getInstance(dev_name);
+        } else if (dev_type == "i2c") {
+            return I2C_Device::getInstance(dev_name);
+        } else if (dev_type == "uart") {
+            return UART_Device::getInstance(dev_name);
+        } else if (dev_type == "usart") {
+            return USART_Device::getInstance(dev_name);
+        } else if (dev_type == "can") {
+            return CAN_Device::getInstance(dev_name);
+        } else if (dev_type == "ethernet") {
+            return Ethernet_Device::getInstance(dev_name);
+        } else {
+            // handle the case where the device type is unknown
+            std::cerr << "Error: unknown device type" << std::endl;
+            exit(1);
+        }
+    }
+
+    void transmit_response(Publisher& publisher, const string msg){
+        publisher.publish(msg);
     }
 
     void throw_command(){
         ofstream outfile ("command");
         outfile << "&";
-        outfile.close();
-    }
-
-    void transmit_response(string message){
-        ofstream outfile ("command0");
-        outfile << message;
         outfile.close();
     }
 

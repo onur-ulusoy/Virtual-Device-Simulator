@@ -28,7 +28,7 @@ class Publisher:
         """
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.PUB)
-        self.socket.bind(local_address)
+        self.socket.bind(f"tcp://*:{local_address.split(':')[-1]}")  # Bind using the wildcard
         self.process_name = process_name
 
     def publish(self, message):
@@ -41,6 +41,17 @@ class Publisher:
         packed_message = msgpack.packb(message_with_process_name)
         self.socket.send(packed_message)
         print(f"Sent: {message_with_process_name}")
+    
+    def close(self):
+        """
+        @brief Close the publisher socket and terminate the ZeroMQ context.
+
+        @details This method closes the socket associated with the Publisher object and
+        terminates the ZeroMQ context, which releases any resources being used by the socket
+        and context.
+        """
+        self.socket.close()
+        self.context.term()
 
 class Subscriber:
     """
@@ -58,12 +69,37 @@ class Subscriber:
         self.socket.connect(local_address)
         self.socket.setsockopt_string(zmq.SUBSCRIBE, "")
 
-    def receive(self):
+    def receive(self, timeout=None):
         """
-        Receives a message using the Subscriber object's socket.
-        
+        @brief Receives a message using the Subscriber object's socket and returns the received message.
+
         @details The received message is deserialized using the msgpack library and printed to the console.
+        If no message is received or a timeout occurs, None is returned.
+        @param timeout: The maximum time to wait for a message, in milliseconds. None (default) means wait indefinitely.
+        @return The received message as a string or None if no message is received or a timeout occurs.
         """
-        packed_message = self.socket.recv()
-        message = msgpack.unpackb(packed_message, raw=False)
-        print(f"Received: {message}")
+        self.socket.setsockopt(zmq.RCVTIMEO, timeout if timeout is not None else -1)
+        try:
+            packed_message = self.socket.recv()
+            message = msgpack.unpackb(packed_message, raw=False)
+            print(f"Received: {message}")
+            
+            message = message.split(':', 1)[-1].strip()
+            return message
+        
+        except zmq.error.Again:
+            print("Timeout occurred while waiting for a message.")
+            return None
+    
+    def close(self):
+        """
+        @brief Close the subscriber socket and terminate the ZeroMQ context.
+
+        @details This method closes the socket associated with the Subscriber object and
+        terminates the ZeroMQ context, which releases any resources being used by the socket
+        and context.
+        """
+        self.socket.close()
+        self.context.term()
+
+

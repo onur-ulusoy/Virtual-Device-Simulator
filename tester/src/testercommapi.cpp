@@ -188,4 +188,22 @@ namespace DriverTester{
         exit(0);
 
     }
+
+    void send_command(Publisher& publisher, const std::string& command) {
+        publisher.publish(command);
+    }
+
+    string receive_response(Subscriber& subscriber){
+        // receive a response from the topic
+        std::string response = subscriber.receive();
+
+        // purify the message
+        std::string delimiter = ": ";
+        size_t pos = response.find(delimiter);
+        if (pos != std::string::npos) {
+            response = response.substr(pos + delimiter.length());
+        }
+
+        return response;
+    }
 }

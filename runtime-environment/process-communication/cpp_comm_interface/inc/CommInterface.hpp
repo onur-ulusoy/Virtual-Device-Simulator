@@ -34,8 +34,16 @@ public:
     /**
      * @brief Sends a message using the Publisher object's socket.
      * @param message The message to be sent.
+     * @param processName The name of the process publishes the message.
      */
     void publish(const std::string& message);
+    /**
+     * @brief Close the publisher socket and terminate the ZeroMQ context.
+     * This method closes the socket associated with the Publisher object and
+     * terminates the ZeroMQ context, which releases any resources being used by the socket
+     * and context.
+     */
+    void close();
 
 private:
     zmq::context_t context; /**< ZeroMQ context object for creating sockets. */
@@ -55,10 +63,20 @@ public:
      */
     Subscriber(const std::string& localAddress);
     /**
-     * @brief Receives a message using the Subscriber object's socket.
+     * @brief Receives a message using the Subscriber object's socket and returns the received message.
      * The received message is deserialized using the msgpack library and printed to the console.
+     * If no message is received or a timeout occurs, an empty string is returned.
+     * @param timeout The maximum time to wait for a message, in milliseconds. -1 (default) means wait indefinitely.
+     * @return The received message as a std::string or an empty string if no message is received or a timeout occurs.
      */
-    void receive();
+    std::string receive(int timeout = -1);
+    /**
+     * @brief Close the subscriber socket and terminate the ZeroMQ context.
+     * This method closes the socket associated with the Subscriber object and
+     * terminates the ZeroMQ context, which releases any resources being used by the socket
+     * and context.
+     */
+    void close();
 
 private:
     zmq::context_t context; /**< ZeroMQ context object for creating sockets. */

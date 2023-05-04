@@ -106,10 +106,10 @@ void SpiDevRequest::processAndSaveJson() {
             }
 
             int dataSize = std::stoi(tokens[3].substr(0, tokens[3].find(':')));
-            std::string buffer = tokens[5];
+            std::string buffer = tokens[4];
 
-            for (size_t i = 6; i < tokens.size(); i++) {
-                buffer += " " + tokens[i];
+            for (size_t i = 5; i < tokens.size(); i++) {
+                buffer += "," + tokens[i];
             }
 
             std::string new_write_1 = "write-" + output["device_type"].get<std::string>() + "device-" + std::to_string(output["offset_number"].get<int>()) + "-buffer-" + buffer;

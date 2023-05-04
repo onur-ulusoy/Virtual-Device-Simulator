@@ -10,7 +10,8 @@ import time
 ### Subscriber
 ```python
 # Initialize the subscriber
-subscriber = Subscriber("tcp://localhost:5555")
+local_address = "tcp://localhost:5555"
+subscriber = Subscriber(local_address)
 counter = 0
 
 # Receive 5 messages from the publisher
@@ -22,14 +23,14 @@ while counter < 5:
 
 ```python
 # Initialize the publisher
-local_address = "tcp://127.0.0.1:5555"
-publisher = Publisher(local_address, "Python Script")
+local_address = "tcp://localhost:5555"
+publisher = Publisher(local_address, "example_process")
 counter = 0
 
 # Publish 5 messages
 while counter < 5:
     time.sleep(2)
-    message = "Python publisher"
+    message = "Example message"
     publisher.publish(message)
     counter += 1
 ```
@@ -46,7 +47,7 @@ This example demonstrates how to use the Publisher and Subscriber classes from t
 ```C++
 int main() {
     // Initialize the subscriber
-    std::string localAddress = "tcp://127.0.0.1:5555";
+    std::string localAddress = "tcp://localhost:5555";
     Subscriber subscriber(localAddress);
     counter = 0;
 
@@ -64,13 +65,14 @@ int main() {
 ```C++
 int main() {
     // Initialize the publisher
-    Publisher publisher("tcp://127.0.0.1:5555");
+    std::string localAddress = "tcp://localhost:5555";
+    Publisher publisher(localAddress, "example_process");
     int counter = 0;
 
     // Publish 5 messages
     while (counter < 5) {
         sleep(2);
-        publisher.publish("C++ publisher from driver " + std::to_string(counter));
+        publisher.publish("Example message" + std::to_string(counter));
         ++counter;
     }
 }

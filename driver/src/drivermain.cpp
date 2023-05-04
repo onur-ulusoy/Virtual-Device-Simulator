@@ -10,7 +10,6 @@
 #include "drivercommapi.hpp"
 #include "SpiProcessorWrapper.hpp"
 #include "SpiProcessorUtil.hpp"
-#include "CommInterface.hpp"
 
 using namespace DeviceSim;
 /**
@@ -79,7 +78,32 @@ int main() {
     // gpio_dev.device_close();
 
     // Publisher publisher("tcp://*:5555", "driver");
-    
+
+    string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};
+    create_directories(directories, 7);
+
+    // Pipeline of commands from tester to driver
+    string commands_topic = "tcp://localhost:6000";
+
+    // Pipeline of responses to a command from driver to tester
+    string responses_topic = "tcp://localhost:6002";
+
+    Subscriber tester_listener(commands_topic);
+    Publisher tester_speaker(responses_topic, "driver");
+
+    ofstream register_file;
+    string command;
+    string response;
+
+    while (true) { // keep listening for messages indefinitely
+        
+        command = receive_command(tester_listener);
+        cout << command << endl;
+        response = execute_command(ONESHOT, "spi", command, register_file);
+        transmit_response(tester_speaker, response);
+        sleep(1);
+
+    }
 }
 
 

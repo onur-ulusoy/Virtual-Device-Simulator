@@ -6,6 +6,7 @@
  * @date 03/02/2023
  */
 #include "libdriverutility.hpp"
+
 namespace DeviceSim{
 
     fstream& GotoLine(std::fstream& file, unsigned int num){
@@ -66,6 +67,42 @@ namespace DeviceSim{
         }
         
         return line_count;
+    }
+
+    void create_directories(string directories[], int size) {
+        for (int i = 0; i < size; i++) {
+            mkdir(directories[i].c_str(), 0777);
+        }
+    }
+
+    std::vector<std::string> split_string(const std::string& input, const std::string& delimiter) {
+        std::vector<std::string> substrings;
+
+        size_t pos = 0;
+        while (pos != std::string::npos) {
+            // find the next occurrence of the delimiter
+            size_t next_pos = input.find(delimiter, pos);
+
+            // extract the substring between the current position and the next delimiter
+            std::string substring = input.substr(pos, next_pos - pos);
+
+            // add the substring to the vector
+            substrings.push_back(substring);
+
+            // move the current position to the next delimiter
+            if (next_pos != std::string::npos) {
+                pos = next_pos + delimiter.length();
+            } else {
+                break;
+            }
+    }
+
+    return substrings;
+}
+
+    bool does_directory_exist(const std::string& path) {
+        std::ifstream file(path);
+        return file.good();
     }
 }
 

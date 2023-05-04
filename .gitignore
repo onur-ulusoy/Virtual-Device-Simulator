@@ -45,6 +45,13 @@ spi_data.db
 ## Text files contains plans to do for the next commits
 todo
 
-## in and out files of spi_processor
+## input and output files of spi_processor
 in
 out
+commands.json
+commands_processed.json
+commands.txt
+SPI_A.txt
+SPI_B.txt
+SPI_A.json
+SPI_A_processed.json

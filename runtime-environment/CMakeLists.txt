@@ -18,13 +18,13 @@ set(driver_src_files
     ../driver/src/drivermain.cpp
     ../driver/src/libdriver.cpp
     ../driver/src/libdriverutility.cpp
-    #../driver/src/drivercommapi.cpp
+    ../driver/src/drivercommapi.cpp
 )
 
 set(driver_inc_files
     ../driver/inc/libdriver.hpp
     ../driver/inc/libdriverutility.hpp
-    #../driver/inc/drivercommapi.hpp
+    ../driver/inc/drivercommapi.hpp
 )
 
 set(tester_src_files
@@ -84,7 +84,7 @@ target_include_directories(driver PUBLIC ${ZeroMQ_INCLUDE_DIR})
 
 target_link_libraries(driver PUBLIC ${ZeroMQ_LIBRARY} ${comm_interface_dir}/libcomm_interface.a ${SpiProcessorWrapperDir}/libSpiProcessorWrapper.a)
 
-target_link_libraries(tester PUBLIC ${ZeroMQ_LIBRARY} ${comm_interface_dir}/libcomm_interface.a)
+target_link_libraries(tester PUBLIC ${ZeroMQ_LIBRARY} ${comm_interface_dir}/libcomm_interface.a ${SpiProcessorWrapperDir}/libSpiProcessorWrapper.a)
 
 # Create libraries
 add_library(driverlib STATIC ${driver_src_files} ${driver_inc_files})

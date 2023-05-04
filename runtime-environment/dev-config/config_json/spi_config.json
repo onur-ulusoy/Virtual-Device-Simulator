@@ -10,7 +10,8 @@
       "cs_high": "false",
       "3wire": "false",
       "loopback": "false",
-      "buffer": "00000000"
+      "buffer": "0x00",
+      "dataSize": "1"
     },
     {
       "offset": 1,
@@ -22,7 +23,8 @@
       "cs_high": "false",
       "3wire": "false",
       "loopback": "false",
-      "buffer": "00000000"
+      "buffer": "0x00",
+      "dataSize": "1"
     },
     {
       "offset": 2,
@@ -34,7 +36,8 @@
       "cs_high": "false",
       "3wire": "false",
       "loopback": "false",
-      "buffer": "00000000"
+      "buffer": "0x00",
+      "dataSize": "1"
     }
   ],
   "keys": [
@@ -47,6 +50,7 @@
     "cs_high",
     "3wire",
     "loopback",
-    "buffer"
+    "buffer",
+    "dataSize"
   ]
 }
