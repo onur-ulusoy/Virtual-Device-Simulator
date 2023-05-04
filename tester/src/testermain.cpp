@@ -83,7 +83,6 @@ int main() {
                 consecutive_timeouts = 0;
                 // Publish the mock read line
                 data_supplier.publish("mock_read_line");
-                std::cout << "*!" << std::endl;
             }
         }
 

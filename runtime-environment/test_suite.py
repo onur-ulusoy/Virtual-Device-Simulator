@@ -18,6 +18,7 @@ import subprocess
 import shutil
 import time
 import sys
+from pathlib import Path
 
 sys.path.append('process-communication')
 from comm_interface import *
@@ -98,7 +99,6 @@ def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
     @param subscriber: A Subscriber object to receive messages from the channel
     @param local_directory: The local directory where the spi_read_file is located (default: current working directory)
     """
-
     # Read data from the spi_read_file
     local_file_path = os.path.join(local_directory, spi_read_file)
     with open(local_file_path, "r") as file:
@@ -158,3 +158,60 @@ def wait_response():
     Waits response from front-end of the program to be tested.
     """
     pass
+
+def request_sp_read_line(write_line):
+    in_filepath = Path("../../in")
+    out_filepath = Path("../../out")
+
+    # Save write_line to "in" file
+    with in_filepath.open("w") as in_file:
+        in_file.write(write_line)
+
+    read_line = ""
+    identifier = ""
+
+    # Loop until a valid spi_read line is found
+    while True:
+        if out_filepath.exists():
+            with out_filepath.open("r") as out_file:
+                read_line = out_file.readline().strip()
+            identifier = read_line[:8]
+            if identifier == "spi_read" or identifier == "TERMINAT":
+                break
+        time.sleep(0.01)
+
+    # Recreate the "in" file
+    with in_filepath.open("w"):
+        pass
+
+    return read_line
+
+def run_sp_with_f_flag():
+    working_path = os.getcwd()
+    print(working_path)
+    
+    # Change directory to spi processor workpath
+    spi_processor_workpath = "../spi-processing"
+    abs_spi_processor_workpath = Path(spi_processor_workpath).resolve()
+    os.chdir(abs_spi_processor_workpath)
+
+    # Create or recreate "in" and "out" files
+    in_filepath = Path("in")
+    out_filepath = Path("out")
+
+    with open(in_filepath, 'w') as _:
+        pass
+    with open(out_filepath, 'w') as _:
+        pass
+
+    # Run spi_processor.py with -f flag in the background without console output
+    command = "python3 spi_processor.py -f > /dev/null 2>&1 &"
+    try:
+        subprocess.Popen(command, shell=True)
+    except Exception as e:
+        print(f"Failed to run spi_processor.py: {e}")
+
+    os.chdir(working_path)
+
+run_sp_with_f_flag()
+
