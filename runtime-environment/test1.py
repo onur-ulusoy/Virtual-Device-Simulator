@@ -14,13 +14,13 @@ write_data_topic = "tcp://localhost:5557"
 read_data_topic = "tcp://localhost:5559"
 
 # Create a Subscriber object to listen for the signal to send data
-subscriber = Subscriber(signal_topic)
+signal_listener = Subscriber(signal_topic)
 
 # Create a Publisher object to send the data
-publisher_write = Publisher(write_data_topic, "test")
+data_supplier = Publisher(write_data_topic, "test")
 
 # Create a Subscriber object to receive the read data
-subscriber_read = Subscriber(read_data_topic)
+data_listener = Subscriber(read_data_topic)
 
 # Define the spi_write and spi_read file names
 spi_write_file = "SPI_A.txt"
@@ -29,6 +29,8 @@ spi_read_file = "SPI_B.txt"
 # Get the current working directory
 local_directory = os.getcwd()
 
+run_sp_with_f_flag()
+time.sleep(0.1)
 # Continuously send data and expect read data
 while True:
     # Check if SPI_A.txt is empty
@@ -37,14 +39,22 @@ while True:
         if not file.read(1):
             os.remove(local_file_path)  # Remove the empty file
             break
-
+        
+    # Prepare expected data b
+    prepare_data_b(spi_write_file, spi_read_file)
     # Send data when asked
-    send_data_when_asked(spi_write_file, subscriber, publisher_write, local_directory)
+    send_data_when_asked(spi_write_file, signal_listener, data_supplier, local_directory)
     # Expect and compare received data with the data in spi_read_file
-    expect(spi_read_file, subscriber_read, local_directory)
+    expect(spi_read_file, data_listener, local_directory)
     print("\n", "*************************")
 
 # Close the subscriber and publisher sockets
-subscriber.close()
-subscriber_read.close()
-publisher_write.close()
+signal_listener.close()
+data_listener.close()
+data_supplier.close()
+
+time.sleep(0.1)
+request_sp_read_line("TERMINATE")
+
+#os.remove(spi_write_file)
+#os.remove(spi_read_file)

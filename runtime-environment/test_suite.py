@@ -46,9 +46,21 @@ def prepare_data(spi_write_file, remote_directory, local_directory=os.getcwd(), 
     
     return True
 
-# def prepare_data(spi_read_file):
-#     # spi_b
-#     pass
+def prepare_data_b(spi_a_file, spi_b_file):
+    # Read the first line from spi_a_file
+    with open(spi_a_file, "r") as file:
+        spi_write_line = file.readline().strip()
+
+    read_line = request_sp_read_line(spi_write_line)
+    print(read_line)
+    
+    # Append spi_write_line and a newline character to spi_b_file
+    with open(spi_b_file, "a") as file:
+        file.write(read_line + "\n\n")
+    
+    file.close()
+    time.sleep(0.1)
+    return read_line
 
 def run_program_to_be_tested():
     """
@@ -160,8 +172,15 @@ def wait_response():
     pass
 
 def request_sp_read_line(write_line):
-    in_filepath = Path("../../in")
-    out_filepath = Path("../../out")
+    working_path = os.getcwd()
+
+    # Change directory to spi processor workpath
+    spi_processor_workpath = "../spi-processing"
+    abs_spi_processor_workpath = Path(spi_processor_workpath).resolve()
+    os.chdir(abs_spi_processor_workpath)
+
+    in_filepath = Path("in")
+    out_filepath = Path("out")
 
     # Save write_line to "in" file
     with in_filepath.open("w") as in_file:
@@ -183,12 +202,12 @@ def request_sp_read_line(write_line):
     # Recreate the "in" file
     with in_filepath.open("w"):
         pass
-
+    
+    os.chdir(working_path)
     return read_line
 
 def run_sp_with_f_flag():
     working_path = os.getcwd()
-    print(working_path)
     
     # Change directory to spi processor workpath
     spi_processor_workpath = "../spi-processing"
@@ -212,6 +231,3 @@ def run_sp_with_f_flag():
         print(f"Failed to run spi_processor.py: {e}")
 
     os.chdir(working_path)
-
-run_sp_with_f_flag()
-

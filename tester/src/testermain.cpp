@@ -36,61 +36,7 @@ int main() {
 
     // cout << endl;
 
-    // Define communication topics to test script
-    std::string signal_topic = "tcp://localhost:5555";
-    std::string write_data_topic = "tcp://localhost:5557";
-    std::string read_data_topic = "tcp://localhost:5559";
-
-    // Create Publisher objects for the signal topic and read data topic
-    Publisher data_requester(signal_topic, "tester");
-    Publisher data_supplier(read_data_topic, "tester");
-
-    // Create a Subscriber object to listen for write data
-    Subscriber data_listener(write_data_topic);
-
-    const int regular_timeout_ms = 100;
-    const int first_msg_timeout_ms = 10000;
-    const int sleep_ms = 100;
-    bool first_msg = true;
-    bool communication_running = true;
-    int consecutive_timeouts = 0;
-    
-    usleep(0.5 * 1000000);
-
-    while (consecutive_timeouts < 2 && communication_running) {
-        // Send a request for data
-        data_requester.publish("Requesting data");
-        usleep(sleep_ms * 1000);
-
-        // Receive and process messages, with a timeout
-        while (true) {
-            // Set timeout for the first message or regular messages
-            int current_timeout = first_msg ? first_msg_timeout_ms : regular_timeout_ms;
-            auto message = data_listener.receive(current_timeout);
-
-            if (message.empty()) {
-                if (first_msg) {
-                    // If the first message didn't arrive within the specified time, exit the loop
-                    communication_running = false;
-                    break;
-                } else {
-                    // If it's not the first message, increment the consecutive timeouts counter and break the inner loop
-                    consecutive_timeouts++;
-                    break;
-                }
-            } else {
-                first_msg = false;
-                consecutive_timeouts = 0;
-                // Publish the mock read line
-                data_supplier.publish("mock_read_line");
-            }
-        }
-
-        std::cout << "*****" << std::endl;
-        usleep(sleep_ms * 1000);
-    }
-
-    SpiDevRequest spi_dev_request("commands.txt", 0);
+    SpiDevRequest spi_dev_request("SPI_A.txt", 0);
     spi_dev_request.rawToJson();
 
     spi_dev_request.processAndSaveJson();
@@ -147,31 +93,90 @@ int main() {
     SpiProcessorWrapper spi_wrapper;    
     spi_wrapper.runWithFFlag();
 
-    for (size_t i = 0; i < group_count; ++i) {
-        // First cycle
-        sleep(1);
-        send_command(driver_speaker, commands[2 * i]);
-        string response1 = receive_response(driver_listener);
+    // Define communication topics to test script
+    std::string signal_topic = "tcp://localhost:5555";
+    std::string write_data_topic = "tcp://localhost:5557";
+    std::string read_data_topic = "tcp://localhost:5559";
 
-        // Second cycle
-        sleep(1);
-        send_command(driver_speaker, commands[2 * i + 1]);
-        string response2 = receive_response(driver_listener);
+    // Create Publisher objects for the signal topic and read data topic
+    Publisher data_requester(signal_topic, "tester");
+    Publisher data_supplier(read_data_topic, "tester");
 
-        // Check if both responses are "success"
-        if (response1 == "success" && response2 == "success") {
-            // Process and print the SPI write group
-            const auto& group = spi_write_groups[i];
-            for (const auto& write : group) {
-                cout << write << std::endl;
-                
-                std::string read_line = spi_wrapper.requestReadLine(write);
-                cout << read_line << endl;                
-            }        
-        } else {
-            throw std::runtime_error("One of the responses is 'failure'");
+    // Create a Subscriber object to listen for write data
+    Subscriber data_listener(write_data_topic);
+
+    const int regular_timeout_ms = 100;
+    const int first_msg_timeout_ms = 10000;
+    const int sleep_ms = 100;
+    bool first_msg = true;
+    bool communication_running = true;
+    int consecutive_timeouts = 0;
+    
+    usleep(0.5 * 1000000);
+
+    while (consecutive_timeouts < 2 && communication_running) {
+        // Send a request for data
+        data_requester.publish("Requesting data");
+        usleep(sleep_ms * 1000);
+
+        // Receive and process messages, with a timeout
+        while (true) {
+            // Set timeout for the first message or regular messages
+            int current_timeout = first_msg ? first_msg_timeout_ms : regular_timeout_ms;
+            auto message = data_listener.receive(current_timeout);
+
+            if (message.empty()) {
+                if (first_msg) {
+                    // If the first message didn't arrive within the specified time, exit the loop
+                    communication_running = false;
+                    break;
+                } else {
+                    // If it's not the first message, increment the consecutive timeouts counter and break the inner loop
+                    consecutive_timeouts++;
+                    break;
+                }
+            } 
+            
+            else {
+                // 
+                first_msg = false;
+                consecutive_timeouts = 0;
+
+                for (size_t i = 0; i < group_count; ++i) {
+                    // First cycle
+                    sleep(1);
+                    send_command(driver_speaker, commands[2 * i]);
+                    string response1 = receive_response(driver_listener);
+
+                    // Second cycle
+                    sleep(1);
+                    send_command(driver_speaker, commands[2 * i + 1]);
+                    string response2 = receive_response(driver_listener);
+
+                    // Check if both responses are "success"
+                    if (response1 == "success" && response2 == "success") {
+                        // Process and print the SPI write group
+                        const auto& group = spi_write_groups[i];
+                        for (const auto& write : group) {
+                            cout << write << std::endl;
+                            
+                            std::string read_line = spi_wrapper.requestReadLine(write);
+                            cout << read_line << endl;  
+                            // Publish the read line
+                            data_supplier.publish(read_line);              
+                        }        
+                    } else {
+                        throw std::runtime_error("One of the responses is 'failure'");
+                    }
+                }                
+            }
         }
+
+        std::cout << "*****" << std::endl;
+        usleep(sleep_ms * 1000);
     }
+
+    
     
     sleep(1);
     spi_wrapper.requestReadLine("TERMINATE");
