@@ -129,6 +129,7 @@ int main() {
                 if (first_msg) {
                     // If the first message didn't arrive within the specified time, exit the loop
                     communication_running = false;
+                    cout << "First message could not be received." << endl;
                     break;
                 } else {
                     // If it's not the first message, increment the consecutive timeouts counter and break the inner loop
@@ -156,14 +157,24 @@ int main() {
                 if (response1 == "success" && response2 == "success") {
                     // Process and print the SPI write group
                     const auto& group = spi_write_groups[group_index];
-                    for (const auto& write : group) {
-                        cout << write << std::endl;
+                    std::string write;
+                    std::string separator = "\n";
 
-                        std::string read_line = spi_wrapper.requestReadLine(write);
-                        cout << read_line << endl;  
-                        // Publish the read line
-                        data_supplier.publish(read_line);              
-                    }        
+                    for (size_t i = 0; i < group.size(); ++i) {
+                        write += group[i];
+                        if (i < group.size() - 1) {
+                            write += separator;
+                        }
+                    }
+
+                    cout << write << std::endl;
+                    cout << "*|****|*" << endl;
+
+                    std::string read_line = spi_wrapper.requestReadLine(write);
+                    cout << read_line << endl;  
+                    // Publish the read line
+                    data_supplier.publish(read_line);              
+       
                 } else {
                     throw std::runtime_error("One of the responses is 'failure'");
                 }

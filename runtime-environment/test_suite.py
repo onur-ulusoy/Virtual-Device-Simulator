@@ -47,20 +47,32 @@ def prepare_data(spi_write_file, remote_directory, local_directory=os.getcwd(), 
     return True
 
 def prepare_data_b(spi_a_file, spi_b_file):
-    # Read the first line from spi_a_file
+    # Read lines from spi_a_file until an empty line is encountered
+    spi_write_lines = []
     with open(spi_a_file, "r") as file:
-        spi_write_line = file.readline().strip()
-
-    read_line = request_sp_read_line(spi_write_line)
-    print(read_line)
+        for line in file:
+            line = line.strip()
+            if line:
+                spi_write_lines.append(line)
+            else:
+                break
     
-    # Append spi_write_line and a newline character to spi_b_file
+    spi_write_line = "\n".join(spi_write_lines)
+    print(spi_write_line)
+    
+    # Process and append each spi_write_line to spi_b_file
     with open(spi_b_file, "a") as file:
-        file.write(read_line + "\n\n")
-    
-    file.close()
+        read_line = request_sp_read_line(spi_write_line)
+        print(read_line)
+        file.write(read_line + "\n")
+
+        # Add an empty line after processing all spi_write_lines
+        file.write("\n")
+
     time.sleep(0.1)
-    return read_line
+
+    return spi_write_lines
+
 
 def run_program_to_be_tested():
     """
@@ -83,24 +95,27 @@ def send_data_when_asked(spi_write_file, subscriber, publisher, local_directory=
 
     # Read data from the spi_write_file
     local_file_path = os.path.join(local_directory, spi_write_file)
+
+    data_to_send = []
     with open(local_file_path, "r") as file:
-        file_lines = file.readlines()
-
-    # Find the first empty line
-    first_empty_line_index = file_lines.index("\n")
-
-    # Read data from the beginning to the first empty line
-    data_to_send = file_lines[:first_empty_line_index]
+        while True:
+            line = file.readline()
+            if line == "\n":
+                break
+            data_to_send.append(line)
+        remaining_file_lines = file.readlines()
 
     # Delete the sent part from the file
-    file_lines = file_lines[first_empty_line_index+1:]
     with open(local_file_path, "w") as file:
-        file.writelines(file_lines)
+        file.writelines(remaining_file_lines)
+
+    # Join the data_to_send list into a single string
+    data_to_send_str = "".join(data_to_send)
 
     # Publish the data
-    for line in data_to_send:
-        publisher.publish(line.strip())
-        time.sleep(0.1)
+    publisher.publish(data_to_send_str)
+    time.sleep(0.1)
+
 
 def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
     """

@@ -55,7 +55,7 @@ data_listener.close()
 data_supplier.close()
 
 time.sleep(0.1)
-request_sp_read_line("TERMINATE")
+#request_sp_read_line("TERMINATE")
 
 #os.remove(spi_write_file)
 #os.remove(spi_read_file)
