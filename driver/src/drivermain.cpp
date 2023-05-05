@@ -91,13 +91,17 @@ int main() {
     Subscriber tester_listener(commands_topic);
     Publisher tester_speaker(responses_topic, "driver");
 
+    const int tester_listener_timeout = 4000;
     ofstream register_file;
     string command;
     string response;
 
     while (true) { // keep listening for messages indefinitely
         
-        command = receive_command(tester_listener);
+        command = receive_command(tester_listener, tester_listener_timeout);
+        if (command == "")
+            break;
+
         cout << command << endl;
         response = execute_command(ONESHOT, "spi", command, register_file);
         transmit_response(tester_speaker, response);

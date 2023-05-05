@@ -47,31 +47,41 @@ def prepare_data(spi_write_file, remote_directory, local_directory=os.getcwd(), 
     return True
 
 def prepare_data_b(spi_a_file, spi_b_file):
-    # Read lines from spi_a_file until an empty line is encountered
-    spi_write_lines = []
+    run_sp_with_f_flag()
+
+    # Read lines from spi_a_file and group them into solid parts
+    solid_parts = []
+    current_part = []
     with open(spi_a_file, "r") as file:
         for line in file:
             line = line.strip()
             if line:
-                spi_write_lines.append(line)
+                current_part.append(line)
             else:
-                break
-    
-    spi_write_line = "\n".join(spi_write_lines)
-    print(spi_write_line)
-    
-    # Process and append each spi_write_line to spi_b_file
-    with open(spi_b_file, "a") as file:
-        read_line = request_sp_read_line(spi_write_line)
-        print(read_line)
-        file.write(read_line + "\n")
+                if current_part:
+                    solid_parts.append(current_part)
+                    current_part = []
 
-        # Add an empty line after processing all spi_write_lines
-        file.write("\n")
+    # Add the last solid part if it's not empty
+    if current_part:
+        solid_parts.append(current_part)
+
+    # Process and append each solid part to spi_b_file
+    with open(spi_b_file, "w") as file:
+        for solid_part in solid_parts:
+            spi_write_lines = "\n".join(solid_part)
+            read_line = request_sp_read_line(spi_write_lines)
+
+            time.sleep(0.1)
+            
+            file.write(read_line + "\n")
+
+            # Add an empty line after processing each solid part
+            file.write("\n")
 
     time.sleep(0.1)
 
-    return spi_write_lines
+    request_sp_read_line("TERMINATE")
 
 
 def run_program_to_be_tested():
@@ -167,18 +177,21 @@ def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
 def run_assembly(local_directory=os.getcwd()):
     """
     Starts processes tester and driver ./tester.out and ./driver.out in separate consoles.
+    Returns the PIDs of the processes.
     """
     tester_path = os.path.join(local_directory, "tester.out")
     driver_path = os.path.join(local_directory, "driver.out")
 
-    command_template = 'gnome-terminal -- bash -c "{}; exec bash"'
+    command_template = 'exec {}'
 
     tester_command = command_template.format(tester_path)
     driver_command = command_template.format(driver_path)
 
-    subprocess.run(driver_command, shell=True, cwd=local_directory)
+    driver_process = subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', driver_command])
     time.sleep(0.5)
-    subprocess.run(tester_command, shell=True, cwd=local_directory)
+    tester_process = subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', tester_command])
+
+    return tester_process.pid, driver_process.pid
 
 
 def wait_response():

@@ -114,7 +114,6 @@ int main() {
     usleep(0.5 * 1000000);
 
     while (consecutive_timeouts < 2 && communication_running) {
-        cout << consecutive_timeouts << endl;
         // Send a request for data
         data_requester.publish("Requesting data");
         usleep(sleep_ms * 1000);

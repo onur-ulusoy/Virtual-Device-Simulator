@@ -32,7 +32,7 @@ namespace DeviceSim {
     //int receive_command(enum command_request req, string devType, fstream& receiver, string& _command, ofstream& _com);
 
 
-    string receive_command(Subscriber& subscriber);
+    string receive_command(Subscriber& subscriber, const int timeout);
 
     string execute_command(const enum command_request request, const string dev_type, const string command, ofstream& register_file);
 

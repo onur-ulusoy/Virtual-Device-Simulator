@@ -29,8 +29,10 @@ spi_read_file = "SPI_B.txt"
 # Get the current working directory
 local_directory = os.getcwd()
 
-run_sp_with_f_flag()
-run_assembly()
+# Prepare expected data b
+prepare_data_b(spi_write_file, spi_read_file)
+
+tester_pid, driver_pid = run_assembly()
 time.sleep(0.1)
 # Continuously send data and expect read data
 while True:
@@ -40,14 +42,11 @@ while True:
         if not file.read(1):
             os.remove(local_file_path)  # Remove the empty file
             break
-        
-    # Prepare expected data b
-    prepare_data_b(spi_write_file, spi_read_file)
     # Send data when asked
     send_data_when_asked(spi_write_file, signal_listener, data_supplier, local_directory)
     # Expect and compare received data with the data in spi_read_file
     expect(spi_read_file, data_listener, local_directory)
-    print("\n", "*************************")
+    print("\n" + "*************************")
 
 # Close the subscriber and publisher sockets
 signal_listener.close()
