@@ -11,6 +11,7 @@ command3
 commandsText
 commandsText_Oneshot
 communication-register
+real-communication-register
 log
 test_results.txt
 test_results_serial.txt

@@ -73,6 +73,17 @@ int main() {
     //     return 1;
     // }
     
+    std::string comm_register_file_name = "communication-register";
+    std::string real_comm_reg_file_name = "real-communication-register";
+
+    ofstream comm_register_file_ofs, real_comm_reg_file_ofs;
+
+    comm_register_file_ofs.open(comm_register_file_name, ios::trunc);
+    comm_register_file_ofs.close();
+
+    real_comm_reg_file_ofs.open(real_comm_reg_file_name, ios::trunc);
+    real_comm_reg_file_ofs.close();
+
     // Pipeline of commands from tester to driver
     string commands_topic = "tcp://localhost:6000";
 
@@ -188,15 +199,19 @@ int main() {
                 first_msg = false;
                 consecutive_timeouts = 0;
 
-                // First cycle
                 sleep(1);
+                // First cycle
+                write_master_command(comm_register_file_ofs, commands[2 * group_index], comm_register_file_name);
                 send_command(driver_speaker, commands[2 * group_index]);
                 string response1 = receive_response(driver_listener);
+                write_slave_response(comm_register_file_ofs, response1, comm_register_file_name);
 
-                // Second cycle
                 sleep(1);
+                // Second cycle
+                write_master_command(comm_register_file_ofs, commands[2 * group_index + 1], comm_register_file_name);
                 send_command(driver_speaker, commands[2 * group_index + 1]);
                 string response2 = receive_response(driver_listener);
+                write_slave_response(comm_register_file_ofs, response2, comm_register_file_name);
 
                 // Check if both responses are "success"
                 if (response1 == "success" && response2 == "success") {
@@ -220,6 +235,9 @@ int main() {
                     // Publish the read line
                     data_supplier.publish(read_line); 
                     chdir(current_workpath.c_str());
+
+                    write_master_command(real_comm_reg_file_ofs, write, real_comm_reg_file_name);
+                    write_slave_response(real_comm_reg_file_ofs, read_line, real_comm_reg_file_name);
              
        
                 } else {
