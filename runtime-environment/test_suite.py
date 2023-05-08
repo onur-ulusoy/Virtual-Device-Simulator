@@ -39,6 +39,11 @@ def prepare_data(spi_write_file, remote_directory, local_directory=os.getcwd(), 
         if os.path.exists(remote_file_path):
             shutil.copyfile(remote_file_path, local_file_path)
             print(f"{spi_write_file} has been copied from {remote_directory} to {local_directory}")
+            
+            # Duplicate the file
+            duplicated_file_path = os.path.join(local_directory, "SPI_Log.txt")
+            shutil.copyfile(local_file_path, duplicated_file_path)
+            print(f"{spi_write_file} has been duplicated as SPI_Log.txt in {local_directory}")
             break
         else:
             print(f"{spi_write_file} not found in {remote_directory}. Retrying in {sleep_time} seconds...")
@@ -128,14 +133,6 @@ def send_data_when_asked(spi_write_file, subscriber, publisher, local_directory=
 
 
 def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
-    """
-    Compare the received spi_read responses (spi_b) from the tester to the expected spi_read responses to determine
-    if the program behaves correctly.
-
-    @param spi_read_file: The file containing expected spi_read responses (spi_b)
-    @param subscriber: A Subscriber object to receive messages from the channel
-    @param local_directory: The local directory where the spi_read_file is located (default: current working directory)
-    """
     # Read data from the spi_read_file
     local_file_path = os.path.join(local_directory, spi_read_file)
     with open(local_file_path, "r") as file:
@@ -154,10 +151,14 @@ def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
 
     received_responses = []
 
+    # SPI_Log.txt file path
+    spi_log_file_path = os.path.join(local_directory, 'SPI_Log.txt')
+
     # Listen to the channel and collect received messages
     for _ in range(len(expected_responses)):
         message = subscriber.receive()
         received_responses.append(message)
+        write_received_responses_to_log(spi_log_file_path, message)
 
     # Compare received messages with expected responses and print the results
     for expected, received in zip(expected_responses, received_responses):
@@ -173,6 +174,18 @@ def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
     with open(local_file_path, 'r') as file:
         if not file.read(1):
             os.remove(local_file_path)  # Remove the empty file
+
+def write_received_responses_to_log(log_file_path, received_response):
+    with open(log_file_path, 'r') as log_file:
+        log_lines = log_file.readlines()
+
+    for i, line in enumerate(log_lines):
+        if line == "\n":
+            log_lines[i] = received_response + '\n'
+            break
+
+    with open(log_file_path, 'w') as log_file:
+        log_file.writelines(log_lines)
 
 def run_assembly(local_directory=os.getcwd()):
     """
@@ -260,3 +273,12 @@ def run_sp_with_f_flag():
         print(f"Failed to run spi_processor.py: {e}")
 
     os.chdir(working_path)
+
+def copy_spi_log_to_destination(destination_directory):
+    source_file = 'SPI_Log.txt'
+    
+    if not os.path.exists(destination_directory):
+        os.makedirs(destination_directory)
+        
+    destination_file = os.path.join(destination_directory, 'SPI_Log.txt')
+    shutil.copy2(source_file, destination_file)

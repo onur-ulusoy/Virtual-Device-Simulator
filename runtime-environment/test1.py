@@ -1,8 +1,9 @@
 from test_suite import *
 
+remote_repository = "/home/onur/Desktop/program_tested"
 # Prepare data by splitting the original data file into separate SPI_A.txt and SPI_B.txt files
 prepare_data(spi_write_file="SPI_A.txt",
-             remote_directory="/home/onur/Desktop/program_tested",
+             remote_directory=remote_repository,
              time_out=10,
              sleep_time=1)
 
@@ -54,7 +55,9 @@ data_listener.close()
 data_supplier.close()
 
 time.sleep(0.1)
-    
+
+copy_spi_log_to_destination(remote_repository)
+
 #request_sp_read_line("TERMINATE")
 
 #os.remove(spi_write_file)
