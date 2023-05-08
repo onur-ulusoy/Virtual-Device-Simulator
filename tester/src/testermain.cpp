@@ -36,42 +36,42 @@ int main() {
 
     // cout << endl;
 
-    SpiDevRequest spi_dev_request("SPI_A.txt", 0);
-    spi_dev_request.rawToJson();
+    // SpiDevRequest spi_dev_request("SPI_A.txt", 0);
+    // spi_dev_request.rawToJson();
 
-    spi_dev_request.processAndSaveJson();
-    spi_dev_request.parseJsonFile();
-    spi_dev_request.parseProcessedJsonFile();
-    // spi_dev_request.getDevEntryProcessed().print();
-    // spi_dev_request.getDevEntry().print(); 
+    // spi_dev_request.processAndSaveJson();
+    // spi_dev_request.parseJsonFile();
+    // spi_dev_request.parseProcessedJsonFile();
+    // // spi_dev_request.getDevEntryProcessed().print();
+    // // spi_dev_request.getDevEntry().print(); 
 
-    // Open the output file
-    std::ofstream outfile("commandsText");
+    // // Open the output file
+    // std::ofstream outfile("commandsText");
 
-    // Write the output to the file instead of the console
-    for (const auto& group : spi_dev_request.getDevEntryProcessed().getSpiWrite()) {
-        for (const auto& write : group) {
-            outfile << write << std::endl;
-        }
-    }
+    // // Write the output to the file instead of the console
+    // for (const auto& group : spi_dev_request.getDevEntryProcessed().getSpiWrite()) {
+    //     for (const auto& write : group) {
+    //         outfile << write << std::endl;
+    //     }
+    // }
 
-    // Close the output file
-    outfile.close();
+    // // Close the output file
+    // outfile.close();
 
-    vector<string> commands;
-    string line;
-    ifstream infile("commandsText");
-    if(infile.is_open()) {
-        while(getline(infile, line)) {
-            commands.push_back(line);
-        }
-        infile.close();
-    }
+    // vector<string> commands;
+    // string line;
+    // ifstream infile("commandsText");
+    // if(infile.is_open()) {
+    //     while(getline(infile, line)) {
+    //         commands.push_back(line);
+    //     }
+    //     infile.close();
+    // }
 
-    else {
-        cout << "Unable to open file" << endl;
-        return 1;
-    }
+    // else {
+    //     cout << "Unable to open file" << endl;
+    //     return 1;
+    // }
     
     // Pipeline of commands from tester to driver
     string commands_topic = "tcp://localhost:6000";
@@ -84,13 +84,13 @@ int main() {
 
     string response;
 
-    vector<vector<string>> spi_write_groups = spi_dev_request.getDevEntry().getSpiWrite();
-
     std::string spi_processor_workpath = "../spi-processing/cpp_wrapper/src";
-    chdir(spi_processor_workpath.c_str());
+    std::string current_workpath = []() { char buffer[FILENAME_MAX]; return getcwd(buffer, FILENAME_MAX) ? std::string(buffer) : ""; }();
 
+    chdir(spi_processor_workpath.c_str());
     SpiProcessorWrapper spi_wrapper;    
     spi_wrapper.runWithFFlag();
+    chdir(current_workpath.c_str());
 
     // Define communication topics to test script
     std::string signal_topic = "tcp://localhost:5555";
@@ -129,6 +129,7 @@ int main() {
                 if (first_msg) {
                     // If the first message didn't arrive within the specified time, exit the loop
                     communication_running = false;
+                    cout << "First message could not be received." << endl;
                     break;
                 } else {
                     // If it's not the first message, increment the consecutive timeouts counter and break the inner loop
@@ -138,7 +139,52 @@ int main() {
             } 
             
             else {
-                // 
+
+                std::ofstream file("SPI_A_Oneshot.txt");
+                if (file.is_open()) {
+                    file << message << endl;
+                    file.close();
+                } else {
+                    std::cerr << "Unable to open file";
+                }
+                
+                SpiDevRequest spi_dev_request("SPI_A_Oneshot.txt", 0);
+                spi_dev_request.rawToJson();
+
+                spi_dev_request.processAndSaveJson();
+                spi_dev_request.parseJsonFile();
+                spi_dev_request.parseProcessedJsonFile();
+                
+                vector<vector<string>> spi_write_groups = spi_dev_request.getDevEntry().getSpiWrite();
+
+                // Open the output file
+                std::ofstream outfile("commandsText_Oneshot");
+
+                // Write the output to the file instead of the console
+                for (const auto& group : spi_dev_request.getDevEntryProcessed().getSpiWrite()) {
+                    for (const auto& write : group) {
+                        outfile << write << std::endl;
+                    }
+                }
+
+                // Close the output file
+                outfile.close();
+
+                vector<string> commands;
+                string line;
+                ifstream infile("commandsText_Oneshot");
+                if(infile.is_open()) {
+                    while(getline(infile, line)) {
+                        commands.push_back(line);
+                    }
+                    infile.close();
+                }
+
+                else {
+                    cout << "Unable to open file" << endl;
+                    return 1;
+                }
+
                 first_msg = false;
                 consecutive_timeouts = 0;
 
@@ -156,14 +202,26 @@ int main() {
                 if (response1 == "success" && response2 == "success") {
                     // Process and print the SPI write group
                     const auto& group = spi_write_groups[group_index];
-                    for (const auto& write : group) {
-                        cout << write << std::endl;
+                    std::string write;
+                    std::string separator = "\n";
 
-                        std::string read_line = spi_wrapper.requestReadLine(write);
-                        cout << read_line << endl;  
-                        // Publish the read line
-                        data_supplier.publish(read_line);              
-                    }        
+                    for (size_t i = 0; i < group.size(); ++i) {
+                        write += group[i];
+                        if (i < group.size() - 1) {
+                            write += separator;
+                        }
+                    }
+
+                    cout << write << std::endl;
+
+                    chdir(spi_processor_workpath.c_str());
+                    std::string read_line = spi_wrapper.requestReadLine(write);
+                    cout << read_line << endl;  
+                    // Publish the read line
+                    data_supplier.publish(read_line); 
+                    chdir(current_workpath.c_str());
+             
+       
                 } else {
                     throw std::runtime_error("One of the responses is 'failure'");
                 }
@@ -171,13 +229,14 @@ int main() {
             }
         }
 
-        std::cout << "*****" << std::endl;
+        std::cout << "*******************************" << std::endl;
         usleep(sleep_ms * 1000);
     }
 
     
     
     sleep(1);
+    chdir(spi_processor_workpath.c_str());
     spi_wrapper.requestReadLine("TERMINATE");
     cout << "Tester is being terminated .." << endl;
     return 0;

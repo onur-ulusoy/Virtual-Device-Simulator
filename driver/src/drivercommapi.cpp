@@ -11,9 +11,9 @@ using namespace std;
 
 namespace DeviceSim {
     
-    string receive_command(Subscriber& subscriber){
+    string receive_command(Subscriber& subscriber, const int timeout){
         // receive a message from the topic
-        std::string command = subscriber.receive();
+        std::string command = subscriber.receive(timeout);
 
         // purify the message
         std::string delimiter = ": ";

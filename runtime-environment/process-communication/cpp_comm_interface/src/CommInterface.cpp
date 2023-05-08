@@ -40,7 +40,7 @@ Subscriber::Subscriber(const std::string& localAddress)
     socket.set(zmq::sockopt::subscribe, "");  // Updated function call
 }
 
-std::string Subscriber::receive(int timeout) {
+std::string Subscriber::receive(const int timeout) {
     zmq::message_t packedMessage;
     socket.set(zmq::sockopt::rcvtimeo, timeout);
 
