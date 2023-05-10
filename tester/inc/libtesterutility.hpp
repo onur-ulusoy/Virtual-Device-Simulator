@@ -12,7 +12,7 @@
 
 using namespace std;
 
-namespace DriverTester {
+namespace Tester {
     /**
     @brief This function returns the current date and time.
     @return A string representation of the current date and time.

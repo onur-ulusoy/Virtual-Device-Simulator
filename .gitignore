@@ -13,6 +13,7 @@ commandsText_Oneshot
 communication-register
 real-communication-register
 log
+driver_log
 test_results.txt
 test_results_serial.txt
 device

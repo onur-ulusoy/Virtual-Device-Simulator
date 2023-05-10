@@ -7,7 +7,7 @@
  */
 #include "libtesterutility.hpp"
 
-namespace DriverTester {
+namespace Tester {
     string now(){
         auto now = std::chrono::system_clock::now();
         auto now_c = std::chrono::system_clock::to_time_t(now);

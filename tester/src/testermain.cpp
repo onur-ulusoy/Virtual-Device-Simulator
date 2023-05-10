@@ -10,7 +10,7 @@
 #include "SpiProcessorWrapper.hpp"
 #include "SpiProcessorUtil.hpp"
 
-using namespace DriverTester;
+using namespace Tester;
 /**
  * @brief The main function of the tester program.
  *
@@ -72,17 +72,14 @@ int main() {
     //     cout << "Unable to open file" << endl;
     //     return 1;
     // }
+
+    ofstream log_file_ofs("driver_log");
     
-    std::string comm_register_file_name = "communication-register";
+    std::string comm_register_file_name = "communication-register"; // -> remove, write_master_command and write_slave_response will be used with onyl ofs
     std::string real_comm_reg_file_name = "real-communication-register";
 
-    ofstream comm_register_file_ofs, real_comm_reg_file_ofs;
-
-    comm_register_file_ofs.open(comm_register_file_name, ios::trunc);
-    comm_register_file_ofs.close();
-
-    real_comm_reg_file_ofs.open(real_comm_reg_file_name, ios::trunc);
-    real_comm_reg_file_ofs.close();
+    ofstream comm_register_file_ofs(comm_register_file_name);
+    ofstream real_comm_reg_file_ofs(real_comm_reg_file_name);
 
     // Pipeline of commands from tester to driver
     string commands_topic = "tcp://localhost:6000";
@@ -201,17 +198,22 @@ int main() {
 
                 sleep(1);
                 // First cycle
-                write_master_command(comm_register_file_ofs, commands[2 * group_index], comm_register_file_name);
-                send_command(driver_speaker, commands[2 * group_index]);
+                string command1 = commands[2 * group_index];
+                write_master_command(comm_register_file_ofs, command1);
+                send_command(driver_speaker, command1);
                 string response1 = receive_response(driver_listener);
-                write_slave_response(comm_register_file_ofs, response1, comm_register_file_name);
-
+                write_slave_response(comm_register_file_ofs, response1);
+                write_driver_log(command1, response1, log_file_ofs);
+                
                 sleep(1);
                 // Second cycle
-                write_master_command(comm_register_file_ofs, commands[2 * group_index + 1], comm_register_file_name);
-                send_command(driver_speaker, commands[2 * group_index + 1]);
+                string command2 = commands[2 * group_index + 1];
+                write_master_command(comm_register_file_ofs, command2);
+                send_command(driver_speaker, command2);
                 string response2 = receive_response(driver_listener);
-                write_slave_response(comm_register_file_ofs, response2, comm_register_file_name);
+                write_slave_response(comm_register_file_ofs, response2);
+                write_driver_log(command2, response1, log_file_ofs);
+
 
                 // Check if both responses are "success"
                 if (response1 == "success" && response2 == "success") {
@@ -236,8 +238,8 @@ int main() {
                     data_supplier.publish(read_line); 
                     chdir(current_workpath.c_str());
 
-                    write_master_command(real_comm_reg_file_ofs, write, real_comm_reg_file_name);
-                    write_slave_response(real_comm_reg_file_ofs, read_line, real_comm_reg_file_name);
+                    write_master_command(real_comm_reg_file_ofs, write);
+                    write_slave_response(real_comm_reg_file_ofs, read_line);
              
        
                 } else {
