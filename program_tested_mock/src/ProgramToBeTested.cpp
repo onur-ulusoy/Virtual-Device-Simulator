@@ -152,8 +152,16 @@ private:
     std::string spi_data_json_;
 };
 
+#include <unistd.h>
 
 int main() {
+    char cwd[256];
+    if (getcwd(cwd, sizeof(cwd)) != nullptr) {
+        std::cout << "Current working directory: " << cwd << std::endl;
+    } else {
+        std::cerr << "Error getting current working directory" << std::endl;
+    }
+    
     ProgramToBeTested program("spi_data.json");
 
     while (true) {

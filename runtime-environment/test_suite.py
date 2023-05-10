@@ -88,11 +88,36 @@ def prepare_data_b(spi_a_file, spi_b_file):
 
     request_sp_read_line("TERMINATE")
 
-def run_program_to_be_tested():
+def run_process(directory_path, process_name):
     """
-    Execute the program with the prepared test data.
+    Execute the specified program in the specified directory.
     """
-    pass
+    program_path = os.path.join(directory_path, process_name)
+
+    command_template = 'cd {} && exec {}'
+
+    program_command = command_template.format(directory_path, program_path)
+    program_process = subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', program_command])
+
+    return program_process.pid
+
+def continue_process(directory_path):
+    # Define the path of the verification file
+    verification_file = os.path.join(directory_path, "verification")
+
+    # Continuously write "verification OK" to the file until interrupted
+    while True:
+        with open(verification_file, "w") as f:
+            f.write("OK")
+            time.sleep(0.1)
+
+def stop_process(directory_path):
+    # Define the path of the verification file
+    verification_file = os.path.join(directory_path, "verification")
+
+    # Write "EXIT" to the file to stop the process
+    with open(verification_file, "w") as f:
+        f.write("EXIT")
 
 def send_data_when_asked(spi_write_file, subscriber, publisher, local_directory=os.getcwd()):
     """
