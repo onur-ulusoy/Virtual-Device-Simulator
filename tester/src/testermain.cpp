@@ -75,7 +75,7 @@ int main() {
 
     ofstream log_file_ofs("driver_log");
     
-    std::string comm_register_file_name = "communication-register"; // -> remove, write_master_command and write_slave_response will be used with onyl ofs
+    std::string comm_register_file_name = "communication-register";
     std::string real_comm_reg_file_name = "real-communication-register";
 
     ofstream comm_register_file_ofs(comm_register_file_name);

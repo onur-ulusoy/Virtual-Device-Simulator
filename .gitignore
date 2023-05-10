@@ -63,3 +63,6 @@ SPI_Log.txt
 SPI_A_Oneshot_processed.json
 SPI_A_Oneshot.json
 
+## runtime files of mock of program to be tested
+verification
+

@@ -22,7 +22,7 @@
 
 using namespace std;
 /**
- * @namespace DriverTester
+ * @namespace Tester
  * @brief Contains set of functions to test the driver simulates a virtual device.
  *
  */

@@ -88,7 +88,6 @@ def prepare_data_b(spi_a_file, spi_b_file):
 
     request_sp_read_line("TERMINATE")
 
-
 def run_program_to_be_tested():
     """
     Execute the program with the prepared test data.
@@ -130,7 +129,6 @@ def send_data_when_asked(spi_write_file, subscriber, publisher, local_directory=
     # Publish the data
     publisher.publish(data_to_send_str)
     time.sleep(0.1)
-
 
 def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
     # Read data from the spi_read_file
@@ -205,7 +203,6 @@ def run_assembly(local_directory=os.getcwd()):
     tester_process = subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', tester_command])
 
     return tester_process.pid, driver_process.pid
-
 
 def wait_response():
     """
@@ -282,3 +279,24 @@ def copy_spi_log_to_destination(destination_directory):
         
     destination_file = os.path.join(destination_directory, 'SPI_Log.txt')
     shutil.copy2(source_file, destination_file)
+
+# Define communication topics
+signal_topic = "tcp://localhost:5555"
+write_data_topic = "tcp://localhost:5557"
+read_data_topic = "tcp://localhost:5559"
+
+# Create a Subscriber object to listen for the signal to send data
+signal_listener = Subscriber(signal_topic)
+
+# Create a Publisher object to send the data
+data_supplier = Publisher(write_data_topic, "test")
+
+# Create a Subscriber object to receive the read data
+data_listener = Subscriber(read_data_topic)
+
+# Define the spi_write and spi_read file names
+spi_write_file = "SPI_A.txt"
+spi_read_file = "SPI_B.txt"
+
+# Get the current working directory
+local_directory = os.getcwd()

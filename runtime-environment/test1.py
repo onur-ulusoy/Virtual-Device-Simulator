@@ -1,34 +1,11 @@
 from test_suite import *
 
 remote_repository = "/home/onur/Desktop/program_tested"
-# Prepare data by splitting the original data file into separate SPI_A.txt and SPI_B.txt files
+# Prepare data a
 prepare_data(spi_write_file="SPI_A.txt",
              remote_directory=remote_repository,
              time_out=10,
              sleep_time=1)
-
-# run_tester_and_driver()
-
-# Define communication topics
-signal_topic = "tcp://localhost:5555"
-write_data_topic = "tcp://localhost:5557"
-read_data_topic = "tcp://localhost:5559"
-
-# Create a Subscriber object to listen for the signal to send data
-signal_listener = Subscriber(signal_topic)
-
-# Create a Publisher object to send the data
-data_supplier = Publisher(write_data_topic, "test")
-
-# Create a Subscriber object to receive the read data
-data_listener = Subscriber(read_data_topic)
-
-# Define the spi_write and spi_read file names
-spi_write_file = "SPI_A.txt"
-spi_read_file = "SPI_B.txt"
-
-# Get the current working directory
-local_directory = os.getcwd()
 
 # Prepare expected data b
 prepare_data_b(spi_write_file, spi_read_file)
@@ -57,8 +34,3 @@ data_supplier.close()
 time.sleep(0.1)
 
 copy_spi_log_to_destination(remote_repository)
-
-#request_sp_read_line("TERMINATE")
-
-#os.remove(spi_write_file)
-#os.remove(spi_read_file)

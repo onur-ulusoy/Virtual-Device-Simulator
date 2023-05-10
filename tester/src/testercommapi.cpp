@@ -10,17 +10,13 @@
 namespace Tester{
 
     void write_master_command(std::ofstream& com, const std::string& command) {
-        //com.open(file_name, std::ios::app);
         com << now() << "\tMASTER LINE COMMAND: master write" << std::endl;
         com << now() << "\t     master writing: " << command << std::endl;
         com << now() << "\tMASTER LINE COMMAND: slave write" << std::endl;
-        com.close();
     }
 
     void write_slave_response(std::ofstream& com, const std::string& message) {
-        //com.open(file_name, std::ios::app);
         com << now() << "\t      slave writing: " << message << std::endl;
-        com.close();
     }
 
     void write_driver_log(string command, string response, ofstream& log) {
