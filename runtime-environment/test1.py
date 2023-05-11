@@ -2,21 +2,24 @@ from test_suite import *
 
 remote_repository = local_directory + "/../program_tested_mock/env"
 
-run_assembly()
-time.sleep(0.5)
-#program_pid = run_process(remote_repository, "ProgramToBeTestedMock")
-for _ in range(1):
+run_process(remote_repository, "ProgramToBeTestedMock")
 
+num_iterations = 3
+
+for i in range(num_iterations):
+    print("start")
     # Prepare data a
     prepare_data(spi_write_file="SPI_A.txt",
-                remote_directory=remote_repository,
-                time_out=10,
-                sleep_time=1)
+                 remote_directory=remote_repository,
+                 time_out=10,
+                 sleep_time=1)
 
     # Prepare expected data b
     prepare_data_b(spi_write_file, spi_read_file)
 
-    time.sleep(0.1)
+    run_assembly()
+    time.sleep(0.5)
+
     # Continuously send data and expect read data
     while True:
         # Check if SPI_A.txt is empty
@@ -33,13 +36,21 @@ for _ in range(1):
 
     time.sleep(0.1)
     copy_spi_log_to_destination(remote_repository)
-    #continue_process(remote_repository)
 
-#stop_process(remote_repository)
+    # Check if the loop is about to exit before calling continue_process()
+    if i != num_iterations - 1:
+        continue_process(remote_repository)
+        print("end")
+
+    time.sleep(0.5)
+    kill_assembly()
+    time.sleep(0.5)
+        
+
+stop_process(remote_repository)
 # Close the subscriber and publisher sockets
 signal_listener.close()
 data_listener.close()
 data_supplier.close()
 
-kill_assembly()
-
+print("Test1 completed successfully!")

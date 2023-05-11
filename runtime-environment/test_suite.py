@@ -44,7 +44,7 @@ def prepare_data(spi_write_file, remote_directory, local_directory=os.getcwd(), 
             # Duplicate the file
             duplicated_file_path = os.path.join(local_directory, "SPI_Log.txt")
             shutil.copyfile(local_file_path, duplicated_file_path)
-            print(f"{spi_write_file} has been duplicated as SPI_Log.txt in {local_directory}")
+            #print(f"{spi_write_file} has been duplicated as SPI_Log.txt in {local_directory}")
             break
         else:
             print(f"{spi_write_file} not found in {remote_directory}. Retrying in {sleep_time} seconds...")
@@ -106,11 +106,9 @@ def continue_process(directory_path):
     # Define the path of the verification file
     verification_file = os.path.join(directory_path, "verification")
 
-    # Continuously write "verification OK" to the file until interrupted
-    while True:
-        with open(verification_file, "w") as f:
-            f.write("OK")
-            time.sleep(0.1)
+    with open(verification_file, "w") as f:
+        f.write("OK")
+        time.sleep(0.1)
 
 def stop_process(directory_path):
     # Define the path of the verification file
@@ -244,8 +242,13 @@ def kill_assembly():
     with open('driver.pid', 'r') as f:
         driver_pid = int(f.read().strip())
 
-    # Kill the processes
-    os.kill(tester_pid, signal.SIGTERM)
+    try:
+        # Kill the processes
+        os.kill(tester_pid, signal.SIGTERM)
+        
+    except ProcessLookupError:
+        pass
+
     os.kill(driver_pid, signal.SIGTERM)
 
 def wait_response():

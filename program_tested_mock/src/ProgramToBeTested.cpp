@@ -90,9 +90,11 @@ public:
                 return true;
             }         
 
-            else if (input == "EXIT") 
+            else if (input == "EXIT"){
+                moveLogFile();
                 return false;
-
+            }
+                
             else   
                 std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
