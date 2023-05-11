@@ -26,6 +26,10 @@ listens for commands sent to it. The commands are processed and appropriate resp
 * @param _com     Stream object for writing responses to communication register.
 */
 int main() {
+    std::ofstream pidFile("driver.pid");
+    pidFile << getpid();
+    pidFile.close();
+
     /* fstream receiver;
     ofstream _com;
     string _command;

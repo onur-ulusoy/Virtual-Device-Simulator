@@ -24,6 +24,12 @@ using namespace Tester;
 *  @param _command String to store the received command
  */
 int main() {
+    // register signal SIGTERM and signal handler  
+    // Create a file and write the PID into it
+    std::ofstream pidFile("tester.pid");
+    pidFile << getpid();
+    pidFile.close();
+
     // fstream log;
     // string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};
     // create_directories(directories, 7);

@@ -19,6 +19,7 @@ import shutil
 import time
 import sys
 from pathlib import Path
+import signal
 
 sys.path.append('process-communication')
 from comm_interface import *
@@ -228,6 +229,24 @@ def run_assembly(local_directory=os.getcwd()):
     tester_process = subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', tester_command])
 
     return tester_process.pid, driver_process.pid
+
+def kill_assembly():
+    """
+    Terminates the tester.out and driver.out processes.
+    """
+    # Give the processes some time to start and write their PIDs to the files
+    time.sleep(1)
+
+    # Read the PIDs from the files
+    with open('tester.pid', 'r') as f:
+        tester_pid = int(f.read().strip())
+
+    with open('driver.pid', 'r') as f:
+        driver_pid = int(f.read().strip())
+
+    # Kill the processes
+    os.kill(tester_pid, signal.SIGTERM)
+    os.kill(driver_pid, signal.SIGTERM)
 
 def wait_response():
     """

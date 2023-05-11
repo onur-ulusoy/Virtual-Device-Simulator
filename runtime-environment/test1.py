@@ -2,10 +2,10 @@ from test_suite import *
 
 remote_repository = local_directory + "/../program_tested_mock/env"
 
-tester_pid, driver_pid = run_assembly()
+run_assembly()
 time.sleep(0.5)
-program_pid = run_process(remote_repository, "ProgramToBeTestedMock")
-for _ in range(3):
+#program_pid = run_process(remote_repository, "ProgramToBeTestedMock")
+for _ in range(1):
 
     # Prepare data a
     prepare_data(spi_write_file="SPI_A.txt",
@@ -33,10 +33,13 @@ for _ in range(3):
 
     time.sleep(0.1)
     copy_spi_log_to_destination(remote_repository)
-    continue_process(remote_repository)
+    #continue_process(remote_repository)
 
-stop_process(remote_repository)
+#stop_process(remote_repository)
 # Close the subscriber and publisher sockets
 signal_listener.close()
 data_listener.close()
 data_supplier.close()
+
+kill_assembly()
+

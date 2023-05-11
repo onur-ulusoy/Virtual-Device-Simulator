@@ -65,4 +65,8 @@ SPI_A_Oneshot.json
 
 ## runtime files of mock of program to be tested
 verification
+Logs/
+
+## process id files
+*.pid
 
