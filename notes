@@ -1,0 +1,13 @@
+Some common SPI commands that you might find in an RFID system include:
+
+Initialization and configuration commands: These commands are used to set up the RFID module for operation, such as setting up the communication frequency, data rates, and other operational parameters.
+
+Read/Write commands: These commands are used to read data from or write data to the RFID module's memory, such as reading or writing RFID tags' data.
+
+Power management commands: These commands are used to control the power state of the RFID module, such as putting it in a low-power sleep mode or waking it up for operation.
+
+Status and control commands: These commands are used to query the status of the RFID module, such as checking if an RFID tag is in the field or if there are any errors in the system.
+
+$ export PYTHONPATH=${PYTHONPATH}:$pwd
+$ robot --outputdir $PWD/robot_log test_runner.robot
+

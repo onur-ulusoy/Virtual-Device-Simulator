@@ -22,36 +22,30 @@
 
 using namespace std;
 /**
- * @namespace DriverTester
+ * @namespace Tester
  * @brief Contains set of functions to test the driver simulates a virtual device.
  *
  */
-namespace DriverTester{
+namespace Tester{
     /**
-    @brief Writes the master command to the communication-register file
-    @param com Reference to the ofstream object for communcation-register file
-    @param _command A string stores the master command
-    */
-    void master_writing(ofstream& com, string _command);
+     * @brief Writes a master command message to the communication register.
+     * @param com An ofstream reference for the communication register file.
+     * @param command The command string to be written as a master command.
+     */
+    void write_master_command(std::ofstream& com, const std::string& command);
+    /**
+     * @brief Writes a slave response message to the communication register.
+     * @param com An ofstream reference for the communication register file.
+     * @param message The message string to be written as a slave response.
+     */
+    void write_slave_response(std::ofstream& com, const std::string& message);
     /**
     @brief Evaluates the driver response to a specified command and writes the output to the log file
     @param _command A string stores the command been received from driver
     @param word The return value from driver for the command
     @param log Reference to the fstream object used to open the log file
     */
-    void evaluate_slave(string _command, string word, fstream& log);
-    /**
-    * @brief Gets commands from user and transmits to the driver
-    * 
-    * This function gets the commands from the user and transmits it to the driver in order to be processed while device is being simulated.
-    * It also logs the communication between the two systems and terminates if the input is -1.
-    *
-    * @param _command A string stores the command to be transmitted
-    * @param com Reference to the ofstream object for communcation-register file
-    * @param log Reference to the fstream object used to open the log file
-    */
-    void get_and_transmit_command(string& _command, ofstream& com, fstream& log);
-
+    void write_driver_log(string command, string response, ofstream& log);
     void send_command(Publisher& publisher, const std::string& command);
     string receive_response(Subscriber& subscriber);
 }

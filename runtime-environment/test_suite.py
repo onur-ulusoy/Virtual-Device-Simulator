@@ -19,6 +19,7 @@ import shutil
 import time
 import sys
 from pathlib import Path
+import signal
 
 sys.path.append('process-communication')
 from comm_interface import *
@@ -39,6 +40,11 @@ def prepare_data(spi_write_file, remote_directory, local_directory=os.getcwd(), 
         if os.path.exists(remote_file_path):
             shutil.copyfile(remote_file_path, local_file_path)
             print(f"{spi_write_file} has been copied from {remote_directory} to {local_directory}")
+            
+            # Duplicate the file
+            duplicated_file_path = os.path.join(local_directory, "SPI_Log.txt")
+            shutil.copyfile(local_file_path, duplicated_file_path)
+            #print(f"{spi_write_file} has been duplicated as SPI_Log.txt in {local_directory}")
             break
         else:
             print(f"{spi_write_file} not found in {remote_directory}. Retrying in {sleep_time} seconds...")
@@ -83,12 +89,34 @@ def prepare_data_b(spi_a_file, spi_b_file):
 
     request_sp_read_line("TERMINATE")
 
+def run_process(directory_path, process_name):
+    """
+    Execute the specified program in the specified directory.
+    """
+    program_path = os.path.join(directory_path, process_name)
 
-def run_program_to_be_tested():
-    """
-    Execute the program with the prepared test data.
-    """
-    pass
+    command_template = 'cd {} && exec {}'
+
+    program_command = command_template.format(directory_path, program_path)
+    program_process = subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', program_command])
+
+    return program_process.pid
+
+def continue_process(directory_path):
+    # Define the path of the verification file
+    verification_file = os.path.join(directory_path, "verification")
+
+    with open(verification_file, "w") as f:
+        f.write("OK")
+        time.sleep(0.1)
+
+def stop_process(directory_path):
+    # Define the path of the verification file
+    verification_file = os.path.join(directory_path, "verification")
+
+    # Write "EXIT" to the file to stop the process
+    with open(verification_file, "w") as f:
+        f.write("EXIT")
 
 def send_data_when_asked(spi_write_file, subscriber, publisher, local_directory=os.getcwd()):
     """
@@ -126,16 +154,7 @@ def send_data_when_asked(spi_write_file, subscriber, publisher, local_directory=
     publisher.publish(data_to_send_str)
     time.sleep(0.1)
 
-
 def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
-    """
-    Compare the received spi_read responses (spi_b) from the tester to the expected spi_read responses to determine
-    if the program behaves correctly.
-
-    @param spi_read_file: The file containing expected spi_read responses (spi_b)
-    @param subscriber: A Subscriber object to receive messages from the channel
-    @param local_directory: The local directory where the spi_read_file is located (default: current working directory)
-    """
     # Read data from the spi_read_file
     local_file_path = os.path.join(local_directory, spi_read_file)
     with open(local_file_path, "r") as file:
@@ -154,10 +173,14 @@ def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
 
     received_responses = []
 
+    # SPI_Log.txt file path
+    spi_log_file_path = os.path.join(local_directory, 'SPI_Log.txt')
+
     # Listen to the channel and collect received messages
     for _ in range(len(expected_responses)):
         message = subscriber.receive()
         received_responses.append(message)
+        write_received_responses_to_log(spi_log_file_path, message)
 
     # Compare received messages with expected responses and print the results
     for expected, received in zip(expected_responses, received_responses):
@@ -173,6 +196,18 @@ def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
     with open(local_file_path, 'r') as file:
         if not file.read(1):
             os.remove(local_file_path)  # Remove the empty file
+
+def write_received_responses_to_log(log_file_path, received_response):
+    with open(log_file_path, 'r') as log_file:
+        log_lines = log_file.readlines()
+
+    for i, line in enumerate(log_lines):
+        if line == "\n":
+            log_lines[i] = received_response + '\n'
+            break
+
+    with open(log_file_path, 'w') as log_file:
+        log_file.writelines(log_lines)
 
 def run_assembly(local_directory=os.getcwd()):
     """
@@ -193,6 +228,28 @@ def run_assembly(local_directory=os.getcwd()):
 
     return tester_process.pid, driver_process.pid
 
+def kill_assembly():
+    """
+    Terminates the tester.out and driver.out processes.
+    """
+    # Give the processes some time to start and write their PIDs to the files
+    time.sleep(1)
+
+    # Read the PIDs from the files
+    with open('tester.pid', 'r') as f:
+        tester_pid = int(f.read().strip())
+
+    with open('driver.pid', 'r') as f:
+        driver_pid = int(f.read().strip())
+
+    try:
+        # Kill the processes
+        os.kill(tester_pid, signal.SIGTERM)
+        
+    except ProcessLookupError:
+        pass
+
+    os.kill(driver_pid, signal.SIGTERM)
 
 def wait_response():
     """
@@ -260,3 +317,33 @@ def run_sp_with_f_flag():
         print(f"Failed to run spi_processor.py: {e}")
 
     os.chdir(working_path)
+
+def copy_spi_log_to_destination(destination_directory):
+    source_file = 'SPI_Log.txt'
+    
+    if not os.path.exists(destination_directory):
+        os.makedirs(destination_directory)
+        
+    destination_file = os.path.join(destination_directory, 'SPI_Log.txt')
+    shutil.copy2(source_file, destination_file)
+
+# Define communication topics
+signal_topic = "tcp://localhost:5555"
+write_data_topic = "tcp://localhost:5557"
+read_data_topic = "tcp://localhost:5559"
+
+# Create a Subscriber object to listen for the signal to send data
+signal_listener = Subscriber(signal_topic)
+
+# Create a Publisher object to send the data
+data_supplier = Publisher(write_data_topic, "test")
+
+# Create a Subscriber object to receive the read data
+data_listener = Subscriber(read_data_topic)
+
+# Define the spi_write and spi_read file names
+spi_write_file = "SPI_A.txt"
+spi_read_file = "SPI_B.txt"
+
+# Get the current working directory
+local_directory = os.getcwd()
