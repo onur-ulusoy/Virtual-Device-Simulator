@@ -83,6 +83,8 @@ int main() {
 
     // Publisher publisher("tcp://*:5555", "driver");
 
+    string dev_root[] = {"dev"};
+    create_directories(dev_root, 1);
     string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};
     create_directories(directories, 7);
 
