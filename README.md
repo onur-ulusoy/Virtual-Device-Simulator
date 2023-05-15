@@ -9,9 +9,9 @@ The main objective of this project is to develop a software platform that enable
     - [Linux devices operating scenerio](#linux-devices-operating-scenerio)
     - [Fake device operating scenerio](#fake-device-operating-scenerio)
   - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-    - [For Debian-based OS](#for-debian-based-os)
-  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+      - [Installation for Debian-based OS](#installation-for-debian-based-os)
+    - [Build instructions](#build-instructions)
   - [Usage](#usage)
     - [Starting modes:](#starting-modes)
     - [After program has run,](#after-program-has-run)
@@ -47,7 +47,7 @@ Simultaneously, the tester process generates corresponding read lines for each w
 
 This guide will assist you in cloning, setting up, and running the project on your local machine for the purposes of development and testing. 
 
-## Prerequisites
+### Prerequisites
 
 In order to successfully install and run this project, you will need to ensure the availability of several tools and libraries on your local development environment. These include:
 
@@ -61,7 +61,7 @@ In order to successfully install and run this project, you will need to ensure t
 
 Please ensure all these prerequisites are met before proceeding to the installation of the project.
 
-### For Debian-based OS
+#### Installation for Debian-based OS
 Using the bash script below, all the dependencies can easily be installed for Debian-based operation systems.
 ```bash
 sudo apt install build-essential  # C++ Compiler
@@ -75,48 +75,80 @@ pip install pyyaml  # Python libraries for handling JSON and YAML data formats
 pip install robotframework  # Robot Framework
 ```
 
-## Installation
-1. Install the required libraries and dependencies.
-2. Clone the repository to your local machine.
-3. 
+### Build instructions
+1. Install the required libraries and dependencies following the instructions from [Prerequisites](#prerequisites)
+2. Clone the repository to your local machine using command ```git clone``` (Later steps it is assumed you cloned repository to your home directory)
+3. Build spi processor C++ wrapper to work with spi devices.
+   ```bash
+    cd ~/Virtual-Device-Simulator/spi-processing/cpp_wrapper/src/
+    cmake -B build
+    cd build/
+    make
+   ```
+4. Build process communication interface for C++.
+   ```bash
+    cd ~/Virtual-Device-Simulator/runtime-environment/process-communication/cpp_comm_interface/src/
+    cmake -B build
+    cd build/
+    make
+   ```
+
+5. Build the assembly contains fundamental components of the system.
+   ```bash
+    cd ~/Virtual-Device-Simulator/runtime-environment/
+    python3 build.py 
+   ```
+6. Build alternative mock process of program to be tested, if you just want to try and look around the system and have no external program.
+   ```bash
+    cd ~/Virtual-Device-Simulator/program_tested_mock/src/
+    cmake -B build
+    cd build/
+    make
+   ```
 
 
+### Usage instructions
 
+1. Navigate to the runtime environment which is the directory where program runs:
+   ```bash
+   cd ~/Virtual-Device-Simulator/runtime-environment/
+   ```
 
+2. Create your test scenerios copying and modifying example script of test1.py or just write from stratch using the functions in test_suite.py
+3. Add your test scenerio scripts to run_tests.py by modifying it to make them visible for robot script.
+4. Set pythonpath in order robot script to see the run_tests module.
+    ```bash
+    export PYTHONPATH=${PYTHONPATH}:$PWD
+    ```
+5. Run the robot script to perform all the tests while saving logs to /robot_log folder.
+   ```bash
+    robot --outputdir $PWD/robot_log test_runner.robot
+    ```
 
-## Usage
+### Usage notes
 
-1. Navigate to the project directory:
-```
-$ cd test-environment/
-```
-2. Run the Python script
-```
-$ python3 start.py buildrun
-```
+* As of the version of 1.0, the software only supports spi device testing with the real spi commands be sent by the computer.
+* For using it with a process producing real spi commands, make sure that the external process saves the commands in a file by leaving an empty space between them and at the end, like:
+  ```
+  spi_write: Bytes written: 6: 0x02 0x00 0x03 0x01 0x00 0xB2
+  spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00
 
-### Starting modes:
-There are three arguments that can be used when running the Python script:
-- `compile`: Builds the driver and tester
-- `run`: Runs the driver and tester
-- `compilerun`: Builds and runs the driver and tester
+  spi_write: Bytes written: 21: 0x02 0x40 0x04 0x10 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x08 0x00 0x00 0x00 0x00 0x00
+  spi_write: Bytes written: 6: 0x02 0x00 0x03 0x01 0x00 0xB4
+  spi_write: Bytes written: 18: 0x02 0x30 0x04 0x02 0x00 0x02 0x00 0x34 0x04 0x02 0x00 0x48 0x03 0x00 0x03 0x01 0x00 0xB3
+  spi_write: Bytes written: 5: 0x01 0x20 0x05 0x04 0x00
 
-Example:
-```
-$ python3 start.py compile
-```
+  spi_write: Bytes written: 5: 0x01 0x08 0x05 0x04 0x00
 
-### After program has run,
+  spi_write: Bytes written: 6: 0x02 0x00 0x03 0x01 0x00 0xAC
+  spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00
 
-#### There are commands below user can call:
-Assuming that gpio device is simulated,
-- `show-gpiochipx`: shows the `gpiox` set
-- `read-gpiochipx-offset-property`: reads the `gpiox` specific property from an offset
-- `write-gpiochipx-offset-property-newValue`: writes a new value to the `gpiox` specific property from an offset
-- `config-gpiochipx`: configures the `gpiox` set from the default
-- `.commandSet-textfile`: executes commands from a file
+  ```
+  and also make sure to set the input command sequence file name, directory, and  process executable file name in test scenerio scripts correctly in the functions **prepare_data**, **start_process**.
 
-Note that you should create command set text file in the the directory of test-environment to make the program run commands from text file.
+* There is mock process to mimic the external program and example script test1 is set to perform the test with it. This process is arranged to produce random commands sequence until the test script terminates it. Check out test1.py to see further details.
+
+### The Log files software produces
 
 All the commands after it is excecuted successfully, are committed to `log` file to futher examination.
 
