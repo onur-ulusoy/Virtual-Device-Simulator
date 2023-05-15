@@ -12,11 +12,8 @@ The main objective of this project is to develop a software platform that enable
     - [Prerequisites](#prerequisites)
       - [Installation for Debian-based OS](#installation-for-debian-based-os)
     - [Build instructions](#build-instructions)
-  - [Usage](#usage)
-    - [Starting modes:](#starting-modes)
-    - [After program has run,](#after-program-has-run)
-      - [There are commands below user can call:](#there-are-commands-below-user-can-call)
-    - [Example Usage](#example-usage)
+    - [Usage instructions](#usage-instructions)
+    - [Output files software produces](#output-files-software-produces)
   - [Documentation](#documentation)
   - [Built With](#built-with)
   - [Contributing](#contributing)
@@ -77,7 +74,7 @@ pip install robotframework  # Robot Framework
 
 ### Build instructions
 1. Install the required libraries and dependencies following the instructions from [Prerequisites](#prerequisites)
-2. Clone the repository to your local machine using command ```git clone``` (Later steps it is assumed you cloned repository to your home directory)
+2. Clone the repository to your local machine using command `git clone` (Later steps it is assumed you cloned repository to your home directory)
 3. Build spi processor C++ wrapper to work with spi devices.
    ```bash
     cd ~/Virtual-Device-Simulator/spi-processing/cpp_wrapper/src/
@@ -148,32 +145,71 @@ pip install robotframework  # Robot Framework
 
 * There is mock process to mimic the external program and example script test1 is set to perform the test with it. This process is arranged to produce random commands sequence until the test script terminates it. Check out test1.py to see further details.
 
-### The Log files software produces
+### Output files software produces
 
-All the commands after it is excecuted successfully, are committed to `log` file to futher examination.
+The software generates several output files for debugging purposes. These files provide insights into the software's behavior and can be accessed within the `runtime-environment` directory.
 
-All the communication between driver and tester is committed to `communication-register` file.
+1. **Device File**: You can access the device file, which is manipulated by the software and read data from it, in the `runtime-environment/dev/spi/` directory during runtime.
 
-Virtual devices can be accessed in the directory `test-environment\dev\devfolder\device` after device is initialized.
+2. **Log Files**: The software also generates various log files in the `runtime-environment` directory. These logs are helpful for debugging and understanding the software's execution.
 
-### Example Usage
+    - **real-communication-register**: This log file captures the communication between the computer and the simulated SPI device with timestamps.
 
-This field will be filled later
+    - **communication-register**: This log file resembles the real-communication-register log but contains the commands in the format of the driver.
+
+    - **driver_log**: This file allows you to keep track of the driver movements in a detailed way, including timestamps.
+
+    - **SPI_Log.txt**: This final file contains all the commands and responses to commands sent to the directory of the external program at the end.
+
+These output files serve as valuable resources for debugging and analyzing the software's performance and interactions with the simulated SPI device.
+
+## How it works
+
+
+
+
+
+
+
+
 
 ## Documentation
 
 Comprehensive documentation of all the source code can be accessed the directory below in html format.
 `Virtual-Device-Simulator\docs\html\index`
 
-## Built With
+## Technologies Used
 
-- [Clion 2022.3](https://www.jetbrains.com/clion/) - Cross-platform IDE for C and C++
-- [Pycharm 2022.3](https://www.jetbrains.com/pycharm/) - Python IDE
-- [Visual Studio Code 1.75](https://code.visualstudio.com) - Source code editor
-- [Cmake 3.25](https://cmake.org) - Cross-platform build system
-- [nlohmann/json 3.11.2](https://github.com/nlohmann/json) - JSON for Modern C++
-- [Doxygen](https://www.doxygen.nl) - Used for generating documentation
-- [Git](https://git-scm.com) - Version Control System
+The project utilizes a range of technologies and frameworks, including the following latest versions:
+
+- [Visual Studio Code 1.75](https://code.visualstudio.com): A powerful source code editor with essential addons, providing a seamless development experience.
+
+- [CMake 3.5](https://cmake.org): A cross-platform build system that enables efficient and consistent project compilation and configuration.
+
+- [Doxygen](https://www.doxygen.nl): Used for generating comprehensive documentation, Doxygen helps to automatically generate well-structured and easily accessible documentation for the project.
+
+- [Git](https://git-scm.com): A widely used version control system that provides efficient and reliable management of source code, facilitating collaboration and tracking changes throughout the development process.
+
+- [ChatGPT](https://chat.openai.com/) 3.5 (Davinci) and 4 models from OpenAI: A powerful language model that utilizes deep learning techniques to generate human-like text, enabling natural language processing and understanding.
+  
+- [CLion 2022.3](https://www.jetbrains.com/clion/): A cross-platform integrated development environment (IDE) specifically designed for C and C++ development. CLion offers advanced features such as intelligent code completion, debugging capabilities, and seamless integration with the CMake build system.
+
+- [PyCharm 2022.3](https://www.jetbrains.com/pycharm/): An integrated development environment (IDE) for Python, PyCharm offers a rich set of features including code analysis, debugging tools, and support for popular frameworks.
+
+Additionally, the project incorporates the following technologies and frameworks:
+
+- [ZeroMQ](https://zeromq.org): A high-performance messaging library that enables distributed and scalable communication between various components of the system.
+
+- [Msgpack](https://msgpack.org): A binary serialization format that efficiently encodes data structures, facilitating fast and compact data interchange.
+
+- [Robot Framework](https://robotframework.org): A generic open-source automation framework for acceptance testing and robotic process automation (RPA). It offers a simple, keyword-driven syntax and supports testing across different platforms and systems.
+
+- [nlohmann/json 3.11.2](https://github.com/nlohmann/json): A C++ library for working with JSON data, offering modern and intuitive functionality for JSON manipulation.
+
+- [Google Test Framework](https://github.com/google/googletest): A popular C++ testing framework that provides a comprehensive set of tools for writing and running unit tests, enabling efficient and reliable software testing.
+
+These technologies collectively contribute to the development and functionality of the project, ensuring efficient communication, robust testing, comprehensive documentation, and seamless integration within the development environment.
+
 
 
 ## Contributing
