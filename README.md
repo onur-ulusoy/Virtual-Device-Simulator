@@ -14,13 +14,16 @@ The main objective of this project is to develop a software platform that enable
     - [Build instructions](#build-instructions)
     - [Usage instructions](#usage-instructions)
     - [Output files software produces](#output-files-software-produces)
+  - [Software Architecture](#software-architecture)
+    - [Directories in the Project](#directories-in-the-project)
+    - [Components](#components)
+      - [Driver](#driver)
   - [Documentation](#documentation)
-  - [Built With](#built-with)
+  - [Technologies Used](#technologies-used)
   - [Contributing](#contributing)
   - [Versioning](#versioning)
   - [Authors](#authors)
   - [License](#license)
-  - [Acknowledgments](#acknowledgments)
 
 ## Understanding Linux Devices
 Linux, as an open-source operating system kernel, provides a unique and versatile structure for managing devices. Devices in Linux are treated as files and are accessed through file systems, illustrating the philosophy of "everything is a file." This structure includes various types of devices such as hard drives, RAM, USBs, printers, and even keyboards. The device files are typically housed in the "/dev" directory, each having specific permissions and ownership. Understanding Linux devices involves a comprehension of these file-based device interactions, the different categories of devices, and the permissions that control their accessibility. This foundational knowledge is key to effective system administration and troubleshooting within a Linux environment.
@@ -163,12 +166,58 @@ The software generates several output files for debugging purposes. These files 
 
 These output files serve as valuable resources for debugging and analyzing the software's performance and interactions with the simulated SPI device.
 
-## How it works
+## Software Architecture
+
+The software consists of several components and layers that work together to achieve its functionality, the main 3 of components are briefly:
+
+- **Driver**: The driver component controls the behavior of the fake devices. It interacts with the devices and simulates their responses.
+
+- **Test Scenarios**: The test scenarios define specific test cases and conditions to be executed by the software.
+
+- **Tester**: The tester component executes the defined test scenarios and logs the results for analysis and debugging.
+
+### Directories
+
+The project includes the following directories, each serving a specific purpose:
+
+- `~/runtime-environment`: This directory serves as the central location for building the driver and tester components, as well as executing the test scripts. It is also where the output files are generated.
+
+- `~/runtime-environment/dev-config`: This directory contains various device templates that define the content of the fake devices generated at runtime. By modifying the configuration files (`config.yaml`), you can easily customize the features of the devices. The `device_config_creator.py` script should be executed to generate the device configurations based on the updated templates.
+
+- `~/runtime-environment/dev`: The driver process creates this directory at runtime, and it contains the fake device files. The files are organized into folders such as `/spi`, `/gpio`, etc., representing different types of devices.
+
+- `~/runtime-environment/process-communication`: This directory contains the source code for the communication interfaces in both C++ and Python. The interfaces facilitate efficient communication between processes using the Publisher and Subscriber objects instantiated from the ZeroMQ library. Communication plays a vital role in this multi-layered software architecture.
+
+- `~/spi-processing`: This directory houses the `spi_processor` Python script and its C++ wrapper. It represents the essential part of modeling SPI devices, as it handles real responses and converts between real SPI commands and the driver format.
+
+- `~/driver`: This directory contains the source code for the driver component. Additionally, it includes the following subdirectories for testing:
+
+    - `~/driver/driver-int-tests`: Contains integration tests for the driver component.
+
+    - `~/driver/driver-unit-tests`: Contains unit tests for the driver component.
+     
+      **Please note that** the test source code is not up to date, currently being reworked and cannot be utilized in this version.
+
+- `~/tester`: This directory contains the source code for the tester component.
+
+- `~/program_tested_mock`: This directory contains the source code of the mock program that utilizes the software. It is built and produces output in the `/env` folder.
+
+- `~/runtime-environment/integration-test`: This directory provides unit and integration tests utilizing the Google Test framework. These tests are designed to ensure the reliability and robustness of the software. The tests can be built and executed using various Python scripts. However, **please note that** the test source code is not up to date, currently being reworked and cannot be utilized in this version.
+
+These directories and components collectively contribute to the functionality and structure of the software, enabling effective control, testing, and analysis of the simulated devices and their interactions.
 
 
+### Components
 
+#### Driver
 
+The driver component in this software plays a crucial role in simulating and controlling the properties of virtual devices. Although it can be utilized and developed for various purposes, the driver in this specific project is primarily focused on handling writing operations for SPI devices. It is responsible for performing tasks such as writing data, reading data, and configuring the device.
 
+The driver component operates within the `dev/gpio` or `dev/spi` directories, creating and manipulating virtual devices. In the current design, the driver is launched by the test script and maintained and communicated with by the tester component.
+
+During the design stage, special consideration has been given to ensure the driver is memory efficient and maintainable. The intention is to facilitate further development and enhancements in a streamlined manner. In the current version, the driver accepts commands applied to the device as a sequence in its own unique format.
+
+By focusing on writing operations for SPI devices and incorporating features for configuration and data exchange, the driver component enables efficient simulation and control of the virtual devices within the software.
 
 
 
@@ -190,7 +239,7 @@ The project utilizes a range of technologies and frameworks, including the follo
 
 - [Git](https://git-scm.com): A widely used version control system that provides efficient and reliable management of source code, facilitating collaboration and tracking changes throughout the development process.
 
-- [ChatGPT](https://chat.openai.com/) 3.5 (Davinci) and 4 models from OpenAI: A powerful language model that utilizes deep learning techniques to generate human-like text, enabling natural language processing and understanding.
+- [GPT](https://openai.com/product/gpt-4) 3.5 (Davinci) and 4 models from OpenAI: A powerful language model that utilizes deep learning techniques to generate human-like text, enabling natural language processing and understanding.
   
 - [CLion 2022.3](https://www.jetbrains.com/clion/): A cross-platform integrated development environment (IDE) specifically designed for C and C++ development. CLion offers advanced features such as intelligent code completion, debugging capabilities, and seamless integration with the CMake build system.
 
@@ -228,7 +277,4 @@ See the full list of [contributors](link) who participated in this project.
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource/MIT).
-## Acknowledgments
-
-This field will be filled later
+This project is licensed under the [MIT License](/LICENSE).
