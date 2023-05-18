@@ -18,8 +18,11 @@ The main objective of this project is to develop a software platform that enable
     - [Directories](#directories)
     - [Components](#components)
       - [Driver](#driver)
-    - [Tester](#tester)
-    - [Test Scenerio Scripts and Test Framework](#test-scenerio-scripts-and-test-framework)
+      - [Tester](#tester)
+      - [Test Scenerio Scripts and Test Framework](#test-scenerio-scripts-and-test-framework)
+      - [Process Communication Interfaces](#process-communication-interfaces)
+      - [Spi Processor Unit](#spi-processor-unit)
+      - [Spi Processor - Driver Utililty](#spi-processor---driver-utililty)
   - [Documentation](#documentation)
   - [Technologies Used](#technologies-used)
   - [Contributing](#contributing)
@@ -213,7 +216,7 @@ These directories and components collectively contribute to the functionality an
 
 ### Components
 
-#### Driver
+#### **Driver**
 
 The driver component in this software plays a crucial role in simulating and controlling the properties of virtual devices. Although it can be utilized and developed for various purposes, the driver in this specific project is primarily focused on handling writing operations for SPI devices. It is responsible for performing tasks such as writing data, reading data, and configuring the device.
 
@@ -226,7 +229,7 @@ By focusing on writing operations for SPI devices and incorporating features for
 ![Driver Working Schematic](/schematics/driver_working.png "Driver Working Schematic")
   <p style="text-align: center;"><em>Driver Working Schematic</em></p>
 
-### Tester
+#### **Tester**
 
 The tester component in this software plays a crucial role in managing the test system. It acts as an intermediary between the test scenario scripts and the driver, ensuring controlled and coordinated execution of the tests. The tester receives inputs from the test scenario scripts through the communication interface and passes them to the driver component in a controlled manner.
 
@@ -239,7 +242,7 @@ The tester component plays a critical role in ensuring proper coordination, logg
 ![Tester Working Schematic](/schematics/tester_working.png "Tester Working Schematic")
   <p style="text-align: center;"><em>Tester Working Schematic</em></p>
 
-### Test Scenerio Scripts and Test Framework
+#### **Test Scenerio Scripts and Test Framework**
 
 The test scenario scripts and test framework are vital components in the software's testing process. The test scripts define how scenarios are executed and under which conditions the fake devices are controlled based on specific embedded programs. The scenarios implemented in the test script utilize the functions provided by test_suite.py.
 
@@ -251,6 +254,99 @@ By combining the test scenario scripts, the test framework, and the communicatio
 
 ![Test Scripting Schematic](/schematics/test_scripting.png "Test Scripting Schematic")
   <p style="text-align: center;"><em>Test Scripting Schematic</em></p>
+
+
+#### **Process Communication Interfaces**
+
+The process communication within this project is facilitated through specialized interfaces developed in both C++ and Python. These interfaces are designed to enable seamless communication between different processes. They leverage the ZeroMQ (zmq) library and utilize the Subscriber and Publisher classes to implement topic/client communication through local addresses.
+
+The process communication interfaces play a crucial role in establishing efficient and reliable communication between various components of the software. They enable processes to exchange data and messages in a structured manner, ensuring synchronized operation and coordination.
+
+The C++ and Python interfaces provide a convenient and standardized way for processes to subscribe to specific topics and publish messages to those topics. This mechanism allows for targeted communication between different components, promoting modularity and flexibility in the overall system design.
+
+In the runtime of this project, process communication is utilized multiple times, as it forms a fundamental aspect of the multi-layered software architecture. The interfaces ensure smooth interaction and information exchange between the driver, tester, test scenarios, and other components, facilitating a cohesive and coordinated workflow.
+
+By employing process communication interfaces based on ZeroMQ, the software achieves efficient and effective interprocess communication, enabling seamless coordination and collaboration between various components within the runtime environment.
+
+Example usage of the communication interfaces can be examined [here](/runtime-environment/process-communication/example_usage.md)
+
+#### **Spi Processor Unit**
+
+The Spi Processor Unit is the core component of the software, responsible for modeling the behavior of the SPI hardware. It plays a crucial role in providing precise responses to SPI read requests based on the corresponding SPI write commands issued by the fake devices.
+
+The Spi Processor Unit consists of a pre-training phase that allows it to learn the behavior of the actual SPI hardware. During this phase, you can provide it with actual data from the SPI Log, which can be obtained from a real hardware SPI process. By analyzing and saving the behavior to JSON files, the Spi Processor Unit learns how to accurately model the hardware's responses.
+
+Developed primarily in Python, the Spi Processor Unit is accompanied by a C++ wrapper to ensure compatibility with both Python-originated test scenarios and C++-originated drivers or testers. The choice of Python for the core implementation was driven by its ease of use and flexibility.
+
+After the pre-training phase, the Spi Processor Unit utilizes the spi_data.json file in the runtime. This file contains the necessary information in a structured format, allowing the Spi Processor Unit to provide continuous service for requests coming from any process within the project until termination.
+
+The Spi Processor Unit acts as the heart of the software, enabling the faithful modeling of SPI hardware behavior and ensuring reliable and accurate responses in runtime.
+
+Example usage of the SPI Processor C++ wrapper can be accessed [here](/spi-processing/cpp_wrapper_usage.md), providing practical demonstrations and instructions on how to utilize the C++ wrapper for seamless integration with other components of the software.
+
+![Spi Processor Working Schematic](/schematics/spi_processor_working.png "Spi Processor Working Schematic")
+  <p style="text-align: center;"><em>Spi Processor Working Schematic</em></p>
+
+
+
+#### **Spi Processor - Driver Utility**
+
+The Spi Processor - Driver Utility is an integral component of the C++ part of the Spi Processor. Its main purpose is to provide conversion solutions for SPI commands from any format to the driver format. By performing these conversions, the utility enables the execution of commands by the driver component.
+
+This utility plays a crucial role in ensuring seamless compatibility and communication between different components of the software. It acts as a bridge, allowing SPI commands from various formats to be understood and executed by the driver according to its specific format requirements.
+
+By facilitating the conversion process, the Spi Processor - Driver Utility enables the software to handle and process a wide range of SPI commands. This enhances the versatility and adaptability of the software, ensuring compatibility with different SPI devices and formats.
+
+The utility's capability to convert SPI commands to the driver format plays a crucial role in the overall functionality and effectiveness of the Spi Processor. It enables smooth communication and integration between the Spi Processor, driver component, and other parts of the software architecture, ensuring efficient execution of commands and reliable operation of the simulated SPI devices.
+
+Furthermore, the Spi Processor - Driver Utility utilizes the JSON format to ease debugging and ensure structured command representations. For instance, a sequence of SPI commands, such as SPI_A, is converted to SPI_A.json and later processed to create SPI_A_processed.json. The converted JSON files can represent both single commands and multiple code sequences, providing flexibility in command application.
+
+For example, SPI_A represents the following SPI commands:
+```
+spi_write: Bytes written: 6: 0x02 0x00 0x03 0x01 0x00 0xAC
+spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00
+```
+The resulting SPI_A.json file would look like this:
+
+
+```json
+{
+  "device_type": "spi",
+  "offset_number": 0,
+  "spi_write": [
+    [
+      "spi_write: Bytes written: 6: 0x02 0x00 0x03 0x01 0x00 0xAC",
+      "spi_write: Bytes written: 5: 0x01 0x04 0x03 0x04 0x00"
+    ]
+  ]
+}
+```
+Later, the SPI_A_processed.json file is created, which takes the following structure:
+
+
+
+```json
+{
+  "device_type": "spi",
+  "offset_number": 0,
+  "spi_write": [
+    [
+      [
+        "write-spidevice-0-buffer-0x02,0x00,0x03,0x01,0x00,0xAC",
+        "write-spidevice-0-dataSize-6"
+      ],
+      [
+        "write-spidevice-0-buffer-0x01,0x04,0x03,0x04,0x00",
+        "write-spidevice-0-dataSize-5"
+      ]
+    ]
+  ]
+}
+```
+
+And then it is used with appropriate parsing operations in code.
+
+
 
 
 
