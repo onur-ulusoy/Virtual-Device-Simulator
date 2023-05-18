@@ -15,9 +15,11 @@ The main objective of this project is to develop a software platform that enable
     - [Usage instructions](#usage-instructions)
     - [Output files software produces](#output-files-software-produces)
   - [Software Architecture](#software-architecture)
-    - [Directories in the Project](#directories-in-the-project)
+    - [Directories](#directories)
     - [Components](#components)
       - [Driver](#driver)
+    - [Tester](#tester)
+    - [Test Scenerio Scripts and Test Framework](#test-scenerio-scripts-and-test-framework)
   - [Documentation](#documentation)
   - [Technologies Used](#technologies-used)
   - [Contributing](#contributing)
@@ -30,7 +32,8 @@ Linux, as an open-source operating system kernel, provides a unique and versatil
 ### Linux devices operating scenerio
 In the Linux operating scenario, an arbitrary program interacts with a device file, in this case "/dev/spi", located within the user space. This file essentially represents a physical SPI (Serial Peripheral Interface) hardware in the system. The communication between the user space and the kernel space is facilitated through the kernel's SPI driver. When the program writes to or reads from "/dev/spi", it is, in reality, communicating with the physical SPI hardware via this kernel SPI driver. The "/dev/spi" file acts as an interface between the program and the SPI hardware, encapsulating the complexities of hardware interaction. Any communication log generated in this process, such as spi_log.txt, records the intricate details of these transactions, providing valuable insights for debugging and system optimization purposes.
 
-![Real device schematic](/schematics/real_dev_schematic.png)
+![Real device schematic](/schematics/real_dev_schematic.png "Real Device Operating Scenerio Schematic")
+<p style="text-align: center;"><em>Real Device Operating Scenerio Schematic</em></p>
 
 
 ### Fake device operating scenerio
@@ -40,7 +43,8 @@ The operation begins with the back end of an arbitrary program providing an SPI 
 
 Simultaneously, the tester process generates corresponding read lines for each write line. These read lines, when merged with the SPI write lines, form an SPI log. This log is sent back to the back end of the arbitrary program. Based on this SPI log, the front end of the arbitrary program can either manipulate the test process or allow the test to continue as per the scenario. This elaborate interplay between various components provides a high level of control and traceability for the testing process in a user space environment.
 
-![Fake device schematic](/schematics/fake_dev_schematic.png)
+![Fake device schematic](/schematics/fake_dev_schematic.png "Fake Device Operating Scenerio Schematic")
+<p style="text-align: center;"><em>Fake Device Operating Scenerio Schematic</em></p>
 
 
 ## Getting Started
@@ -219,6 +223,34 @@ During the design stage, special consideration has been given to ensure the driv
 
 By focusing on writing operations for SPI devices and incorporating features for configuration and data exchange, the driver component enables efficient simulation and control of the virtual devices within the software.
 
+![Driver Working Schematic](/schematics/driver_working.png "Driver Working Schematic")
+  <p style="text-align: center;"><em>Driver Working Schematic</em></p>
+
+### Tester
+
+The tester component in this software plays a crucial role in managing the test system. It acts as an intermediary between the test scenario scripts and the driver, ensuring controlled and coordinated execution of the tests. The tester receives inputs from the test scenario scripts through the communication interface and passes them to the driver component in a controlled manner.
+
+One of the important features of the tester is its ability to produce log files that aid in the debugging process. The log files, such as driver_log, communication-register, and SPI_Log.txt, are generated with timestamps. These log files not only facilitate efficient debugging but also provide valuable information to the program being tested, based on the responses received from the driver.
+
+Internally, the tester component utilizes the SPI processor for various utilities. This includes functionalities such as retrieving the correct spi_read response corresponding to a spi_write command and converting real SPI commands to the driver's format. By leveraging the SPI processor, the tester enhances the overall functionality and effectiveness of the test system.
+
+The tester component plays a critical role in ensuring proper coordination, logging, and communication between the test scenario scripts and the driver, ultimately contributing to the successful execution and evaluation of the software under test.
+
+![Tester Working Schematic](/schematics/tester_working.png "Tester Working Schematic")
+  <p style="text-align: center;"><em>Tester Working Schematic</em></p>
+
+### Test Scenerio Scripts and Test Framework
+
+The test scenario scripts and test framework are vital components in the software's testing process. The test scripts define how scenarios are executed and under which conditions the fake devices are controlled based on specific embedded programs. The scenarios implemented in the test script utilize the functions provided by test_suite.py.
+
+These test scripts communicate with the tester component through the communication interfaces, enabling the execution of test commands. Each test script represents a specific sequence of commands designed for a particular device, such as turning off the device or configuring it while connected to the computer.
+
+To execute the test scenarios in a systematic and organized manner, the Robot Framework is employed. The Robot Framework allows for the execution of test scripts in a sequential order while providing comprehensive test logs. This framework facilitates the creation and execution of tests with ease, ensuring reliable and thorough testing of the software's functionality.
+
+By combining the test scenario scripts, the test framework, and the communication interfaces, the software can be thoroughly tested under various conditions, generating comprehensive logs for analysis and debugging purposes. This robust testing process helps ensure the reliability and effectiveness of the software.
+
+![Test Scripting Schematic](/schematics/test_scripting.png "Test Scripting Schematic")
+  <p style="text-align: center;"><em>Test Scripting Schematic</em></p>
 
 
 
@@ -233,7 +265,7 @@ The project utilizes a range of technologies and frameworks, including the follo
 
 - [Visual Studio Code 1.75](https://code.visualstudio.com): A powerful source code editor with essential addons, providing a seamless development experience.
 
-- [CMake 3.5](https://cmake.org): A cross-platform build system that enables efficient and consistent project compilation and configuration.
+- [CMake 3.5](https://cmake.org): A cross-platform build system thReal Device Operating Scenerio Schematicat enables efficient and consistent project compilation and configuration.
 
 - [Doxygen](https://www.doxygen.nl): Used for generating comprehensive documentation, Doxygen helps to automatically generate well-structured and easily accessible documentation for the project.
 
