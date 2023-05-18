@@ -301,6 +301,11 @@ By employing process communication interfaces based on ZeroMQ, the software achi
 
 Example usage of the communication interfaces can be examined [here](/runtime-environment/process-communication/example_usage.md)
 
+Logic of publisher - subscriber pattern communication is shown in the illustration below. Visit [BMC Software](https://www.bmc.com/blogs/pub-sub-publish-subscribe/) for further knowledge about the pattern.
+
+![Subscriber Publisher Communication Pattern Logic](/schematics/pub-sub-comm-logic "Subscriber Publisher Communication Pattern Logic")
+  <p style="text-align: center;"><em>Subscriber Publisher Communication Pattern Logic [Illustration by BMC Software]</em></p>
+
 #### **Spi Processor Unit**
 
 The Spi Processor Unit is the core component of the software, responsible for modeling the behavior of the SPI hardware. It plays a essential role in providing precise responses to SPI read requests based on the corresponding SPI write commands issued by the fake devices.
