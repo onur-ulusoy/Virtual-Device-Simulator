@@ -1,5 +1,5 @@
 /**
- * @file libdriver.hpp
+ * @file libdriver.cpp
  * @brief Driver library contains device classes simulating their attributes and behaviors to create virtual devices.
  *
  * @author Onur Ulusoy
@@ -13,72 +13,72 @@
 
 namespace DeviceSim {
 
-    void Device::setDevName(const string dev_name){
-        this->dev_name = dev_name;
+    void Device::setDevName(const string devName){
+        this->devName = devName;
     }
 
-    void Device::device_open(command request) {
-        if (dev_is_open){
-            device_close();
+    void Device::openDevice(command request) {
+        if (devIsOpen){
+            closeDevice();
         }
 
         switch (request) {
 
             case READONLY:
-                cout << "function 'Device::device_open' worked as READONLY" << endl;
+                cout << "function 'Device::openDevice' worked as READONLY" << endl;
 
-                fd.open(dev_name, ios::in);
+                fd.open(devName, ios::in);
 
                 if (!fd.is_open()) {
-                    Device::device_open(WRITEONLY);
+                    Device::openDevice(WRITEONLY);
 
                     devContent.config(DEFAULT);
 
-                    Device::device_close();
-                    Device::device_open(READONLY);
+                    Device::closeDevice();
+                    Device::openDevice(READONLY);
                     break;
 
                 }
 
                 if (!fd.is_open()) {
-                    std::cerr << "Unable to open " << dev_name << ": " << std::strerror(errno) << std::endl;
+                    std::cerr << "Unable to open " << devName << ": " << std::strerror(errno) << std::endl;
                     break;
                 } 
                 
                 else
-                    cout << dev_name << " is opened successfully as READONLY" << endl;
+                    cout << devName << " is opened successfully as READONLY" << endl;
 
-                dev_is_open = true;
+                devIsOpen = true;
                 cout << endl;
                 break;
 
             case WRITEONLY:
-                cout << "function 'Device::device_open' worked as WRITEONLY" << endl;
-                fd.open(dev_name, ios::out | ios::trunc);
+                cout << "function 'Device::openDevice' worked as WRITEONLY" << endl;
+                fd.open(devName, ios::out | ios::trunc);
 
                 if (!fd.is_open()) {
-                    std::cerr << "Unable to open " << dev_name << ": " << std::strerror(errno) << std::endl;
+                    std::cerr << "Unable to open " << devName << ": " << std::strerror(errno) << std::endl;
                     break;
                 } 
                 
                 else
-                    cout << dev_name << " is opened successfully as WRITEONLY" << endl;
+                    cout << devName << " is opened successfully as WRITEONLY" << endl;
 
-                dev_is_open = true;
+                devIsOpen = true;
                 cout << endl;
                 break;
 
             default:
-                cout << "function 'Device::device_open' worked as DEFAULT" << endl << endl;
-                fd.open(devHandler->dev_name);
+                cout << "function 'Device::openDevice' worked as DEFAULT" << endl << endl;
+                fd.open(devHandler->devName);
 
                 if (!fd.is_open()) {
-                    std::cerr << "Unable to open " << dev_name << ": " << std::strerror(errno) << std::endl;
-                    device_open(WRITEONLY);
+                    std::cerr << "Unable to open " << devName << ": " << std::strerror(errno) << std::endl;
+                    openDevice(WRITEONLY);
                 } else
-                    cout << dev_name << " is opened successfully as DEFAULT" << endl;
+                    cout << devName << " is opened successfully as DEFAULT" << endl;
 
-                dev_is_open = true;
+                devIsOpen = true;
                 cout << endl;
                 break;
 
@@ -86,17 +86,17 @@ namespace DeviceSim {
         
     }
 
-    void Device::device_close() {
+    void Device::closeDevice() {
 
-        cout << "function 'Device::device_close' worked" << endl;
+        cout << "function 'Device::closeDevice' worked" << endl;
 
         if (fd.is_open()) {
-            cout << dev_name << " is closed successfully" << endl;
+            cout << devName << " is closed successfully" << endl;
             fd.close();
         } else 
-            cout << dev_name << " is already not open" << endl;
+            cout << devName << " is already not open" << endl;
 
-        dev_is_open = false;
+        devIsOpen = false;
         cout << endl;
     }
 
@@ -105,14 +105,14 @@ namespace DeviceSim {
         string dir = devHandler->getDefaultDir();
 
         cout << "function 'Device::DeviceContent::config' worked" << endl;
-        devHandler->device_open(WRITEONLY);
+        devHandler->openDevice(WRITEONLY);
 
         if (request == DEFAULT) {
             cout << dir << endl;
             devHandler->parse();
         }
 
-        devHandler->device_close();
+        devHandler->closeDevice();
         return "true";
     }
 
@@ -128,7 +128,7 @@ namespace DeviceSim {
         int packSize = devHandler->getPackSize();
         //cout<< "Length of pack:" << devHandler->getPackSize() << endl;
 
-        devHandler->device_open(READONLY);
+        devHandler->openDevice(READONLY);
 
         //cout << "Chip info is being shown ..." << endl << endl;
 
@@ -161,7 +161,7 @@ namespace DeviceSim {
         devHandler->getFd().clear();
         devHandler->getFd().seekg(0, ios::beg);
 
-        //cout << "Data was shown for '" << devHandler->dev_name << "':" << endl;
+        //cout << "Data was shown for '" << devHandler->devName << "':" << endl;
         while (true) {
             string line, word;
             for (int i = 0; i < packSize; i++) {
@@ -216,7 +216,7 @@ namespace DeviceSim {
         if (request == -1)
             return "false";
 
-        devHandler->device_open(DEFAULT);
+        devHandler->openDevice(DEFAULT);
 
         GotoLine(devHandler->getFd(), offset + 1);
 
@@ -227,11 +227,11 @@ namespace DeviceSim {
         }
         devHandler->getFd() >> word;
 
-        devHandler->device_close();
+        devHandler->closeDevice();
         return word;
     }
 
-    string Device::DeviceContent::write(const int offset, const string property, const string new_value) {
+    string Device::DeviceContent::write(const int offset, const string property, const string newValue) {
 
         cout << "function 'Device::DeviceContent::write' worked" << endl << endl;
 
@@ -251,7 +251,7 @@ namespace DeviceSim {
         if (request == -1) 
             return "false";
 
-        devHandler->device_open(DEFAULT);
+        devHandler->openDevice(DEFAULT);
         GotoLine(devHandler->getFd(), offset + 1);
 
         string line;
@@ -266,7 +266,7 @@ namespace DeviceSim {
         for (int i = 0; i < packSize; i++) {
 
             if (i == request) {
-                new_line += new_value + " ";
+                new_line += newValue + " ";
             } else
                 new_line += buffers[i] + " ";
         }
@@ -301,15 +301,15 @@ namespace DeviceSim {
 
         newfile.close();
 
-        devHandler->device_close();
+        devHandler->closeDevice();
 
-        remove(devHandler->dev_name.c_str());
-        rename(NEW_FILE, devHandler->dev_name.c_str());
+        remove(devHandler->devName.c_str());
+        rename(NEW_FILE, devHandler->devName.c_str());
 
         return "true";
     }
     
-    void Device::parse_device(const string& dir, fstream& output_file) {
+    void Device::parseDevice(const string& dir, fstream& outputFile) {
         // Read the JSON file
         ifstream input_file(dir);
 
@@ -332,26 +332,25 @@ namespace DeviceSim {
                 if (it != device.end()) {
                     json value = it.value();
                     if (value.is_string()) {
-                        output_file << value.get<std::string>();
+                        outputFile << value.get<std::string>();
                     } else {
-                        output_file << value;
+                        outputFile << value;
                     }
                 } else {
-                    output_file << "-";
+                    outputFile << "-";
                 }
                 
                 if (i != key_count - 1) {
-                    output_file << " "; // Add a space only if it's not the last key
+                    outputFile << " "; // Add a space only if it's not the last key
                 }
             }
             // Write a newline after processing each device
-            output_file << std::endl;
+            outputFile << std::endl;
         }
     }
 
-
-    vector<string> Device::get_device_keys(const string& device_type) {
-        string json_config_file = "dev-config/config_json/" + device_type + "_config.json";
+    vector<string> Device::getDeviceKeys(const string& deviceType) {
+        string json_config_file = "dev-config/config_json/" + deviceType + "_config.json";
 
         // Read the JSON file
         ifstream input_file(json_config_file);
