@@ -3,7 +3,10 @@
  * @brief Communication API for tester to provide functionality of transmitting and receiveing the commands between tester and driver.
  *
  * @author Onur Ulusoy
- * @date 03/02/2023
+ * @date 03/02/2023, Reworked: 18/05/2023
+ *
+ * @section LICENSE
+ * Licensed under the MIT License.
  */
 #include "testercommapi.hpp"
 

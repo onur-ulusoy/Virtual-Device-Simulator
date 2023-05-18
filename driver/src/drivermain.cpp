@@ -1,15 +1,15 @@
 /**
-* @file drivermain.cpp
-* @brief Main function for the driver program.
-*
-* This file contains the main function for the driver program. The program simulates a device and listens for commands
-* sent to it. The commands are read, processed and appropriate responses are sent back to tester through the communication interface.
-* @author Onur Ulusoy
-* @date 03/02/2023, Reworked: 18/05/2023
-*
-* @section LICENSE
-* Licensed under the MIT License.
-*/
+ * @file drivermain.cpp
+ * @brief Main function for the driver program.
+ *
+ * This file contains the main function for the driver program. The program simulates a device and listens for commands
+ * sent to it. The commands are read, processed and appropriate responses are sent back to tester through the communication interface.
+ * @author Onur Ulusoy
+ * @date 03/02/2023, Reworked: 18/05/2023
+ *
+ * @section LICENSE
+ * Licensed under the MIT License.
+ */
 
 #include "drivercommapi.hpp"
 #include "SpiProcessorWrapper.hpp"
@@ -17,14 +17,14 @@
 
 using namespace DeviceSim;
 /**
-
-* @brief Main entry point for the driver program.
-*
-* This function is the entry point for the driver program. It initializes the necessary components, creates the required directories,
-* sets up the communication channels with the tester, and listens for commands. Upon receiving a command, it executes the corresponding
-* action and sends the appropriate response back to the tester.
-* @return 0 indicating successful execution of the program.
-*/
+ * @brief Main entry point for the driver program.
+ *
+ * This function is the entry point for the driver program. It initializes the necessary components, creates the required directories,
+ * sets up the communication channels with the tester, and listens for commands. Upon receiving a command, it executes the corresponding
+ * action and sends the appropriate response back to the tester.
+ *
+ * @return 0 indicating successful execution of the program.
+ */
 int main() {
     std::ofstream pidFile("driver.pid");
     pidFile << getpid();

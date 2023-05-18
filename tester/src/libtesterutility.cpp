@@ -3,7 +3,10 @@
  * @brief Library of utility functions used in the tester such as string or file manipulation, directory creation.
  *
  * @author Onur Ulusoy
- * @date 03/02/2023
+ * @date 03/02/2023, Extended: 18/05/2023
+ *
+ * @section LICENSE
+ * Licensed under the MIT License.
  */
 #include "libtesterutility.hpp"
 
@@ -59,12 +62,6 @@ namespace Tester {
         file.close();
 
         return buffer;
-    }
-
-    void create_directories(string directories[], int size) {
-        for (int i = 0; i < size; i++) {
-            mkdir(directories[i].c_str(), 0777);
-        }
     }
 
     void remove_empty_lines(const std::string& file_path) {

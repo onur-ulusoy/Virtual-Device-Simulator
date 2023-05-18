@@ -28,29 +28,29 @@ using namespace std;
 
 namespace DeviceSim{
     /**
-    @brief This function moves the file stream object to the specified line number.
-    @param file A reference to the file stream object.
-    @param num The line number to which the file stream object is moved.
-    @return A reference to the modified file stream object.
-    */
+     * @brief This function moves the file stream object to the specified line number.
+     * @param file A reference to the file stream object.
+     * @param num The line number to which the file stream object is moved.
+     * @return A reference to the modified file stream object.
+     */
     fstream& GotoLine(std::fstream& file, unsigned int num);
     /**
-    @brief This function splits a string into multiple strings based on a delimiter.
-    @param s The input string to be split.
-    @param del The delimiter used to split the string.
-    @param buffers An array of strings used to store the split sub-strings.
-    */
+     * @brief This function splits a string into multiple strings based on a delimiter.
+     * @param s The input string to be split.
+     * @param del The delimiter used to split the string.
+     * @param buffers An array of strings used to store the split sub-strings.
+     */
     void Split(string s, string del, string* buffers);
     /**
-    @brief This function removes the whitespaces from the right end of a string.
-    @param s A reference to the input string.
-    @return A reference to the modified string.
-    */
+     * @brief This function removes the whitespaces from the right end of a string.
+     * @param s A reference to the input string.
+     * @return A reference to the modified string.
+     */
     string &rtrim(std::string &s);
     /**
-    @brief This function returns the current date and time.
-    @return A string representation of the current date and time.
-    */
+     * @brief This function returns the current date and time.
+     * @return A string representation of the current date and time.
+     */
     string now();
     /**
      * @brief Counts the number of lines in a file.

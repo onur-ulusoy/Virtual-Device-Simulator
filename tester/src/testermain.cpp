@@ -1,10 +1,19 @@
 /**
  * @file testermain.cpp
- * @brief The main file of the tester program.
+ * @brief Tester Main Program
+ * 
+ * This program is a core component of the testing system. It communicates with
+ * both test scripts and the driver, coordinates test execution, and generates
+ * various log files. It uses the SPI processor to further enhance test
+ * functionality.
  *
  * @author Onur Ulusoy
- * @date 03.02.2023
+ * @date 03.02.2023, Reworked: 18/05/2023
+ *
+ * @section LICENSE
+ * Licensed under the MIT License.
  */
+
 #include "testercommapi.hpp"
 #include <vector>
 #include "SpiProcessorWrapper.hpp"
@@ -12,16 +21,14 @@
 
 using namespace Tester;
 /**
- * @brief The main function of the tester program.
- *
- * This function creates the required device directories, prepares the communication-register file to be committed, outputs introductory messages,
- * and takes user commands through the `get_and_transmit_command` function and transmits it to the device simulator.
- *
- * @return Returns 0 if the program terminates successfully.
- * @param log Stream object to manage the log file that is log of communication between driver and tester
- * @param directories Directories that devices take place when they are being simulated
- * @param com Stream object to manage the communicator register file that contains the communication between tester and driver
-*  @param _command String to store the received command
+ * @brief Main function of the tester program.
+ * 
+ * This function initiates the tester program, establishing communication interfaces with the driver and the test script.
+ * It continuously requests data from the test script, processes the data, and coordinates the test execution with the driver.
+ * It also logs interactions for debugging and control purposes.
+ * It leverages the SPI processor to improve the functionality of the test execution.
+ * 
+ * @return 0 upon successful termination.
  */
 int main() {
     // register signal SIGTERM and signal handler  
@@ -29,55 +36,6 @@ int main() {
     std::ofstream pidFile("tester.pid");
     pidFile << getpid();
     pidFile.close();
-
-    // fstream log;
-    // string directories[] = {"dev/gpio", "dev/spi", "dev/i2c", "dev/ethernet", "dev/usart", "dev/uart", "dev/can"};
-    // create_directories(directories, 7);
-
-    // ofstream com ("communication-register");
-    // com.close();
-
-    // cout << "tester started working" << endl;
-    // string _command;
-
-    // cout << endl;
-
-    // SpiDevRequest spi_dev_request("SPI_A.txt", 0);
-    // spi_dev_request.rawToJson();
-
-    // spi_dev_request.processAndSaveJson();
-    // spi_dev_request.parseJsonFile();
-    // spi_dev_request.parseProcessedJsonFile();
-    // // spi_dev_request.getDevEntryProcessed().print();
-    // // spi_dev_request.getDevEntry().print(); 
-
-    // // Open the output file
-    // std::ofstream outfile("commandsText");
-
-    // // Write the output to the file instead of the console
-    // for (const auto& group : spi_dev_request.getDevEntryProcessed().getSpiWrite()) {
-    //     for (const auto& write : group) {
-    //         outfile << write << std::endl;
-    //     }
-    // }
-
-    // // Close the output file
-    // outfile.close();
-
-    // vector<string> commands;
-    // string line;
-    // ifstream infile("commandsText");
-    // if(infile.is_open()) {
-    //     while(getline(infile, line)) {
-    //         commands.push_back(line);
-    //     }
-    //     infile.close();
-    // }
-
-    // else {
-    //     cout << "Unable to open file" << endl;
-    //     return 1;
-    // }
 
     ofstream log_file_ofs("driver_log");
     
@@ -259,7 +217,6 @@ int main() {
         usleep(sleep_ms * 1000);
     }
 
-    
     
     sleep(1);
     chdir(spi_processor_workpath.c_str());
