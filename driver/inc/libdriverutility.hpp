@@ -3,7 +3,7 @@
  * @brief Library of utility functions used in the driver such as string or file manipulation.
  *
  * @author Onur Ulusoy
- * @date 03/02/2023
+ * @date 03/02/2023, Extended 18/05/2023
  */
 #ifndef LIB_DRIVER_UTILITY_HPP
 #define LIB_DRIVER_UTILITY_HPP
@@ -52,13 +52,40 @@ namespace DeviceSim{
     @return A string representation of the current date and time.
     */
     string now();
-    char* generateDevName (string path);
+    /**
+     * @brief Counts the number of lines in a file.
+     * This function opens the specified file and reads its contents line by line. 
+     * It increments a counter for each line encountered, effectively counting the total number of lines in the file.
+     * @param filename The name of the file to count the lines in.
+     * @return The number of lines in the file.
+     */
     int count_lines(const string& filename);
-
+    /**
+     * @brief Creates directories based on the provided directory paths.
+     * This function creates directories based on the array of directory paths provided. 
+     * It iterates over the array and creates each directory using the `mkdir` function.
+     * @param directories An array of directory paths to be created.
+     * @param size The size of the directory array.
+     */
     void create_directories(string directories[], int size);
+    /**
+     * @brief Splits a string into substrings based on a delimiter.
+     * This function splits the input string into substrings based on the specified delimiter. 
+     * It searches for occurrences of the delimiter in the input string and extracts the substrings between them. 
+     * The substrings are stored in a vector and returned.
+     * @param input The input string to be split.
+     * @param delimiter The delimiter used to separate the substrings.
+     * @return A vector of substrings resulting from the split operation.
+     */
     std::vector<std::string> split_string(const std::string& input, const std::string& delimiter);
+    /**
+     * @brief Checks if a directory exists at the specified path.
+     * This function checks if a directory exists at the provided path by attempting to open it as a file. 
+     * If the file opening operation is successful, it indicates that the directory exists.
+     * @param path The path of the directory to be checked.
+     * @return `true` if the directory exists, `false` otherwise.
+     */
     bool does_directory_exist(const std::string& path);
 }
-
 
 #endif //LIB_DRIVER_UTILITY_HPP

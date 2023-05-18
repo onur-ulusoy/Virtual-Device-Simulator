@@ -3,7 +3,7 @@
  * @brief Communication API for driver to provide functionality of transmitting and receiveing the commands between tester and driver.
  *
  * @author Onur Ulusoy
- * @date 03/02/2023
+ * @date 03/02/2023, Reworked: 18/05/2023
  */
 #ifndef DRIVER_DRIVERCOMMAPI_HPP
 #define DRIVER_DRIVERCOMMAPI_HPP
@@ -14,44 +14,31 @@
 
 /**
  * @namespace DeviceSim
- * @brief Gathers around all the tools contributing to simulate device under a frame.
+ * @brief Brings together all the essential tools necessary for simulating a device within a comprehensive framework.
  * 
  */
 namespace DeviceSim {
     /**
-    * @brief Receives commands that are sent by tester with the specified request and performs the necessary operations.
-    *
-    * @param req      The type of command request. Can be either ONESHOT or RECURSIVE. If commands received from text file, RECURSIVE mode runs. 
-    * @param devType  The type of device being processed. Can be one of "gpio", "spi", "i2c", "ethernet", "usart", "uart", "can".
-    * @param receiver Stream object for reading the command from command text.
-    * @param _command String to store the received command.
-    * @param _com     Stream object for writing responses to communication register.
-    *
-    * @return -1 if the command is to disconnect the device, 0 if the command is to process the device or to execute nothing.
-    */
-    //int receive_command(enum command_request req, string devType, fstream& receiver, string& _command, ofstream& _com);
-
-
+     * @brief Receives a command from a subscriber.
+     *
+     * This function receives a command message from the specified subscriber within the given timeout period. The received message is purified
+     * by removing any prefix before the actual command. The purified command is then returned as a string.
+     *
+     * @param subscriber The subscriber object used to receive the command.
+     * @param timeout The timeout value for receiving the command, in milliseconds.
+     * @return The received command message.
+     */
     string receive_command(Subscriber& subscriber, const int timeout);
-
-    string execute_command(const enum command_request request, const string dev_type, const string command, ofstream& register_file);
-
     /**
-    * @brief Transmits a command to tester by writing "&" to the file "command" meaning that driver is ready to receive a new command.
-    */
-    void throw_command();
-    /**
-    * @brief Commits the message to the communication register file that is return of the command.
-    *
-    * @param com      Stream object for writing the message to the communication register file.
-    * @param message  String containing the message to be written to the communication register file.
-    *
-    */
-    void slave_writing(ofstream& com, string message);
-    Device& create_device(const std::string& dev_type, const std::string& dev_name);
+     * @brief Transmits a response message using a publisher.
+     *
+     * This function publishes the specified response message using the provided publisher. The response message is sent to the corresponding topic
+     * for further processing or analysis.
+     *
+     * @param publisher The publisher object used to transmit the response.
+     * @param msg The response message to be transmitted.
+     */
     void transmit_response(Publisher& publisher, const string msg);
-
 }
-
 
 #endif //DRIVER_DRIVERCOMMAPI_HPP

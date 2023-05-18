@@ -1,13 +1,12 @@
 /**
  * @file libdriver.hpp
- * @brief Driver library contains device classes simulating their attributes and behaviors to create virtual devices.
+ * @brief Driver library contains command operation functions and device classes simulating their attributes and behaviors to create virtual devices.
  *
  * @author Onur Ulusoy
- * @date 03/02/2023 Reworked: 28/03/2022
- *
+ * @date 03/02/2023, Reworked: 28/03/2023, 18/05/2023
+ * 
  * @section LICENSE
- *
- * Licensed under the MIT License. See LICENSE file in the root directory for details.
+ * Licensed under the MIT License.
  */
 
 #ifndef LIB_DRIVER_HPP
@@ -485,5 +484,33 @@ namespace DeviceSim {
             this->packSize = this->pack.size();
         };
     };  
+    /**
+     * @brief Executes a command for a specific device.
+     *
+     * This function executes a command for a specific device based on the provided parameters. Currently, this function is not complete
+     * and will be completed in future updates.
+     *
+     * @param request The type of command request.
+     * @param dev_type The type of device.
+     * @param command The command to be executed.
+     * @param register_file The file to store register information.
+     * @return The response of the driver after executing the command.
+     *
+     * @todo Complete the implementation of this function in future updates.
+     */
+    string execute_command(const enum command_request request, const string dev_type, const string command, ofstream& register_file);
+    /**
+     * @brief Creates a device object based on the device type and name.
+     *
+     * This function creates and returns the appropriate device object based on the provided device type and name. It handles various device types
+     * such as GPIO, SPI, I2C, UART, USART, CAN, and Ethernet. If the device type is unknown, an error message is displayed, and the program exits.
+     *
+     * @param dev_type The type of the device.
+     * @param dev_name The name of the device.
+     * @return The created device object.
+     *
+     * @throws std::runtime_error if the device type is unknown.
+     */
+    Device& create_device(const std::string& dev_type, const std::string& dev_name);
 }
 #endif //LIB_DRIVER_HPP
