@@ -1,3 +1,4 @@
+
 <p align="center" id="virtual-device-simulator">
   <a href="https://github.com/onurulusoy4/Virtual-Device-Simulator">
     <img src="/docs/virtual-device-simulator-high-resolution-logo-color-on-transparent-background.png" alt="Virtual Device Simulator" />
@@ -5,13 +6,10 @@
 </p>
 
 ---
-<p align="center" style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 30px; margin-top: 20px">
-  <img src="https://d1q6f0aelx0por.cloudfront.net/product-logos/library-debian-logo.png" alt="Debian" style="vertical-align: middle;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ubuntu_logo.svg/200px-Ubuntu_logo.svg.png" alt="Ubuntu" style="vertical-align: middle;">
-</p>
+![](/docs/debian-ubuntu-logo.png)
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
-<a href="docs/html/index.html">
+<a href="index.html">
   <img src="https://img.shields.io/badge/documentation-Doxygen-blue.svg" alt="Doxygen">
 </a> ![Language](https://img.shields.io/badge/language-C%2B%2B-orange.svg)
 
@@ -59,7 +57,7 @@ Linux, as an open-source operating system kernel, provides a unique and versatil
 ### Linux devices operating scenerio
 In the Linux operating scenario, an arbitrary program interacts with a device file, in this case "/dev/spi", located within the user space. This file essentially represents a physical SPI (Serial Peripheral Interface) hardware in the system. The communication between the user space and the kernel space is facilitated through the kernel's SPI driver. When the program writes to or reads from "/dev/spi", it is, in reality, communicating with the physical SPI hardware via this kernel SPI driver. The "/dev/spi" file acts as an interface between the program and the SPI hardware, encapsulating the complexities of hardware interaction. Any communication log generated in this process, such as spi_log.txt, records the intricate details of these transactions, providing valuable insights for debugging and system optimization purposes.
 
-![Real device schematic](/schematics/real_dev_schematic.png "Real Device Operating Scenerio Schematic")
+![Real device schematic](/docs/schematics/real_dev_schematic.png "Real Device Operating Scenerio Schematic")
 <p align="center"><em>Real Device Operating Scenerio Schematic</em></p>
 
 
@@ -71,7 +69,7 @@ The operation begins with the back end of an arbitrary program providing an SPI 
 
 Simultaneously, the tester process generates corresponding read lines for each write line. These read lines, when merged with the SPI write lines, form an SPI log. This log is sent back to the back end of the arbitrary program. Based on this SPI log, the front end of the arbitrary program can either manipulate the test process or allow the test to continue as per the scenario. This elaborate interplay between various components provides a high level of control and traceability for the testing process in a user space environment.
 
-![Fake device schematic](/schematics/fake_dev_schematic.png "Fake Device Operating Scenerio Schematic")
+![Fake device schematic](/docs/schematics/fake_dev_schematic.png "Fake Device Operating Scenerio Schematic")
 <p align="center"><em>Fake Device Operating Scenerio Schematic</em></p>
 
 
@@ -251,13 +249,13 @@ During the design stage, special consideration has been given to ensure the driv
 
 By focusing on writing operations for SPI devices and incorporating features for configuration and data exchange, the driver component enables efficient simulation and control of the virtual devices within the software.
 
-![Driver Working Schematic](/schematics/driver_working.png "Driver Working Schematic")
+![Driver Working Schematic](/docs/schematics/driver_working.png "Driver Working Schematic")
 <p align="center"><em>Driver Working Schematic</em></p>
 
 
 In the internal structure, driver component exhibits a well-structured object-oriented programming (OOP) design, making use of the Singleton design pattern. The Driver class embodies the principles of encapsulation, inheritance, and polymorphism, which are fundamental to OOP. By implementing the Singleton pattern, the Driver ensures that only a single instance of itself can exist throughout the application. This design choice facilitates centralized access to the Driver's functionalities and prevents multiple instances from causing conflicts or duplications. The Singleton design pattern enhances code organization and promotes code reusability by providing a global point of access to the Driver instance. Overall, the Driver component showcases a simple and elegant OOP structure while incorporating the benefits of the Singleton pattern. UML Diagram can be examined below.
 
-![Driver UML Diagram](/schematics/driveruml.png "Driver UML Diagram")
+![Driver UML Diagram](/docs/schematics/driveruml.png "Driver UML Diagram")
 <p align="center"><em>Driver UML Diagram</em></p>
 
 #### **Tester**
@@ -270,7 +268,7 @@ Internally, the tester component utilizes the SPI processor for various utilitie
 
 The tester component plays a critical role in ensuring proper coordination, logging, and communication between the test scenario scripts and the driver, ultimately contributing to the successful execution and evaluation of the software under test.
 
-![Tester Working Schematic](/schematics/tester_working.png "Tester Working Schematic")
+![Tester Working Schematic](/docs/schematics/tester_working.png "Tester Working Schematic")
 <p align="center"><em>Tester Working Schematic</em></p>
 
 #### **Test Scenerio Scripts and Test Framework**
@@ -283,7 +281,7 @@ To execute the test scenarios in a systematic and organized manner, the Robot Fr
 
 By combining the test scenario scripts, the test framework, and the communication interfaces, the software can be thoroughly tested under various conditions, generating comprehensive logs for analysis and debugging purposes. This robust testing process helps ensure the reliability and effectiveness of the software.
 
-![Test Scripting Schematic](/schematics/test_scripting.png "Test Scripting Schematic")
+![Test Scripting Schematic](/docs/schematics/test_scripting.png "Test Scripting Schematic")
 <p align="center"><em>Test Scripting Schematic</em></p>
 
 
@@ -302,7 +300,7 @@ Once all iterations are completed, the script calls stop_process to stop the exe
 Custom test scenarios can easily be generated based on test1.py. Simply copy test1.py, then adjust the data inputs, outputs, or interaction sequences to align with the new test requirements. By doing so, various scenarios can be rapidly developed, expanding the coverage of your software testing.
 
 
-![Example Test Working Schematic](/schematics/test1_working.png "Example Test Working Schematic")
+![Example Test Working Schematic](/docs/schematics/test1_working.png "Example Test Working Schematic")
 <p align="center"><em>Example Test Working Schematic</em></p>
 
 #### **Process Communication Interfaces**
@@ -321,7 +319,7 @@ Example usage of the communication interfaces can be examined [here](/runtime-en
 
 Logic of publisher - subscriber pattern communication is shown in the illustration below. Visit [BMC Software](https://www.bmc.com/blogs/pub-sub-publish-subscribe/) for further knowledge about the pattern.
 
-![Subscriber Publisher Communication Pattern Logic](/schematics/pub-sub-comm-logic "Subscriber Publisher Communication Pattern Logic")
+![Subscriber Publisher Communication Pattern Logic](/docs/schematics/pub-sub-comm-logic "Subscriber Publisher Communication Pattern Logic")
 <p align="center"><em>Subscriber Publisher Communication Pattern Logic [Illustration by BMC Software]</em></p>
 
 
@@ -339,7 +337,7 @@ The Spi Processor Unit acts as the heart of the software, enabling the faithful 
 
 Example usage of the SPI Processor C++ wrapper can be accessed [here](/spi-processing/cpp_wrapper_usage.md), providing practical demonstrations and instructions on how to utilize the C++ wrapper for seamless integration with other components of the software.
 
-![Spi Processor Working Schematic](/schematics/spi_processor_working.png "Spi Processor Working Schematic")
+![Spi Processor Working Schematic](/docs/schematics/spi_processor_working.png "Spi Processor Working Schematic")
 <p align="center"><em>Spi Processor Working Schematic</em></p>
 
 
@@ -437,7 +435,7 @@ Please note that in this version, the tests haven't been updated and cannot be u
 
 Comprehensive documentation of all the source code can be accessed the directory below in html format.
 
-<a href="docs/html/index.html">Documentation</a>
+<a href="index.html">Documentation</a>
 
 
 ## Technologies Used

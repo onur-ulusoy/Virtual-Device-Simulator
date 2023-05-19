@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['tester_0',['tester',['../namespacestart.html#ab9b9247fba61b0b959edacb4c36117a1',1,'start']]],
-  ['tester_5fcpp_5ffiles_1',['tester_cpp_files',['../namespacestart.html#ab0698db91b9b196572679694a07d877d',1,'start']]],
-  ['tester_5fexe_5ffile_2',['tester_exe_file',['../namespacestart.html#af0692c746a6af453a6448c376bcc6b26',1,'start']]],
-  ['try_3',['try',['../namespacestart.html#a7a8eab6f3181afee3e6260df33819a48',1,'start']]]
+  ['socket_0',['socket',['../class_publisher.html#aff45868a2812fcf17e29da81dcb83319',1,'Publisher::socket'],['../class_subscriber.html#a12d39e4924af78da3275f7fbc82a410c',1,'Subscriber::socket']]],
+  ['spi_5fdata_5fjson_5f_1',['spi_data_json_',['../class_program_to_be_tested.html#a5c96f3103ba48536d75399db415d6bb6',1,'ProgramToBeTested']]],
+  ['spiwrite_2',['spiWrite',['../class_spi_dev_entry.html#a6c01a04aa4e36b6f023c8691dbeaf187',1,'SpiDevEntry']]]
 ];

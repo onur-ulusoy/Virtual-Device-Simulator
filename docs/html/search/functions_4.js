@@ -1,4 +1,21 @@
 var searchData=
 [
-  ['i2c_5fdevice_0',['I2C_Device',['../class_device_sim_1_1_i2_c___device.html#a65b12d15e9fa522ad58838d023e999ff',1,'DeviceSim::I2C_Device']]]
+  ['generaterandomsamples_0',['GenerateRandomSamples',['../class_program_to_be_tested.html#a3bf803557138a1e621d5c962941e673a',1,'ProgramToBeTested']]],
+  ['get_5fassociated_5fspi_5fread_1',['get_associated_spi_read',['../classspi__processor_1_1_spi_file_processor.html#aef3d8c674c04b3230cbf114a8189c72a',1,'spi_processor::SpiFileProcessor']]],
+  ['get_5fassociated_5fspi_5fread_5ffrom_5ffile_2',['get_associated_spi_read_from_file',['../classspi__processor_1_1_spi_file_processor.html#a128f5b5ffe70b1d72bd108385faffe73',1,'spi_processor::SpiFileProcessor']]],
+  ['get_5flast_5fword_3',['get_last_word',['../namespace_tester.html#a553939dfb1b5f68f0040d184d6544c0b',1,'Tester']]],
+  ['getdefaultdir_4',['getDefaultDir',['../class_device_sim_1_1_device.html#a4f8ffe42c644d4846cde6dbfcb02a26c',1,'DeviceSim::Device']]],
+  ['getdeventry_5',['getDevEntry',['../class_spi_dev_request.html#a31c8c93d7308c66054f3e1053e6a3b41',1,'SpiDevRequest']]],
+  ['getdeventryprocessed_6',['getDevEntryProcessed',['../class_spi_dev_request.html#adddc774b145621f2a614197c3cbf2c52',1,'SpiDevRequest']]],
+  ['getdevicekeys_7',['getDeviceKeys',['../class_device_sim_1_1_device.html#adf2bc93ff90e01ef03ccda15b14ddcbb',1,'DeviceSim::Device']]],
+  ['getdevicetype_8',['getDeviceType',['../class_spi_dev_entry.html#a329ed1671923ddd1445b275d40a3b65a',1,'SpiDevEntry']]],
+  ['getdevname_9',['getDevName',['../class_device_sim_1_1_device.html#a47db3bca4be2c9167dd476b4074f959b',1,'DeviceSim::Device']]],
+  ['getfd_10',['getFd',['../class_device_sim_1_1_device.html#ab8649474eebec6cce42bb9a73b2ef9ff',1,'DeviceSim::Device']]],
+  ['getinstance_11',['getInstance',['../class_device_sim_1_1_singleton.html#a264aa7a8eb062eee4788d6f51e79131f',1,'DeviceSim::Singleton']]],
+  ['getoffsetnumber_12',['getOffsetNumber',['../class_spi_dev_entry.html#a99a544dcf9e8b11c11d92279fdb76e68',1,'SpiDevEntry']]],
+  ['getpack_13',['getPack',['../class_device_sim_1_1_device.html#a62ca8a368b2b9b35c879a7690cc4caa3',1,'DeviceSim::Device']]],
+  ['getpacksize_14',['getPackSize',['../class_device_sim_1_1_device.html#aa6b8d7612a1dd97bb3ec2bc926893737',1,'DeviceSim::Device']]],
+  ['getspiwrite_15',['getSpiWrite',['../class_spi_dev_entry.html#afb5da4bf25bd0e370b2026782b51b73e',1,'SpiDevEntry']]],
+  ['gotoline_16',['GotoLine',['../namespace_device_sim.html#aa18a3e4eee7604c73df3d7cc9fbd3395',1,'DeviceSim']]],
+  ['gpio_5fdevice_17',['GPIO_Device',['../class_device_sim_1_1_g_p_i_o___device.html#a98a4ff64cc35658adeeec0ffc66c094c',1,'DeviceSim::GPIO_Device']]]
 ];
