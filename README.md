@@ -1,6 +1,21 @@
 # Virtual Device Simulator
+![alt text](/docs/virtual-device-simulator-high-resolution-logo-color-on-transparent-background.png)
+
+---
+
+<p align="center" style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 30px; margin-top: 20px">
+  <img src="https://d1q6f0aelx0por.cloudfront.net/product-logos/library-debian-logo.png" alt="Debian" style="vertical-align: middle;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ubuntu_logo.svg/200px-Ubuntu_logo.svg.png" alt="Ubuntu" style="vertical-align: middle;">
+</p>
+
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
+<a href="docs/html/index.html">
+  <img src="https://img.shields.io/badge/documentation-Doxygen-blue.svg" alt="Doxygen">
+</a> ![Language](https://img.shields.io/badge/language-C%2B%2B-orange.svg)
+
 
 The main objective of this project is to develop a software platform that enables the creation, manipulation, and use of virtual devices in the user space of an operating system. The goal is to make it easier for developers to create and test embedded software without having to use actual physical hardware. This will save time and resources and allow for more efficient and streamlined software development processes. The platform is designed to be flexible and user-friendly, making it accessible to a wide range of programmers who develop embedded linux applications. Virtual Device Simulator also includes features for automated testing and validation. This allows developers to automatically test communication between the embedded software and the virtual peripheral device, verify the accuracy of data transmission, and ensure the correct functioning of all software components with arrangable test scenerios while providing realistic log files for easy debug.
+
 ## Table of Contents
 
 - [Virtual Device Simulator](#virtual-device-simulator)
@@ -414,12 +429,12 @@ Total system integration tests encompass the entire software system, including t
 Please note that in this version, the tests haven't been updated and cannot be utilized. However, they play a fundamental role in ensuring the reliability and effectiveness of the software, and detailed explanations of these tests will be added later in the project.
 
 
-
-
 ## Documentation
 
 Comprehensive documentation of all the source code can be accessed the directory below in html format.
-`Virtual-Device-Simulator\docs\html\index`
+
+<a href="docs/html/index.html">Documentation</a>
+
 
 ## Technologies Used
 
@@ -458,7 +473,7 @@ These technologies collectively contribute to the development and functionality 
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](link) for details on the code of conduct and the process for submitting pull requests.
+Please read [Contributing](/docs/CONTRIBUTING.md) for details on the code of conduct and the process for submitting pull requests.
 
 ## Versioning
 

@@ -7,7 +7,8 @@
  * 
  * @author Onur Ulusoy
  * @date 18.04.2023
- * @license MIT
+ * @section LICENSE
+ * Licensed under the MIT License.
  */
 
 #include "SpiProcessorWrapper.hpp"
