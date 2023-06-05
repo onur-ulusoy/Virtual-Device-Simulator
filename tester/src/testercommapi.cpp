@@ -22,7 +22,7 @@ namespace Tester{
         com << now() << "\t      slave writing: " << message << std::endl;
     }
 
-    void write_driver_log(string command, string response, ofstream& log) {
+    void write_driver_log(const std::string& command, const std::string& response, std::ofstream& log) {
         if (command.find("read-") != string::npos) {
             log << "Date: " << now() << endl << "Command: " << command << endl;
             log << "Output: " << endl;
