@@ -67,4 +67,4 @@ jobs:
       run: export PYTHONPATH=${PYTHONPATH}:$PWD
 
     - name: Run Robot Framework tests
-      run: robot --outputdir $PWD/robot_log test_runner.robot
+      run: robot --outputdir robot_log test_runner.robot
