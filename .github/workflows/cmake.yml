@@ -1,0 +1,48 @@
+name: CMake
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    # Build spi processor C++ wrapper to work with spi devices.
+    - name: Build spi processor C++ wrapper
+      run: |
+        cd spi-processing/cpp_wrapper/src/
+        cmake -B build
+        cd build/
+        make
+
+    # Build process communication interface for C++.
+    - name: Build process communication interface
+      run: |
+        cd runtime-environment/process-communication/cpp_comm_interface/src/
+        cmake -B build
+        cd build/
+        make
+
+    # Build the assembly contains fundamental components of the system.
+    - name: Build fundamental components
+      run: |
+        cd runtime-environment/
+        python3 build.py 
+
+    # Build alternative mock process of program to be tested.
+    - name: Build mock process
+      run: |
+        cd program_tested_mock/src/
+        cmake -B build
+        cd build/
+        make
