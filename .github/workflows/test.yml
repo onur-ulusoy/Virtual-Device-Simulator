@@ -61,7 +61,7 @@ jobs:
         python-version: 3.9
 
     - name: Navigate to runtime environment
-      run: cd ~/Virtual-Device-Simulator/runtime-environment/
+      run: cd runtime-environment/
 
     - name: Set PYTHONPATH
       run: export PYTHONPATH=${PYTHONPATH}:$PWD
