@@ -1,3 +1,14 @@
+"""
+@file test1.py
+
+Example test scenerio script utilizes test_suite module.
+Visit README in root directory for further information.
+
+@author: Onur Ulusoy
+@date: 18/05/2023
+@license: MIT
+"""
+
 from test_suite import *
 
 remote_repository = local_directory + "/../program_tested_mock/env"

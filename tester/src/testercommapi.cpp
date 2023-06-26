@@ -3,7 +3,10 @@
  * @brief Communication API for tester to provide functionality of transmitting and receiveing the commands between tester and driver.
  *
  * @author Onur Ulusoy
- * @date 03/02/2023
+ * @date 03/02/2023, Reworked: 18/05/2023
+ *
+ * @section LICENSE
+ * Licensed under the MIT License.
  */
 #include "testercommapi.hpp"
 
@@ -19,7 +22,7 @@ namespace Tester{
         com << now() << "\t      slave writing: " << message << std::endl;
     }
 
-    void write_driver_log(string command, string response, ofstream& log) {
+    void write_driver_log(const std::string& command, const std::string& response, std::ofstream& log) {
         if (command.find("read-") != string::npos) {
             log << "Date: " << now() << endl << "Command: " << command << endl;
             log << "Output: " << endl;

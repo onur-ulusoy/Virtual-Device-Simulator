@@ -7,7 +7,7 @@
  * 
  * @author Onur Ulusoy
  * @date 18.04.2023
- * @license MIT
+ * Licensed under the MIT License.
  */
 
 #ifndef SPI_PROCESSOR_WRAPPER_HPP

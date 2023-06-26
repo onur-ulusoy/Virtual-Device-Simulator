@@ -25,6 +25,18 @@ sys.path.append('process-communication')
 from comm_interface import *
 
 def prepare_data(spi_write_file, remote_directory, local_directory=os.getcwd(), time_out=10, sleep_time=1):
+    """
+    Checks if the specified SPI write file exists in the remote directory. 
+    If the file is present, it is copied into the local directory and also duplicated as SPI_Log.txt. 
+    The function periodically checks for the file's existence until a timeout is exceeded.
+    
+    @param spi_write_file: name of the SPI write file.
+    @param remote_directory: directory in which to look for the SPI write file.
+    @param local_directory: directory where the SPI write file will be copied to.
+    @param time_out: maximum time to wait for the SPI write file.
+    @param sleep_time: time between checks for the SPI write file.
+    @return: True if the SPI write file was found and copied successfully, False otherwise.
+    """
     start_time = time.time()
     
     while True:
@@ -53,6 +65,12 @@ def prepare_data(spi_write_file, remote_directory, local_directory=os.getcwd(), 
     return True
 
 def prepare_data_b(spi_a_file, spi_b_file):
+    """
+    Processes data from spi_a_file and writes it to spi_b_file.
+    
+    @param spi_a_file: name of the input file.
+    @param spi_b_file: name of the output file.
+    """
     run_sp_with_f_flag()
 
     # Read lines from spi_a_file and group them into solid parts
@@ -91,7 +109,7 @@ def prepare_data_b(spi_a_file, spi_b_file):
 
 def run_process(directory_path, process_name):
     """
-    Execute the specified program in the specified directory.
+    Executes the specified program in the specified directory.
     """
     program_path = os.path.join(directory_path, process_name)
 
@@ -103,6 +121,11 @@ def run_process(directory_path, process_name):
     return program_process.pid
 
 def continue_process(directory_path):
+    """
+    Writes "OK" to the verification file, indicating that the process can continue.
+    
+    @param directory_path: path of the directory containing the verification file.
+    """
     # Define the path of the verification file
     verification_file = os.path.join(directory_path, "verification")
 
@@ -111,6 +134,11 @@ def continue_process(directory_path):
         time.sleep(0.1)
 
 def stop_process(directory_path):
+    """
+    Writes "EXIT" to the verification file, indicating that the process should stop.
+    
+    @param directory_path: path of the directory containing the verification file.
+    """
     # Define the path of the verification file
     verification_file = os.path.join(directory_path, "verification")
 
@@ -120,7 +148,7 @@ def stop_process(directory_path):
 
 def send_data_when_asked(spi_write_file, subscriber, publisher, local_directory=os.getcwd()):
     """
-    Send the spi_write commands (spi_a) to the program to be tested.
+    Sends the spi_write commands (spi_a) to the program to be tested.
 
     @param spi_write_file: The file containing spi_write commands (spi_a)
     @param subscriber: The Subscriber object to receive the signal to send data
@@ -155,6 +183,15 @@ def send_data_when_asked(spi_write_file, subscriber, publisher, local_directory=
     time.sleep(0.1)
 
 def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
+    """
+    Reads data from the spi_read_file, listens to a channel for the same number of messages, 
+    and compares the received messages with the expected responses. 
+    If the responses match, the function deletes the corresponding part from the spi_read_file.
+    
+    @param spi_read_file: name of the file containing expected responses.
+    @param subscriber: subscriber object to the channel.
+    @param local_directory: directory where the SPI read file is located.
+    """
     # Read data from the spi_read_file
     local_file_path = os.path.join(local_directory, spi_read_file)
     with open(local_file_path, "r") as file:
@@ -198,6 +235,12 @@ def expect(spi_read_file, subscriber, local_directory=os.getcwd()):
             os.remove(local_file_path)  # Remove the empty file
 
 def write_received_responses_to_log(log_file_path, received_response):
+    """
+    Writes the received responses to the log file at the first empty line.
+    
+    @param log_file_path: path of the log file.
+    @param received_response: received response to write to the log file.
+    """
     with open(log_file_path, 'r') as log_file:
         log_lines = log_file.readlines()
 
@@ -258,6 +301,14 @@ def wait_response():
     pass
 
 def request_sp_read_line(write_line):
+    """
+    Utilizes spi processor.
+    Writes a line to the "in" file in the SPI processor's working directory, 
+    waits until a valid SPI read line appears in the "out" file, and returns the read line.
+    
+    @param write_line: line to write to the "in" file.
+    @return: SPI read line from the "out" file.
+    """
     working_path = os.getcwd()
 
     # Change directory to spi processor workpath
@@ -293,6 +344,9 @@ def request_sp_read_line(write_line):
     return read_line
 
 def run_sp_with_f_flag():
+    """
+    This function starts the SPI processor with the -f flag in a new background process.
+    """
     working_path = os.getcwd()
     
     # Change directory to spi processor workpath
@@ -319,6 +373,11 @@ def run_sp_with_f_flag():
     os.chdir(working_path)
 
 def copy_spi_log_to_destination(destination_directory):
+    """
+    copies the SPI_Log.txt file to a destination directory.
+    
+    @param destination_directory: directory where the SPI_Log.txt file will be copied to.
+    """
     source_file = 'SPI_Log.txt'
     
     if not os.path.exists(destination_directory):

@@ -3,7 +3,7 @@
  * @brief Library of utility functions used in the driver such as string or file manipulation.
  *
  * @author Onur Ulusoy
- * @date 03/02/2023
+ * @date 03/02/2023, Extended 18/05/2023
  */
 #include "libdriverutility.hpp"
 
@@ -49,12 +49,6 @@ namespace DeviceSim{
 
         // Get the string from the stringstream
         return ss.str();
-    }
-
-    char* generateDevName (string path) {
-        char* dev_name = new char[path.length() + 1];
-        strcpy(dev_name, path.c_str());
-        return dev_name;
     }
 
     int count_lines(const string& filename) {

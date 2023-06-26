@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['parse_5fcan_0',['parse_CAN',['../class_device_sim_1_1_g_p_i_o___device.html#aa781baf20d7bba2003cd9e89d0d4c9fc',1,'DeviceSim::GPIO_Device']]],
-  ['parse_5fethernet_1',['parse_ETHERNET',['../class_device_sim_1_1_g_p_i_o___device.html#a9ba01dfe02b29fe43abbb6d0f8b360a7',1,'DeviceSim::GPIO_Device']]],
-  ['parse_5fgpio_2',['parse_GPIO',['../class_device_sim_1_1_g_p_i_o___device.html#ab8a7f85a0708ae5594e0141c127bf29b',1,'DeviceSim::GPIO_Device']]],
-  ['parse_5fi2c_3',['parse_I2C',['../class_device_sim_1_1_g_p_i_o___device.html#ac2ea526dc0eaba928df5af72728b578d',1,'DeviceSim::GPIO_Device']]],
-  ['parse_5fspi_4',['parse_SPI',['../class_device_sim_1_1_g_p_i_o___device.html#a3f8e78a19c0bd31cbaa0d226516bc3f8',1,'DeviceSim::GPIO_Device']]],
-  ['parse_5fuart_5',['parse_UART',['../class_device_sim_1_1_g_p_i_o___device.html#ae9c92d88894c6d296ea6ce39d1721919',1,'DeviceSim::GPIO_Device']]],
-  ['parse_5fusart_6',['parse_USART',['../class_device_sim_1_1_g_p_i_o___device.html#a0cf9a4103ac49ac8e3590e01160d2936',1,'DeviceSim::GPIO_Device']]]
+  ['singleton_3c_20can_5fdevice_20_3e_0',['Singleton&lt; CAN_Device &gt;',['../class_device_sim_1_1_c_a_n___device.html#a20a6f9c50fcef929615c6be6e78d4b3b',1,'DeviceSim::CAN_Device']]],
+  ['singleton_3c_20ethernet_5fdevice_20_3e_1',['Singleton&lt; Ethernet_Device &gt;',['../class_device_sim_1_1_ethernet___device.html#aea01b076eff686750fc3b2dfa5c88c99',1,'DeviceSim::Ethernet_Device']]],
+  ['singleton_3c_20gpio_5fdevice_20_3e_2',['Singleton&lt; GPIO_Device &gt;',['../class_device_sim_1_1_g_p_i_o___device.html#aaac1769b85c6f8135997ae1bd801d563',1,'DeviceSim::GPIO_Device']]],
+  ['singleton_3c_20i2c_5fdevice_20_3e_3',['Singleton&lt; I2C_Device &gt;',['../class_device_sim_1_1_i2_c___device.html#a13a466cc6a0ba3b2a6a0ebf424b4386e',1,'DeviceSim::I2C_Device']]],
+  ['singleton_3c_20spi_5fdevice_20_3e_4',['Singleton&lt; SPI_Device &gt;',['../class_device_sim_1_1_s_p_i___device.html#ad1b858682cd252d8fe0f31b22c077995',1,'DeviceSim::SPI_Device']]],
+  ['singleton_3c_20uart_5fdevice_20_3e_5',['Singleton&lt; UART_Device &gt;',['../class_device_sim_1_1_u_a_r_t___device.html#ac0e23e51a61035811151e187d13ba03a',1,'DeviceSim::UART_Device']]],
+  ['singleton_3c_20usart_5fdevice_20_3e_6',['Singleton&lt; USART_Device &gt;',['../class_device_sim_1_1_u_s_a_r_t___device.html#acb7f4e3cd9795c1a78da996820405791',1,'DeviceSim::USART_Device']]]
 ];

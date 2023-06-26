@@ -1,13 +1,12 @@
 /**
  * @file libdriver.hpp
- * @brief Driver library contains device classes simulating their attributes and behaviors to create virtual devices.
+ * @brief Driver library contains command operation functions and device classes simulating their attributes and behaviors to create virtual devices.
  *
  * @author Onur Ulusoy
- * @date 03/02/2023 Reworked: 28/03/2022
- *
+ * @date 03/02/2023, Reworked: 28/03/2023, 18/05/2023
+ * 
  * @section LICENSE
- *
- * Licensed under the MIT License. See LICENSE file in the root directory for details.
+ * Licensed under the MIT License.
  */
 
 #ifndef LIB_DRIVER_HPP
@@ -67,38 +66,33 @@ namespace DeviceSim {
         @brief A stream object to control the device file.
         */
         fstream fd;
-        
         /**
-        @var string dev_name
+        @var string devName
         @brief Stores the name of the device.
-        @var fstream log
-        @brief File stream object for logging information.
         @var string defaultDir
         @brief The directory path to the device default information file.
         @var int packSize
         @brief The number of elements in the pack vector.
         @var vector<string> pack
         @brief Vector of strings storing information about the device's properties, such as offset, name, consumer, and flags.
-        @var dev_is_open
+        @var devIsOpen
         @brief Boolean value specifies whether the device is open or not.
         */
-        string dev_name;
-        string dev_type;
-        fstream log;
+        string devName;
+        string devType;
         string defaultDir;
         int packSize;
         vector<string> pack;
-        bool dev_is_open;
+        bool devIsOpen;
         /**
         * @brief Constructor for the Device class
         *
-        * @param dev_name A character array representing the device name
+        * @param devName A character array representing the device name
         *
-        * Initializes the object with `dev_name` and opens the log file for appending.
+        * Initializes the object with `devName`.
         */
-        Device(string dev_name) : devContent(this) {
-            log.open("log", ios::app);
-            dev_is_open = false;
+        Device(string devName) : devContent(this) {
+            devIsOpen = false;
         }
         /**
          * @brief Virtual destructor for the Device class. Uses default behavior.
@@ -115,12 +109,7 @@ namespace DeviceSim {
          * @brief Retrieves the device's name.
          * @return const string - A string representing the device name.
          */
-        const string getDevName() const { return dev_name; }
-        /**
-         * @brief Provides access to the device's log.
-         * @return fstream& - A reference to the fstream object representing the log.
-         */
-        fstream& getLog() { return log; }
+        const string getDevName() const { return devName; }
         /**
          * @brief Provides access to the device's file descriptor.
          * @return fstream& - A reference to the fstream object representing the file descriptor.
@@ -130,7 +119,7 @@ namespace DeviceSim {
         @brief Opens the device with the specified request (READONLY, WRITEONLY, DEFAULT)
         @param request Enum representing the request type (READONLY, WRITEONLY, DEFAULT)
         */
-        virtual void device_open(command request);
+        virtual void openDevice(command request);
         /**
         * @brief Closes the file stream 'fd' associated with the device.
         * 
@@ -138,7 +127,7 @@ namespace DeviceSim {
         * is closed successfully. If the file stream 'fd' is not open, it outputs a message indicating that the file 
         * stream is already not open.
         */
-        virtual void device_close();
+        virtual void closeDevice();
         /**
         * @brief Returns the default directory of the device
         * 
@@ -159,9 +148,9 @@ namespace DeviceSim {
         virtual const int getPackSize() const { return packSize; }
         /**
         * @brief Sets the device name for the Device object.
-        * @param dev_name - A string representing the device name to set.
+        * @param devName - A string representing the device name to set.
         */
-        virtual void setDevName(const string dev_name);
+        virtual void setDevName(const string devName);
         /**
         * @brief Virtual function to parse data from a given directory
         * 
@@ -173,16 +162,16 @@ namespace DeviceSim {
          * in the order of the keys specified in the file.
          *
          * @param dir The directory of the JSON device file to parse.
-         * @param output_file The file to write the parsed device information to.
+         * @param outputFile The file to write the parsed device information to.
          */
-        void parse_device(const std::string& dir, std::fstream& output_file);
+        void parseDevice(const std::string& dir, std::fstream& outputFile);
         /**
          * @brief Returns the keys of a device as a vector of strings in the order specified in the JSON config file
          *
-         * @param device_type The type of the device (e.g. "ethernet", "spi", "i2c")
+         * @param deviceType The type of the device (e.g. "ethernet", "spi", "i2c")
          * @return std::vector<string> The keys of the device in the order specified in the JSON config file
          */
-        vector<string> get_device_keys (const string& device_type);
+        vector<string> getDeviceKeys (const string& deviceType);
         /**
         @class DeviceContent
         @brief Includes device beheviours referenced when it is simulated.
@@ -220,10 +209,10 @@ namespace DeviceSim {
             *
             * @param offset      An int representing the offset of the property in the device file
             * @param property    A string representing the property of the device to be updated
-            * @param new_value   A string representing the new value to be set for the property            
+            * @param newValue   A string representing the new value to be set for the property            
             * @return "true" if write operation is successful, "false" otherwise
             */
-            string write(const int offset, const string property, const string new_value);
+            string write(const int offset, const string property, const string newValue);
         
         private:
             /**
@@ -249,7 +238,6 @@ namespace DeviceSim {
             Device(const Device&) = delete;
             Device& operator=(const Device&) = delete;
     };
-
     /**
      * @brief Template class to implement the Singleton design pattern for any type T.
      *
@@ -261,15 +249,15 @@ namespace DeviceSim {
         /**
          * @brief Gets the single instance of the type T.
          *
-         * If the input `dev_name` is non-empty, it sets the device name for the instance.
+         * If the input `devName` is non-empty, it sets the device name for the instance.
          *
-         * @param dev_name A string representing the device name. If not provided or empty, the device name is not modified.
+         * @param devName A string representing the device name. If not provided or empty, the device name is not modified.
          * @return T& A reference to the singleton instance of type T.
          */
-        static T& getInstance(const string& dev_name){
-            static T instance(dev_name);
-            if (!dev_name.empty()) {
-                instance.setDevName(dev_name);
+        static T& getInstance(const string& devName){
+            static T instance(devName);
+            if (!devName.empty()) {
+                instance.setDevName(devName);
             }
             return instance;
         }
@@ -303,21 +291,21 @@ namespace DeviceSim {
         friend class Singleton<GPIO_Device>;
         
         void parse() override {
-            parse_device(this->defaultDir, this->fd);
+            parseDevice(this->defaultDir, this->fd);
         }
 
     private:
         /**
         * @brief Constructor for the GPIO_Device class
         *
-        * @param dev_name A character array representing the device name
+        * @param devName A character array representing the device name
         *
         * Calls the constructor of the child class `GPIO_Device` and initializes the main attributes.
         */
-        GPIO_Device(string dev_name) : Device(dev_name) {
-            this->dev_type = "gpio";
-            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
-            this->pack = get_device_keys(this->dev_type);
+        GPIO_Device(string devName) : Device(devName) {
+            this->devType = "gpio";
+            this->defaultDir = "dev-config/config_json/" + devType + "_config.json";
+            this->pack = getDeviceKeys(this->devType);
             this->packSize = this->pack.size();
         };
         
@@ -333,21 +321,21 @@ namespace DeviceSim {
         friend class Singleton<SPI_Device>;
         
         void parse() override {
-            parse_device(this->defaultDir, this->fd);
+            parseDevice(this->defaultDir, this->fd);
         }
 
     private:
         /**
         * @brief Constructor for the SPI_Device class
         *
-        * @param dev_name A character array representing the device name
+        * @param devName A character array representing the device name
         *
         * Calls the constructor of the child class `SPI_Device` and initializes the the main attributes
         */
-        SPI_Device(string dev_name) : Device(dev_name) {
-            this->dev_type = "spi";
-            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
-            this->pack = get_device_keys(this->dev_type);
+        SPI_Device(string devName) : Device(devName) {
+            this->devType = "spi";
+            this->defaultDir = "dev-config/config_json/" + devType + "_config.json";
+            this->pack = getDeviceKeys(this->devType);
             this->packSize = this->pack.size();
         };
     };  
@@ -362,21 +350,21 @@ namespace DeviceSim {
         friend class Singleton<I2C_Device>;
         
         void parse() override {
-            parse_device(this->defaultDir, this->fd);
+            parseDevice(this->defaultDir, this->fd);
         }
 
     private:
         /**
         * @brief Constructor for the I2C_Device class
         *
-        * @param dev_name A character array representing the device name
+        * @param devName A character array representing the device name
         *
         * Calls the constructor of the child class `I2C_Device` and initializes the main attributes
         */
-        I2C_Device(string dev_name) : Device(dev_name) {
-            this->dev_type = "I2C";
-            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
-            this->pack = get_device_keys(this->dev_type);
+        I2C_Device(string devName) : Device(devName) {
+            this->devType = "I2C";
+            this->defaultDir = "dev-config/config_json/" + devType + "_config.json";
+            this->pack = getDeviceKeys(this->devType);
             this->packSize = this->pack.size();
         };
     };  
@@ -391,21 +379,21 @@ namespace DeviceSim {
         friend class Singleton<UART_Device>;
 
         void parse() override {
-            parse_device(this->defaultDir, this->fd);
+            parseDevice(this->defaultDir, this->fd);
         }
 
     private:
         /**
         * @brief Constructor for the UART_Device class
         *
-        * @param dev_name A character array representing the device name
+        * @param devName A character array representing the device name
         *
         * Calls the constructor of the child class `UART_Device` and initializes the main attributes.
         */
-        UART_Device(string dev_name) : Device(dev_name) {
-            this->dev_type = "UART";
-            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
-            this->pack = get_device_keys(this->dev_type);
+        UART_Device(string devName) : Device(devName) {
+            this->devType = "UART";
+            this->defaultDir = "dev-config/config_json/" + devType + "_config.json";
+            this->pack = getDeviceKeys(this->devType);
             this->packSize = this->pack.size();
         };
     };  
@@ -420,21 +408,21 @@ namespace DeviceSim {
         friend class Singleton<USART_Device>;
         
         void parse() override {
-            parse_device(this->defaultDir, this->fd);
+            parseDevice(this->defaultDir, this->fd);
         }
 
     private:
         /**
         * @brief Constructor for the USART_Device class
         *
-        * @param dev_name A character array representing the device name
+        * @param devName A character array representing the device name
         *
         * Calls the constructor of the child class `USART_Device` and initializes the main attributes.
         */
-        USART_Device(string dev_name) : Device(dev_name) {
-            this->dev_type = "USART";
-            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
-            this->pack = get_device_keys(this->dev_type);
+        USART_Device(string devName) : Device(devName) {
+            this->devType = "USART";
+            this->defaultDir = "dev-config/config_json/" + devType + "_config.json";
+            this->pack = getDeviceKeys(this->devType);
             this->packSize = this->pack.size();
         };
     };  
@@ -449,21 +437,21 @@ namespace DeviceSim {
         friend class Singleton<CAN_Device>;
         
         void parse() override {
-            parse_device(this->defaultDir, this->fd);
+            parseDevice(this->defaultDir, this->fd);
         }
 
     private:
         /**
         * @brief Constructor for the CAN_Device class
         *
-        * @param dev_name A character array representing the device name
+        * @param devName A character array representing the device name
         *
         * Calls the constructor of the child class `CAN_Device` and initializes the main attributes.
         */
-        CAN_Device(string dev_name) : Device(dev_name) {
-            this->dev_type = "CAN";
-            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
-            this->pack = get_device_keys(this->dev_type);
+        CAN_Device(string devName) : Device(devName) {
+            this->devType = "CAN";
+            this->defaultDir = "dev-config/config_json/" + devType + "_config.json";
+            this->pack = getDeviceKeys(this->devType);
             this->packSize = this->pack.size();
         };
     };  
@@ -478,23 +466,51 @@ namespace DeviceSim {
         friend class Singleton<Ethernet_Device>;
         
         void parse() override {
-            parse_device(this->defaultDir, this->fd);
+            parseDevice(this->defaultDir, this->fd);
         }
 
     private:
         /**
         * @brief Constructor for the Ethernet_Device class
         *
-        * @param dev_name A character array representing the device name
+        * @param devName A character array representing the device name
         *
         * Calls the constructor of the child class `Ethernet_Device` and initializes the main attributes.
         */
-        Ethernet_Device(string dev_name) : Device(dev_name) {
-            this->dev_type = "Ethernet";
-            this->defaultDir = "dev-config/config_json/" + dev_type + "_config.json";
-            this->pack = get_device_keys(this->dev_type);
+        Ethernet_Device(string devName) : Device(devName) {
+            this->devType = "Ethernet";
+            this->defaultDir = "dev-config/config_json/" + devType + "_config.json";
+            this->pack = getDeviceKeys(this->devType);
             this->packSize = this->pack.size();
         };
     };  
+    /**
+     * @brief Executes a command for a specific device.
+     *
+     * This function executes a command for a specific device based on the provided parameters. Currently, this function is not complete
+     * and will be completed in future updates.
+     *
+     * @param request The type of command request.
+     * @param dev_type The type of device.
+     * @param command The command to be executed.
+     * @param register_file The file to store register information.
+     * @return The response of the driver after executing the command.
+     *
+     * @todo Complete the implementation of this function in future updates.
+     */
+    string execute_command(const enum command_request request, const string dev_type, const string command, ofstream& register_file);
+    /**
+     * @brief Creates a device object based on the device type and name.
+     *
+     * This function creates and returns the appropriate device object based on the provided device type and name. It handles various device types
+     * such as GPIO, SPI, I2C, UART, USART, CAN, and Ethernet. If the device type is unknown, an error message is displayed, and the program exits.
+     *
+     * @param dev_type The type of the device.
+     * @param dev_name The name of the device.
+     * @return The created device object.
+     *
+     * @throws std::runtime_error if the device type is unknown.
+     */
+    Device& create_device(const std::string& dev_type, const std::string& dev_name);
 }
 #endif //LIB_DRIVER_HPP
