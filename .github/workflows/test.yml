@@ -1,0 +1,70 @@
+name: Test
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    # Set up dependencies
+    - name: Set up dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y build-essential cmake nlohmann-json3-dev python3 libzmq3-dev libmsgpack-dev
+        python3 -m pip install pyzmq msgpack pyyaml robotframework
+
+    # Build spi processor C++ wrapper to work with spi devices.
+    - name: Build spi processor C++ wrapper
+      run: |
+        cd spi-processing/cpp_wrapper/src/
+        cmake -B build
+        cd build/
+        make
+
+    # Build process communication interface for C++.
+    - name: Build process communication interface
+      run: |
+        cd runtime-environment/process-communication/cpp_comm_interface/src/
+        cmake -B build
+        cd build/
+        make
+
+    # Build the assembly contains fundamental components of the system.
+    - name: Build fundamental components
+      run: |
+        cd runtime-environment/
+        python3 build.py 
+
+    # Build alternative mock process of program to be tested.
+    - name: Build mock process
+      run: |
+        cd program_tested_mock/src/
+        cmake -B build
+        cd build/
+        make
+
+    # Run tests
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.9
+
+    - name: Navigate to runtime environment
+      run: cd ~/Virtual-Device-Simulator/runtime-environment/
+
+    - name: Set PYTHONPATH
+      run: export PYTHONPATH=${PYTHONPATH}:$PWD
+
+    - name: Run Robot Framework tests
+      run: robot --outputdir $PWD/robot_log test_runner.robot
