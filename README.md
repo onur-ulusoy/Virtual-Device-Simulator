@@ -1,17 +1,24 @@
-
 <p align="center" id="virtual-device-simulator">
-  <a href="https://github.com/onurulusoy4/Virtual-Device-Simulator">
+  <a href="https://github.com/onur-ulusoy/Virtual-Device-Simulator">
     <img src="/docs/virtual-device-simulator-high-resolution-logo-color-on-transparent-background.png" alt="Virtual Device Simulator" />
   </a>
 </p>
 
 ---
-![](/docs/debian-ubuntu-logo.png)
+
+<p align="center" id="virtual-device-simulator">
+  <a href="https://www.debian.org">
+    <img src="/docs/debian-ubuntu-logo.png" />
+  </a>
+</p>
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
-<a href="index.html">
+<a href="https://onur-ulusoy.github.io/Virtual-Device-Simulator/docs/html/index.html">
   <img src="https://img.shields.io/badge/documentation-Doxygen-blue.svg" alt="Doxygen">
+</a>
 </a> ![Language](https://img.shields.io/badge/language-C%2B%2B-orange.svg)
+[![Test](https://github.com/onur-ulusoy/Virtual-Device-Simulator/actions/workflows/test.yml/badge.svg)](https://github.com/onur-ulusoy/Virtual-Device-Simulator/actions/workflows/test.yml)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/onur-ulusoy/Virtual-Device-Simulator)
 
 
 The main objective of this project is to develop a software platform that enables the creation, manipulation, and use of virtual devices in the user space of an operating system. The goal is to make it easier for developers to create and test embedded software without having to use actual physical hardware. This will save time and resources and allow for more efficient and streamlined software development processes. The platform is designed to be flexible and user-friendly, making it accessible to a wide range of programmers who develop embedded linux applications. Virtual Device Simulator also includes features for automated testing and validation. This allows developers to automatically test communication between the embedded software and the virtual peripheral device, verify the accuracy of data transmission, and ensure the correct functioning of all software components with arrangable test scenerios while providing realistic log files for easy debug.
@@ -99,6 +106,7 @@ sudo apt install cmake  # CMake
 sudo apt install nlohmann-json3-dev  # nlohmann/json
 sudo apt install python3  # Python3 interpreter
 sudo apt install libzmq3-dev  # ZeroMQ for C++
+sudo apt install libmsgpack-dev # MsgPack for C++
 pip install pyzmq  # ZeroMQ for Python
 pip install msgpack  # MsgPack for Python
 pip install pyyaml  # Python libraries for handling JSON and YAML data formats
@@ -435,7 +443,7 @@ Please note that in this version, the tests haven't been updated and cannot be u
 
 Comprehensive documentation of all the source code can be accessed the directory below in html format.
 
-<a href="index.html">Documentation</a>
+<a href="https://onur-ulusoy.github.io/Virtual-Device-Simulator/docs/html/index.html">Documentation</a>
 
 
 ## Technologies Used
@@ -483,7 +491,7 @@ This project uses [SemVer](http://semver.org/) for versioning. For the available
 
 ## Authors
 
-* **[Onur Ulusoy](https://github.com/onurulusoy4)** 
+* **[Onur Ulusoy](https://github.com/onur-ulusoy)** (Software Developer)
 
 See the full list of [contributors](/docs/Contributors) who participated in this project.
 
